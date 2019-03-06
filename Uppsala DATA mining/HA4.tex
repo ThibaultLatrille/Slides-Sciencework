@@ -1,0 +1,83 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+
+
+\author{\and Susanne Bornelöv \and Thibault Latrille \and Yiming Zhang}
+\begin{document}
+\paragraph{Exercise 1.}
+\subparagraph{a)}
+\
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.55\textwidth]{a.png}
+  	\caption{\textbf{Kernel density estimation of the density of the test statistic.} The statistic is close to 1 with high probability.}
+	\end{figure}
+\subparagraph{b)}
+\
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.55\textwidth]{b.png}
+  	\caption{\textbf{Kernel density estimation of the density of the $p_{value}$.} The density of the $p_{value}$ is uniform, the test of normality is not likely to be rejected (error of type I)}
+	\end{figure}
+\subparagraph{c)}
+The $p_{value}$ of the Shapiro test is uniformly distributed, as the Kolmogorov-Smirnov test suggests.
+\begin{verbatim}
+P=c(NA,3000)
+for (i in seq(1:3000)){
+x=rnorm(40,0,1)
+P[i]<-shapiro.test(x)$p}
+ks.test(P, "punif")
+        One-sample Kolmogorov-Smirnov test
+
+data:  P 
+D = 0.0241, p-value = 0.6081
+alternative hypothesis: two-sided 
+\end{verbatim}
+Since the null hypothesis is true ($p_{value}$ of the Shapiro test is truly uniformly distributed), it is also true that the $p_{value}$ of the Kolmogorov-Smirnov test is uniformly distributed.
+\paragraph{Exercise 2.}
+\subparagraph{a)}
+We use the laplace distribution for convenience since it is symmetric with finite variance.
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.5\textwidth]{c.png}
+  	\caption{\textbf{Kernel density estimation of the density of the test statistic.}}
+	\end{figure}
+\subparagraph{b)}
+\
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.5\textwidth]{d.png}
+  	\caption{\textbf{Kernel density estimation of the density of the $p_{value}$.} The density is very high for small $p_{value}$, the test of normality is likely to be rejected}
+	\end{figure}
+\subparagraph{c)}
+We have strong argument against the null hypothesis that the $p_{value}$ of the Shapiro test is uniformly distributed, as the Kolmogorov-Smirnov test suggests.
+\begin{verbatim}
+P=c(NA,3000)
+for (i in seq(1:3000)){
+x=rlaplace(40,0,1/sqrt(2))
+P[i]<-shapiro.test(x)$p}
+        One-sample Kolmogorov-Smirnov test
+
+data:  P 
+D = 0.4563, p-value < 2.2e-16
+alternative hypothesis: two-sided 
+\end{verbatim}
+\subparagraph{c)}
+For the laplace distribution and sample of size 40, the normality distribution is very likely to be rejected. We also assessed that the $p_{value}$ is uniformly random if the sample is drawn from a normal distribution.
+\end{document}

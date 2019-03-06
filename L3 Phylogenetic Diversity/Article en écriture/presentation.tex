@@ -1,0 +1,136 @@
+\documentclass[10pt]{beamer}
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+\author{Latrille Thibault}
+
+
+\title{Robust estimation of phylogenetic diversity. Steer clear of the pitfall of diversity estimation, rare species.}  
+ 
+\begin{document}
+
+\frame{\titlepage} 
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{An hypothetical (and very simple) example of a sample.}
+	\begin{center}
+       \includegraphics[width=7.5cm]{infer_sample_1.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{And by definition, a sample is only fraction of the community. Sometimes a very tiny one...}
+	\begin{center}
+       \includegraphics[width=9cm]{infer_sample_2.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Thus, some information are lost forever, and some can still be estimated. Which one?}
+	\begin{center}
+       \includegraphics[width=9cm]{infer_sample_3.png}
+	\end{center}
+\end{frame}
+
+
+\section{How many rare species are they in the community?}
+
+\begin{frame}
+
+	\begin{center}
+       \includegraphics[width=9.5cm]{infer_species.png}
+	\end{center}
+	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Good-Turing estimates, first step.}
+	\begin{center}
+       \includegraphics[width=8.0cm]{GT_estimates_1.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Good-Turing estimates, second step.}
+	\begin{center}
+       \includegraphics[width=8.0cm]{GT_estimates_2.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+Well, we can estimate and evaluate the proportion of unobserved individuals.
+But we still do not know in how many species this proportion is divided!
+\end{center}
+\begin{center}
+       \includegraphics[width=8.5cm]{GT_Infer.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Way out : upper and lower estimates}
+
+	\begin{center}
+       \includegraphics[width=8.5cm]{GT_Up_Low.png}
+	\end{center}
+\end{frame}
+
+\section{Workflow}
+\frametitle{Estimation of phylogenetic abundance trees.}
+\begin{frame}
+
+	\begin{center}
+       \includegraphics[width=11.5cm]{flow.png}
+	\end{center}
+
+\end{frame}
+
+
+\section{Phylogenetic Hill diversity}
+\frametitle{The Hill diversity in less than 30 seconds.}
+
+\begin{frame}
+	\begin{center}
+       \includegraphics[width=11.0cm]{Tree.png}\\
+
+	\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Main results.}
+	\begin{center}
+       \includegraphics[width=9.0cm]{plot.png}
+	\end{center}
+\end{frame}
+
+
+
+\begin{frame}[cc]
+\frametitle{Conclusion}
+
+	\begin{itemize}
+	\item<1> The \textbf{phylogenetic} diversity for $q=0$ is unreliable (PD by Faith).
+	\item<1> The \textbf{phylogenetic} Rao's quadratic entropy ($q=2$) is very robust since unobserved but rare species do not affect it.
+	\item<1> The \textbf{phylogenetic} Shannon's index is exactly where the sample size have a determinant effect on the robustness of the estimator.
+	\end{itemize}
+	
+\end{frame}
+
+\end{document}
+
+

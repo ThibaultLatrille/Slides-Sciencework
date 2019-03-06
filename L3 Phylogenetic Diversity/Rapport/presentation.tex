@@ -1,0 +1,304 @@
+\documentclass[10pt]{beamer}
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+
+
+\author{Thibault Latrille, Jérôme Hamelin, Bart Haegeman}
+\title{Robust estimation of phylogenetic diversity}  
+\institute{Laboratoire de Biotechnologie de l'Environnement (LBE), INRA Narbonne}
+\date{9 August 2013}
+ 
+\begin{document}
+
+\frame{\titlepage} 
+
+\section{Introduction}
+
+\frame{\tableofcontents}
+
+\begin{frame}
+\frametitle{An hypothetical (and very simple) example of a sample.}
+	\begin{center}
+       \includegraphics[width=7.5cm]{infer_sample_1.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{And by definition, a sample is only fraction of the community. Sometimes a very tiny one...}
+	\begin{center}
+       \includegraphics[width=9cm]{infer_sample_2.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Thus, some information are lost forever, and some can still be estimated. but which one ?}
+	\begin{center}
+       \includegraphics[width=9cm]{infer_sample_3.png}
+	\end{center}
+\end{frame}
+
+
+\section{A case study : Species Richness}
+
+\begin{frame}
+\frametitle{A case study : Species Richness}
+The Species Richness is simply the number of different species in the sample.
+
+	\begin{center}
+       \includegraphics[width=5.5cm]{infer_species.png}
+	\end{center}
+	
+\begin{itemize}
+\item Use the number of species in the sample as an estimate for the community... Clearly under estimate the real value.
+\item Fit a distribution (Log-Normal, Power-law,...) to the sample and extrapolate to the size of the community. 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Good-Turing estimates, first step.}
+	\begin{center}
+       \includegraphics[width=8.0cm]{GT_estimates_1.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Good-Turing estimates, second step.}
+	\begin{center}
+       \includegraphics[width=8.0cm]{GT_estimates_2.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+Well, we can estimate and evaluate the proportion of unobserved individuals.
+But we still do not know in how many species this proportion is divided !
+\end{center}
+\begin{center}
+       \includegraphics[width=8.5cm]{GT_Infer.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Way out : Upper and Lower estimates}
+
+	\begin{center}
+       \includegraphics[width=8.5cm]{GT_Up_Low.png}
+	\end{center}
+\end{frame}
+
+\section{Hill diversity}
+
+\begin{frame}
+\frametitle{Generalize diversity measures : the Hill diversity}
+\begin{center}
+ $ \displaystyle D^{\alpha} =\left( \sum_{i=1}^{S} a_i^{\alpha} \right)^{1/(1-\alpha)}$
+\end{center}
+Where $a_i$ is the relative abundance (fraction) of species $i$ $(i\in \{1, ... S\})$.
+	
+\begin{itemize}
+\item 	input : a vector of relative abundance and a positive real number for the parameter $\alpha$.
+\item output : a positive real value.
+\end{itemize}
+
+\begin{itemize}
+\item $D^0 \rightarrow S $ 
+\item $D^1 \rightarrow $ Shannon's index 
+\item $D^2 \rightarrow $ Simpson's index
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+	\begin{center}
+	$ \displaystyle  D^{\alpha} 
+ =\left( \sum_{i=1}^{S} a_i^{\alpha} \right)^{1/(1-\alpha)}$
+       \includegraphics[width=9cm]{plot.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+	$ \displaystyle  D^{\alpha} 
+ =\left( \sum_{i=1}^{S} a_i^{\alpha} \right)^{1/(1-\alpha)}$
+       \includegraphics[width=9cm]{plot_UL.png}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[cc]
+\uncover<1>{\textbf{Intermediate Conclusion} \footnote[1]{J.Hamelin \& B. Haegeman, Robust estimation of microbial diversity in theory and in practice} :}
+	\begin{itemize}
+	\item<1> The Species Richness, although widely used, is unreliable...
+	\item<1> The Simpson's index is very robust since unobserved but rare species do not affect it.
+	\item<1> The Shannon's index is exactly where the upper estimate takes off and soars.
+	\end{itemize}
+	
+	\uncover<2>{Let us add a new complexity and dimensionality to the problem, the underlying phylogenetic tree...}
+	
+	
+\end{frame}
+
+
+
+\section{Phylogenetic Hill diversity}
+\frametitle{An hypothetical and still very simple phylogenetic tree}
+\begin{frame}
+
+	\begin{center}
+       \includegraphics[width=11.0cm]{Tree_1.png}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+	 $\displaystyle \bar{T}= \sum_{i \in \mathcal{B}} \mathbin{\textcolor{red}{L_i}} \mathbin{\textcolor{blue}{a_i}}$\\
+       \includegraphics[width=7.0cm]{Tree.png}\\
+       Where $\mathbin{\textcolor{red}{L_i}}$ is the length of branch from node i to his parent, $ \mathbin{\textcolor{blue}{a_i}}$ is the relative abundance of node i $( i \in \mathcal{B}$, the set of all nodes$)$.
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+	 $ \displaystyle \bar{D}^{\alpha} =\left( \sum_{i \in \mathcal{B}} \dfrac{ \mathbin{\textcolor{red}{L_i}} \mathbin{\textcolor{blue}{a_i}}^{\alpha}}{\bar{T}} \right)^{1/(1-\alpha)} $, where $\displaystyle \bar{T}= \sum_{i \in \mathcal{B}} \mathbin{\textcolor{red}{L_i}} \mathbin{\textcolor{blue}{a_i}}$\\
+       \includegraphics[width=7.0cm]{Tree.png}\\
+       Where $\mathbin{\textcolor{red}{L_i}}$ is the length of branch from node i to his parent, $ \mathbin{\textcolor{blue}{a_i}}$ is the relative abundance of node i $( i \in \mathcal{B}$, the set of all nodes$)$.
+	\end{center}
+\end{frame}
+
+
+
+
+\begin{frame}
+The Good-Turing lower and upper estimates tell us how many unobserved species we have, but it does not tell us anything about the \textbf{branching} of these new species.
+\begin{itemize}
+\item Get extreme estimates : \\
+	We do not conserve the structure and topology of the tree.
+\item Add the leaves randomly but parsimoniously on the tree : \\
+	We still conserve the structure and topology of the tree.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	\begin{center}
+       \includegraphics[width=10.0cm]{Workflow_1.png}\\
+              The number of unobserved tips (species) in the reconstructed community is always given by the upper Good-Turing estimates.
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+       \includegraphics[width=10.0cm]{Workflow_2.png}\\
+       The number of unobserved tips (species) in the reconstructed community is always given by the upper Good-Turing estimates.
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+       \includegraphics[width=10.0cm]{Workflow_3.png}\\
+              The number of unobserved tips (species) in the reconstructed community is always given by the upper Good-Turing estimates.
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+       \includegraphics[width=10.0cm]{Workflow_4.png}\\
+              The number of unobserved tips (species) in the reconstructed community is always given by the upper Good-Turing estimates.
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Test $H_0$ : the trees are sampled from the same community.}
+\begin{itemize}
+\item FST-test : \\
+	Test if the trees display signs of clusters.
+\item P-test : \\
+	Test if the nodes are randomly assigned.
+\item UniFrac-test : \\
+	Test if the UniFrac distance is as far as the distance between to samples.
+\item Diversity-test : \\
+	Test if the trees have the same diversity.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{An example : Diversity test.}
+	\begin{center}
+
+       \includegraphics[width=10.0cm]{diversity_test.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Results.}
+Outputs of tests are : \\
+
+	\begin{itemize}
+	\item<1> Maximum and minimum estimates do not conserve basics attributes of the tree such as topology, clustering, diversity.
+	\item<1> On the other hand, parsimonious upper and lower estimates do conserve these attributes.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{An example : Diversity test.}
+	\begin{center}
+
+       \includegraphics[width=11.0cm]{diversity_res.png}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Results.}
+The robustness of estimates are : \\
+
+	\begin{itemize}
+	\item<1> The diversity for $\alpha=2$ is well estimated by the minimum and maximum estimates.
+	\item<1> The range between the parsimonious upper and lower estimates for a diversity of $\alpha=0$ is very large.
+	\item<1> The range between the parsimonious upper and lower estimates for a diversity of $\alpha=1$ is not large but the one for the minimum and maximum estimates is.
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[cc]
+\frametitle{Conclusion}
+
+	\begin{itemize}
+	\item<1> The \textbf{Phylogenetic} Diversity for $\alpha=0$ is unreliable.
+	\item<1> The \textbf{Phylogenetic} Simpson's index is very robust since unobserved but rare species do not affect it.
+	\item<1> The \textbf{Phylogenetic} Shannon's index is exactly where the topology of the tree can have a determinant effect on the robustness of the estimator.
+	\end{itemize}
+	
+One need to add randomness to the process reconstruction to get a liable estimate.
+	
+	
+\end{frame}
+
+
+\end{document}
+
+

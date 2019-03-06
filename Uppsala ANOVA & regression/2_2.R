@@ -1,0 +1,6 @@
+values=c(as.matrix(read.table("2_2.dat")))
+solutions=gl(3,1,12,factor(c("1", "2", "3")))
+day=gl(4, 3, 12)
+model=aov(values ~ solutions + day)
+tukey=TukeyHSD(model,"solutions")
+plot(tukey)

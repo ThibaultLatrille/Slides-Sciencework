@@ -1,0 +1,162 @@
+\documentclass[8pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb,amsfonts,amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usebackgroundtemplate{\tikz\node[opacity=0]{};}
+\usepackage{adjustbox}
+
+%gets rid of bottom navigation overlines
+\setbeamertemplate{footline}[frame number]{}
+
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
+\sloppy 
+
+\definecolor{RED}{HTML}{EB6231}
+\definecolor{YELLOW}{HTML}{E29D26}
+\definecolor{BLUE}{HTML}{5D80B4}
+\definecolor{LIGHTGREEN}{HTML}{6ABD9B}
+\definecolor{GREEN}{HTML}{8FB03E}
+\definecolor{PURPLE}{HTML}{BE1E2D}
+\definecolor{BROWN}{HTML}{A97C50}
+\definecolor{PINK}{HTML}{DA1C5C}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\ci}{{\color{RED}{\textbf{ATT}}}}
+\newcommand{\cj}{{\color{GREEN}\textbf{ATG}}}
+\newcommand{\ck}{{\color{BLUE}\textbf{ATA}}}
+\newcommand{\nuci}{{\color{RED}\textbf{T}}}
+\newcommand{\nucj}{{\color{GREEN}\textbf{G}}}
+\newcommand{\nuck}{{\color{BLUE}\textbf{A}}}
+\newcommand{\Fi}{{\color{RED}F_{\textbf{Ile}}}}
+\newcommand{\Fj}{{\color{GREEN}F_{\textbf{Met}}}}
+\newcommand{\aaitoj}{{\color{RED}{\textbf{Ile}}} \rightarrow {\color{GREEN}{\textbf{Met}}}}
+\newcommand{\nucitoj}{\nuci \rightarrow \nucj}
+\newcommand{\itoj}{\ci \rightarrow \cj}
+\newcommand{\nucitok}{\nuci \rightarrow \nuck}
+\newcommand{\itok}{\ci \rightarrow \ck}
+\newcommand{\der}{\mathrm{d}}
+\newcommand{\Ne}{N_\mathrm{e}}
+\newcommand{\SetCodon}{\Omega_{\mathrm{C}}}
+\newcommand{\SetNuc}{\Omega_{\mathrm{N}}}
+\newcommand{\SetWeak}{\Omega_{\mathrm{W}}}
+\newcommand{\SetStrong}{\Omega_{\mathrm{S}}}
+\newcommand{\SetAa}{\Omega_{\mathrm{A}}}
+\newcommand{\Neighbor}{\mathcal{V}}
+\newcommand{\NonSyn}{\mathcal{N}}
+\newcommand{\Syn}{\mathcal{S}}
+\newcommand{\Nx}{\Neighbor_x}
+\newcommand{\NxAB}{\Neighbor_x^{\mathrm{A} \rightarrow \mathrm{B}}}
+\newcommand{\NyBA}{\Neighbor_x^{\mathrm{B} \rightarrow \mathrm{A}}}
+\newcommand{\NxWS}{\Neighbor_x^{\mathrm{W} \rightarrow \mathrm{S}}}
+\newcommand{\NxSS}{\Neighbor_x^{\mathrm{S} \rightarrow \mathrm{S}}}
+\newcommand{\NxSW}{\Neighbor_x^{\mathrm{S} \rightarrow \mathrm{W}}}
+\newcommand{\NxWW}{\Neighbor_x^{\mathrm{W} \rightarrow \mathrm{W}}}
+\newcommand{\NyWS}{\Neighbor_y^{\mathrm{W} \rightarrow \mathrm{S}}}
+\newcommand{\NySS}{\Neighbor_y^{\mathrm{S} \rightarrow \mathrm{S}}}
+\newcommand{\NySW}{\Neighbor_y^{\mathrm{S} \rightarrow \mathrm{W}}}
+\newcommand{\NyWW}{\Neighbor_y^{\mathrm{W} \rightarrow \mathrm{W}}}
+\newcommand{\NxNonSyn}{\NonSyn_x}
+\newcommand{\NyNonSyn}{\NonSyn_y}
+\newcommand{\NxSyn}{\Syn_x}
+\newcommand{\NySyn}{\Syn_y}
+
+% \renewcommand{\baselinestretch}{2}
+
+\author{Thibault Latrille and Nicolas Lartillot.}
+\title{Robustness of codon models to mutational bias.}
+
+\begin{document}
+	\begin{frame}
+		\begin{enumerate}
+			\item $\bm{\omega=}\dfrac{\bm{\mathrm{dN}}}{\bm{\mathrm{dS}}}$
+			\item It is calculated as the ratio of the number of non-synonymous substitutions per non-synonymous site ($\mathrm{dN}$), in a given period of time, to the number of synonymous substitutions per synonymous site ($\mathrm{dS}$), in the same period.
+			\item $\bm{\omega_{\textbf{AT} \rightarrow \textbf{GC}} \qquad \omega_{\textbf{GC} \rightarrow \textbf{AT}} \qquad \widehat{\omega}_{\textbf{AT} \rightarrow \textbf{GC}} \qquad \widehat{\omega}_{\textbf{GC} \rightarrow \textbf{AT}}}$
+			\item $ \dfrac{\bm{\mathrm{dN}}}{\bm{\mathrm{dS}}} \qquad
+			\left.\dfrac{\bm{\mathrm{dN}}}{\bm{\mathrm{dS}}}\right|_{\textbf{AT} \bm{\rightarrow} \textbf{GC}}\qquad
+			\left.\dfrac{\bm{\mathrm{dN}}}{\bm{\mathrm{dS}}}\right|_{\textbf{GC} \bm{\rightarrow} \textbf{AT}} $
+			\item $\lambda$ simulated
+			\item AT/GC observed 
+			\item $\widehat{\text{AT/GC}}_{\text{MG}}$ inferred 
+			\item $\widehat{\lambda}_{\text{MG}}$ inferred 
+			\item $\widehat{\text{AT/GC}}_{\text{MF}}$ inferred 
+			\item $\widehat{\lambda}_{\text{MF}}$ inferred 
+		\end{enumerate}
+	\end{frame}
+	\begin{frame}
+		\begin{enumerate}
+			\item $\bm{q_{\itoj}}$ is the substitution rate from codon $\ci$ to $\cj$.
+			\item $\bm{\Ne}$ is the effective population size.
+			\item $\bm{\mu_{\nucitoj}}$ is the mutation rate from nucleotide $\nuci$ to $\nucj$
+			\item $\bm{p_{\mathrm{fix}}}$ is the probability of fixation.
+			\item $\Fi$ ($\Fj$) is the fitness of Isoleucine (Methionine).
+		\end{enumerate}
+		\begin{align*}
+			\bm{q_{\itoj}} & \bm{ = \Ne \mu_{\nucitoj}  p_{\mathrm{fix}}} \\
+			& \bm{ = \Ne \mu_{\nucitoj} }  \dfrac{\bm{\Fj - \Fi}}{\bm{1 - \e^{\Ne(\Fi - \Fj)} }}
+		\end{align*}
+	\end{frame}
+	\begin{frame}
+		\textbf{Parametric inference with Muse-Gaut model}
+		\begin{itemize}
+			\item $\bm{q_{\itoj}}$ is the substitution rate from codon $\ci$ to $\cj$.
+			\item $\bm{\mu_{\nucitoj}}$ is the mutation rate from nucleotide $\nuci$ to $\nucj$ 
+			\item $\bm{\omega}$ is the non-synonymous fixation bias. 
+		\end{itemize}
+		\begin{equation*}
+		\begin{dcases}
+		\bm{q_{\itoj}} = \bm{ \omega \mu_{\nucitoj} } & \text{since } \ci \text{ and } \cj \text{ are non-synonymous} \\
+		\bm{q_{\itok}} = \bm{ \mu_{\nucitok}} & \text{since } \ci \text{ and } \ck \text{ are synonymous}\\
+		\end{dcases}
+		\end{equation*}
+			From the maximum likelihood estimates of the $4 \times 4$ mutation matrix $\left(\bm{\widehat{\mu}} \right)$, we can estimate of the mutational bias toward $\mathrm{AT}$ $\left(\bm{\widehat{\lambda}_{\text{MG}}} \right)$. We can also estimate the fixation bias of non-synonymous mutations $\left(\bm{\widehat{\omega}_{\text{MG}}} \right)$\\
+			\vspace{0.3cm}
+		\textbf{Parametric inference with mean-field model}
+		\begin{itemize}
+			\item $\bm{\beta_{\aaitoj}}$ is the fixation bias from Isoleucine to Methionine
+		\end{itemize}
+		\begin{equation*}
+		\begin{dcases}
+		\bm{q_{\itoj}} = \bm{ \beta_{\aaitoj} \mu_{\nucitoj}} & \text{since } \ci \text{ and } \cj \text{ are non-synonymous} \\
+		\bm{q_{\itok}} = \bm{\mu_{\nucitok} } & \text{since } \ci \text{ and } \ck \text{ are synonymous}\\
+		\end{dcases}
+		\end{equation*}
+		From the maximum likelihood estimates of the $4 \times 4$ mutation matrix $\left(\bm{\widehat{\mu}} \right)$, we can estimate the mutational bias $\mathrm{AT}$ $\left(\bm{\widehat{\lambda}_{\text{MF}}} \right)$. We can also estimate the fixation bias of non-synonymous mutations $\left(\bm{\widehat{\omega}_{\text{MF}}} \right)$
+	\end{frame}
+	\begin{frame}
+	\textbf{Experiment I: Nucleoprotein}\\
+	Alignment of 498 amino-acids available for 180 species.
+	\begin{itemize}
+		\item AT/GC of the alignment is 1.15.
+		\item Mutational bias $\left(\bm{\widehat{\lambda}_{\text{MG}}} \right)$ inferred using Muse-Gaut model is 1.39.
+		\item Mutational bias $\left(\bm{\widehat{\lambda}_{\text{MF}}} \right)$ inferred using Mean-field model is 1.64.
+		\item Fixation bias from AT to GC $\left(\widehat{\omega}_{\textbf{AT} \rightarrow \textbf{GC}}\right)$ inferred using Mean-field model is 0.14.
+		\item Fixation bias from GC to AT $\left(\widehat{\omega}_{\textbf{GC} \rightarrow \textbf{AT}}\right)$ inferred using Mean-field model is 0.10.
+	\end{itemize}
+	\vspace{0.3cm}
+	\textbf{Experiment II: Lactamase}\\
+	Alignment of 263 amino-acids available for 85 species.
+	\begin{itemize}
+		\item AT/GC of the alignment is 0.79.
+		\item Mutational bias $\left(\bm{\widehat{\lambda}_{\text{MG}}} \right)$ inferred using Muse-Gaut model is 0.85.
+		\item Mutational bias $\left(\bm{\widehat{\lambda}_{\text{MF}}} \right)$ inferred using Mean-field model is 0.68.
+		\item Fixation bias from AT to GC $\left(\widehat{\omega}_{\textbf{AT} \rightarrow \textbf{GC}}\right)$ inferred using Mean-field model is 0.31.
+		\item Fixation bias from GC to AT $\left(\widehat{\omega}_{\textbf{GC} \rightarrow \textbf{AT}}\right)$ inferred using Mean-field model is 0.44.
+	\end{itemize}
+\end{frame}
+\end{document}

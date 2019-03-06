@@ -1,0 +1,22 @@
+\frametitle{Et pour les tétards ??}
+\begin{columns}
+\column{.6\textwidth}
+\begin{semiverbatim}
+\only<4->{void permute(int *a, int *b);}
+int main (void)\{
+\uncover<2->{ int a = 42, b = 7;}
+\only<3->{ permute(\alert<1->{\&}a, \alert<1->{\&}b);}
+{ return 0;}
+\}
+\only<4->{void permute(int *a, int *b)\{}
+\only<4->{\uncover<5->{ int r;}}
+\only<5->{\uncover<6->{ r = \alert<5->{*}a;}}
+\only<5->{\uncover<6->{ \alert<5->{*}b = \alert<5->{*}a;}}
+\only<5->{\uncover<6->{ \alert<5->{*}a = r;}}
+\only<4->{\}}
+\end{semiverbatim}
+\column{.4\textwidth}
+\begin{block}{Commentaire}
+Ce code effectue une permutation des variables $a$ et $b$
+\end{block}
+\end{columns}

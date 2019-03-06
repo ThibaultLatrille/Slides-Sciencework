@@ -1,0 +1,231 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=matlab,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+\author{Latrille Thibault\\
+\small thibault.latrille@ens-lyon.fr\\[-0.8ex]
+\small Uppsala Universitet\\}
+\title{Brusselator}
+\begin{document}
+\maketitle
+\renewcommand{\arraystretch}{1.5}
+
+\subparagraph{1)}
+\
+The set of equation describing the model is 
+$$ \displaystyle \left \{
+    \begin{array}{l}
+        \frac{dX}{dt}=k_1 A -k_2 B X  +k_3 X^2 Y -k_4 X \\
+		\frac{dY}{dt}= k_2 B X -k_3 X^2 Y \\
+    \end{array}
+\right. $$
+
+\subparagraph{2)}
+$A$ and $B$ are assumed to be in excess, which means they are considered as constant. 
+
+We nondimensionalize using $k_4^{-1}$ for time and $\sqrt{ k_4 k_3^{-1}}$ for both $X$ and $Y$, that is let  
+$$ t = T k_4^{-1} , \quad X=x\sqrt{ k_4 k_3^{-1}}, \quad Y=y\sqrt{ k_4 k_3^{-1}}  $$
+
+Our set of equation reduce to 
+$$ \displaystyle \left \{
+    \begin{array}{l}
+        \frac{dx}{dT}=\frac{k_1 A\sqrt{k_3}}{k_4\sqrt{k_4}} - \frac{k_2 B}{k_4} x  +x^2 y -x  \\
+		\frac{dy}{dT}= \frac{k_2 B}{k_4} x  -x^2 y\\
+    \end{array}
+    \right.
+    \iff
+    \left \{
+    \begin{array}{l}
+        \frac{dx}{dT}=a-(b+1)x +x^2 y \\
+		\frac{dy}{dT}=bx -x^2 y \\
+    \end{array}
+\right. $$
+with $a=\dfrac{k_1 A\sqrt{k_3}}{k_4\sqrt{k_4}}$ and $b=\dfrac{k_2 B}{k_4}$
+\subparagraph{3)}
+The steady state $(x^*,y^*)$ is given by the equations
+$$ \displaystyle 
+    \left \{
+    \begin{array}{l}
+        0=a-(b+1)x^* +(x^{*})^2 y^* \\
+		0=bx^* -(x^{*})^2 y^* \\
+    \end{array}
+\right.
+\iff
+\left \{
+    \begin{array}{l}
+        x^*=a \\
+		y^*=\dfrac{b}{a} \\
+    \end{array}
+\right.
+ $$
+
+The Jacobian matrix used for linear stability analysis is 
+$$
+\mathbb{J}_{(x,y)}=
+\left(
+\begin{array}{cc}
+ \dfrac{\partial a-(b+1)x +x^2 y}{\partial x} & \dfrac{\partial a-(b+1)x +x^2 y}{\partial y} \\
+\dfrac{\partial bx -x^2 y}{\partial x} & \dfrac{\partial bx -x^2 y}{\partial y} \\
+\end{array}
+\right)
+=
+\left(
+\begin{array}{cc}
+ -b+2 x y-1 & x^2 \\
+ b-2 x y & -x^2 \\
+\end{array}
+\right)
+$$
+
+We evaluate the Jacobian matrix for the steady state $(x^*,y^*)=(a,b/a)$, and we get :
+$$
+\mathbb{J}_{(a,b/a)}=
+\left(
+\begin{array}{cc}
+ b-1 & a^2 \\
+ -b & -a^2 \\
+\end{array}
+\right)
+=
+\left(
+\begin{array}{cc}
+ A & B \\
+ C & D \\
+\end{array}
+\right)
+$$
+
+The eigenvalues of this matrix are $\frac{b-a^2-1 \pm -\sqrt{\left(a^2-b+1\right)^2-4 a^2}}{2}$. The steady state is stable if both eigenvalues have a negative real part.\\
+
+ Equivalently, the steady state is stable if and only if $AD-BC>0$ and $A+D<0$.
+$$
+\left\{
+\begin{array}{cc}
+ AD-BC>0 \\
+ A+D<0 \\
+\end{array}
+\right.
+\iff
+\left\{
+\begin{array}{cc}
+ (1-b)a^2+b a^2>0 \\
+ b-1-a^2<0 \\
+\end{array}
+\right.
+\iff
+\left\{
+\begin{array}{cc}
+ a^2>0 \\
+ b-1<a^2 \\
+\end{array}
+\right.
+\iff
+\sqrt{b-1}<a
+$$
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.95\textwidth]{plotsvg.png}
+  	\caption{\textbf{The $\pmb{2}$ dimensional space spanned by $\pmb{a}$ and $\pmb{b}$  divided up into the main sub-spaces}. For  $\{ \sqrt{b-1}<a \} $, the system converges to the steady state. For $ \{ \sqrt{b-1}>a, b>1 \} $, the system converges to the limit cycle and spins around the non-trivial steady state.}
+	\end{figure}
+
+\subparagraph{4)}
+\
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.75\textwidth]{AAstable.png}
+  	\caption{\textbf{Phase space trajectories for different initial conditions and a stable steady state}. We have $a=b=0.5$. The system converges to steady state.}
+	\end{figure}
+	\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.75\textwidth]{AAunstable.png}
+  	\caption{\textbf{Phase space trajectories for different initial conditions and an unstable steady state}. We have $a=0.5$ and $b=1.5$. The system converges to the limit cycle.}
+	\end{figure}
+	
+\subparagraph{5)}
+By denoting $s$ the coordinate of the spatial dimension and with the implicit denotation $x=x(T,s)$ and $y=y(T,s)$, we have the following set of partial differential equations for the reaction diffusion process.
+\renewcommand{\arraystretch}{2.5} 
+$$ \displaystyle 
+   \left \{
+    \begin{array}{l}
+        \dfrac{\partial x}{\partial T}= a-(b+1)x +x^2 y + \mathcal{D}_1 \dfrac{\partial^2 x}{\partial s^2} \\
+		\dfrac{\partial y}{\partial T}=b x -x^2 y + \mathcal{D}_2\dfrac{\partial^2 y}{\partial s^2} \\
+    \end{array}
+\right.
+\iff
+\left \{
+    \begin{array}{l}
+        \dfrac{\partial x}{\partial T}= f(x,y) + \mathcal{D}_1 \dfrac{\partial^2 x}{\partial s^2} \\
+		\dfrac{\partial y}{\partial T}=g(x,y) + \mathcal{D}_2\dfrac{\partial^2 y}{\partial s^2} \\
+    \end{array}
+\right.
+ $$
+
+We are interested in the case of stability without diffusion and instability with diffusion. \\
+
+For stability without diffusion, the parameters $a$ and $b$ must lie in the stability plan $b < 1+a^2$. \\
+
+For instability with diffusion, the parameters $a$ and $b$ must satisfy : 
+$$ \left(\mathcal{D}_2 \left. \dfrac{\partial f}{\partial x}\right|_{(a,b/a)}+ \mathcal{D}_1 \left. \dfrac{\partial g}{\partial y}\right|_{(a,b/a)} \right)^2 >4 \mathcal{D}_1 \mathcal{D}_2 \left( \left. \dfrac{\partial f}{\partial x}\right|_{(a,b/a)}\left. \dfrac{\partial g}{\partial y}\right|_{(a,b/a)}-\left. \dfrac{\partial f}{\partial y}\right|_{(a,b/a)}\left. \dfrac{\partial g}{\partial x}\right|_{(a,b/a)} \right)$$
+$$ \left(\mathcal{D}_2 D+ \mathcal{D}_1 A \right)^2 >4 \mathcal{D}_1 \mathcal{D}_2 (  AD-BC)$$
+$$ \iff (\mathcal{D}_2(b-1) - \mathcal{D}_1 a^2 )^2 >4 a^2 \mathcal{D}_1 \mathcal{D}_2 $$
+$$ \iff \mathcal{D}_2(b-1) - \mathcal{D}_1 a^2 >2 a \sqrt{\mathcal{D}_1 \mathcal{D}_2} $$
+$$ \iff b >1+2 a\sqrt{\dfrac{\mathcal{D}_1}{\mathcal{D}_2}}+a^2 \dfrac{\mathcal{D}_1}{\mathcal{D}_2} $$
+$$ \iff b > \left( 1+a\sqrt{\dfrac{\mathcal{D}_1}{\mathcal{D}_2}} \right)^2 $$
+
+Finally, our model presents Turing instabilities but is stable without diffusion if and only if  : 
+$$  \left( 1+a\sqrt{\dfrac{\mathcal{D}_1}{\mathcal{D}_2}} \right)^2 < b < 1+a^2, \quad b>1$$
+
+	\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.75\textwidth]{a4b12.png}
+  	\caption{$b=12, \quad a=4, \quad \mathcal{D}_1=5, \quad  \mathcal{D}_1=12 $}
+	\end{figure}
+
+	\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.75\textwidth]{a4b16.png}
+  	\caption{$b=15, \quad a=4, \quad \mathcal{D}_1=5, \quad \mathcal{D}_1=16 $}
+	\end{figure}
+\end{document}

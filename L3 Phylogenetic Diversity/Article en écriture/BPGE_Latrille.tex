@@ -1,0 +1,133 @@
+\documentclass[10pt]{beamer}
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+
+\date{October 2, 2018}
+
+\author{Latrille Thibault}
+
+\title{Robust estimation of diversity. Steer clear of the pitfall of diversity estimation, rare species.}  
+ 
+\begin{document}
+
+\frame{\titlepage} 
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{An hypothetical (and very simple) example of a sample.}
+	\begin{center}
+       \includegraphics[width=7.5cm]{infer_sample_1.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{And by definition, a sample is only fraction of the community. Sometimes a very tiny one...}
+	\begin{center}
+       \includegraphics[width=9cm]{infer_sample_2.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Thus, some information are lost forever, and some can still be estimated. Which one?}
+	\begin{center}
+       \includegraphics[width=9cm]{infer_sample_3.png}
+	\end{center}
+\end{frame}
+
+
+\section{How many rare species are they in the community?}
+
+\begin{frame}
+\frametitle{How many rare species are they in the community?}
+	\begin{center}
+       \includegraphics[width=9cm]{infer_species.png}
+	\end{center}
+	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Good-Turing estimates, first step.}
+	\begin{center}
+       \includegraphics[width=8.0cm]{GT_estimates_1.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Good-Turing estimates, second step.}
+	\begin{center}
+       \includegraphics[width=8.0cm]{GT_estimates_2.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+Well, we can estimate and evaluate the proportion of unobserved individuals.
+But we still do not know in how many species this proportion is divided!
+\end{center}
+\begin{center}
+       \includegraphics[width=8.5cm]{GT_Infer.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Way out : upper and lower estimates.}
+
+	\begin{center}
+       \includegraphics[width=8.5cm]{GT_Up_Low.png}
+	\end{center}
+\end{frame}
+
+
+\section{Hill diversity}
+
+\begin{frame}
+\frametitle{The Hill diversity as a quantitative measure of diversity.}
+	\begin{itemize}
+		\item<1> $M$ is the number of species in the community.
+		\item<1> $x_i$ is the frequency of species $i$ in the community.
+		\item<1> $^q D$ is the $q$ hill diversity  of the community.
+	\end{itemize}
+	\begin{align*}
+		^q D = \left( \sum_{i=1}^{M} x_i^q \right)^{1/(1-q)} \\
+	\end{align*}
+	\begin{itemize}
+		\item<1> $^0 D = M$ is the effective number of species of the community.
+		\item<1> $^1 D = \mathrm{exp} \left( - \sum_{i=1}^{M} x_i \mathrm{ln} ( x_i )  \right) $ is the Shannon entropy of the community.
+		\item<1> $^2 D = 1 / \sum_{i=1}^{M} x_i^2 $ is the Simpson index of the community.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Main results.}
+\begin{center}
+	\includegraphics[width=9.0cm]{plot.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusions.}
+
+	\begin{itemize}
+	\item<1> The effective number of species ($^0 D$) is unreliable.
+	\item<1> The Simpson index ($^2 D$) is very robust since unobserved but rare species do not affect it.
+	\item<1> The Shannon entropy ($^1 D$) is exactly where the sample size have a determinant effect on the robustness of the estimator.
+	\end{itemize}
+	
+\end{frame}
+
+\end{document}
+
+

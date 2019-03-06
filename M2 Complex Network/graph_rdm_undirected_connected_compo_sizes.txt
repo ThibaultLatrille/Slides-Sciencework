@@ -1,0 +1,7 @@
+#----------------------------------
+#   Size of Connected Components   
+#----------------------------------
+
+Total number of different components = 1
+
+Size of component #0 : 10

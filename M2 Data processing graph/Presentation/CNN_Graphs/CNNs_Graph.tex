@@ -1,0 +1,185 @@
+\documentclass[8pt]{beamer}
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usebackgroundtemplate{\tikz\node[opacity=0]{};}
+
+\setbeamertemplate{footline}[frame number]{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\sloppy 
+
+\begin{document}
+
+\begin{frame}
+$\bullet$ Connected, undirected, weighted graph:
+$$\mathcal{G} = (\mathcal{V}, \mathcal{E}, W) $$ \\
+$\bullet$ Signal on graph:
+$$x: \mathcal{V} \rightarrow \mathbb{R} \text{, where } x \in \mathbb{R}^{n}$$\\
+
+$\bullet$ Combinatorial graph Laplacian:
+  \begin{align*}
+   \mathcal{L}  &= D - W 
+  \end{align*} 
+  since $\mathcal{L}$ is real symmetric positive semi definite matrix:
+  \begin{align*}
+   U = [u_0, u_1, \ldots, u_{n-1}] \in \mathbb{R}^{n \times n} &\rightarrow \text{ Fourier basis}\\
+   \Lambda = diag([\lambda_0, \lambda_1, \ldots, \lambda_{n-1}]) \in \mathbb{R}^{n \times n} &\rightarrow \text{ Frequencies of $\mathcal{G}$}
+  \end{align*}
+
+ $\bullet$ Laplacian is diagonalized by Graph Fourier Basis:
+  \begin{equation*}
+  	\mathcal{L} = U \Lambda U^{T}
+  \end{equation*} 
+\end{frame}
+
+%==========================================
+
+\begin{frame}
+
+\begin{itemize}
+		\item[] $\bullet$ We can not express meaningful translation in the vertex domain.
+		\item[] $\bullet$ But we can generalize the spectral convolution theorem.
+\end{itemize}
+\vspace{-10pt}
+\begin{align*}
+	(x *_\mathcal{G} h)(i) &:= \sum_{l=0}^{N-1} \hat{x}(\lambda_l)\hat{h}(\lambda_l)u_l(i) \\
+	 (x *_\mathcal{G} h)   &= U( (U^{T} x)  \odot  (U^{T} h)) \\
+	 					  &= U( \hat{x}  \odot  \hat{h})
+\end{align*}
+\vspace{-15pt}\\
+where 
+\begin{equation*}
+  \begin{split}
+	x(i) &:= \sum_{l=0}^{N-1}\hat{x}(\lambda_l)u_{l}(i) \\
+	x &= U \hat{x}
+  \end{split}
+\text{~~~~ and ~~~~ }
+  \begin{split}
+	\hat{x}(\lambda_l) &:= \sum_{i=0}^{N-1}x(i)u_{l}^{*}(i) \\
+	\hat{x} &= U^{T}x  
+  \end{split}
+\end{equation*}
+\end{frame}
+
+%==========================================
+
+\begin{frame}
+\textbf{Graph spectral filtering}: 
+\begin{align*}
+	x_{out}(i) &= \sum_{l=0}^{N-1}\hat{x}_{in}(\lambda_l)\hat{h}(\lambda_l)u_{l}(i) \\
+			   &= \hat{h}(\mathcal{L})x_{in} = \hat{h}(U \Lambda U^{T})x_{in} = U \hat{h}(\Lambda) U^{T}x_{in}
+\end{align*}
+where $\hat{h}(\mathcal{L}) = U~diag[\hat{h}(\lambda_0), \ldots, \hat{h}(\lambda_{N-1})]~U^{T}$ \\
+\medskip
+
+\textbf{Laplacian-based polynomial parametrization for localized filters}: \\
+\smallskip
+when $\hat{h}(\Lambda) = \sum_{k = 0}^{K} \theta_k \Lambda^{k}$, we can translate the kernel to vertex $i$, using
+\begin{flalign*}
+	(T_{i} h)(j) := (h * \delta_i)(j) &= \sum_{l=0}^{N-1} \hat{h}(\lambda_l)u_{l}^{*}(i)u_{l}(j) &&\\
+				&= \sum_{k = 0}^{K} \theta_k \sum_{l=0}^{N-1} u_{l}(j)\lambda_{l}^{k} u_{l}^{*}(i) &&\\
+				&= \sum_{k = 0}^{K} \theta_k (\mathcal{L}^{k})_{ij} \\
+\end{flalign*}
+\vspace{-20pt}\\
+
+Yet, $(\mathcal{L}^{k})_{ij} = 0$ when $d_{\mathcal{G}}(i,j) > K \rightarrow \hat{h}(\mathcal{L})$ is $K$-localized. \\
+Thus have learning complexity $\rightarrow \mathcal{O}(K)$ same as CNN
+\end{frame}
+
+%==========================================
+
+
+
+\begin{frame}
+
+Cool but still $x_{out} = U\hat{h}(\Lambda)U^{T}x_{in} \rightarrow \mathcal{O}(n^2)$
+
+Solution: parametrize $\hat{h}(\mathcal{L})$ as a polynomial computed recursively from $\mathcal{L}$ \\
+
+\textbf{Chebychev polynomials}:
+\begin{equation*}
+	T_k(x) = 2xT_{k-1}(x)-T{k-2}(x) \text{ with } T_0 = 1, ~ T_1 = x
+\end{equation*}
+Thus $\hat{h}(\mathcal{L})$ can be parametrized as truncated expansion of order $K-1$:
+\begin{equation*}
+	\hat{h}(\mathcal{L}) = \sum_{k=0}^{K-1} \theta_k T_{k}(\mathcal{\tilde{L}})
+\end{equation*}
+where $T_{k}(\mathcal{\tilde{L}}) \in \mathbb{R}^{n\times n}$ is evaluated at scaled $\mathcal{\tilde{L}} = 2\mathcal{L}/\lambda_{max} - I_{n}$. \\
+Denoting $\tilde{x} = 2\tilde{\mathcal{L}}\tilde{x}_{k-1} - \tilde{x}_{k-2} \text{ with } \tilde{x}_{0} = x, ~ \tilde{x}_{0} = \mathcal{\tilde{L}}x$, the entire filtering is:
+\begin{equation*}
+	x_{out} = \hat{h}(\mathcal{L})x_{in} = [\tilde{x}_{0}, \ldots, \tilde{x}_{K-1}]\theta \xrightarrow{cost} \mathcal{O}(K|\mathcal{E}|)
+\end{equation*}
+\end{frame}
+
+
+\begin{frame}
+
+\begin{itemize}
+\item[] $\bullet$ Starting with $\mathcal{G}_0$, we want to produce $\mathcal{G}_1, \mathcal{G}_2, \dots, \mathcal{G}_m$ s.t $|\mathcal{V}_0| > |\mathcal{V}_1| > \ldots > |\mathcal{V}_m|$ that preserve intrinsic geometric structure.
+\item[] $\bullet$ Subsampling on graph is no mathematically sound: \textit{requires to construct meaningful neighbours where nodes are cluster into supernode} \\
+\item[] $\bullet$ Graph Clustering is NP-Hard $ \rightarrow $ use approximation algorithm \\
+\end{itemize}
+
+\begin{algorithm}[H]
+\caption{Graclus multi-level clustering algorithm (only coarsening phase)}
+\small
+\begin{algorithmic}[1]
+\small 
+\State{Start with all vertices of the finest graph $\mathcal{G}_0$ unmarked}
+\State{Pick unmarked vertex $v_i$ at random}
+	\If{$v_i$ have unmarked neighbours} 
+		\State{merge $v_i$ with the unmarked vertex $v_j$ that maximizes the local normalized cut $W_{ij}(1/d_i + 1/dj$}
+		\State{Set the edge weight out of the supernode as the sum of the edges weights out of the originals}
+		\State{mark $v_i$ and $v_j$}
+	\Else
+	\State{mark $v_i$ and do not merge it with any vertex (singleton)}
+	\EndIf
+\State Coarsening for this level is complete once all vertices have been marked
+\end{algorithmic}
+\end{algorithm}
+
+\begin{itemize}
+	\item[] $\bullet$ very fast and divide the size by approximately 2, but there may be singletons.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+	\item[] $\bullet$ The coarsened version of the graphs have unstructured arrangement  
+ \end{itemize}
+ \begin{algorithm}[H]
+\caption{Graph Pooling}
+\small
+\begin{algorithmic}[1]
+\small 
+\Require{After graph coarsening each supernode has 2 or 1 parents}
+\State{Had "fake" node to match the singleton at each coarsening level}
+\State{Set input signal of "fake node" to 0 (when ReLU)}
+\State{We have now a balanced binary tree}
+\State{Order arbitrarily the node at the coarsest level}
+\State{Propagate backward the ordering to the finest level}
+\end{algorithmic}
+\end{algorithm}
+
+ \begin{itemize}
+  \item[] $\bullet$ produce a regular ordering $ \rightarrow $ adjacent node are merged hierarchically  
+  \item[] $\bullet$ Pooling this rearranged graph signal is similar to pool 1D signal $ \rightarrow $ easy and efficient (parallel computing)  
+ \end{itemize}
+\end{frame}
+
+%==========================================
+
+
+\end{document}

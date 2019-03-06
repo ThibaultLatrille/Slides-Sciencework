@@ -1,0 +1,268 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage[T1]{fontenc}
+
+\author{Thibault Latrille \and Yiming Zhang}
+\title{Time series, Home assignmen1t 2}  
+
+
+\begin{document}
+\maketitle
+
+\subsubsection*{Problem 1}
+\
+
+We express the MA(1) process in the following form:
+\[
+X_{t}=(1+\theta B)Z_{t}=(1+0.7B)Z_{t}
+\]
+
+
+where $\theta=0.7$, $B$ is the standard backshift operator with $B^{j}X_{t}=X_{t-j}$
+, $X_{t}$ has zero mean and $Z_{t}$ is the white-noise porcess.
+In order for the process to be invertible. The root of $1+0.7B=0 \iff B=\dfrac{-10}{7}$
+must lie outside the unit circle. It is straightforward in this particular case and the process is invertible.
+\\
+
+\begin{verbatim}
+###### R-code #########
+theta<-0.7
+n<-500
+TS<-arima.sim(list(ma=c(theta)),n=n)
+plot(TS)
+\end{verbatim}
+The process $\{X_t, t \in \mathbb{Z} \}$ is said to be linear if it has the representation  
+$$\displaystyle X_t=\sum_{j=-\infty}^{\infty} \psi_j Z_{t-j}\text{, }Z_t \sim WN(0,\sigma^2)\text{ where } \sum_{j=-\infty}^{\infty} |\psi_j|<\infty$$
+And for a weakly stationary process, the theoretical spectral density is defined as $$\displaystyle f(\lambda)=\dfrac{1}{2\pi} \sum_{h=-\infty}^{\infty} e^{-ih\lambda} Cov(X_h,X_0)\text{, }-\pi \leq \lambda \leq \pi$$
+Such that for weakly stationary linear process we have the simple relation $$\displaystyle f(\lambda)=\dfrac{\sigma^2}{2\pi} \left|\sum_{k=-\infty}^{\infty} \psi_k e^{-ik\lambda}\right|^2$$
+Furthermore, the MA(1) is a stationary linear process with $\psi_0=1$, $\psi_1=\theta$ and $\psi_j=0$ otherwise. $$\displaystyle f(\lambda)=\dfrac{\sigma^2}{2\pi} \left|1+\theta e^{-i\lambda}\right|^2=\dfrac{\sigma^2}{2\pi} (1+\theta e^{-i\lambda})(1+\theta e^{i\lambda})=\dfrac{\sigma^2(1+\theta^2+2\theta cos(\lambda))}{2\pi}$$
+In our special case $\theta=0.7$ and $\sigma^2=1$, this formula reduce to $$\displaystyle f(\lambda)=\dfrac{1.49+1.4 cos(\lambda))}{2\pi}\text{, }-\pi \leq \lambda \leq \pi$$
+\begin{verbatim}
+###### R-code for the theoretical spectral density #######
+library(TSA)### additional packet TSA is needed ####
+ARMAspec(model=list(ma=c(0.7)),lwd=2,main="spectral density of MA(1) with theta=0.7")
+\end{verbatim}
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=1\textwidth]{1.png}
+  	\caption{\textbf{Time series plot (left) of the simulated MA(1) and theoretical spectral density (right) of this process.} }
+\end{figure}
+
+\begin{verbatim}
+###### R-code for smoothed periodograms #########
+spec<-spectrum(TS,plot=FALSE)
+f<-as.numeric(spec$freq)
+s<-as.numeric(spec$spec)
+plot(f,s,"l",lwd=2,main="Estimation of the spectral density",xlab="frequency",ylab="spectrum") 
+## Plot of the Raw data ##
+col=2
+bandwidth<-c(5,10,20,40,60,80,160) # Different bandwidths we want to plot
+for (i in bandwidth){
+spec1<-spectrum(TS,span=c(i,i),plot=FALSE) # compute the smoothed periodogram
+f1<-as.numeric(spec1$freq)
+s1<-as.numeric(spec1$spec)
+lines(f1,s1,col=col,lwd=2) # Plot of the smoothed periodogram
+col<-col+1
+}
+legend(locator(n=1),legend=c("raw",bandwidth),col=seq(1:(length(bandwidth)+1)),lty=1,lwd=2)
+\end{verbatim}
+
+
+
+
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=0.8\textwidth]{2_1.png}
+  	\caption{\textbf{Raw periodogram and different smoothed periodograms.} A filter of 60 does not over-smooth but remove the noise, moreover it fits the theoretical curve.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=0.8\textwidth]{2_2.png}
+  	\caption{\textbf{Smoothed periodogram along with the theoretical curve.}}
+\end{figure}
+
+\subsubsection*{Problem 2}
+\
+The data show only one peak, there is only one hidden periodicity. The hidden periodicity is attains by the frequency which maximizes the spectral density. 
+\begin{verbatim}
+### R-code to find the frequency which maximizes the estimated spectral density ###
+spec<-spectrum(TS,plot=FALSE) # TS is the time-series of the data
+rank<-as.numeric(which.max(spec$spec))
+max<-as.numeric(spec$freq[rank])
+\end{verbatim}
+
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=1\textwidth]{3_2.png}
+  	\caption{\textbf{Raw periodogram and different smoothed periodograms (left) and Cumulative periodogram (right).} The hidden periodicity is equal 0.17.}
+\end{figure}
+
+\subsubsection*{Problem 3}
+\
+The Akaike information criterion (AIC) provides a mean for model selection and deals with the trade-off between the complexity of the model and the goodness of fit of the model. For a set of candidate models, we compute the AIC for each of them and rank them in increasing order. The model minimizing the AIC value is the most likely model. In particular, the AIC allow us to compute easily the relative likelihood and thus the strength and reliability we can have for each of the models in the set. \\
+\textit{See Burnham $\&$ Anderson} : \emph{AIC model selection and multimodel inference in behavioral ecology: some background, observations, and comparisons}
+
+Define $AIC_{min}$ as the minimum AIC value obtained. Then define $l_{(i,j)}=e^{(AIC_{min}-AIC_{(i,j)})/2}$ where $AIC_{(i,j)}$ is the AIC of the ARMA(i,j) model. Then $l_{(i,j)}$ is the relative likelihood between the most likely model and the current ARMA(i,j) model. For example if $l_{(i,j)}=0.1$, the most likely model is 10 times more likely than the ARMA(i,j) model.  \\
+
+For a set of ARMA(i,j), ($(i,j) \in \llbracket 0,5 \rrbracket^2$) models, we computed $l_{(i,j)}$ and found the most likely model 
+\newpage
+\begin{verbatim}
+### R-code  ###
+library(scatterplot3d) 
+AR=rep(0,36);MA=rep(0,36);AIC=rep(0,36) initialization
+k<-1
+for (i in 0:5){
+	for (j in 0:5){
+		AIC[k]<-arima(TS,c(i,0,j))$aic # compute AIC
+		AR[k]<-i
+		MA[k]<-j
+		k<-k+1
+	}
+}
+AICminmin<-AIC[which.min(AIC)] #find AICmin
+for (i in 1:36){AIC[i]<-signif(exp((AICmin-AIC[i])/2),2)} # compute l(i,j)
+s3d<-scatterplot3d(MA,AR,AIC,type = "h", lwd = 3, highlight.3d=TRUE) #scatterplot
+s3d.coords <- s3d$xyz.convert(MA,AR,AIC) # convert 3D coords to 2D projection
+text(s3d.coords$x, s3d.coords$y,labels=AIC,cex=0.6, pos=3) # add l(i,j) value onto the scatterplot
+\end{verbatim}
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=0.8\textwidth]{3_3.png}
+  	\caption{\textbf{Relative likelihood for different ARMA models.} We computed the relative likelihood for 36 ARMA models with the MA and AR orders varying from 0 to 5. The ARMA(0,2) is most likely the underlying model, but other models are almost as surely describing the data such as for example ARMA(1,0) or ARMA(4,2) with a relative likelihood of 0.92 and 0.95 respectively. Thus there is strong objection to the assertion that the underlying model is ARMA(0,2).}
+\end{figure}
+
+Let $X_{t}=(1+\theta_1 B +\theta_2 B^2)Z_{t}$ be the MA(2) process, most likely the one describing accurately our data.\\
+
+Following the same fashion as in exercise 1) the theoretical spectral density of this process is 
+\begin{align*}
+\displaystyle f(\lambda)&=\dfrac{\sigma^2}{2\pi} \left|1+\theta_1 e^{-i\lambda}+\theta_2 e^{-2i\lambda}\right|^2=\dfrac{\sigma^2}{2\pi} (1+\theta_1 e^{-i\lambda}+\theta_2 e^{-2i\lambda})(1+\theta_1 e^{i\lambda}+\theta_2 e^{2i\lambda})\\
+&=\dfrac{\sigma^2}{2\pi}\left((\theta_2-1)^2\text{sin}^2(\lambda)+(\theta_1+(\theta_2+1)\text{cos}(\lambda))^2\right)\text{, }-\pi \leq \lambda \leq \pi
+\end{align*} 
+
+To get the parametric estimate of the spectral density, we first compute the estimates $\theta_1$ and $\theta_2$ with the R command \textit{arima()} and then evaluate the function f defined above, using the estimators as parameters.
+
+\begin{verbatim}
+### Estimates of theta1 and theta2 returned by arima(TS,c(0,0,2))###
+Coefficients:
+         theta1     theta2    intercept
+         0.5902     0.3867    -0.1283
+s.e.     0.0909     0.0998     0.0801
+
+sigma^2 estimated as 0.1666:  log likelihood = -52.54,  aic = 111.07
+\end{verbatim}
+
+\begin{verbatim}
+### Parametric estimate of the spectral density  ###
+ARMA<-arima(TS,c(0,0,2))
+theta1<-ARMA$coef[[1]]
+theta2<-ARMA$coef[[2]]
+sigma2<-ARMA$sigma2
+library(astsa)### additional packet astsa is needed ####
+arma.spec(ma=c(theta1,theta2),var.noise=sigma2,log="no") ## Parametric estimate of the spectral density
+\end{verbatim}
+
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=0.75\textwidth]{3_4.png}
+  	\caption{\textbf{Theoretical spectral density of the process using the estimates given by the command \textit{arima}.}}
+\end{figure}
+
+We use the method and R code as in exercise 1 to get the raw periodogram and different smoothed periodograms.
+ 
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=1\textwidth]{3_5.png}
+  	\caption{\textbf{Raw periodogram and different smoothed periodograms (left), parametric and smoothed estimates of the spectral density (right).} The MA(2) process fits the data quite well, but as we have seen it previously, others ARMA models are also likely to fit the data.}
+\end{figure}
+
+\subsubsection*{Problem 3}
+\paragraph{1)}
+For the ARMA(p,q) model defined as $ \phi(B)X_t=\theta (B) Z_t$ where $\displaystyle \phi(z)=1-\sum_{i=1}^p \phi_i z^i$, $\displaystyle \theta(z)=1+\sum_{i=1}^p \theta_i z^i$ and $E_t \sim WN(0,\sigma^2)$, 
+ one can show that the theoretical spectral density is 
+ $$\displaystyle f(\lambda)
+ =\dfrac{\sigma^2}{2\pi} \dfrac{\left|\theta( e^{-i\lambda})\right|^2}{\left|\phi ( e^{-i\lambda}) \right|^2}\text{, }-\pi \leq \lambda \leq \pi$$
+ 
+ 
+1)\\ $\displaystyle f(\lambda)
+=\dfrac{\sigma^2}{2\pi}\left| e^{-3i\lambda}+\dfrac{e^{-4i\lambda}}{3}\right|^2
+=\dfrac{\sigma^2}{2\pi}\left| e^{-3i\lambda}(1+\dfrac{e^{-i\lambda}}{3})\right|^2
+=\dfrac{\sigma^2}{2\pi}\left| e^{-3i\lambda}\right|^2 \left|1+\dfrac{e^{-i\lambda}}{3}\right|^2
+=\dfrac{\sigma^2}{2\pi}\left(^{10}/_9+2 cos(\lambda)/3\right)$\\
+
+
+2)\\ $\displaystyle f(\lambda)
+=\dfrac{\sigma^2}{2\pi}\left| 1+\dfrac{e^{-i\lambda}}{3}\right|^2
+=\dfrac{\sigma^2}{2\pi}\left(^{10}/_9+2 cos(\lambda)/3\right)$\\
+
+
+3)\\ $\displaystyle f(\lambda)
+=\dfrac{\sigma^2}{2\pi} \dfrac{1}{\left|1-\dfrac{e^{-i\lambda}}{\sqrt{2}} \right|^2}
+=\dfrac{\sigma^2}{2\pi} \dfrac{1}{^3/_2-\sqrt{2} cos(\lambda)}$\\
+
+4)\\ $\displaystyle f(\lambda)
+=\dfrac{\sigma^2}{2\pi} \dfrac{\left| 1+\dfrac{e^{-i\lambda}}{3}\right|^2}{\left|1-e^{-i\lambda}/_{\sqrt{2}} \right|^2}
+=\dfrac{\sigma^2}{2\pi} \dfrac{^{10}/_9+ 2 cos(\lambda)/3}{^3/_2-\sqrt{2} cos(\lambda)}$\\
+
+\
+\paragraph{1)}
+a) The expectation of the process $X_t$ is
+$$E(X_t)=\text{sin}(^{\pi}/_4 t) E(A) +\text{cos}(^{\pi}/_4 t) E(B)+E(Z_t)=0$$
+
+And the covariance between $X_{t+h}$ and $X_t$ is
+
+\begin{align*}
+E(X_{t+h}X_t)&=E[(A\text{sin}(^{\pi}/_4 (t+h)) +B\text{cos}(^{\pi}/_4 (t+h))+Z_{t+h})(A\text{sin}(^{\pi}/_4 t) +B\text{cos}(^{\pi}/_4 t)+Z_{t})]\\
+&= E[A^2]\text{sin}(^{\pi}/_4 (t+h))\text{sin}(^{\pi}/_4 t) +E[B^2]\text{cos}(^{\pi}/_4 (t+h))\text{cos}(^{\pi}/_4 t)+E[Z_{t+h}Z_t]\\
+&= \sigma_A^2\text{sin}(^{\pi}/_4 (t+h))\text{sin}(^{\pi}/_4 t) +\sigma_B^2\text{cos}(^{\pi}/_4 (t+h))\text{cos}(^{\pi}/_4 t)+\delta_h \sigma^2\\
+&= \sigma_A^2\dfrac{\text{cos}(^{\pi}/_4 h)+\text{cos}(^{\pi}/_4 (2t+h))}{2}+\sigma_B^2\dfrac{\text{cos}(^{\pi}/_4 h)-\text{cos}(^{\pi}/_4 (2t+h))}{2}+\delta_h \sigma^2
+\end{align*}
+
+Since the covariance between $X_{t+h}$ and $X_t$ depends on $t$, the process $X_t$ is not stationary. But in the case of $\sigma_A^2=\sigma_B^2$ the covariance between $X_{t+h}$ and $X_t$ reduces to : 
+
+\begin{align*}
+E(X_{t+h}X_t)&= \sigma_A^2\dfrac{\text{cos}(^{\pi}/_4 h)+\text{cos}(^{\pi}/_4 (2t+h))}{2}+\sigma_A^2\dfrac{\text{cos}(^{\pi}/_4 h)-\text{cos}(^{\pi}/_4 (2t+h))}{2}+\delta_h \sigma^2\\
+&=\sigma_A^2\text{cos}(^{\pi}/_4 h)+\delta_h \sigma^2=\sigma_A^2\dfrac{e^{i^{\pi}/_4 h}+e^{-i^{\pi}/_4 h}}{2}+\delta_h \sigma^2=\gamma(h)
+\end{align*}
+
+Which is independent of $t$, and therefore the process is stationary.\\
+
+
+b)
+In the case of stationarity and $\sigma=0$, we have  $\gamma(h)=\sigma_A^2\dfrac{e^{i^{\pi}/_4 h}+e^{-i^{\pi}/_4 h}}{2}$. \\
+
+Computing the spectral density with the formula $\displaystyle f(\lambda) =\dfrac{1}{2\pi} \sum_{h=-\infty}^{\infty} e^{-ih\lambda} \gamma(h)$ does not lead to any simple formula, and thus we can even doubt the existence of this function for this process.\\
+
+However, if we let 
+
+$$F(\lambda)=
+\left\{ 
+\begin{array}{cc}
+ 0 & \pi \leq \lambda < -\pi/4 \\
+ \sigma_A^2/2 &  -\pi/4 \leq \lambda < \pi/4 \\
+ 0 &  \pi/4 \leq \lambda \leq -\pi/4
+ \end{array}
+\right.$$
+
+We can write the autocovariance function as  
+
+$$\gamma(h)=\int_{-\pi}^{\pi} e^{ih\lambda}dF(\lambda)$$
+
+Which is the general form of the spectral representation.
+\end{document}

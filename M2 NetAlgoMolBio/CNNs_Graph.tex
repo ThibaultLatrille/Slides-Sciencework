@@ -1,0 +1,99 @@
+\documentclass[8pt]{beamer}
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usebackgroundtemplate{\tikz\node[opacity=0]{};}
+
+\setbeamertemplate{footline}[frame number]{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\sloppy 
+
+\begin{document}
+
+\begin{frame}{Measures}
+
+
+\begin{itemize}
+
+\item structural uniqueness is inappropriate validation for biological motifs $\rightarrow$ define new measures
+
+\item specifically designed for PPI networks.
+
+\end{itemize}
+
+
+\begin{itemize}
+
+	\item \textbf{Protein complex}: \\
+
+		$$\text{Motifs included in a complex} = \dfrac{\text{number of motifs included in a complex}}		{\text{number of all discovered subgraphs}}$$
+
+	\begin{small}
+
+
+	\end{small}
+
+	\item \textbf{Functional module}: \\
+
+	\begin{small}
+
+			$$\text{Motifs included in functional module } = \dfrac{\text{number of motifs included in functional module }}{\text{number of all discovered subgraphs}}$$
+
+	\end{small}
+
+
+	\item \textbf{Go term clustering score}:  
+
+		\begin{small}
+
+	\end{small}
+
+
+
+
+TODO: copy cut formula
+
+	
+
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Measures}
+
+
+ESU: exhaustive Enumerate Subgraphs \\
+
+RAND-ESU: search sub-g in tree and skips some branches \\
+
+MFINDER: edge sampling \\
+
+NMF: remove edge between cluster \\
+
+NMFGO: remove between cluster edge + biologically insignificant edge \\
+
+VOLTAGE: remove edge between cluster \\
+
+
+\end{frame}
+
+
+
+
+\end{document}

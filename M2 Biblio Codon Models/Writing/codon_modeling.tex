@@ -1,0 +1,58 @@
+\documentclass[10pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{tikz}
+\usebackgroundtemplate{\tikz\node[opacity=0]{};}
+\usepackage[orientation=landscape,size=custom,width=16,height=12,scale=0.5]{beamerposter}
+\setbeamersize{text margin left=10pt,text margin right=10pt}
+
+%gets rid of bottom navigation overlines
+\setbeamertemplate{footline}[frame number]{}
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
+\sloppy 
+
+\begin{document}
+\small
+\begin{frame}
+\textbf{If \boldmath${i}$ and \boldmath $j$ are synonymous codons:}\\
+For every model, at the position $n$ of the sequence, the substitution rate $Q_{ij}^{(n)}$ from $i$ to $j$ is equal to the point-mutation rate $\mu_{ij}$ from $i$ to $j$, 
+\begin{equation*}
+\mathbf{(1)}, \mathbf{(2)}, \mathbf{(3)}: Q_{ij}^{(n)}=\mu_{ij}
+\end{equation*} \\
+\vspace{10pt}
+\textbf{If \boldmath${i}$ and \boldmath $j$ are non-synonymous codons:}\\
+In all three models, at the position $n$ of the sequence, the substitution rate $Q_{ij}^{(n)}$ from $i$ to $j$ is different
+\begin{equation*}
+\mathbf{(1)}: 
+Q_{ij}^{(n)}=
+\mu_{ij} \omega,
+\qquad
+\mathbf{(2)}: 
+Q_{ij}^{(n)}=
+\mu_{ij} \dfrac{S_{ij}^{(n)}}{1-\mathrm{e}^{-S_{ij}^{(n)}}}, 
+\qquad
+\mathbf{(3)}: 
+Q_{ij}^{(n)}=
+\mu_{ij} \omega_{*} \dfrac{S_{ij}^{(n)}}{1-\mathrm{e}^{-S_{ij}^{(n)}}}
+\end{equation*}
+\vspace{5pt}\\
+\textbf{Model }$\mathbf{(1)}$\textbf{: Deviation from neutrality.} The probability of fixation of non-synonymous mutation does not depend on the encoded amino-acid. The parameter $\omega$, namely the ratio of the non-synonymous over the synonymous substitution rates, is absorbing any deviation from neutrality over the entire protein and along all branches of the phylogenetic tree. \\
+\vspace{8pt}
+\textbf{Model }$\mathbf{(2)}$\textbf{: Near-neutrality.} The probability of fixation of the non-synonymous mutation from codon $i$ to codon $j$ is evaluated using the Wright-Fisher equation. At the position $n$, $S_{ij}^{(n)}$ is the difference in amino-acid preference between the amino-acid encoded by $j$ and $i$. \\
+\vspace{8pt}
+\textbf{Model }$\mathbf{(3)}$\textbf{: Deviation from near-neutrality.} The parameter $\omega_*$ is absorbing any deviation from near-neutrality $\mathbf{(2)}$ over the entire protein and along all branches of the phylogenetic tree.
+\end{frame}
+
+\end{document}
+
+

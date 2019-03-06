@@ -1,0 +1,154 @@
+\documentclass[10pt]{beamer}
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{verbatim}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+
+
+\author{Susanne Bornelöv \and Thibault Latrille \and Yiming Zhang}
+\title{Computer-intensive statistics and data mining}  
+\institute{Uppsala Universitet, Mathematics department}
+\date{14 December 2012}
+ 
+ 
+\begin{document}
+
+\frame{\titlepage} 
+
+\section{Overview of the data}
+
+\begin{frame}
+\frametitle{What are we talking about}
+	\begin{center}
+       \includegraphics[width=7cm]{paper.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{The original data}
+	\begin{center}
+       \includegraphics[width=9cm]{data.png}
+	\end{center}
+\end{frame}
+
+\section{Kernel density estimation}
+\subsection{Estimating the density}
+
+\begin{frame}
+\frametitle{Kernel density estimation}
+	\begin{center}
+       \includegraphics[width=8cm]{distribution.png}
+	\end{center}
+\end{frame}
+
+\subsection{Bandwidth selection}
+
+\begin{frame}
+\frametitle{\textbf{Divide ut regnes,} the cross-validation method.}
+	\begin{center}
+       \includegraphics[width=11cm]{bandwidth.png}\\
+            \begin{scriptsize}
+  Let us divide our dataset $\pmb{X}$ in two set : \\
+  Training test $\pmb{X}_{Training}$ and Testing set $\pmb{X}_{Test}$. \\ Then for a given bandwidth $h$, compute the kernel density estimation $\widehat{f}_h$ on $\pmb{X}_{Training}$. \\The "goodness of fit" for a particular $h$ is defined as : 
+       $ FIT(h)=\sum_{X_i \in \pmb{X}_{Test}}  \widehat{f}_h(X_i)^2 $.\\
+       And we minimize $FIT(h)$ regarded to $h$ with your favourite method. 
+\end{scriptsize}
+     \end{center}
+\end{frame}
+
+ \section{Kernel regression smoothing}
+
+\begin{frame}
+\frametitle{Kernel regression smoothing}
+	\begin{center}
+       \includegraphics[width=10cm]{regression0.png}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Kernel regression smoothing \& Derivative}
+	\begin{center}
+       \includegraphics[width=10cm]{regression.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}	
+\frametitle{\textbf{Divide \& Conquer}, return of the cross-validation.}
+	\begin{center}
+       \includegraphics[width=11cm]{regressionCV.png}
+       \begin{scriptsize}\\
+  Again, we divide our dataset, $(\pmb{X},\pmb{Y})=(\pmb{X},\pmb{Y})_{Training} \cup (\pmb{X},\pmb{Y})_{Test}$  \\ For a given bandwidth $h$, we compute the regression estimation $\widehat{m}_h$ on $(\pmb{X},\pmb{Y})_{Training}$. \\The "Squared error" is defined as : 
+       $ Error(h)=\sum_{(X_i,Y_i) \in (\pmb{X},\pmb{Y})_{Test}} \left( Y_i- \widehat{m}_h(X_i) \right) ^2 $.\\
+       And we minimize $Error(h)$ regarded to $h$ with your favourite method. 
+\end{scriptsize}
+	\end{center}
+\end{frame}
+
+
+\section{Biological perspectives.}
+
+\subsection{The interesting lifespan of the Pink Salmon}
+\begin{frame}	
+\frametitle{The long journey of a Bella Coola Pink Salmon}
+	\begin{center}
+       \includegraphics[width=11cm]{salmon.png}
+	\end{center}
+\end{frame}
+
+\subsection{Odd and even years}
+\begin{frame}	
+\frametitle{Different population ?}
+	\begin{center}
+       \includegraphics[width=10cm]{greenred.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}	
+\frametitle{When we realise our study was pointless...}
+	\begin{center}
+       \includegraphics[width=7cm]{merge.png}
+	\end{center}
+\begin{scriptsize}
+\begin{center}
+ $H_0$: Odd and even years salmon have the same mean weight. \\
+ $p_{value} = 8.298e^{-5}$, we strongly reject $H_0$ with the non parametric Wilcoxon rank sum test.
+\end{center}
+\begin{center}
+$H_0$: Population size is the same for even and odd years. \\
+$p_{value} = 0.000522$, we strongly reject $H_0$ with the non parametric Wilcoxon rank sum test.
+\end{center}
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}	
+\frametitle{Again and again}
+	\begin{center}
+       \includegraphics[width=11cm]{regressionsplit.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}	
+\frametitle{A bit of evoluationary biology}
+\begin{center}
+Alternative hypothesis : the decrease of both population size and mean weight is a consequence of overfishing.
+\end{center}
+\begin{center}
+Indeed there is a high selective pressure on big salmons since small ones are more likely to swim trough netting.
+\end{center} 
+\begin{center}
+       \includegraphics[width=9cm]{evolution.png}
+	\end{center}
+\end{frame}
+
+\end{document}
+
+

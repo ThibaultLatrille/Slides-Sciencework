@@ -1,0 +1,2600 @@
+#LyX file created by tex2lyx 2.0.5
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+%\usepackage[french]{babel}
+\usepackage{amsthm}\usepackage{listings}\usepackage{stmaryrd}\usepackage{enumerate}\usepackage{dsfont}\usepackage{cancel}\usepackage{amsfonts}\usepackage{fullpage}
+
+
+\author{\and Susanne Bornelöv \and Thibault Latrille \and Yiming Zhang}
+\title{Computer-intensive statistics and data mining
+ \\ Home assignment 3}  
+\newtheorem*{theo}{Theorem} 
+
+\end_preamble
+\use_default_options false
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding T1
+\font_roman lmodern
+\font_sans default
+\font_typewriter lmodern
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\paperfontsize default
+\spacing single
+\use_hyperref 0
+\papersize default
+\use_geometry false
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+maketitle
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+Exercise 1.
+\end_layout
+
+\begin_layout Subparagraph
+
+a)
+\end_layout
+
+\begin_layout Standard
+
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ a random variable from the Pareto distribution, characterized by a scale parameter 
+\begin_inset Formula $k>0$
+\end_inset
+
+ and a shape parameter 
+\begin_inset Formula $\alpha>1$
+\end_inset
+
+, with cdf 
+\begin_inset Formula $F_X(x)=1-(\frac{k}{x})^{\alpha}$
+\end_inset
+
+. 
+\begin_inset Formula \[\text{The expecation of $X$ is then defined and equal  }E(X)=\dfrac{k\alpha}{\alpha-1}\]
+\end_inset
+
+
+\begin_inset Formula \[\text{Furthermore } L(F_X)=\dfrac{E(X)}{E(X)-k}=\dfrac{k\alpha}{\alpha-1} \left( \dfrac{k\alpha}{\alpha-1}-k \right)^{-1}=\dfrac{k\alpha}{\alpha-1} \left( \dfrac{k}{\alpha-1} \right)^{-1}=\dfrac{k\alpha}{\alpha-1}  \dfrac{\alpha-1}{k}=\alpha\]
+\end_inset
+
+It follows the plug-in estimator of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is 
+\begin_inset Formula $\widehat{\alpha}=L(F_n)$
+\end_inset
+
+, where 
+\begin_inset Formula $F_n$
+\end_inset
+
+ is the empirical distribution function of the sample 
+\begin_inset Formula $\pmb{X}=(X_1,\ldots,X_n)$
+\end_inset
+
+. 
+\begin_inset Formula \[L(F_n)=\dfrac{\sum_{i=1}^n X_i}{\sum_{i=1}^n X_i-k}\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+b)
+\end_layout
+
+\begin_layout Standard
+
+In a similar fashion, 
+\begin_inset Formula $T(F_X)=\dfrac{Var(X)}{k^2}=\dfrac{\alpha}{(\alpha-1)^2(\alpha-2)}=\theta$
+\end_inset
+
+. Hence 
+\begin_inset Formula $\widehat{\theta}=T(F_n)=\dfrac{1}{nk^2}\sum_{i=1}^n(X_i-\overline{X})^2$
+\end_inset
+
+ is the plug-in estimator of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subparagraph
+
+c)
+\end_layout
+
+\begin_layout Standard
+
+To generate the data, we use the classical inverse method since 
+\begin_inset Formula $F^-(x)=\dfrac{1}{(1-x)^{\frac{1}{\alpha}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ k<-2 alpha<-3 data<-k/((1-runif(11))**(1/alpha)) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+For the non-parametric bootstrap, the bootstrap sample 
+\begin_inset Formula $\pmb{X}_j^*=(X_{1,j}^*,\ldots,X_{n,j}^*)$
+\end_inset
+
+ for 
+\begin_inset Formula $j=1,\ldots,\beta$
+\end_inset
+
+ is drawn from re-sampling the original data with replacement.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+For each bootstrap sample replicate, we compute the plug-in estimator of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ described above, thus 
+\begin_inset Formula $\widehat{\theta}_j^*=T(F_{n,j}^*)$
+\end_inset
+
+ where 
+\begin_inset Formula $F_{n,j}^*$
+\end_inset
+
+ is the empirical distribution function of the bootstrap sample 
+\begin_inset Formula $\pmb{X}_j^*$
+\end_inset
+
+. 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+Finally the percentile bootstrap 5% confidence interval is given by 
+\begin_inset Formula \[\left[\widehat{\theta}^*_{[(1+\beta)(0.025)]} , \widehat{\theta}^*_{[(1+\beta)(0.975)]} \right]=[0.03,4.88]\text{ where $\widehat{\theta}^*_{[j]}$ is the $j^{th}$ ordered statistic.} \]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ theta<-function(x)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+ return((sum(x**2)/length(x)-mean(x)**2)/(k*k))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ # plug-in estimator of theta
+\end_layout
+
+\begin_layout Standard
+
+bootsample<-rep(XA,B) for( i in 1:1000)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+bootsample[i]<-theta(sample(data,replace=T))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ # estimation of theta in the bootstrap world theta.hat<-theta(data) # estimation of theta in the real world L1<-sort(bootsample)[25] # lower bound for the 5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% confidence interval
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+U1<-sort(bootsample)[975] # upper bound for the 5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% confidence interval
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+d)
+\end_layout
+
+\begin_layout Standard
+
+For the parametric bootstrap, the bootstrap sample 
+\begin_inset Formula $\pmb{X}_j^*=(X_{1,j}^*,\ldots,X_{n,j}^*)$
+\end_inset
+
+ for 
+\begin_inset Formula $j=1,\ldots,\beta$
+\end_inset
+
+ is drawn from the pareto distribution characterised by the scale parameter 
+\begin_inset Formula $\widehat{\alpha}$
+\end_inset
+
+. 
+\begin_inset Formula $\widehat{\alpha}=L(F_{n})$
+\end_inset
+
+ is the plug-in estimator of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ defined in a). 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+As previously, for each bootstrap sample replicate, 
+\begin_inset Formula $\widehat{\theta}_j^*=T(F_{n,j}^*)$
+\end_inset
+
+ where 
+\begin_inset Formula $F_{n,j}^*$
+\end_inset
+
+ is the empirical distribution function of the bootstrap sample 
+\begin_inset Formula $\pmb{X}_j^*$
+\end_inset
+
+. 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+Finally the percentile bootstrap 5% confidence interval is given by 
+\begin_inset Formula \[\left[\widehat{\theta}^*_{[(1+\beta)(0.025)]} , \widehat{\theta}^*_{[(1+\beta)(0.975)]} \right]=[0.03,1.65]\text{ where $\widehat{\theta}^*_{[j]}$ is the $j^{th}$ ordered statistic.} \]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ ALPHA<-mean(data)/(mean(data)-k) # plug-in estimator of alpha, see a) bootsample<-rep(XA,1000) for( i in 1:1000)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+bootsample[i]<-theta(k/((1-runif(11))**(1/ALPHA)))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ # estimation of theta in the bootstrap world # the bootstrap sample replicate is drawn using an approximation of alpha L2<-sort(bootsample)[25] # upper bound for the 5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% confidence interval
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+U2<-sort(bootsample)[975] # upper bound for the 5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% confidence interval
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subparagraph
+
+e)
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename HA3_1.png
+	width 50text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+5 % confidence interval for 
+\begin_inset Formula $\widehat{\theta}$
+\end_inset
+
+.
+\series default
+ 
+\shape slanted
+The parametric method (red segment) is preferred rather than the non-parametric method (green segment). The underlying value 
+\begin_inset Formula $0.75$
+\end_inset
+
+ is contained in both interval.
+\shape default
+ 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+Exercise 2.
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename HA3_2.png
+	width 50text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+Plot of the data 
+\begin_inset Formula $\pmb{x_i=(A_i,B_i)}$
+\end_inset
+
+ from the spatial data set.
+\series default
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+Exercise 3.
+\end_layout
+
+\begin_layout Subparagraph
+
+a)
+\end_layout
+
+\begin_layout Standard
+
+Let F be the cdf of the random variable A. 
+\begin_inset Formula $\theta=T(F)=Var(A)=\int x^2dF(x)-(\int xdF(x))^2$
+\end_inset
+
+. It follows the plug-in estimator 
+\begin_inset Formula $\widehat{\theta}=T(F_n)$
+\end_inset
+
+, where 
+\begin_inset Formula $F_{n}$
+\end_inset
+
+ is the empirical distribution function of the sample 
+\begin_inset Formula $\pmb{A}=(A_1,\ldots,A_{n})$
+\end_inset
+
+. 
+\begin_inset Formula \[T(F_n)=\frac{1}{n}\sum_{i=1}^{n} A_i^2 -\overline{\pmb{A}}^2\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+b)
+\end_layout
+
+\begin_layout Standard
+
+For the non-parametric bootstrap, the bootstrap sample 
+\begin_inset Formula $\pmb{A}_j^*=(A_{1,j}^*,\ldots,A_{n,j}^*)$
+\end_inset
+
+ for 
+\begin_inset Formula $j=1,\ldots,\beta$
+\end_inset
+
+ is drawn from re-sampling the original data with replacement.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+For each bootstrap sample replicate, we compute the plug-in estimator of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ described above, thus 
+\begin_inset Formula $\widehat{\theta}_j^*=T(F_{n,j}^*)$
+\end_inset
+
+ where 
+\begin_inset Formula $F_{n,j}^*$
+\end_inset
+
+ is the empirical distribution function of the bootstrap sample 
+\begin_inset Formula $\pmb{A}_j^*$
+\end_inset
+
+. Finally the percentile bootstrap 5% confidence interval is given by 
+\begin_inset Formula \[\left[\widehat{\theta}^*_{[(1+\beta)(0.025)]} , \widehat{\theta}^*_{[(1+\beta)(0.975)]} \right]=[88.4,279.7] \text{ where $\widehat{\theta}^*_{[j]}$ is the $j^{th}$ ordered statistic.}\]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ A<-c(48,36,20,29,42,42,20,42,22,41,45,14,6,0,33,28,34,4,32,24,47,41,24,26,30,41) theta<-function(x)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+ return((sum(x**2)/length(x)-mean(x)**2))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ # plug-in estimator of theta bootsample<-rep(XA,1000) for( i in 1:1000)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+bootsample[i]<-theta(sample(A,replace=T))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ # estimation of theta in the bootstrap world theta.hat<-theta(A) # estimation of theta in the real world L1<-sort(bootsample)[25] # lower bound for the 5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% confidence interval
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+U1<-sort(bootsample)[975] # upper bound for the 5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% confidence interval
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+hist(bootsample) points(theta.hat,0) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename HA3_3.png
+	width 40text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+Histogram of 
+\begin_inset Formula $\pmb{\widehat{\theta}^*}$
+\end_inset
+
+ for the non-parametric bootstrap.
+\series default
+ 
+\shape slanted
+The dot is 
+\begin_inset Formula $\widehat{\theta}$
+\end_inset
+
+.
+\shape default
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+c)
+\end_layout
+
+\begin_layout Standard
+
+For the parametric bootstrap, we assume 
+\begin_inset Formula $A \sim \mathcal{X}(\mu,\sigma^2)$
+\end_inset
+
+. The bootstrap sample 
+\begin_inset Formula $\pmb{A}_j^*=(A_{1,j}^*,\ldots,A_{n,j}^*)$
+\end_inset
+
+ for 
+\begin_inset Formula $j=1,\ldots,\beta$
+\end_inset
+
+ is drawn from the normal distribution 
+\begin_inset Formula $A^* \sim \mathcal{X}(\widehat{\mu},\widehat{\sigma}^2)$
+\end_inset
+
+, where 
+\begin_inset Formula $\widehat{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula $\widehat{\sigma}^2$
+\end_inset
+
+ are the classical sample mean and variance. 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+For each bootstrap sample replicate, 
+\begin_inset Formula $\widehat{\theta}_j^*=T(F_{n,j}^*)$
+\end_inset
+
+ where 
+\begin_inset Formula $F_{n,j}^*$
+\end_inset
+
+ is the empirical distribution function of the bootstrap sample 
+\begin_inset Formula $\pmb{A}_j^*$
+\end_inset
+
+. Finally the percentile bootstrap 5% confidence interval is given by 
+\begin_inset Formula \[\left[\widehat{\theta}^*_{[(1+\beta)(0.025)]} , \widehat{\theta}^*_{[(1+\beta)(0.975)]} \right]=[90.9,271.0]\text{ where $\widehat{\theta}^*_{[j]}$ is the $j^{th}$ ordered statistic.} \]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ mu=mean(A) # mean estimator sigma=sqrt((sum(A**2)-mean(A)**2*26)/25) # variance estimator bootsample=rep(XA,1000) for( i in 1:1000)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+bootsample[i]<-theta(rnorm(26,mu,sigma))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ # estimation of theta in the bootstrap world # the bootstrap sample replicate is drawn using an approximation of the real mean and variance. L2=sort(bootsample)[25] # upper bound for the 5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% confidence interval
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+U2<-sort(bootsample)[975] # upper bound for the 5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% confidence interval
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename HA3_4.png
+	width 40text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+Histogram of 
+\begin_inset Formula $\pmb{\widehat{\theta}^*}$
+\end_inset
+
+ for the parametric bootstrap
+\series default
+. 
+\shape slanted
+The dot is 
+\begin_inset Formula $\widehat{\theta}$
+\end_inset
+
+.
+\shape default
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+d)
+\end_layout
+
+\begin_layout Standard
+
+Define 
+\begin_inset Formula $Z=\dfrac{\widehat{\theta}-\theta}{\sqrt{\widehat{V}}}$
+\end_inset
+
+, where 
+\begin_inset Formula $\widehat{V}$
+\end_inset
+
+ is an estimator of 
+\begin_inset Formula $Var(\widehat{\theta})$
+\end_inset
+
+. The plug-in estimator of 
+\begin_inset Formula $\widehat{V}$
+\end_inset
+
+ is 
+\begin_inset Formula \[\widehat{V}=V(F_n)=\dfrac{n-1}{n^3} T(F_n)^2 \left((n-1) \dfrac{\sum_{i=1}^n(A_i-\overline{\pmb{A}})^4}{nT(F_n)^2}-n+3 \right) \]
+\end_inset
+
+Using the previous denotation, the bootstrap replications for 
+\begin_inset Formula $Z$
+\end_inset
+
+ are 
+\begin_inset Formula $Z^*_j=\dfrac{\widehat{\theta}^*_j-\widehat{\theta}}{\sqrt{V(F^*_{n,j})}}$
+\end_inset
+
+. Finally the studentized bootstrap 5% confidence interval is given by 
+\begin_inset Formula \[\left[ \widehat{\theta}-\sqrt{\widehat{V}}Z^*_{[(1+\beta)(0.975)]} , \widehat{\theta}-\sqrt{\widehat{V}}Z^*_{[(1+\beta)(0.025)]} \right]=[100.7,349.6] \text{ where $\widehat{Z}^*_{[j]}$ is the $j^{th}$ ordered statistic of $Z$ .}\]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ V<-function(x)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+n<-length(x) return((n-1)/n**3*T(x)**2*((n-1)/n*sum((x-mean(x))**4)/T(x)**2-n+3))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ bootsample<-rep(XA,1000) for( i in 1:1000)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+ replicate<-sample(A,replace=TRUE) bootsample[i]<-(T(replicate)-theta.hat)/sqrt(V(replicate))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ bootsample<-sort(theta.hat-sqrt(V(A))*bootsample) L3<-bootsample[25] U3<-bootsample[975] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+Exercise 4.
+\end_layout
+
+\begin_layout Subparagraph
+
+a)
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ A=c(48,36,20,29,42,42,20,42,22,41,45,14,6,0,33,28,34,4,32,24,47,41,24,26,30,41) B=c(42,33,16,39,38,36,15,33,20,43,34,22,7,15,34,29,41,13,38,25,27,41,28,14,28,40) plot(A,B,main="Spatial data set:",xlab="A", ylab="B") model=lm(A
+\begin_inset space ~
+
+\end_inset
+
+B) plot(B,A) abline(model) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename HA3_6.png
+	width 40text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+Least squares line fitted to the data
+\series default
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+b)
+\end_layout
+
+\begin_layout Standard
+
+For the non-parametric bootstrap of the least squares estimator of b, the bootstrap sample 
+\begin_inset Formula $\pmb{X}_j^*=(X_{1,j}^*,\ldots,X_{n,j}^*)=\left( (A_{1,j}^*,B_{1,j}^*),\ldots,(A_{n,j}^*,B_{n,j}^*) \right) $
+\end_inset
+
+ for 
+\begin_inset Formula $j=1,\ldots,\beta$
+\end_inset
+
+ is drawn from re-sampling the original paired data with replacement. For each bootstrap sample replicate, 
+\begin_inset Formula $\widehat{b}^*_j$
+\end_inset
+
+ is the replicate least squares estimate of b.
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ bootsample<-rep(XA,1000) for( i in 1:1000)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+ replicate<-sample(1:26, replace=TRUE) As=A[replicate] Bs=B[replicate] bootsample[i]<-coef(lm(As
+\begin_inset space ~
+
+\end_inset
+
+Bs))[2]
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename HA3_7.png
+	width 40text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+Histogram of 
+\begin_inset Formula $\pmb{\widehat{b}^*}$
+\end_inset
+
+
+\series default
+ for the non-parametric bootstrap.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+c)
+\end_layout
+
+\begin_layout Standard
+
+Finally the percentile bootstrap 5% confidence interval is given by 
+\begin_inset Formula \[\left[\widehat{b}^*_{[(1+\beta)(0.025)]} , \widehat{b}^*_{[(1+\beta)(0.975)]} \right]=[0.74,1.31]\text{ where $\widehat{b}^*_{[j]}$ is the $j^{th}$ ordered statistic.} \]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ L<-sort(bootsample)[25] # upper bound for the 5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% confidence interval
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+U<-sort(bootsample)[975] # upper bound for the 5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% confidence interval
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subparagraph
+
+d)
+\end_layout
+
+\begin_layout Standard
+
+Since we previously computed the confidence interval, the test is straightforward : we reject the null hypothesis if b is outside the confidence interval. Here we accept the null hypothesis (
+\begin_inset Formula $b=1$
+\end_inset
+
+) at level 5%.
+\end_layout
+
+\begin_layout Paragraph
+
+Exercise 5.
+\end_layout
+
+\begin_layout Subparagraph
+
+a)
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Formula $ $
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename HA3_10.png
+	width 50text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+Several fitting procedures for the data
+\series default
+. 
+\shape slanted
+By symmetry of the errors-in-variables, both the naive least squares estimate of 
+\begin_inset Formula $B=f(A)$
+\end_inset
+
+ (red) and 
+\begin_inset Formula $A=f(B)$
+\end_inset
+
+ (black) are admissible. The bisection of least square estimates is a better approximation, since it does not favour 
+\begin_inset Formula $A$
+\end_inset
+
+ nor 
+\begin_inset Formula $B$
+\end_inset
+
+. The total least square (green) is also a better estimate, assuming the variance of errors-in-variables are equal. The SIMEX procedure (cyan) is based on extrapolation. The data are centred by the means for simplicity, which does not affect the result since every estimated line pass trough the means.
+\shape default
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+b)
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ A<-c(48,36,20,29,42,42,20,42,22,41,45,14,6,0,33,28,34,4,32,24,47,41,24,26,30,41) B<-c(42,33,16,39,38,36,15,33,20,43,34,22,7,15,34,29,41,13,38,25,27,41,28,14,28,40) n<-length(A) Replicate<-30 Nlambda<-5 NORMA=array(rnorm(Replicate*Nlambda*n,0,6),c(Replicate,Nlambda,n)) #generation of errors NORMB=array(rnorm(Replicate*Nlambda*n,0,6),c(Replicate,Nlambda,n)) #generation of errors
+\end_layout
+
+\begin_layout Standard
+
+SIMEX<-function(A,B,Replicate,Nlambda,NORMA,NORMB)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+ bestimate1<-array(NA,c(Replicate,Nlambda)) #initialisation of variables bestimate2<-array(NA,c(Replicate,Nlambda)) #initialisation of variables LAMBDA<-rep(seq(Nlambda),rep(Replicate,Nlambda)) #initialisation of variables for (lambda in seq(Nlambda))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+ for ( i in seq(Replicate))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+BS<-B+sqrt(lambda)*NORMA[i,lambda,] model<-lm(A
+\begin_inset space ~
+
+\end_inset
+
+BS) bestimate1[i,lambda]<-coef(model)[2]
+\end_layout
+
+\begin_layout Standard
+
+AS<-A+sqrt(lambda)*NORMB[i,lambda,] model<-lm(B
+\begin_inset space ~
+
+\end_inset
+
+AS) bestimate2[i,lambda]<-1/(coef(model)[2]) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ model1<-lm(c(bestimate1)
+\begin_inset space ~
+
+\end_inset
+
+LAMBDA) model2<-lm(c(bestimate2)
+\begin_inset space ~
+
+\end_inset
+
+LAMBDA) c1=coef(model1) c2=coef(model2) return(((c2[1]-c1[1])/(c1[2]-c2[2]))*c2[2]+c2[1])
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+SIMEX(A,B,Replicate,Nlambda,NORMA,NORMB) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename HA3_8.png
+	width 50text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+The SIMEX procedure.
+\series default
+ 
+\shape slanted
+The dots are the estimates of b for different sample generation and different 
+\begin_inset Formula $\lambda$
+\end_inset
+
+. The green line is the extrapolate curve for b when we add noise to A add fit the least square 
+\begin_inset Formula $B=f(A)$
+\end_inset
+
+. On the other hand, the black line is the extrapolate curve for b when we add noise to B add fit the least square 
+\begin_inset Formula $A=f(B)$
+\end_inset
+
+. The intersection of these two lines gives the unbiased estimator of b. Here 
+\begin_inset Formula $\widehat{b}=0.97$
+\end_inset
+
+
+\shape default
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+c)
+\end_layout
+
+\begin_layout Standard
+
+Computing the bootstrap interval is straightforward, regarding to the previous exercise.
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ bootsample<-rep(NA,1000) for( i in 1:1000)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+ replicate<-sample(1:26, replace=TRUE) As=A[replicate] Bs=B[replicate] bootsample[i]<-SIMEX(As,Bs,Replicate,Nlambda,NORMA,NORMB)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ hist(bootsample, xlab="b*", main="Histogram of the bootstrap replicate estimation of b") L1=sort(bootsample)[25] U1=sort(bootsample)[975] 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename HA3_9.png
+	width 40text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+Histogram of 
+\begin_inset Formula $\pmb{\widehat{b}^*}$
+\end_inset
+
+ for the non-parametric SIMEX bootstrap.
+\series default
+ 
+\shape slanted
+We get the percentile bootstrap 5% confidence interval equal 
+\begin_inset Formula $[0.607,1.248]$
+\end_inset
+
+, which include 
+\begin_inset Formula $1$
+\end_inset
+
+.
+\shape default
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+Exercise 6.
+\end_layout
+
+\begin_layout Subparagraph
+
+a)
+\end_layout
+
+\begin_layout Standard
+
+Let 
+\begin_inset Formula $\pmb{X}=(X_1,X_2,X_3,X_4,X_5,X_6)$
+\end_inset
+
+ where 
+\begin_inset Formula $X_1,X_2,X_3,X_4,X_5$
+\end_inset
+
+ and 
+\begin_inset Formula $X_6$
+\end_inset
+
+ are respectively the number of elements with genotype II, SS, FF, SI, SF and IF with the relation 
+\begin_inset Formula $\sum_{i=1}^6X_i=n$
+\end_inset
+
+. 
+\begin_inset Formula \[\pmb{X} \sim M_6(X,\theta_1^2,\theta_2^2,\theta_3^2,2 \theta_1 \theta_2,2\theta_1\theta_3,2\theta_2\theta_3) \text{ where  $\theta_1+\theta_2+\theta_3=1$} \]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Formula \[ P(\pmb{X}=\pmb{x}|\theta_1,\theta_2,\theta_3)=\dfrac{n!}{x_1!x_2!x_3!x_4!x_5!x_6!}(\theta_1^2)^{x_1}(\theta_2^2)^{x_2}(\theta_3^2)^{x_3}(2 \theta_1 \theta_2)^{x_4}(2\theta_1\theta_3)^{x_5}(2\theta_2\theta_3)^{x_6}\]
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+The log likelihood function up to an additive constant is :
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Formula \[l(\pmb{x}|\theta_1,\theta_2,\theta_3)=ln(P(\pmb{X}=\pmb{x}|\theta_1,\theta_2,\theta_3))=\sum_{i=1}^3 2x_i ln(\theta_i) + x_4ln(2\theta_1 \theta_2)+x_5 ln(2\theta_1 \theta_3)+x_6 ln(2\theta_2 \theta_3)\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+The task is to find the maximum of the log-likelihood with respect to 
+\begin_inset Formula $\theta_1,\theta_2,\theta_3$
+\end_inset
+
+ under the constrain 
+\begin_inset Formula $\theta_1+\theta_2+\theta_3=1$
+\end_inset
+
+. Thus, a lagrangian formulation is more appropriate : 
+\begin_inset Formula \[\mathcal{L}(\pmb{x}|\theta_1,\theta_2,\theta_3,\lambda)=l(\pmb{x}|\theta_1,\theta_2,\theta_3)+\lambda(\theta_1+\theta_2+\theta_3-1)\]
+\end_inset
+
+The maximum likelihood estimators satisfy the equations : 
+\begin_inset Formula \[ \forall i \in \{1,2,3\}, \quad \left. \dfrac{\partial\mathcal{L}}{\partial \theta_i} \right|_{\widehat{\theta}_1 , \widehat{\theta}_2,\widehat{\theta}_3,\widehat{\lambda}} =0 \quad \text{and} \quad
+\left. \dfrac{\partial\mathcal{L}}{\partial \lambda} \right|_{\widehat{\theta}_1 , \widehat{\theta}_2,\widehat{\theta}_3,\widehat{\lambda}}=0\]
+\end_inset
+
+
+\begin_inset Formula \[\iff\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Formula \[ \forall i \in \{1,2,3\}, \quad \dfrac{x_i^{'}}{\widehat{\theta}_i}+{\widehat{\lambda}}=0 \quad \text{and} \quad 
+ \widehat{\theta}_1 + \widehat{\theta}_2 + \widehat{\theta}_3=1\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+where 
+\begin_inset Formula $x_1^{'}=2x_1+x_4+x_5, \quad x_2^{'}=2x_2+x_4+x_6, \quad x_3^{'}=2x_3+x_5+x_6$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Formula \[\iff\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Formula \[\widehat{\theta}_1(1+\dfrac{x_2^{'}}{x_1^{'}}+\dfrac{x_3^{'}}{x_1^{'}})=1,\quad \widehat{\theta}_2(1+\dfrac{x_1^{'}}{x_2^{'}}+\dfrac{x_3^{'}}{x_2^{'}})=1,
+\quad \widehat{\theta}_3(1+\dfrac{x_2^{'}}{x_3^{'}}+\dfrac{x_1^{'}}{x_3^{'}})=1 \]
+\end_inset
+
+
+\begin_inset Formula \[\iff\]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Formula \[\widehat{\theta}_1=\dfrac{2x_1+x_4+x_5}{2n},\quad \widehat{\theta}_2=\dfrac{2x_2+x_4+x_6}{2n},
+\quad \widehat{\theta}_3=\dfrac{2x_3+x_5+x_6}{2n} \]
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+b)
+\end_layout
+
+\begin_layout Standard
+
+For the model (3), Let 
+\begin_inset Formula $Y_1=X_1+X_2+X_3$
+\end_inset
+
+. Then 
+\begin_inset Formula $\pmb{Y}=(Y_1,X_4,X_5,X_6)$
+\end_inset
+
+ is also multinomially distributed. 
+\begin_inset Formula \[ P(\pmb{Y}=\pmb{y}|\theta_1,\theta_2,\theta_3)=\dfrac{n!}{y_1!x_4!x_5!x_6!}(\theta_1^2+\theta_2^2+\theta_3^2)^{y_1}(2 \theta_1 \theta_2)^{x_4}(2\theta_1\theta_3)^{x_5}(2\theta_2\theta_3)^{x_6}\]
+\end_inset
+
+The conditional distribution of 
+\begin_inset Formula $(X_1,X_2,X_3)/Y_1=y_1$
+\end_inset
+
+ is : 
+\begin_inset Formula \[ (X_1,X_2,X_3)/Y_1=y_1 \sim M_3(y_1,\dfrac{\theta_1^2}{\theta_1^2+\theta_2^2+\theta_3^2},\dfrac{\theta_2^2}{\theta_1^2+\theta_2^2+\theta_3^2},\dfrac{\theta_3^2}{\theta_1^2+\theta_2^2+\theta_3^2}) \]
+\end_inset
+
+Algorithm : 
+\begin_inset Newline newline
+\end_inset
+
+ Current state : 
+\begin_inset Formula $\theta_1^{(k)},\theta_2^{(k)},\theta_3^{(k)}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ (E) Estimate the latent variables 
+\begin_inset Formula $x_1^{(k)}$
+\end_inset
+
+, 
+\begin_inset Formula $x_2^{(k)}$
+\end_inset
+
+, 
+\begin_inset Formula $x_3^{(k)}$
+\end_inset
+
+ : 
+\begin_inset Formula \[x_1^{(k)}=E(X_1/Y_1=y_1,\theta_1^{(k)},\theta_2^{(k)},\theta_3^{(k)})=y_1\dfrac{(\theta_1^{(k)})^2}{(\theta_1^{(k)})^2+(\theta_2^{(k)})^2+(\theta_3^{(k)})^2}\]
+\end_inset
+
+
+\begin_inset Formula \[x_2^{(k)}=E(X_2/Y_1=y_1,\theta_1^{(k)},\theta_2^{(k)},\theta_3^{(k)})=y_1\dfrac{(\theta_2^{(k)})^2}{(\theta_1^{(k)})^2+(\theta_2^{(k)})^2+(\theta_3^{(k)})^2}\]
+\end_inset
+
+
+\begin_inset Formula \[x_3^{(k)}=E(X_3/Y_1=y_1,\theta_1^{(k)},\theta_2^{(k)},\theta_3^{(k)})=y_1\dfrac{(\theta_3^{(k)})^2}{(\theta_1^{(k)})^2+(\theta_2^{(k)})^2+(\theta_3^{(k)})^2}\]
+\end_inset
+
+(M) Compute the maximum likelihood estimation 
+\begin_inset Formula $\theta_1^{(k+1)},\theta_2^{(k+1)},\theta_3^{(k+1)}$
+\end_inset
+
+ in model (2) with the estimated latent variables : 
+\begin_inset Formula \[\theta_1^{(k+1)}=\dfrac{2x_1^{(k)}+x_4+x_6}{2n},
+\quad \theta_2^{(k+1)}=\dfrac{2x_2^{(k)}+x_4+x_6}{2n},
+\quad \theta_3^{(k+1)}=\dfrac{2x_3^{(k)}+x_5+x_6}{2n}\]
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ y1=164;x4=41;x5=35;x6=160;n=400 T1=0.33;T2=0.33;T3=0.34;eps=10 while (eps>0.0001)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+ S=T1**2+T2**2+T3**2 x1=y1*T1**2/S; x2=y1*T2**2/S; x3=y1*T3**2/S; NT1=(2*x1+x4+x5)/(2*n); NT2=(2*x2+x4+x6)/(2*n); NT3=(2*x3+x6+x5)/(2*n) eps=max(c(NT1-T1,NT2-T2,NT3-T3)) T1=NT1; T2=NT2; T3=NT3
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{footnotesize}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subparagraph
+
+c)
+\end_layout
+
+\begin_layout Standard
+
+We get 
+\begin_inset Formula $\widehat{\theta}_1=0.10,\quad \widehat{\theta}_2=0.48,
+\quad \widehat{\theta}_3=0.42 $
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

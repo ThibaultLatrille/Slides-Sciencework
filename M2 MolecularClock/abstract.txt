@@ -1,0 +1,4 @@
+Evolution Runs Faster on Short Timescales.
+
+Imagine a DNA sequence that is n letters. Assume that every year, there is a random mutation. After each year, you compare the current copy of the sequence with the original and count how many letters have changed. After a certain time the number of changed letters will have stopped rising. The evolutionary rate from here on is zero. How many letters of the original gene will have changed at that point? How many years will it take to get to this point? Is the curve exponential?
+

@@ -1,0 +1,53 @@
+\documentclass{report}
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+
+\author{Boyer Hélène Le Roncé Iris Latrille Thibault}
+\title{Picture matching adapted to Drosophila's eyes }
+\begin{document}
+\begin{center}
+{\LARGE \textbf{User's guide}}
+
+\end{center}
+
+Flymatch toolbox provides tools to shape the whole drosophila eye from many images that contain only a subset of the eye\\
+\\
+Because of the difficulty of extracting features from images with regular pattern it can not match raw image. Consequently this program uses features edited by the user to build match. \\
+From the user point of view, the work need to be supervised and the computer will not be the only labourer. 
+
+\begin{center}
+!!!Input image must be in .jpg format!!!
+\end{center}
+How to match two picture ?
+\\
+\\
+Open the two picture with "File->Open picture" or "File->Open folder"
+\\
+\\
+If the picture are not yet merged and you only own the Red and Green layer use "File->merge folder" and make sure their names differs by the tailing letter with respectively 'R' ('V') for Red (Green) layer.
+For example the red layer is called "pictureR.jpg" and the green one "pictureV.jpg"
+\\
+\\
+To make sure the program do not raised error check if your image could be accessed by "View->display picture"
+You can improve the quality of the merge with the commands View->Image color intensity \& Image linear transformation.
+\\
+\\
+Open successively the two image and edit them, add photoreceptor with left-click and remove the last one with right-click. The color is automatically detected but the threshold may not be adapted to your frame. To do so use the command View->Set Colour Threshold. \\
+Each ommatidia is automatically saved to your hard-drive in the current folder once it's completed with it six outer photoreceptors.\\
+Photoreceptors must de added according to the accepted numbering, that is to say your first click is the photoreceptor number 1, the second click is photoreceptor number 2, etc.
+\\
+\\
+Once it is done use the command View->Match pictures to click the corresponding ommatidia in each picture. 
+\\
+\\
+Finally use the command 3D tools->Build match to match them. If the match not fully correspond to your wishes, 
+ you can rotate one picture around the Y axis (phi angle) or X axis (theta angle) with the button "+" and "-" of the matching window.
+Save data using the corresponding button.
+\\
+\\
+You can then have a look in your match with the command 3D tools->3D Display, then your match could also be matched with an other match or picture.
+
+\end{document}

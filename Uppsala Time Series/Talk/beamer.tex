@@ -1,0 +1,206 @@
+\documentclass[10pt]{beamer}
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{verbatim}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+\usepackage{listings}
+\lstloadlanguages{Python}
+
+
+
+
+
+\author{ Thibault Latrille \and Yiming Zhang}
+\title{Time-Series : Google Books Ngram }  
+\institute{Uppsala Universitet, Mathematics department}
+\date{24 May 2012}
+ 
+ 
+\begin{document}
+\lstset{language=Python,tabsize=2}
+\frame{\titlepage} 
+
+\section{Google Books Ngram Viewer}
+
+
+\begin{frame}
+\frametitle{Introduction to N-gram}
+	\begin{center}
+       \includegraphics[width=11cm]{ngram.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Google Books Ngram Viewer}
+	\begin{center}
+       \includegraphics[width=9cm]{homepage.png}
+	\end{center}
+
+\begin{itemize}
+\item 500 billion words from 5.2 million books published between 1500 and 2008  
+\item English (British \& American), Chinese, Hebrew, French, Spanish, German, Russian, Italian
+\item Database easy to update and query
+\item Search engine features advanced tools such as \emph{+, -, /, =>, START, END, ADJ, VERB}, etc
+\item Raw data available for free !
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Literature and moods}
+	\begin{center}
+       \includegraphics[width=10cm]{fetchObject1.pdf}
+	\end{center}
+\end{frame}
+
+\section{Make your own dataset}
+
+\begin{frame}
+\frametitle{What to choose ?}
+	\begin{center}
+       \includegraphics[width=11cm]{english.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{A sexy word}
+	\begin{center}
+       \includegraphics[width=10cm]{lingerie.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Formatting the data}
+\begin{footnotesize}
+\begin{lstlisting}
+for name in ["ita","eng_us","eng_gb","fre"]:
+    L=[]
+    with open(name+".txt", 'r') as f:
+        for line in f:
+            L.append(line)
+    date=[0]*2010
+    for i in L:
+        j=i.split("\t")
+        date[int(j[1])]+=float(j[2])
+    T=[]
+    with open(name+"_total.txt", 'r') as f:
+        for line in f:
+            T=line.split("\t")
+    for i in T:
+        j=i.split(",")
+        date[int(j[0])]=date[int(j[0])]/int(j[1])
+    date=date[1800:]
+    output=[]
+    for i in date:
+        output.append(str(i)+"\n")
+    with open("R"+name+".txt", 'w') as w:
+        w.writelines(output)
+\end{lstlisting}
+\end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Frequency of "Lingerie" between 1800 and 2009}
+	\begin{center}
+       \includegraphics[width=11cm]{plot.png}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Auto-Correlation Function}
+	\begin{center}
+       \includegraphics[width=11cm]{covariance.png}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Cross-spectrum}
+	\begin{center}
+       \includegraphics[width=11cm]{spectrum.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Schwartz Bayesian Criterion for the AR(p) model}
+	\begin{center}
+       \includegraphics[width=11cm]{SBC.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Estimates of the AR(2)}
+Let $X_t$ be the vector of the frequency at time $t$ of "lingerie" in American-English, British-English, French and Italian respectively. Furthermore, let $e_t \sim WN(0,\Sigma)$. \\
+We fit the model AR(2) model to our data such that the estimates are
+
+
+\begin{tiny}
+\begin{align*}
+\pmb{X_t}=
+\begin{pmatrix}
+6.27e^{-9} \\
+-3.50e^{-9} \\
+ 7.44e^{-8} \\
+ 4.55e^{-8}
+\end{pmatrix}
++
+\begin{pmatrix}
+ 0.44 & 0.27 & -0.00 & -0.06  \\
+ 0.06 & 0.30 & -0.01 & 0.05  \\
+ 0.03 & 0.18 & 0.53 & -0.15 \\
+ -0.09 & 0.01 & 0.03 & 0.40
+\end{pmatrix}
+\pmb{X_{t-1}}+
+\begin{pmatrix}
+0.33 & 0.10 & 0.02  & -0.01 \\
+ 0.16 &  0.30 & 0.00 & 0.02 \\
+ -0.35 & 0.40 & 0.41 & 0.08 \\
+ 0.04 & 0.05 & -0.04 & 0.30 \\ 
+\end{pmatrix}
+\pmb{X_{t-2}}
++
+\pmb{e_{t}}
+\end{align*}
+\end{tiny}
+
+\begin{tiny}
+\begin{align*}
+\pmb{\Sigma}=
+\begin{pmatrix}
+6.80e^{-15} & 4.41e^{-16} & 2.73e^{-15} & -4.88e^{-16} \\
+ 4.41e^{-16} & 2.27e^{-15} & -2.32e^{-15} & -1.53e^{-16} \\
+ 2.73e^{-15} & -2.32e^{-15} & 6.62e^{-14} & -7.96e^{-16} \\
+ -4.88e^{-16} & -1.53e^{-16} & -7.96e^{-16} & 9.28e^{-15}
+\end{pmatrix}
+\end{align*}
+\end{tiny}
+\end{frame}
+
+\begin{frame}
+\frametitle{Auto-Correlation Function for the residuals}
+	\begin{center}
+       \includegraphics[width=11cm]{covarianceres.png}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Tree of European language}
+	\begin{center}
+       \includegraphics[width=9cm]{tree.png}
+	\end{center}
+\end{frame}
+
+
+\end{document}
+
+

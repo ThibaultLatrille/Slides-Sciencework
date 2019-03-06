@@ -1,0 +1,217 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+
+\author{Latrille Thibault\\
+\small thibault.latrille@ens-lyon.fr\\[-0.8ex]
+\small Uppsala Universitet\\}
+\title{Regression and analysis of variance \\ Home assignment 3}  
+\newtheorem*{theo}{Theorem} 
+\begin{document}
+\maketitle
+\paragraph{Exercise 1.}
+
+
+This model is a balanced incomplete block design. The cars are blocks and the types of gasoline additives are treatments.
+The observed values are mileage performance characteristics.\\
+$H_0$ : The additive does not have an effect on mileage performance characteristics.
+\begin{verbatim}
+Analysis of Variance Table
+
+Response: values
+          Df Sum Sq Mean Sq F value   Pr(>F)   
+car        4  30.20  7.5500  7.3172 0.003973 **
+add        4  31.40  7.8500  7.6079 0.003426 **
+Residuals 11  11.35  1.0318                      
+\end{verbatim}
+We can reject the null hypothesis at the level test of significance $\alpha=0.05$. We conclude the additive does have an effect on the mileage performance characteristics. Furthermore cars represent an important source of variability.\\
+We use the Shapiro-wilk test with the residuals to test the normality assumption.
+\begin{verbatim}
+        Shapiro-Wilk normality test
+
+data:  residuals(model) 
+W = 0.9697, p-value = 0.7491
+\end{verbatim}
+We can not reject the normality hypothesis. \\
+We also may wonder which treatment significantly differs from the others, thus we compute Tukey's HSD.
+\begin{footnotesize}
+	\begin{verbatim}
+ Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = values ~ car + add, data = frame)
+
+$add
+       diff       lwr        upr     p adj
+2-1 -1.7500 -4.072894  0.5728941 0.1762447
+3-1 -2.1250 -4.447894  0.1978941 0.0781159
+4-1 -2.8125 -5.135394 -0.4896059 0.0164044
+5-1 -3.6250 -5.947894 -1.3021059 0.0027400
+3-2 -0.3750 -2.697894  1.9478941 0.9831983
+4-2 -1.0625 -3.385394  1.2603941 0.5946138
+5-2 -1.8750 -4.197894  0.4478941 0.1352740
+4-3 -0.6875 -3.010394  1.6353941 0.8684088
+5-3 -1.5000 -3.822894  0.8228941 0.2901346
+5-4 -0.8125 -3.135394  1.5103941 0.7875578
+\end{verbatim}
+\end{footnotesize}
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.6\textwidth]{3_1_tukey.png}
+  	\caption{\textbf{Tukey 95\% Simultaneous Confidence Intervals.} \textsl{The additive 1 significantly differs from additive 4 \& 5 at the level test of significance $\alpha=0.05$. Moreover, the first additive is the best one.}
+  	}
+	\end{figure} 
+
+
+\paragraph{Exercise 2.}
+\subparagraph{a)}
+The model for the the data is $$
+y_{ijk}=\mu +\tau_i+\beta_j+ (\beta\tau)_{ij} +\epsilon_{ijk} \left \{
+    \begin{array}{ll}
+        i=1,2,3 \\
+		j=1,2,3 \\
+		k=1,2
+    \end{array}
+\right.
+$$
+where $y_{ijk}$ is the $ijk^{th}$ observed yield of the chemical process, $\mu$ is the overall mean, $\tau_i$ is the effect of the $i^{th}$ temperature, $\beta_j$ is the effect of the $j^{th}$ pressure, and $\epsilon_{ijk}$ is a random error that incorporate all sources of variability.\\
+
+This model is two-way ANOVA. \\
+$H_0$ for temperature : $ \tau_1 = \tau_2 = \tau_3 =0$\\
+$H_1$ for pressure : $ \beta_1 = \beta_2=\beta_3=0$\\
+$H_2$ for interactions : $(\tau\beta)_{ij}=0$ for all $i,j$
+\begin{verbatim}
+Analysis of Variance Table
+
+Response: values
+                     Df  Sum Sq Mean Sq F value    Pr(>F)    
+Pressure              2 0.76778 0.38389 21.5937 0.0003673 ***
+Temperature           2 0.30111 0.15056  8.4688 0.0085392 ** 
+Pressure:Temperature  4 0.06889 0.01722  0.9688 0.4700058    
+Residuals             9 0.16000 0.01778                      
+\end{verbatim}
+We reject $H_0$ and $H_1$ for both pressure and temperature at the level test of significance $\alpha=0.05$. The interaction is not significant. \\
+\subparagraph{b)}
+
+We use the Shapiro-wilk's test with the residuals to test the normality assumption, and the Levene's test for homoscedasticity.
+\begin{verbatim}
+        Shapiro-Wilk normality test
+
+data:  residuals(model) 
+W = 0.8737, p-value = 0.02046
+\end{verbatim}
+\begin{verbatim}
+Levene's Test for Homogeneity of Variance (center = median)
+      Df    F value    Pr(>F)    
+group  8 3.2942e+25 < 2.2e-16 ***
+       9                         
+\end{verbatim}
+We reject both the normality and homoscedasticity hypothesis at the level test of significance $\alpha=0.05$, it result the previous ANOVA test is irrelevant.
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.6\textwidth]{3_2_plot.png}
+  	\caption{\textbf{A) Plotted residuals from first replicate (red) and second replicate (blue). B) Residuals against $\pmb{\widehat{y}_{ij}}$.} \textsl{We can detect pattern in the figures, moreover the normality and homoscedasticity assumption are rejected by statistical tests.}}
+	\end{figure}
+It follow we have to use the Kruskal-Wallis non-parametric test with our data.
+\begin{verbatim}
+        Kruskal-Wallis rank sum test
+
+data:  values by Pressure by Temperature 
+Kruskal-Wallis chi-squared = 10.4007, df = 2, p-value = 0.005515
+\end{verbatim}
+The non-parametric test is conclusive, we can not accept $H_0$ neither $H_1$ .
+\subparagraph{c)}
+
+The interaction is not significant, thus we can compute Tukey's HSD.
+\begin{verbatim}
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = values ~ Pressure + Temperature + Pressure * Temperature)
+
+$Temperature
+              diff         lwr        upr     p adj
+160-150 -0.1666667 -0.38159536 0.04826203 0.1313152
+170-150  0.1500000 -0.06492869 0.36492869 0.1809078
+170-160  0.3166667  0.10173797 0.53159536 0.0066518
+
+$Pressure
+              diff        lwr         upr     p adj
+215-200  0.3166667  0.1017380  0.53159536 0.0066518
+230-200 -0.1833333 -0.3982620  0.03159536 0.0944905
+230-215 -0.5000000 -0.7149287 -0.28507131 0.0002951
+\end{verbatim}
+However this test is not relevant because the assumption of normality and homoscedasticity is not fulfilled. 
+\subparagraph{d)}
+An interaction plot is more informative.
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.6\textwidth]{3_2_inter.png}
+  	\caption{\textbf{Plotted yield against temperature level for the three pressure.} \textsl{A significant interaction is indicated by a lack of parallelism in the lines, which is not the case here. The higher yield of the chemical process is obtain for $P=215psig$ and $T=170^0C$}}
+	\end{figure}
+\newpage
+\paragraph{Exercise 3.}
+\subparagraph{a)}
+\begin{align*}
+ SS_{Treat} &= \dfrac{1}{b} \sum_{i=1}^a \left( \sum_{j=1}^b y_{ij} \right) ^2- \dfrac{1}{N}\left( \sum_{i=1}^a \sum_{j=1}^b y_{ij} \right)^2 \\ 
+ &= \dfrac{1}{b} \sum_{i=1}^a \left( \sum_{j=1}^b \mu + \tau_i + \beta_j + \epsilon_{ij} \right) ^2-\dfrac{1}{N}\left( \sum_{i=1}^a \sum_{j=1}^b \mu + \tau_i +\beta_j + \epsilon_{ij} \right)^2 \\
+ &= \dfrac{1}{b} \sum_{i=1}^a \left( b\mu + b\tau_i + \cancel{\sum_{j=1}^b\beta_j} + \sum_{j=1}^b \epsilon_{ij} \right) ^2- \dfrac{1}{N}\left(N\mu + a\cancel{\sum_{j=1}^b\beta_j} +b\cancel{\sum_{i=1}^a\tau_i} + \sum_{i=1}^a \sum_{j=1}^b\epsilon_{ij} \right)^2\\
+ E(SS_{Treat}) &= \dfrac{1}{b} \sum_{i=1}^a \left( b^2\mu^2 + b^2\tau_i^2 + \cancel{2 \mu b^2\tau_i} + E(\sum_{j=1}^b \epsilon_{ij})^2 \right)- \dfrac{1}{N}\left(N^2\mu^2 + E(\sum_{i=1}^a \sum_{j=1}^b\epsilon_{ij})^2 \right), \\
+ & \qquad \text{Since $E(\epsilon_{ij})=0$ for all $(i,j)$ and thus all cross-product involving $\epsilon_{ij}$ equal 0}. \\
+&= N\mu^2+ b\sum_{i=1}^a\tau_i^2 + a \sigma^2 - N\mu^2- \sigma^2=b\sum_{i=1}^a\tau_i^2 +(a-1)\sigma^2, \\
+& \qquad \text{since $E(\epsilon_{ij}\epsilon_{kl})=0$ if $(i,j)$ $\neq$  (k,l)} \\
+E(MS_{Treat}) &= \dfrac{E(SS_{Treat})}{a-1} \\
+ &= \sigma^2+ \dfrac{b}{a-1}\sum_{i=1}^a\tau_i^2
+\end{align*}
+\subparagraph{b}
+
+
+$H_0$ : $\dfrac{\sum_{i=1}^a\tau_i^2}{\sigma^2}=\theta$\\
+
+
+We first know that $E(SS_E)=\sigma^2$ and we get from Cochran's theorem that $\dfrac{SS_E}{\sigma^2}$ and 
+$\dfrac{SS_{Treat}}{E(SS_{Treat})}$ 
+are independent and are chi-squared distributed with respectively (a-1)(b-1) and a-1 degrees of freedom. \\
+
+
+It follow $\dfrac{SS_E/\sigma^2}{SS_{Treat}/(\sigma^2(1+ \dfrac{\theta b}{a-1}))}=\dfrac{SS_E(1+ \dfrac{\theta b}{a-1})}{SS_{Treat}} \sim F(\mbox{\scriptsize(a-1)(b-1),a-1})$, \\
+Thus we can construct the confidence interval for $\theta$ with confidence level $1-\alpha$.
+\begin{center}
+
+$$F_{\alpha/2}(\mbox{\scriptsize(a-1)(b-1),a-1}) < \dfrac{SS_E(1+ \dfrac{\theta b}{a-1})}{SS_{Treat}} <F_{1-\alpha/2}(\mbox{\scriptsize(a-1)(b-1),a-1}) $$
+
+
+$$\iff \dfrac{a-1}{b}\left( \dfrac{SS_{Treat}}{SS_{E}*F_{1-\alpha/2}(\mbox{\scriptsize a-1,(a-1)(b-1)})}-1\right)  
+<\theta <
+\dfrac{a-1}{b}\left( \dfrac{SS_{Treat}*F_{1-\alpha/2}(\mbox{\scriptsize(a-1)(b-1),a-1})}{SS_{E}}-1\right) $$
+\end{center}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

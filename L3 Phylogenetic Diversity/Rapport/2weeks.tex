@@ -1,0 +1,189 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{float}
+
+\usepackage[a4paper]{geometry}
+
+\author{Latrille Thibault}
+\title{Sub-sampling of an ecological community and issues. The impact that unobserved species can have on the range of estimators consistent with the data when we estimate the phylogenetic diversity.}  
+
+\sloppy 
+
+\begin{document}
+
+\maketitle 
+
+\begin{abstract}
+
+Sampling a whole ecological community can be an harsh labor, whenever this task is not simply impossible, for example it is impossible to sample the whole sea or soil bacteria communities. 
+Our work focuses on the effects that the bias introduced by sub-sampling the community can have on estimating the phylogenetic diversity (PD) measures.
+More precisely, we seek to derive the upper and lower estimates consistent with the data, these lower and upper estimates are obtained by making assumption on the distribution of unobserved species where the overall frequency of unobserved species is estimated by a Good-Turing estimator \cite{Good1953}. 
+We do not seek to find the distribution of the estimates but we construct a range a liable estimates, where the flexibility comes from the assumption made on the distribution of missing species in the sample.
+We test this effect on the family of parametric phylogenetics diversity measures developed by Chao \& Al \cite{Chao2010}, based on Hill numbers.
+These measures generalize PD by Faith, the Rao's $Q$ and the phylogenetic entropy $H_p$.
+We adapted the framework of Haegeman \& Al \cite{Haegeman2013}, based also on Good-estimators to take into account the dimension of the phylogeny.
+
+\end{abstract}
+
+%\tableofcontents             
+\newpage
+
+\section{Introduction}               
+
+
+\section{Phylogenetic diversity measures.} 
+
+We use the parametric measures based on hill numbers developeed by Chao \& Al. \cite{Chao2010}. 
+For an ultrametric tree (tree which that can be rooted so that all paths from the root to a leaf have the same length) the phylogenetic diversity $ ^q \bar{D} (T)$ of order $q$ from time $0$ to $T$ is given by :
+
+
+
+\begin{align}
+ ^q \bar{D} (T) 
+ =\left( \sum_{i \in \mathcal{B}_T} \dfrac{L_i}{T} a_i^q  \right)^{1/(1-q)}
+ = \dfrac{1}{T}\left( \sum_{i \in \mathcal{B}_T} L_i \left( \dfrac{a_i}{T} \right)^q  \right)^{1/(1-q)}
+ \end{align}
+
+ where $\mathcal{B}_T$ $L_i$ denote the set of all branches in this time interval, is the length of the branch $i$ in the set $\mathcal{B}_T$ and $a_i$ is the total abundance descended from branch $i$. Moreover  q corresponds to the order in the Tsallis (1988) generalized entropy. \\
+ 
+ There is also an equivalent way to derive $ ^q \bar{D} (T)$, which will be proved more convenient later to derive the upper and lower estimates (section 3).
+ For a fixed $T$, the nodes divides the phylogenetic tree in $k$ slices (see figure 1) of length $T_1,T_2,\ldots T_k$ such that $T_1+T_2+\ldots +T_k=T$, the first slice is the one containing the nodes. 
+ The slice $j$ ($1 \leq j \leq k$) contains $S_j$ branches. And in this slice $j$, the branch i ($1 \leq i \leq S_j$) has a weight $p_{j,i}$ such that $p_{j,i}$ is the total abundance descended from this branch. We thus have the relation $p_{j,1}+\ldots+p_{j,S_j}=1$ for every j. It is worth noticing that $S_j$ is decreasing w.r.t. $j$. 
+  \begin{align} \label{ultraPD}
+ ^q \bar{D} (T) 
+ =\left( \sum_{j=1}^k \dfrac{T_j}{T}\sum_{i=1}^{S_j} (p_{j,i})^q \right)^{1/(1-q)}
+ =\left( \sum_{j=1}^k \dfrac{T_j}{T} {^q D_j}^{1-q} \right)^{1/(1-q)}
+ \end{align}
+
+Where $^qD_j$ is the Hill diversity of slice $j$ as defined in \cite{Haegeman2013} and equal $\left( \sum_{i=1}^{S_j} (p_{j,i})^q \right)^{1/(1-q)}$.\\
+
+One can show that  $^0 \bar{D} (T)=PD/T$ where $PD$ is the phylogenetic diversity by Faith, $^1 \bar{D} (T)=exp(H_p/T)$ where $H_p$ is the phylogenetic entropy and $^2 \bar{D} (T)=T/(T-Q)$ where $Q$ is the Rao quadratic entropy. 
+Thus $^q \bar{D} (T)$ is a generalization of common PD measures and moreover $^q \bar{D} (T)$ fulfill the replication principle, which state that if we have N equally large, equally diverse groups with no species in common, the diversity of the pooled groups must be N times the diversity of a single group. 
+The requirement is not satisfies by $Q$ and $H_p$ and is of primary importance since index that lack this essential property can be very misleading when judging human impacts, and are logically self-contradictory when used to assess conservation plans. 
+
+ \begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.9\textwidth]{Ultrametric.png}
+  	\caption{A hypothetical ultrametric rooted phylogenetic tree with five species. 
+  	For this fixed $T$, the nodes divides the phylogenetic tree in four slices,
+  	 named 1, 2, 3 and 4 with duration $T_1$, $T_2$, $T_3$ et $T_4$ respectively.
+ 	For each slice, we compute $\sum_{i=1}^{S_j} (p_{j,i})^q$ where $p_{j,i}$ is the total abundance descended from branch $i$ of slice $j$ and $S_j$ the number of branches in slice$j$. As an example, for j=3, $\sum_{i=1}^{S_3} (p_{3,i})^q=(p_1+p_2)^q+(p_3+p_4)^q+p_5^q$. We  then take a weighted average over the total distance (weighted by relative distance) as in equation \eqref{ultraPD} and elevate it up to $1/(1-q)$ to obtain $^q \bar{D} (T)$. 	
+  	}
+	\end{figure}
+	
+	
+\section{Ultrametric trees} 
+
+We follow Mao (2007) to establish the formula linking the $^q D_j$ to the rarefaction curve $S_m(j)$, defined as the expected number of species in a sample of m individuals taken from the community of the slice j. 
+
+\begin{align} \label{HillD}
+ ^q D_j=\left( \sum_{i=1}^{S_j} (p_{j,i})^q \right)^{1/(1-q)}=\left( \sum_{m=1}^{\infty} \dfrac{q \Gamma (m-q)}{m!\Gamma (1-q)} S_m(j) \right)^{1/(1-q)}
+ \end{align}
+
+We can find the lower Good-Turing estimates of $S_m$ for a sample of size $M$ by the formula :
+
+\begin{align}
+ \widehat{S}^-_m(j)=\left\{ 
+\begin{array}{ll}
+      \sum_{k \geq 1} F_k(j)\left( 1- \dfrac{\binom{M-k}{m}}{n}\right) & \text{ if } 1\leq m \leq M \\
+	  S_j +\dfrac{F_1^2(j)}{2 F_2(j)} \left( 1- \left(1-\dfrac{2 F_2(j)}{M F_1(j)} \right)^{m-M}\right)	& \text{ if } m > M \\ 
+    \end{array} 
+ \right.
+ \end{align} 
+Where $F_k(j)$ is the the number of species with abundance $k$ in the slice $j$. 
+Then by substituting this result  in  \eqref{HillD}, together with \eqref{ultraPD}, to get the lower estimates 
+\begin{align} \label{D+}
+ ^q \widehat{\bar{D}}(T) =\left( \sum_{j=1}^k \dfrac{T_j}{T} \sum_{m=1}^{\infty} \dfrac{q \Gamma (m-q)}{m!\Gamma (1-q)} \widehat{S}_m^-(j) \right)^{1/(1-q)}
+ \end{align}
+
+And the upper Good-Turing estimates of $S_m$ for a sample of size $M$ are :
+
+\begin{align}
+ \widehat{S}^-_m(j)=\left\{ 
+\begin{array}{ll}
+      \sum_{k \geq 1} F_k(j)\left( 1- \dfrac{\binom{M-k}{m}}{n}\right) & \text{ if } 1\leq m \leq M \\
+	  S_j +\dfrac{F_1^2(j)}{2 F_2(j)} \left( 1- \left(1-\dfrac{2 F_2(j)}{M F_1(j)} \right)^{m-M}\right)	& \text{ if } m > M \\ 
+    \end{array} 
+ \right.
+ \end{align} 
+
+Once again, by substituting this result in \eqref{HillD}, together with \eqref{ultraPD}, to get the upper estimates 
+\begin{align} \label{D-}
+ ^q \widehat{\bar{D}} (T)^- =\left( \sum_{j=1}^k \dfrac{T_j}{T} \sum_{m=1}^{\infty} \dfrac{q \Gamma (m-q)}{m!\Gamma (1-q)} \widehat{S}_m^-(j) \right)^{1/(1-q)}
+ \end{align}
+ 
+Main idea of the procedure :
+From our sample of size $M$, we construct the phylogenetic tree by considering every specie of the sample. We then weight the leaves of the tree by the relative abundance of the specie in the sample. 
+Starting from the leaves, we thus have an assemblage of abundances. From this assemblage we seek to derive the Good-Turing estimators of the number of species we will get in a sample of different size ($\widehat{S}_m(1)$). The main idea of the Good-Turing estimators is that we estimate the overall proportion of unobserved species using the abundance of rare species in the sample of size $M$.
+We have thus can have an estimation of overall proportion of unobserved species, but the value of $\widehat{S}_m(1)$ depends on the assumptions made on the distribution of unobserved species, this leads to two extreme scenarios : the upper and lower estimates. 
+
+Once we have the upper and lower estimates $\widehat{S}_m(1)^+$ and $\widehat{S}_m(1)^-$ of the leaves, we climb up the tree to the first node occurring at time $t=-T_1$, and then we gather the two species of this node, which leads to a new assemblage of distribution. Once again from this assemblage we find the upper and lower estimates $\widehat{S}_m(2)^+$ and $\widehat{S}_m(2)^-$
+We iterate this procedure for every slice until we reach $T$, by gathering species at every node, this lead to different Good-Turing estimates for every slice. We then compute the estimates $^q \widehat{\bar{D}} (T)^-$ and $^q \widehat{\bar{D}} (T)^+$ using formulas \eqref{D-} and \eqref{D+}. 
+With this procedure, it is intuitive that the phylogeny and abundance are both taken into account to estimate the missing branches that do not appear in the sample of size $M$.
+
+\section{Distance trees, \textbf{yet unresolved}.}  
+
+So far we found two different ways that might be able tackle this issue :
+
+1) Use the same reasoning and adapt it to slice where $\sum p_i < 1$. In this case, we produce unobserved species using the distribution 
+of species 
+
+2) Use the Good-Turing estimators for $a_i$ instead of $p_i$ with the condition $\sum a_1 \geq 1$. We thus produce unobserved branches based on "rare" branches. For the length of these branches, we use the average of "rare" species branch length.
+
+We set apart the slice methodology in this case.
+\section{Appendix} 
+
+1) We seek to bypass the use of $\widehat{S}_m(j)^{\pm}$ and compute directly $^q \widehat{D}_j^{\pm}$
+\begin{align}
+^q \widehat{D}_j^- & =\left( \sum_{i=1}^{S_j} (p_{j,i})^q +\dfrac{F_1^2}{2 F_2} \left(\dfrac{2 F_2}{M F_1}\right)^q \right)^{1/(1-q)} \\
+^q \widehat{D}_j^+ & =\left( \sum_{i=1}^{S_j} (p_{j,i})^q +\dfrac{N F_1}{M} \left(\dfrac{1}{N}\right)^q \right)^{1/(1-q)}
+\end{align}
+
+or if want to normalize such that $\sum_{i=1}^{S_j}p_{j,i}=1$ we have :
+
+\begin{align}
+^q \widehat{D}_j^- & =\left( \sum_{i=1}^{S_j} \left(p_{j,i}\left(1-\dfrac{F_1}{M}\right)\right)^q +\dfrac{F_1^2}{2 F_2} \left(\dfrac{2 F_2}{M F_1}\right)^q \right)^{1/(1-q)} \\
+^q \widehat{D}_j^+ & =\left( \sum_{i=1}^{S_j} \left(p_{j,i}\left(1-\dfrac{F_1}{M}\right)\right)^q +\dfrac{N F_1}{M} \left(\dfrac{1}{N}\right)^q \right)^{1/(1-q)}
+\end{align}
+ but the real Good-Turing estimators are :
+\begin{align}
+^q \widehat{D}_j^- & =\left( \sum_{i=1}^{S_j}  \left( \dfrac{(i+1) F_{i+1}}{M}\right)^q +\dfrac{F_1^2}{2 F_2} \left(\dfrac{2 F_2}{M F_1}\right)^q \right)^{1/(1-q)} \\
+^q \widehat{D}_j^+ & =\left( \sum_{i=1}^{S_j} \left( \dfrac{(i+1) F_{i+1}}{M}\right)^q +\dfrac{N F_1}{M} \left(\dfrac{1}{N}\right)^q \right)^{1/(1-q)}
+\end{align}
+
+2) The effect of definition of species, what happens when we use a different \% id.
+
+
+\bibliographystyle{plain}
+\bibliography{LBE}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

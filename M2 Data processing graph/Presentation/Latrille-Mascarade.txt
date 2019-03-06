@@ -1,0 +1,23 @@
+<ASCII-WIN>
+<Version:11><FeatureSet:InDesign-Roman><ColorTable:=<Black:COLOR:RGB:Process:0,0,0>>
+<DefineCharStyle:Title=<Nextstyle:Title><cTypeface:10 Bold><cSize:72.000000><cCase:Normal><cFont:Latin Modern Sans>>
+<DefineParaStyle:Page number=<Nextstyle:Page number><cTypeface:8 Regular><cFont:Latin Modern Roman><cOTFContAlt:0>>
+<ParaStyle:Page number><CharStyle:Title><cSize:80.000000><cLeading:60.000000>Conclusion: <cSize:><cLeading:><cSize:60.000000><cLeading:60.000000>
+<cSize:><cLeading:><CharStyle:><ParaStyle:Page number><cSize:54.000000><cFont:Latin Modern Sans>
+<cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans><0x2022> A graph CNN is achievable via spectral formulation.
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><cSize:48.000000><cFont:Latin Modern Sans>
+<cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans><0x2022> Spectral filters are stricly localized. 
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans>
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans><0x2022> Learning complexity of the filter is linear w.r.t. number of edges
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans>of the graph and support size of the kernel.
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans>
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans><0x2022> Efficient pooling strategy on graph.
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans>
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans><0x2022> Perform similarly as CNN on lattices.<cTypeface:><cSize:><cFont:><cTypeface:10 Bold><cSize:54.000000><cFont:Latin Modern Sans>
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:54.000000><cFont:Latin Modern Sans>
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><CharStyle:Title><cSize:80.000000><cLeading:60.000000>Critics: <cSize:><cLeading:><cSize:60.000000><cLeading:60.000000>
+<cSize:><cLeading:><CharStyle:><ParaStyle:Page number><cSize:54.000000><cFont:Latin Modern Sans>
+<cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans><0x2022> Dataset used on graph is not meaningful, urge to design a standard dataset for signal laying on graph.
+<cTypeface:><cSize:><cFont:><ParaStyle:Page number><cSize:48.000000><cFont:Latin Modern Sans>
+<cSize:><cFont:><ParaStyle:Page number><cTypeface:10 Bold><cSize:48.000000><cFont:Latin Modern Sans><0x2022> Paper is not self-sufficient. <cTypeface:><cSize:><cFont:><cTypeface:10 Bold><cSize:54.000000><cFont:Latin Modern Sans>
+<cTypeface:><cSize:><cFont:>

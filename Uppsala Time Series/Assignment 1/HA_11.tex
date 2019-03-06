@@ -1,0 +1,110 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+
+\author{Thibault Latrille \and Yiming Zhang}
+\title{Time series
+ \\ Home assignment 1}  
+
+
+\begin{document}
+\maketitle
+
+\paragraph{Exercise 1.}
+\
+\subparagraph{a)}
+Our time series is from \textbf{Wolfram|Alpha\textsuperscript{TM}} (www.wolframalpha.com), an online computational knowledge engine developed by Wolfram Research and based on \textbf{mathematica\textsuperscript{TM}}. The engine is capable of responding to factual queries directly by computing the answer from structured data, rather than providing a list of documents or web pages that might contain the answer as a search engine might.\\
+
+ The "answer engine" query on a structured database stored on the Wolfram|Alpha servers but can also gather data from other website as well such as wikipedia, CIA's World Factbook, United States Geological Survey, Facebook, etc. 
+\\
+
+The query we submitted to the engine was "Evolution of the name anthony". Among many information, the engine returned a time series from 1880 to 2011 of the yearly number of babies named Anthony born in United State each year, normalized by the total number of babies born this year. 
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=1\textwidth]{anthony.png}
+  	\caption{\textbf{Snapshot of the time series inside mathematica.} }
+\end{figure}
+
+The data have been exported by \textbf{mathematica\textsuperscript{TM}} and then formatted by a \textbf{Python} script in order to be imported in \textbf{R} with the function \textit{read.table()}. Our analysis can be easily adapted to suit the same investigation with other names, as well as using the number of birth instead of the fraction. The engine can gather and format a vast array of data, and thus \textbf{Wolfram|Alpha\textsuperscript{TM}} represent a tool of partiality for time series.
+\subparagraph{b)}
+\
+
+
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=0.60\textwidth]{anthony_0.png}
+  	\caption{\textbf{Time series plot of the data imported in R along with the trend estimation (red).} }
+\end{figure}
+
+Since there is no simple functions (linear, polynomial, exponential, etc) that seems to fit the trend, we rather prefer to use a moving average (Spencer filter) to estimate the trend.
+\begin{footnotesize}
+\begin{verbatim}
+###### R-code #########
+## Imporation and plot of the data
+anthony=ts(read.table('C:/Users/Thibault/Desktop/Time Series/anthony.txt'))
+year<-seq(1880,2011,1)
+plot(year,anthony,col=1,lwd=2)
+##################
+## Moving average with a Spencer filter and plot of the trend
+f<-c(-3,-6,-5,3,21,46,67,74,67,46,21,3,-5,-6,-3)/320
+trend<-filter(anthony,f)
+lines(year,trend,col=2,lwd=2)
+\end{verbatim} 
+\end{footnotesize}
+\subparagraph{c)}
+\
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=0.60\textwidth]{anthony_1.png}
+  	\caption{\textbf{Time series plot of the residuals.} The detrended time series is obtained by subtracting the trend to the original data. }
+\end{figure}
+\begin{footnotesize}
+\begin{verbatim}
+###### R-code #########
+## Compute detrended time series and plot
+res=ts(anthony[8:(n-7)]-trend[8:(n-7)])
+plot(res)
+\end{verbatim} 
+\end{footnotesize}
+
+\subparagraph{d)}
+\
+\begin{figure}[H]
+	\centering
+  	\includegraphics[width=0.55\textwidth]{anthony_2.png}
+  	\caption{\textbf{Empirical auto-correlation function of the detrended time series.} Our empirical auto-correlation function does not seem to fit the acf of an auto-regressive process (exponential decay of the acf) neither a moving average process (peak for n=0 and n=1 only). Moreover, the empirical acf is close to $0$ for $n \geq 1$, thus we can interpret it as a white noise. The trend contains sufficient information about the raw data, the residuals is interpreted as a white noise and does not contain information. }
+\end{figure}
+\begin{footnotesize}
+\begin{verbatim}
+###### R-code #########
+## empirical auto-correlation function of the residuals
+acf(res)
+\end{verbatim} 
+\end{footnotesize}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

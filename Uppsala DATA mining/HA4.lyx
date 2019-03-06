@@ -1,0 +1,446 @@
+#LyX file created by tex2lyx 2.0.5
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+%\usepackage[french]{babel}
+\usepackage{amsthm}\usepackage{listings}\usepackage{stmaryrd}\usepackage{enumerate}\usepackage{dsfont}\usepackage{cancel}\usepackage{amsfonts}\usepackage{fullpage}
+
+
+\author{\and Susanne Bornelöv \and Thibault Latrille \and Yiming Zhang}
+
+\end_preamble
+\use_default_options false
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding T1
+\font_roman lmodern
+\font_sans default
+\font_typewriter lmodern
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\paperfontsize default
+\spacing single
+\use_hyperref 0
+\papersize default
+\use_geometry false
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Paragraph
+
+Exercise 1.
+\end_layout
+
+\begin_layout Subparagraph
+
+a)
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename a.png
+	width 55text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+Kernel density estimation of the density of the test statistic.
+\series default
+ The statistic is close to 1 with high probability.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+b)
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename b.png
+	width 55text%
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+
+\series bold
+Kernel density estimation of the density of the 
+\begin_inset Formula $p_{value}$
+\end_inset
+
+.
+\series default
+ The density of the 
+\begin_inset Formula $p_{value}$
+\end_inset
+
+ is uniform, the test of normality is not likely to be rejected (error of type I)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph
+
+c)
+\end_layout
+
+\begin_layout Standard
+
+The 
+\begin_inset Formula $p_{value}$
+\end_inset
+
+ of the Shapiro test is uniformly distributed, as the Kolmogorov-Smirnov test suggests. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ P=c(NA,3000) for (i in seq(1:3000))
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+ x=rnorm(40,0,1) P[i]<-shapiro.test(x)
+\begin_inset Formula $punexpected '}' in math
+
+ks.test(P, "punif")
+        One-sample Kolmogorov-Smirnov test
+
+data:  P 
+D = 0.0241, p-value = 0.6081
+alternative hypothesis: two-sided 
+{verbatim}
+Since the null hypothesis is true ($
+\end_inset
+
+p
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+value
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $ of the Shapiro test is truly uniformly distributed), it is also true that the $
+\end_inset
+
+p
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+value
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $ of the Kolmogorov-Smirnov test is uniformly distributed.
+\paragraph{Exercise 2.}
+\subparagraph{a)}
+We use the laplace distribution for convenience since it is symmetric with finite variance.
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.5\textwidth]{c.png}
+  	\caption{\textbf{Kernel density estimation of the density of the test statistic.}}
+	\end{figure}
+\subparagraph{b)}
+\
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.5\textwidth]{d.png}
+  	\caption{\textbf{Kernel density estimation of the density of the $p_{value}$.} The density is very high for small }p_{value}\end{figure}, the test of normality is likely to be rejectedunexpected '}' in math
+
+	{figure}
+\subparagraph{c)}
+We have strong argument against the null hypothesis that the $
+\end_inset
+
+p
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+value
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $ of the Shapiro test is uniformly distributed, as the Kolmogorov-Smirnov test suggests.
+\begin{verbatim}
+P=c(NA,3000)
+for (i in seq(1:3000)){
+x=rlaplace(40,0,1/sqrt(2))
+P[i]<-shapiro.test(x)}punexpected '}' in math
+
+        One-sample Kolmogorov-Smirnov test
+
+data:  P 
+D = 0.4563, p-value < 2.2e-16
+alternative hypothesis: two-sided 
+\end{verbatim}
+\subparagraph{c)}
+For the laplace distribution and sample of size 40, the normality distribution is very likely to be rejected. We also assessed that the $
+\end_inset
+
+p
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+value
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $ is uniformly random if the sample is drawn from a normal distribution.
+{document}
+$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

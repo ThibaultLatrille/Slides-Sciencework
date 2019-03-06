@@ -1,0 +1,1311 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg1674"
+   sodipodi:version="0.32"
+   inkscape:version="0.43"
+   width="210mm"
+   height="525.89001pt"
+   sodipodi:docname="BP apoptosis 20.svg"
+   sodipodi:docbase="D:\oral cancer db\Interactome"
+   version="1.0">
+  <metadata
+     id="metadata2021">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:window-height="968"
+     inkscape:window-width="1280"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="1"
+     inkscape:cx="372.04724"
+     inkscape:cy="326.01651"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:current-layer="svg1674" />
+  <script
+     xlink:href="http://www.himap.org:80/js/popupWin.js"
+     id="script1676" />
+  <script
+     type="text/ecmascript"
+     id="script1678">
+ function Highlight2(evt, x1, y1, x2, y2) {
+ var doc;
+ doc = evt.target.ownerDocument;
+ doc.getElementById(&quot;hLine&quot;).setAttribute(&quot;x1&quot;, x1);
+ doc.getElementById(&quot;hLine&quot;).setAttribute(&quot;y1&quot;, y1);
+ doc.getElementById(&quot;hLine&quot;).setAttribute(&quot;x2&quot;, x2);
+ doc.getElementById(&quot;hLine&quot;).setAttribute(&quot;y2&quot;, y2);
+} 
+</script>
+  <g
+     id="g1680">
+    <line
+       id="hLine"
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="0"
+       style="fill:#0000ff;stroke:#ff0000;stroke-width:2.5" />
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=25&amp;b=596' , 470, 400)"
+     id="g1683">
+    <a
+       id="a1685">
+      <line
+         id="Line432.70734031548005152.58972674729395272.50969779506767205.18089003334586"
+         x1="432.70734"
+         y1="152.58972"
+         x2="272.5097"
+         y2="205.18089"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line432.70734031548005152.58972674729395272.50969779506767205.18089003334586','#00C','none','2')"
+         onmouseout="Highlight('Line432.70734031548005152.58972674729395272.50969779506767205.18089003334586','grey','none','0.2')"
+         onclick="Highlight2(evt,432.70734031548005,152.58972674729395,272.50969779506767,205.18089003334586)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=25&amp;b=7157' , 470, 400)"
+     id="g1688">
+    <a
+       id="a1690">
+      <line
+         id="Line432.70734031548005152.58972674729395356.74774479907103297.94881560732426"
+         x1="432.70734"
+         y1="152.58972"
+         x2="356.74774"
+         y2="297.94882"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line432.70734031548005152.58972674729395356.74774479907103297.94881560732426','#00C','none','2')"
+         onmouseout="Highlight('Line432.70734031548005152.58972674729395356.74774479907103297.94881560732426','grey','none','0.2')"
+         onclick="Highlight2(evt,432.70734031548005,152.58972674729395,356.74774479907103,297.94881560732426)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12890867&amp;dopt=Abstract' , 470, 400)"
+     id="g1693">
+    <a
+       id="a1695">
+      <line
+         id="Line272.50969779506767205.18089003334586432.70734031548005152.58972674729395"
+         x1="272.5097"
+         y1="205.18089"
+         x2="432.70734"
+         y2="152.58972"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line272.50969779506767205.18089003334586432.70734031548005152.58972674729395','#00C','none','2')"
+         onmouseout="Highlight('Line272.50969779506767205.18089003334586432.70734031548005152.58972674729395','grey','none','0.2')"
+         onclick="Highlight2(evt,272.50969779506767,205.18089003334586,432.70734031548005,152.58972674729395)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=596&amp;b=7157' , 470, 400)"
+     id="g1698">
+    <a
+       id="a1700">
+      <line
+         id="Line272.50969779506767205.18089003334586356.74774479907103297.94881560732426"
+         x1="272.5097"
+         y1="205.18089"
+         x2="356.74774"
+         y2="297.94882"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line272.50969779506767205.18089003334586356.74774479907103297.94881560732426','#00C','none','2')"
+         onmouseout="Highlight('Line272.50969779506767205.18089003334586356.74774479907103297.94881560732426','grey','none','0.2')"
+         onclick="Highlight2(evt,272.50969779506767,205.18089003334586,356.74774479907103,297.94881560732426)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=596&amp;b=355' , 470, 400)"
+     id="g1703">
+    <a
+       id="a1705">
+      <line
+         id="Line272.50969779506767205.18089003334586209.97945894593454403.1340991066212"
+         x1="272.5097"
+         y1="205.18089"
+         x2="209.97946"
+         y2="403.13409"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line272.50969779506767205.18089003334586209.97945894593454403.1340991066212','#00C','none','2')"
+         onmouseout="Highlight('Line272.50969779506767205.18089003334586209.97945894593454403.1340991066212','grey','none','0.2')"
+         onclick="Highlight2(evt,272.50969779506767,205.18089003334586,209.97945894593454,403.1340991066212)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=596&amp;b=356' , 470, 400)"
+     id="g1708">
+    <a
+       id="a1710">
+      <line
+         id="Line272.50969779506767205.18089003334586317.124431610017387.87355093827847"
+         x1="272.5097"
+         y1="205.18089"
+         x2="317.12442"
+         y2="387.87357"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line272.50969779506767205.18089003334586317.124431610017387.87355093827847','#00C','none','2')"
+         onmouseout="Highlight('Line272.50969779506767205.18089003334586317.124431610017387.87355093827847','grey','none','0.2')"
+         onclick="Highlight2(evt,272.50969779506767,205.18089003334586,317.124431610017,387.87355093827847)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=596&amp;b=581' , 470, 400)"
+     id="g1713">
+    <a
+       id="a1715">
+      <line
+         id="Line272.50969779506767205.18089003334586246.2537402993352305.18812119172134"
+         x1="272.5097"
+         y1="205.18089"
+         x2="246.25374"
+         y2="305.18811"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line272.50969779506767205.18089003334586246.2537402993352305.18812119172134','#00C','none','2')"
+         onmouseout="Highlight('Line272.50969779506767205.18089003334586246.2537402993352305.18812119172134','grey','none','0.2')"
+         onclick="Highlight2(evt,272.50969779506767,205.18089003334586,246.2537402993352,305.18812119172134)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=596&amp;b=598' , 470, 400)"
+     id="g1718">
+    <a
+       id="a1720">
+      <line
+         id="Line272.50969779506767205.18089003334586201.45720482853815177.5399207061179"
+         x1="272.5097"
+         y1="205.18089"
+         x2="201.4572"
+         y2="177.53992"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line272.50969779506767205.18089003334586201.45720482853815177.5399207061179','#00C','none','2')"
+         onmouseout="Highlight('Line272.50969779506767205.18089003334586201.45720482853815177.5399207061179','grey','none','0.2')"
+         onclick="Highlight2(evt,272.50969779506767,205.18089003334586,201.45720482853815,177.5399207061179)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=596&amp;b=573' , 470, 400)"
+     id="g1723">
+    <a
+       id="a1725">
+      <line
+         id="Line272.50969779506767205.18089003334586248.0515721305911820.0"
+         x1="272.5097"
+         y1="205.18089"
+         x2="248.05157"
+         y2="20"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line272.50969779506767205.18089003334586248.0515721305911820.0','#00C','none','2')"
+         onmouseout="Highlight('Line272.50969779506767205.18089003334586248.0515721305911820.0','grey','none','0.2')"
+         onclick="Highlight2(evt,272.50969779506767,205.18089003334586,248.05157213059118,20.0)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=596&amp;b=1026' , 470, 400)"
+     id="g1728">
+    <a
+       id="a1730">
+      <line
+         id="Line272.50969779506767205.18089003334586171.2440802807166234.78030986848404"
+         x1="272.5097"
+         y1="205.18089"
+         x2="171.24408"
+         y2="234.7803"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line272.50969779506767205.18089003334586171.2440802807166234.78030986848404','#00C','none','2')"
+         onmouseout="Highlight('Line272.50969779506767205.18089003334586171.2440802807166234.78030986848404','grey','none','0.2')"
+         onclick="Highlight2(evt,272.50969779506767,205.18089003334586,171.2440802807166,234.78030986848404)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=596&amp;b=7040' , 470, 400)"
+     id="g1733">
+    <a
+       id="a1735">
+      <line
+         id="Line272.50969779506767205.18089003334586111.694859596360295.71351639288518"
+         x1="272.5097"
+         y1="205.18089"
+         x2="111.69486"
+         y2="95.713516"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line272.50969779506767205.18089003334586111.694859596360295.71351639288518','#00C','none','2')"
+         onmouseout="Highlight('Line272.50969779506767205.18089003334586111.694859596360295.71351639288518','grey','none','0.2')"
+         onclick="Highlight2(evt,272.50969779506767,205.18089003334586,111.6948595963602,95.71351639288518)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=10713716&amp;dopt=Abstract' , 470, 400)"
+     id="g1738">
+    <a
+       id="a1740">
+      <line
+         id="Line356.74774479907103297.94881560732426432.70734031548005152.58972674729395"
+         x1="356.74774"
+         y1="297.94882"
+         x2="432.70734"
+         y2="152.58972"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line356.74774479907103297.94881560732426432.70734031548005152.58972674729395','#00C','none','2')"
+         onmouseout="Highlight('Line356.74774479907103297.94881560732426432.70734031548005152.58972674729395','grey','none','0.2')"
+         onclick="Highlight2(evt,356.74774479907103,297.94881560732426,432.70734031548005,152.58972674729395)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11940482&amp;dopt=Abstract' , 470, 400)"
+     id="g1743">
+    <a
+       id="a1745">
+      <line
+         id="Line356.74774479907103297.94881560732426272.50969779506767205.18089003334586"
+         x1="356.74774"
+         y1="297.94882"
+         x2="272.5097"
+         y2="205.18089"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line356.74774479907103297.94881560732426272.50969779506767205.18089003334586','#00C','none','2')"
+         onmouseout="Highlight('Line356.74774479907103297.94881560732426272.50969779506767205.18089003334586','grey','none','0.2')"
+         onclick="Highlight2(evt,356.74774479907103,297.94881560732426,272.50969779506767,205.18089003334586)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=7157&amp;b=332' , 470, 400)"
+     id="g1748">
+    <a
+       id="a1750">
+      <line
+         id="Line356.74774479907103297.94881560732426549.742233277709356.5101619870603"
+         x1="356.74774"
+         y1="297.94882"
+         x2="549.74225"
+         y2="356.51016"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line356.74774479907103297.94881560732426549.742233277709356.5101619870603','#00C','none','2')"
+         onmouseout="Highlight('Line356.74774479907103297.94881560732426549.742233277709356.5101619870603','grey','none','0.2')"
+         onclick="Highlight2(evt,356.74774479907103,297.94881560732426,549.742233277709,356.5101619870603)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=7157&amp;b=355' , 470, 400)"
+     id="g1753">
+    <a
+       id="a1755">
+      <line
+         id="Line356.74774479907103297.94881560732426209.97945894593454403.1340991066212"
+         x1="356.74774"
+         y1="297.94882"
+         x2="209.97946"
+         y2="403.13409"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line356.74774479907103297.94881560732426209.97945894593454403.1340991066212','#00C','none','2')"
+         onmouseout="Highlight('Line356.74774479907103297.94881560732426209.97945894593454403.1340991066212','grey','none','0.2')"
+         onclick="Highlight2(evt,356.74774479907103,297.94881560732426,209.97945894593454,403.1340991066212)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=7157&amp;b=356' , 470, 400)"
+     id="g1758">
+    <a
+       id="a1760">
+      <line
+         id="Line356.74774479907103297.94881560732426317.124431610017387.87355093827847"
+         x1="356.74774"
+         y1="297.94882"
+         x2="317.12442"
+         y2="387.87357"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line356.74774479907103297.94881560732426317.124431610017387.87355093827847','#00C','none','2')"
+         onmouseout="Highlight('Line356.74774479907103297.94881560732426317.124431610017387.87355093827847','grey','none','0.2')"
+         onclick="Highlight2(evt,356.74774479907103,297.94881560732426,317.124431610017,387.87355093827847)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=7157&amp;b=581' , 470, 400)"
+     id="g1763">
+    <a
+       id="a1765">
+      <line
+         id="Line356.74774479907103297.94881560732426246.2537402993352305.18812119172134"
+         x1="356.74774"
+         y1="297.94882"
+         x2="246.25374"
+         y2="305.18811"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line356.74774479907103297.94881560732426246.2537402993352305.18812119172134','#00C','none','2')"
+         onmouseout="Highlight('Line356.74774479907103297.94881560732426246.2537402993352305.18812119172134','grey','none','0.2')"
+         onclick="Highlight2(evt,356.74774479907103,297.94881560732426,246.2537402993352,305.18812119172134)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=7157&amp;b=1026' , 470, 400)"
+     id="g1768">
+    <a
+       id="a1770">
+      <line
+         id="Line356.74774479907103297.94881560732426171.2440802807166234.78030986848404"
+         x1="356.74774"
+         y1="297.94882"
+         x2="171.24408"
+         y2="234.7803"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line356.74774479907103297.94881560732426171.2440802807166234.78030986848404','#00C','none','2')"
+         onmouseout="Highlight('Line356.74774479907103297.94881560732426171.2440802807166234.78030986848404','grey','none','0.2')"
+         onclick="Highlight2(evt,356.74774479907103,297.94881560732426,171.2440802807166,234.78030986848404)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12794243&amp;dopt=Abstract' , 470, 400)"
+     id="g1773">
+    <a
+       id="a1775">
+      <line
+         id="Line549.742233277709356.5101619870603356.74774479907103297.94881560732426"
+         x1="549.74225"
+         y1="356.51016"
+         x2="356.74774"
+         y2="297.94882"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line549.742233277709356.5101619870603356.74774479907103297.94881560732426','#00C','none','2')"
+         onmouseout="Highlight('Line549.742233277709356.5101619870603356.74774479907103297.94881560732426','grey','none','0.2')"
+         onclick="Highlight2(evt,549.742233277709,356.5101619870603,356.74774479907103,297.94881560732426)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12234263&amp;dopt=Abstract' , 470, 400)"
+     id="g1778">
+    <a
+       id="a1780">
+      <line
+         id="Line209.97945894593454403.1340991066212272.50969779506767205.18089003334586"
+         x1="209.97946"
+         y1="403.13409"
+         x2="272.5097"
+         y2="205.18089"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line209.97945894593454403.1340991066212272.50969779506767205.18089003334586','#00C','none','2')"
+         onmouseout="Highlight('Line209.97945894593454403.1340991066212272.50969779506767205.18089003334586','grey','none','0.2')"
+         onclick="Highlight2(evt,209.97945894593454,403.1340991066212,272.50969779506767,205.18089003334586)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11779855&amp;dopt=Abstract' , 470, 400)"
+     id="g1783">
+    <a
+       id="a1785">
+      <line
+         id="Line209.97945894593454403.1340991066212356.74774479907103297.94881560732426"
+         x1="209.97946"
+         y1="403.13409"
+         x2="356.74774"
+         y2="297.94882"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line209.97945894593454403.1340991066212356.74774479907103297.94881560732426','#00C','none','2')"
+         onmouseout="Highlight('Line209.97945894593454403.1340991066212356.74774479907103297.94881560732426','grey','none','0.2')"
+         onclick="Highlight2(evt,209.97945894593454,403.1340991066212,356.74774479907103,297.94881560732426)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=355&amp;b=356' , 470, 400)"
+     id="g1788">
+    <a
+       id="a1790">
+      <line
+         id="Line209.97945894593454403.1340991066212317.124431610017387.87355093827847"
+         x1="209.97946"
+         y1="403.13409"
+         x2="317.12442"
+         y2="387.87357"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line209.97945894593454403.1340991066212317.124431610017387.87355093827847','#00C','none','2')"
+         onmouseout="Highlight('Line209.97945894593454403.1340991066212317.124431610017387.87355093827847','grey','none','0.2')"
+         onclick="Highlight2(evt,209.97945894593454,403.1340991066212,317.124431610017,387.87355093827847)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=355&amp;b=581' , 470, 400)"
+     id="g1793">
+    <a
+       id="a1795">
+      <line
+         id="Line209.97945894593454403.1340991066212246.2537402993352305.18812119172134"
+         x1="209.97946"
+         y1="403.13409"
+         x2="246.25374"
+         y2="305.18811"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line209.97945894593454403.1340991066212246.2537402993352305.18812119172134','#00C','none','2')"
+         onmouseout="Highlight('Line209.97945894593454403.1340991066212246.2537402993352305.18812119172134','grey','none','0.2')"
+         onclick="Highlight2(evt,209.97945894593454,403.1340991066212,246.2537402993352,305.18812119172134)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=355&amp;b=598' , 470, 400)"
+     id="g1798">
+    <a
+       id="a1800">
+      <line
+         id="Line209.97945894593454403.1340991066212201.45720482853815177.5399207061179"
+         x1="209.97946"
+         y1="403.13409"
+         x2="201.4572"
+         y2="177.53992"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line209.97945894593454403.1340991066212201.45720482853815177.5399207061179','#00C','none','2')"
+         onmouseout="Highlight('Line209.97945894593454403.1340991066212201.45720482853815177.5399207061179','grey','none','0.2')"
+         onclick="Highlight2(evt,209.97945894593454,403.1340991066212,201.45720482853815,177.5399207061179)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=355&amp;b=8795' , 470, 400)"
+     id="g1803">
+    <a
+       id="a1805">
+      <line
+         id="Line209.97945894593454403.134099106621285.0565.2223322506921"
+         x1="209.97946"
+         y1="403.13409"
+         x2="85"
+         y2="565.22235"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line209.97945894593454403.134099106621285.0565.2223322506921','#00C','none','2')"
+         onmouseout="Highlight('Line209.97945894593454403.134099106621285.0565.2223322506921','grey','none','0.2')"
+         onclick="Highlight2(evt,209.97945894593454,403.1340991066212,85.0,565.2223322506921)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=355&amp;b=8797' , 470, 400)"
+     id="g1808">
+    <a
+       id="a1810">
+      <line
+         id="Line209.97945894593454403.1340991066212166.52157196785558613.2260620671652"
+         x1="209.97946"
+         y1="403.13409"
+         x2="166.52158"
+         y2="613.22607"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line209.97945894593454403.1340991066212166.52157196785558613.2260620671652','#00C','none','2')"
+         onmouseout="Highlight('Line209.97945894593454403.1340991066212166.52157196785558613.2260620671652','grey','none','0.2')"
+         onclick="Highlight2(evt,209.97945894593454,403.1340991066212,166.52157196785558,613.2260620671652)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12698366&amp;dopt=Abstract' , 470, 400)"
+     id="g1813">
+    <a
+       id="a1815">
+      <line
+         id="Line317.124431610017387.87355093827847272.50969779506767205.18089003334586"
+         x1="317.12442"
+         y1="387.87357"
+         x2="272.5097"
+         y2="205.18089"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line317.124431610017387.87355093827847272.50969779506767205.18089003334586','#00C','none','2')"
+         onmouseout="Highlight('Line317.124431610017387.87355093827847272.50969779506767205.18089003334586','grey','none','0.2')"
+         onclick="Highlight2(evt,317.124431610017,387.87355093827847,272.50969779506767,205.18089003334586)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11786482&amp;dopt=Abstract' , 470, 400)"
+     id="g1818">
+    <a
+       id="a1820">
+      <line
+         id="Line317.124431610017387.87355093827847356.74774479907103297.94881560732426"
+         x1="317.12442"
+         y1="387.87357"
+         x2="356.74774"
+         y2="297.94882"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line317.124431610017387.87355093827847356.74774479907103297.94881560732426','#00C','none','2')"
+         onmouseout="Highlight('Line317.124431610017387.87355093827847356.74774479907103297.94881560732426','grey','none','0.2')"
+         onclick="Highlight2(evt,317.124431610017,387.87355093827847,356.74774479907103,297.94881560732426)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11786482&amp;dopt=Abstract' , 470, 400)"
+     id="g1823">
+    <a
+       id="a1825">
+      <line
+         id="Line317.124431610017387.87355093827847209.97945894593454403.1340991066212"
+         x1="317.12442"
+         y1="387.87357"
+         x2="209.97946"
+         y2="403.13409"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line317.124431610017387.87355093827847209.97945894593454403.1340991066212','#00C','none','2')"
+         onmouseout="Highlight('Line317.124431610017387.87355093827847209.97945894593454403.1340991066212','grey','none','0.2')"
+         onclick="Highlight2(evt,317.124431610017,387.87355093827847,209.97945894593454,403.1340991066212)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=356&amp;b=581' , 470, 400)"
+     id="g1828">
+    <a
+       id="a1830">
+      <line
+         id="Line317.124431610017387.87355093827847246.2537402993352305.18812119172134"
+         x1="317.12442"
+         y1="387.87357"
+         x2="246.25374"
+         y2="305.18811"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line317.124431610017387.87355093827847246.2537402993352305.18812119172134','#00C','none','2')"
+         onmouseout="Highlight('Line317.124431610017387.87355093827847246.2537402993352305.18812119172134','grey','none','0.2')"
+         onclick="Highlight2(evt,317.124431610017,387.87355093827847,246.2537402993352,305.18812119172134)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11642719&amp;dopt=Abstract' , 470, 400)"
+     id="g1833">
+    <a
+       id="a1835">
+      <line
+         id="Line246.2537402993352305.18812119172134272.50969779506767205.18089003334586"
+         x1="246.25374"
+         y1="305.18811"
+         x2="272.5097"
+         y2="205.18089"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line246.2537402993352305.18812119172134272.50969779506767205.18089003334586','#00C','none','2')"
+         onmouseout="Highlight('Line246.2537402993352305.18812119172134272.50969779506767205.18089003334586','grey','none','0.2')"
+         onclick="Highlight2(evt,246.2537402993352,305.18812119172134,272.50969779506767,205.18089003334586)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11943780&amp;dopt=Abstract' , 470, 400)"
+     id="g1838">
+    <a
+       id="a1840">
+      <line
+         id="Line246.2537402993352305.18812119172134356.74774479907103297.94881560732426"
+         x1="246.25374"
+         y1="305.18811"
+         x2="356.74774"
+         y2="297.94882"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line246.2537402993352305.18812119172134356.74774479907103297.94881560732426','#00C','none','2')"
+         onmouseout="Highlight('Line246.2537402993352305.18812119172134356.74774479907103297.94881560732426','grey','none','0.2')"
+         onclick="Highlight2(evt,246.2537402993352,305.18812119172134,356.74774479907103,297.94881560732426)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12583439&amp;dopt=Abstract' , 470, 400)"
+     id="g1843">
+    <a
+       id="a1845">
+      <line
+         id="Line246.2537402993352305.18812119172134209.97945894593454403.1340991066212"
+         x1="246.25374"
+         y1="305.18811"
+         x2="209.97946"
+         y2="403.13409"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line246.2537402993352305.18812119172134209.97945894593454403.1340991066212','#00C','none','2')"
+         onmouseout="Highlight('Line246.2537402993352305.18812119172134209.97945894593454403.1340991066212','grey','none','0.2')"
+         onclick="Highlight2(evt,246.2537402993352,305.18812119172134,209.97945894593454,403.1340991066212)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12583439&amp;dopt=Abstract' , 470, 400)"
+     id="g1848">
+    <a
+       id="a1850">
+      <line
+         id="Line246.2537402993352305.18812119172134317.124431610017387.87355093827847"
+         x1="246.25374"
+         y1="305.18811"
+         x2="317.12442"
+         y2="387.87357"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line246.2537402993352305.18812119172134317.124431610017387.87355093827847','#00C','none','2')"
+         onmouseout="Highlight('Line246.2537402993352305.18812119172134317.124431610017387.87355093827847','grey','none','0.2')"
+         onclick="Highlight2(evt,246.2537402993352,305.18812119172134,317.124431610017,387.87355093827847)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=581&amp;b=598' , 470, 400)"
+     id="g1853">
+    <a
+       id="a1855">
+      <line
+         id="Line246.2537402993352305.18812119172134201.45720482853815177.5399207061179"
+         x1="246.25374"
+         y1="305.18811"
+         x2="201.4572"
+         y2="177.53992"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line246.2537402993352305.18812119172134201.45720482853815177.5399207061179','#00C','none','2')"
+         onmouseout="Highlight('Line246.2537402993352305.18812119172134201.45720482853815177.5399207061179','grey','none','0.2')"
+         onclick="Highlight2(evt,246.2537402993352,305.18812119172134,201.45720482853815,177.5399207061179)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=581&amp;b=1026' , 470, 400)"
+     id="g1858">
+    <a
+       id="a1860">
+      <line
+         id="Line246.2537402993352305.18812119172134171.2440802807166234.78030986848404"
+         x1="246.25374"
+         y1="305.18811"
+         x2="171.24408"
+         y2="234.7803"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line246.2537402993352305.18812119172134171.2440802807166234.78030986848404','#00C','none','2')"
+         onmouseout="Highlight('Line246.2537402993352305.18812119172134171.2440802807166234.78030986848404','grey','none','0.2')"
+         onclick="Highlight2(evt,246.2537402993352,305.18812119172134,171.2440802807166,234.78030986848404)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12025227&amp;dopt=Abstract' , 470, 400)"
+     id="g1863">
+    <a
+       id="a1865">
+      <line
+         id="Line201.45720482853815177.5399207061179272.50969779506767205.18089003334586"
+         x1="201.4572"
+         y1="177.53992"
+         x2="272.5097"
+         y2="205.18089"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line201.45720482853815177.5399207061179272.50969779506767205.18089003334586','#00C','none','2')"
+         onmouseout="Highlight('Line201.45720482853815177.5399207061179272.50969779506767205.18089003334586','grey','none','0.2')"
+         onclick="Highlight2(evt,201.45720482853815,177.5399207061179,272.50969779506767,205.18089003334586)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11941452&amp;dopt=Abstract' , 470, 400)"
+     id="g1868">
+    <a
+       id="a1870">
+      <line
+         id="Line201.45720482853815177.5399207061179209.97945894593454403.1340991066212"
+         x1="201.4572"
+         y1="177.53992"
+         x2="209.97946"
+         y2="403.13409"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line201.45720482853815177.5399207061179209.97945894593454403.1340991066212','#00C','none','2')"
+         onmouseout="Highlight('Line201.45720482853815177.5399207061179209.97945894593454403.1340991066212','grey','none','0.2')"
+         onclick="Highlight2(evt,201.45720482853815,177.5399207061179,209.97945894593454,403.1340991066212)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12214154&amp;dopt=Abstract' , 470, 400)"
+     id="g1873">
+    <a
+       id="a1875">
+      <line
+         id="Line201.45720482853815177.5399207061179246.2537402993352305.18812119172134"
+         x1="201.4572"
+         y1="177.53992"
+         x2="246.25374"
+         y2="305.18811"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line201.45720482853815177.5399207061179246.2537402993352305.18812119172134','#00C','none','2')"
+         onmouseout="Highlight('Line201.45720482853815177.5399207061179246.2537402993352305.18812119172134','grey','none','0.2')"
+         onclick="Highlight2(evt,201.45720482853815,177.5399207061179,246.2537402993352,305.18812119172134)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=598&amp;b=573' , 470, 400)"
+     id="g1878">
+    <a
+       id="a1880">
+      <line
+         id="Line201.45720482853815177.5399207061179248.0515721305911820.0"
+         x1="201.4572"
+         y1="177.53992"
+         x2="248.05157"
+         y2="20"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line201.45720482853815177.5399207061179248.0515721305911820.0','#00C','none','2')"
+         onmouseout="Highlight('Line201.45720482853815177.5399207061179248.0515721305911820.0','grey','none','0.2')"
+         onclick="Highlight2(evt,201.45720482853815,177.5399207061179,248.05157213059118,20.0)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=598&amp;b=1026' , 470, 400)"
+     id="g1883">
+    <a
+       id="a1885">
+      <line
+         id="Line201.45720482853815177.5399207061179171.2440802807166234.78030986848404"
+         x1="201.4572"
+         y1="177.53992"
+         x2="171.24408"
+         y2="234.7803"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line201.45720482853815177.5399207061179171.2440802807166234.78030986848404','#00C','none','2')"
+         onmouseout="Highlight('Line201.45720482853815177.5399207061179171.2440802807166234.78030986848404','grey','none','0.2')"
+         onclick="Highlight2(evt,201.45720482853815,177.5399207061179,171.2440802807166,234.78030986848404)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12388693&amp;dopt=Abstract' , 470, 400)"
+     id="g1888">
+    <a
+       id="a1890">
+      <line
+         id="Line85.0565.2223322506921209.97945894593454403.1340991066212"
+         x1="85"
+         y1="565.22235"
+         x2="209.97946"
+         y2="403.13409"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line85.0565.2223322506921209.97945894593454403.1340991066212','#00C','none','2')"
+         onmouseout="Highlight('Line85.0565.2223322506921209.97945894593454403.1340991066212','grey','none','0.2')"
+         onclick="Highlight2(evt,85.0,565.2223322506921,209.97945894593454,403.1340991066212)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=8795&amp;b=8797' , 470, 400)"
+     id="g1893">
+    <a
+       id="a1895">
+      <line
+         id="Line85.0565.2223322506921166.52157196785558613.2260620671652"
+         x1="85"
+         y1="565.22235"
+         x2="166.52158"
+         y2="613.22607"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line85.0565.2223322506921166.52157196785558613.2260620671652','#00C','none','2')"
+         onmouseout="Highlight('Line85.0565.2223322506921166.52157196785558613.2260620671652','grey','none','0.2')"
+         onclick="Highlight2(evt,85.0,565.2223322506921,166.52157196785558,613.2260620671652)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=14506242&amp;dopt=Abstract' , 470, 400)"
+     id="g1898">
+    <a
+       id="a1900">
+      <line
+         id="Line166.52157196785558613.2260620671652209.97945894593454403.1340991066212"
+         x1="166.52158"
+         y1="613.22607"
+         x2="209.97946"
+         y2="403.13409"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line166.52157196785558613.2260620671652209.97945894593454403.1340991066212','#00C','none','2')"
+         onmouseout="Highlight('Line166.52157196785558613.2260620671652209.97945894593454403.1340991066212','grey','none','0.2')"
+         onclick="Highlight2(evt,166.52157196785558,613.2260620671652,209.97945894593454,403.1340991066212)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11862476&amp;dopt=Abstract' , 470, 400)"
+     id="g1903">
+    <a
+       id="a1905">
+      <line
+         id="Line166.52157196785558613.226062067165285.0565.2223322506921"
+         x1="166.52158"
+         y1="613.22607"
+         x2="85"
+         y2="565.22235"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line166.52157196785558613.226062067165285.0565.2223322506921','#00C','none','2')"
+         onmouseout="Highlight('Line166.52157196785558613.226062067165285.0565.2223322506921','grey','none','0.2')"
+         onclick="Highlight2(evt,166.52157196785558,613.2260620671652,85.0,565.2223322506921)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=9305631&amp;dopt=Abstract' , 470, 400)"
+     id="g1908">
+    <a
+       id="a1910">
+      <line
+         id="Line248.0515721305911820.0272.50969779506767205.18089003334586"
+         x1="248.05157"
+         y1="20"
+         x2="272.5097"
+         y2="205.18089"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line248.0515721305911820.0272.50969779506767205.18089003334586','#00C','none','2')"
+         onmouseout="Highlight('Line248.0515721305911820.0272.50969779506767205.18089003334586','grey','none','0.2')"
+         onclick="Highlight2(evt,248.05157213059118,20.0,272.50969779506767,205.18089003334586)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=10467399&amp;dopt=Abstract' , 470, 400)"
+     id="g1913">
+    <a
+       id="a1915">
+      <line
+         id="Line248.0515721305911820.0201.45720482853815177.5399207061179"
+         x1="248.05157"
+         y1="20"
+         x2="201.4572"
+         y2="177.53992"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line248.0515721305911820.0201.45720482853815177.5399207061179','#00C','none','2')"
+         onmouseout="Highlight('Line248.0515721305911820.0201.45720482853815177.5399207061179','grey','none','0.2')"
+         onclick="Highlight2(evt,248.05157213059118,20.0,201.45720482853815,177.5399207061179)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11908736&amp;dopt=Abstract' , 470, 400)"
+     id="g1918">
+    <a
+       id="a1920">
+      <line
+         id="Line171.2440802807166234.78030986848404272.50969779506767205.18089003334586"
+         x1="171.24408"
+         y1="234.7803"
+         x2="272.5097"
+         y2="205.18089"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line171.2440802807166234.78030986848404272.50969779506767205.18089003334586','#00C','none','2')"
+         onmouseout="Highlight('Line171.2440802807166234.78030986848404272.50969779506767205.18089003334586','grey','none','0.2')"
+         onclick="Highlight2(evt,171.2440802807166,234.78030986848404,272.50969779506767,205.18089003334586)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11956602&amp;dopt=Abstract' , 470, 400)"
+     id="g1923">
+    <a
+       id="a1925">
+      <line
+         id="Line171.2440802807166234.78030986848404356.74774479907103297.94881560732426"
+         x1="171.24408"
+         y1="234.7803"
+         x2="356.74774"
+         y2="297.94882"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line171.2440802807166234.78030986848404356.74774479907103297.94881560732426','#00C','none','2')"
+         onmouseout="Highlight('Line171.2440802807166234.78030986848404356.74774479907103297.94881560732426','grey','none','0.2')"
+         onclick="Highlight2(evt,171.2440802807166,234.78030986848404,356.74774479907103,297.94881560732426)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12151395&amp;dopt=Abstract' , 470, 400)"
+     id="g1928">
+    <a
+       id="a1930">
+      <line
+         id="Line171.2440802807166234.78030986848404246.2537402993352305.18812119172134"
+         x1="171.24408"
+         y1="234.7803"
+         x2="246.25374"
+         y2="305.18811"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line171.2440802807166234.78030986848404246.2537402993352305.18812119172134','#00C','none','2')"
+         onmouseout="Highlight('Line171.2440802807166234.78030986848404246.2537402993352305.18812119172134','grey','none','0.2')"
+         onclick="Highlight2(evt,171.2440802807166,234.78030986848404,246.2537402993352,305.18812119172134)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12204872&amp;dopt=Abstract' , 470, 400)"
+     id="g1933">
+    <a
+       id="a1935">
+      <line
+         id="Line171.2440802807166234.78030986848404201.45720482853815177.5399207061179"
+         x1="171.24408"
+         y1="234.7803"
+         x2="201.4572"
+         y2="177.53992"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line171.2440802807166234.78030986848404201.45720482853815177.5399207061179','#00C','none','2')"
+         onmouseout="Highlight('Line171.2440802807166234.78030986848404201.45720482853815177.5399207061179','grey','none','0.2')"
+         onclick="Highlight2(evt,171.2440802807166,234.78030986848404,201.45720482853815,177.5399207061179)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('../network/edgeInfo.jsp?a=1026&amp;b=7040' , 470, 400)"
+     id="g1938">
+    <a
+       id="a1940">
+      <line
+         id="Line171.2440802807166234.78030986848404111.694859596360295.71351639288518"
+         x1="171.24408"
+         y1="234.7803"
+         x2="111.69486"
+         y2="95.713516"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line171.2440802807166234.78030986848404111.694859596360295.71351639288518','#00C','none','2')"
+         onmouseout="Highlight('Line171.2440802807166234.78030986848404111.694859596360295.71351639288518','grey','none','0.2')"
+         onclick="Highlight2(evt,171.2440802807166,234.78030986848404,111.6948595963602,95.71351639288518)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=11908736&amp;dopt=Abstract' , 470, 400)"
+     id="g1943">
+    <a
+       id="a1945">
+      <line
+         id="Line111.694859596360295.71351639288518272.50969779506767205.18089003334586"
+         x1="111.69486"
+         y1="95.713516"
+         x2="272.5097"
+         y2="205.18089"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line111.694859596360295.71351639288518272.50969779506767205.18089003334586','#00C','none','2')"
+         onmouseout="Highlight('Line111.694859596360295.71351639288518272.50969779506767205.18089003334586','grey','none','0.2')"
+         onclick="Highlight2(evt,111.6948595963602,95.71351639288518,272.50969779506767,205.18089003334586)" />
+    </a>
+  </g>
+  <g
+     onclick="windowOpen5('http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=12441075&amp;dopt=Abstract' , 470, 400)"
+     id="g1948">
+    <a
+       id="a1950">
+      <line
+         id="Line111.694859596360295.71351639288518171.2440802807166234.78030986848404"
+         x1="111.69486"
+         y1="95.713516"
+         x2="171.24408"
+         y2="234.7803"
+         style="fill:#808080;stroke:#808080;stroke-width:0.2"
+         onmouseover="Highlight('Line111.694859596360295.71351639288518171.2440802807166234.78030986848404','#00C','none','2')"
+         onmouseout="Highlight('Line111.694859596360295.71351639288518171.2440802807166234.78030986848404','grey','none','0.2')"
+         onclick="Highlight2(evt,111.6948595963602,95.71351639288518,171.2440802807166,234.78030986848404)" />
+    </a>
+  </g>
+  <defs
+     id="defs1953">
+    <radialGradient
+       id="default"
+       cx="0.5"
+       cy="0.5"
+       r="0.5"
+       fx="0.5"
+       fy="0.5">
+      <stop
+         offset="0%"
+         style="stop-color:#FFFFFF;stop-opacity:1"
+         id="stop1956" />
+      <stop
+         offset="100%"
+         style="stop-color:orange;stop-opacity:1"
+         id="stop1958" />
+    </radialGradient>
+  </defs>
+  <defs
+     id="defs1960">
+    <radialGradient
+       id="kinase"
+       cx="0.5"
+       cy="0.5"
+       r="0.5"
+       fx="0.5"
+       fy="0.5">
+      <stop
+         offset="0%"
+         style="stop-color:#FFFFFF;stop-opacity:1"
+         id="stop1963" />
+      <stop
+         offset="100%"
+         style="stop-color:red;stop-opacity:1"
+         id="stop1965" />
+    </radialGradient>
+  </defs>
+  <defs
+     id="defs1967">
+    <radialGradient
+       id="receptor"
+       cx="0.5"
+       cy="0.5"
+       r="0.5"
+       fx="0.5"
+       fy="0.5">
+      <stop
+         offset="0%"
+         style="stop-color:#FFFFFF;stop-opacity:1"
+         id="stop1970" />
+      <stop
+         offset="100%"
+         style="stop-color:blue;stop-opacity:1"
+         id="stop1972" />
+    </radialGradient>
+  </defs>
+  <defs
+     id="defs1974">
+    <radialGradient
+       id="transcription_factor"
+       cx="0.5"
+       cy="0.5"
+       r="0.5"
+       fx="0.5"
+       fy="0.5">
+      <stop
+         offset="0%"
+         style="stop-color:#FFFFFF;stop-opacity:1"
+         id="stop1977" />
+      <stop
+         offset="100%"
+         style="stop-color:green;stop-opacity:1"
+         id="stop1979" />
+    </radialGradient>
+  </defs>
+  <ellipse
+     id="Node432.70734031548005152.58972674729395"
+     cx="432.70734"
+     cy="152.58972"
+     rx="7"
+     ry="7"
+     style="fill:url(#kinase);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node432.70734031548005152.58972674729395','9.0')"
+     onmouseout="resizeRadius('Node432.70734031548005152.58972674729395','7.0')"
+     sodipodi:cx="432.70734"
+     sodipodi:cy="152.58972"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="437.70734"
+     y="147.58972"
+     font-size="9"
+     id="text1982"
+     style="font-size:9px;fill:#000000;font-family:Arial">ABL1</text>
+  <ellipse
+     id="Node272.50969779506767205.18089003334586"
+     cx="272.5097"
+     cy="205.18089"
+     rx="7"
+     ry="7"
+     style="fill:url(#default);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node272.50969779506767205.18089003334586','9.0')"
+     onmouseout="resizeRadius('Node272.50969779506767205.18089003334586','7.0')"
+     sodipodi:cx="272.5097"
+     sodipodi:cy="205.18089"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="277.5097"
+     y="200.18089"
+     font-size="9"
+     id="text1985"
+     style="font-size:9px;fill:#000000;font-family:Arial">BCL2</text>
+  <ellipse
+     id="Node356.74774479907103297.94881560732426"
+     cx="356.74774"
+     cy="297.94882"
+     rx="7"
+     ry="7"
+     style="fill:url(#transcription_factor);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node356.74774479907103297.94881560732426','9.0')"
+     onmouseout="resizeRadius('Node356.74774479907103297.94881560732426','7.0')"
+     sodipodi:cx="356.74774"
+     sodipodi:cy="297.94882"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="361.74774"
+     y="292.94882"
+     font-size="9"
+     id="text1988"
+     style="font-size:9px;fill:#000000;font-family:Arial">TP53</text>
+  <ellipse
+     id="Node549.742233277709356.5101619870603"
+     cx="549.74225"
+     cy="356.51016"
+     rx="7"
+     ry="7"
+     style="fill:url(#default);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node549.742233277709356.5101619870603','9.0')"
+     onmouseout="resizeRadius('Node549.742233277709356.5101619870603','7.0')"
+     sodipodi:cx="549.74225"
+     sodipodi:cy="356.51016"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="554.74225"
+     y="351.51016"
+     font-size="9"
+     id="text1991"
+     style="font-size:9px;fill:#000000;font-family:Arial">BIRC5</text>
+  <ellipse
+     id="Node209.97945894593454403.1340991066212"
+     cx="209.97946"
+     cy="403.13409"
+     rx="7"
+     ry="7"
+     style="fill:url(#receptor);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node209.97945894593454403.1340991066212','9.0')"
+     onmouseout="resizeRadius('Node209.97945894593454403.1340991066212','7.0')"
+     sodipodi:cx="209.97946"
+     sodipodi:cy="403.13409"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="214.97946"
+     y="398.13409"
+     font-size="9"
+     id="text1994"
+     style="font-size:9px;fill:#000000;font-family:Arial">TNFRSF6</text>
+  <ellipse
+     id="Node317.124431610017387.87355093827847"
+     cx="317.12442"
+     cy="387.87357"
+     rx="7"
+     ry="7"
+     style="fill:url(#default);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node317.124431610017387.87355093827847','9.0')"
+     onmouseout="resizeRadius('Node317.124431610017387.87355093827847','7.0')"
+     sodipodi:cx="317.12442"
+     sodipodi:cy="387.87357"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="322.12442"
+     y="382.87357"
+     font-size="9"
+     id="text1997"
+     style="font-size:9px;fill:#000000;font-family:Arial">TNFSF6</text>
+  <ellipse
+     id="Node246.2537402993352305.18812119172134"
+     cx="246.25374"
+     cy="305.18811"
+     rx="7"
+     ry="7"
+     style="fill:url(#default);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node246.2537402993352305.18812119172134','9.0')"
+     onmouseout="resizeRadius('Node246.2537402993352305.18812119172134','7.0')"
+     sodipodi:cx="246.25374"
+     sodipodi:cy="305.18811"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="251.25374"
+     y="300.18811"
+     font-size="9"
+     id="text2000"
+     style="font-size:9px;fill:#000000;font-family:Arial">BAX</text>
+  <ellipse
+     id="Node201.45720482853815177.5399207061179"
+     cx="201.4572"
+     cy="177.53992"
+     rx="7"
+     ry="7"
+     style="fill:url(#default);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node201.45720482853815177.5399207061179','9.0')"
+     onmouseout="resizeRadius('Node201.45720482853815177.5399207061179','7.0')"
+     sodipodi:cx="201.4572"
+     sodipodi:cy="177.53992"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="206.4572"
+     y="172.53992"
+     font-size="9"
+     id="text2003"
+     style="font-size:9px;fill:#000000;font-family:Arial">BCL2L1</text>
+  <ellipse
+     id="Node85.0565.2223322506921"
+     cx="85"
+     cy="565.22235"
+     rx="7"
+     ry="7"
+     style="fill:url(#receptor);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node85.0565.2223322506921','9.0')"
+     onmouseout="resizeRadius('Node85.0565.2223322506921','7.0')"
+     sodipodi:cx="85"
+     sodipodi:cy="565.22235"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="90"
+     y="560.22235"
+     font-size="9"
+     id="text2006"
+     style="font-size:9px;fill:#000000;font-family:Arial">TNFRSF10B</text>
+  <ellipse
+     id="Node166.52157196785558613.2260620671652"
+     cx="166.52158"
+     cy="613.22607"
+     rx="7"
+     ry="7"
+     style="fill:url(#receptor);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node166.52157196785558613.2260620671652','9.0')"
+     onmouseout="resizeRadius('Node166.52157196785558613.2260620671652','7.0')"
+     sodipodi:cx="166.52158"
+     sodipodi:cy="613.22607"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="171.52158"
+     y="608.22607"
+     font-size="9"
+     id="text2009"
+     style="font-size:9px;fill:#000000;font-family:Arial">TNFRSF10A</text>
+  <ellipse
+     id="Node248.0515721305911820.0"
+     cx="248.05157"
+     cy="20"
+     rx="7"
+     ry="7"
+     style="fill:url(#default);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node248.0515721305911820.0','9.0')"
+     onmouseout="resizeRadius('Node248.0515721305911820.0','7.0')"
+     sodipodi:cx="248.05157"
+     sodipodi:cy="20"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="253.05157"
+     y="15"
+     font-size="9"
+     id="text2012"
+     style="font-size:9px;fill:#000000;font-family:Arial">BAG1</text>
+  <ellipse
+     id="Node171.2440802807166234.78030986848404"
+     cx="171.24408"
+     cy="234.7803"
+     rx="7"
+     ry="7"
+     style="fill:url(#kinase);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node171.2440802807166234.78030986848404','9.0')"
+     onmouseout="resizeRadius('Node171.2440802807166234.78030986848404','7.0')"
+     sodipodi:cx="171.24408"
+     sodipodi:cy="234.7803"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="176.24408"
+     y="229.7803"
+     font-size="9"
+     id="text2015"
+     style="font-size:9px;fill:#000000;font-family:Arial">CDKN1A</text>
+  <ellipse
+     id="Node111.694859596360295.71351639288518"
+     cx="111.69486"
+     cy="95.713516"
+     rx="7"
+     ry="7"
+     style="fill:url(#default);stroke:#b60c0c;stroke-width:2.5"
+     onmouseover="resizeRadius('Node111.694859596360295.71351639288518','9.0')"
+     onmouseout="resizeRadius('Node111.694859596360295.71351639288518','7.0')"
+     sodipodi:cx="111.69486"
+     sodipodi:cy="95.713516"
+     sodipodi:rx="7"
+     sodipodi:ry="7" />
+  <text
+     x="116.69486"
+     y="90.713516"
+     font-size="9"
+     id="text2018"
+     style="font-size:9px;fill:#000000;font-family:Arial">TGFB1</text>
+</svg>

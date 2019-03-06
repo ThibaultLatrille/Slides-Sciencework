@@ -1,0 +1,1205 @@
+﻿FN Thomson Reuters Web of Science™
+VR 1.0
+PT J
+AU Kubatko, L
+   Shah, P
+   Herbei, R
+   Gilchrist, MA
+AF Kubatko, Laura
+   Shah, Premal
+   Herbei, Radu
+   Gilchrist, Michael A.
+TI A codon model of nucleotide substitution with selection on synonymous
+   codon usage
+SO MOLECULAR PHYLOGENETICS AND EVOLUTION
+LA English
+DT Article
+DE Codon substitution; Mutation-selection; Synonymous substitution; Protein
+   production; Phylogenetics
+ID AMINO-ACID SUBSTITUTION; DETECTING MOLECULAR ADAPTATION; CODING-SEQUENCE
+   EVOLUTION; PURIFYING SELECTION; PROTEIN EVOLUTION; MAXIMUM-LIKELIHOOD;
+   STATISTICAL-METHODS; SECONDARY STRUCTURE; DEATH EVOLUTION; SITES
+AB The quality of phylogenetic inference made from protein-coding genes depends, in part, on the realism with which the codon substitution process is modeled. Here we propose a new mechanistic model that combines the standard MO substitution model of Yang (1997) with a simplified model from Gilchrist (2007) that includes selection on synonymous substitutions as a function of codon-specific nonsense error rates. We tested the newly proposed model by applying it to 104 protein-coding genes in brewer's yeast, and compared the fit of the new model to the standard MO model and to the mutation-selection model of Yang and Nielsen (2008) using the AIC. Our new model provided significantly better fit in approximately 85% of the cases considered for the basic MO model and in approximately 25% of the cases for the MO model with estimated codon frequencies, but only in a few cases when the mutation-selection model was considered. However, our model includes a parameter that can be interpreted as a measure of the rate of protein production, and the estimates of this parameter were highly correlated with an independent measure of protein production for the yeast genes considered here. Finally, we found that in some cases the new model led to the preference of a different phylogeny for a subset of the genes considered, indicating that substitution model choice may have an impact on the estimated phylogeny. (C) 2015 Elsevier Inc. All rights reserved.
+C1 [Kubatko, Laura; Herbei, Radu] Ohio State Univ, Dept Stat, Columbus, OH 43210 USA.
+   [Kubatko, Laura] Ohio State Univ, Dept Evolut Ecol & Organismal Biol, Columbus, OH 43210 USA.
+   [Shah, Premal] Univ Penn, Dept Biol, Philadelphia, PA 19104 USA.
+   [Gilchrist, Michael A.] Univ Tennessee, Dept Ecol & Evolutionary Biol, Knoxville, TN 37996 USA.
+RP Kubatko, L (reprint author), Ohio State Univ, Dept Stat, Columbus, OH 43210 USA.
+EM lkubatko@stat.osu.edu
+FU National Science Foundation [DEB0918195, MCB1120370, EF0832858];
+   University of Tennessee Knoxville; NIMBioS; Tennessee Science Alliance
+   Joint Directed Research and Development grant; Alfred P. Sloan
+   Foundation; Burroughs Wellcome Fund Career Award; David & Lucille
+   Packard Foundation Fellowship; Ohio Supercomputer Center; Mathematical
+   Biosciences Institute (MBI) at The Ohio State University
+FX We thank Ziheng Yang for providing information concerning the
+   parameterization of the models in PAML. This work was supported by the
+   National Science Foundation (DEB0918195 to L.S.K.; MCB1120370 to M.A.G.;
+   and EF0832858 to the National Institute for Mathematical and Biological
+   Synthesis (NIMBioS), which supported M.A.G. and P.S.); the University of
+   Tennessee Knoxville, NIMBioS, and a Tennessee Science Alliance Joint
+   Directed Research and Development grant (to M.A.G.); and the Alfred P.
+   Sloan Foundation, Burroughs Wellcome Fund Career Award, David & Lucille
+   Packard Foundation Fellowship (to J.B. Plotkin and used to support
+   P.S.). We also acknowledge support from the Ohio Supercomputer Center
+   and the Mathematical Biosciences Institute (MBI) at The Ohio State
+   University.
+CR Adachi J, 1996, J MOL EVOL, V42, P459
+   Adachi J, 2000, J MOL EVOL, V50, P348
+   AKASHI H, 1995, GENETICS, V139, P1067
+   Ayres D.L., 2012, SYST BIOL, V61
+   BULMER M, 1991, GENETICS, V129, P897
+   Burnham K. P., 2002, MODEL SELECTION MULT
+   Cron AJ, 2011, AM STAT, V65, P16, DOI 10.1198/tast.2011.10170
+   Dayhoff M., 1978, MODEL EVOLUTIONARY C, P345
+   Dimmic MW, 2002, J MOL EVOL, V55, P65, DOI 10.1007/s00236-001-2304-y
+   Drummond DA, 2008, CELL, V134, P341, DOI 10.1016/j.cell.2008.05.042
+   Drummond DA, 2009, NAT REV GENET, V10, P715, DOI 10.1038/nrg2662
+   Drummond DA, 2006, MOL BIOL EVOL, V23, P327, DOI 10.1093/molbev/msj038
+   Edwards SV, 2007, P NATL ACAD SCI USA, V104, P5936, DOI 10.1073/pnas.0607004104
+   Eirin-Lopez JM, 2004, MOL BIOL EVOL, V21, P1992, DOI 10.1093/molbev/msh213
+   Gilchrist MA, 2006, J THEOR BIOL, V239, P417, DOI 10.1016/j.jtbi.2005.08.007
+   Gilchrist MA, 2009, GENETICS, V183, P1493, DOI 10.1534/genetics.109.108209
+   Gilchrist MA, 2007, MOL BIOL EVOL, V24, P2362, DOI 10.1093/molbev/msm169
+   Goldman N, 1996, J MOL BIOL, V263, P196, DOI 10.1006/jmbi.1996.0569
+   GOLDMAN N, 1994, MOL BIOL EVOL, V11, P725
+   Goldman N, 1998, GENETICS, V149, P445
+   Golub G. H., 1996, MATRIX COMPUTATIONS
+   Herbei Radu, 2013, Stat Appl Genet Mol Biol, V12, P39, DOI 10.1515/sagmb-2012-0023
+   JONES DT, 1994, FEBS LETT, V339, P269, DOI 10.1016/0014-5793(94)80429-X
+   JONES DT, 1992, COMPUT APPL BIOSCI, V8, P275
+   Kosiol C, 2007, MOL BIOL EVOL, V24, P1464, DOI 10.1093/molbev/msm064
+   Lee L., 2010, J COMPUTATIONAL GRAP, V19, P769
+   Massingham T, 2005, GENETICS, V169, P1753, DOI 10.1534/genetics.104.032144
+   Mayrose I, 2007, BIOINFORMATICS, V23, pI319, DOI 10.1093/bioinformatics/btm176
+   Moler C, 2003, SIAM REV, V45, P3, DOI 10.1137/S00361445024180
+   Nei M, 2000, P NATL ACAD SCI USA, V97, P10866, DOI 10.1073/pnas.97.20.10866
+   Nei M, 1997, P NATL ACAD SCI USA, V94, P7799, DOI 10.1073/pnas.94.15.7799
+   Nielsen R, 2007, MOL BIOL EVOL, V24, P228, DOI 10.1093/molbev/msl146
+   Plotkin JB, 2011, NAT REV GENET, V12, P32, DOI 10.1038/nrg2899
+   Pond SK, 2005, MOL BIOL EVOL, V22, P2375, DOI 10.1093/molbev/msi232
+   Rodrigue N, 2010, P NATL ACAD SCI USA, V107, P4629, DOI 10.1073/pnas.0910915107
+   Rokas A, 2003, NATURE, V425, P798, DOI 10.1038/nature02053
+   Shah P, 2011, P NATL ACAD SCI USA, V108, P10231, DOI 10.1073/pnas.1016719108
+   SHARP PM, 1986, J MOL EVOL, V24, P28, DOI 10.1007/BF02099948
+   Suchard MA, 2010, J COMPUT GRAPH STAT, V19, P419, DOI 10.1198/jcgs.2010.10016
+   Suchard MA, 2009, BIOINFORMATICS, V25, P1370, DOI 10.1093/bioinformatics/btp244
+   TAVARE S., 1986, LECTURES MATH LIFE S, V17, P57
+   Wallace EWJ, 2013, MOL BIOL EVOL, V30, P1438, DOI 10.1093/molbev/mst051
+   Whelan S, 2001, MOL BIOL EVOL, V18, P691
+   Wong WSW, 2004, GENETICS, V168, P1041, DOI 10.1534/genetics.104.031153
+   Yang Z, 2006, COMPUTATIONAL MOL EV
+   YANG ZB, 1994, J MOL EVOL, V39, P105
+   Yang ZH, 2000, TRENDS ECOL EVOL, V15, P496, DOI 10.1016/S0169-5347(00)01994-7
+   Yang ZH, 2002, MOL BIOL EVOL, V19, P908
+   Yang ZH, 2000, GENETICS, V155, P431
+   Yang ZH, 1997, COMPUT APPL BIOSCI, V13, P555
+   Yang ZH, 1998, J MOL EVOL, V46, P409, DOI 10.1007/PL00006320
+   Yang ZH, 1998, MOL BIOL EVOL, V15, P1600
+   Yang ZH, 2008, MOL BIOL EVOL, V25, P568, DOI 10.1093/molbev/msm284
+   Yassour M, 2009, P NATL ACAD SCI USA, V106, P3264, DOI 10.1073/pnas.0812841106
+   ZHARKIKH A, 1994, J MOL EVOL, V39, P315, DOI 10.1007/BF00160155
+   Zhou T, 2010, MOL BIOL EVOL, V27, P1912, DOI 10.1093/molbev/msq077
+NR 56
+TC 0
+Z9 0
+U1 3
+U2 9
+PU ACADEMIC PRESS INC ELSEVIER SCIENCE
+PI SAN DIEGO
+PA 525 B ST, STE 1900, SAN DIEGO, CA 92101-4495 USA
+SN 1055-7903
+EI 1095-9513
+J9 MOL PHYLOGENET EVOL
+JI Mol. Phylogenet. Evol.
+PD JAN
+PY 2016
+VL 94
+BP 290
+EP 297
+DI 10.1016/j.ympev.2015.08.026
+PN A
+PG 8
+WC Biochemistry & Molecular Biology; Evolutionary Biology; Genetics &
+   Heredity
+SC Biochemistry & Molecular Biology; Evolutionary Biology; Genetics &
+   Heredity
+GA CX8EM
+UT WOS:000365935400026
+PM 26358614
+ER
+
+PT J
+AU Whittle, CA
+   Extavour, CG
+AF Whittle, Carrie A.
+   Extavour, Cassandra G.
+TI Codon and Amino Acid Usage Are Shaped by Selection Across Divergent
+   Model Organisms of the Pancrustacea
+SO G3-GENES GENOMES GENETICS
+LA English
+DT Article
+DE Gryllus bimaculatus; Oncopeltus fasciatus; Parhyale hawaiensis; optimal
+   codons; translational selection
+ID CRUSTACEAN PARHYALE-HAWAIENSIS; DIRECTIONAL MUTATION PRESSURE; HIGHLY
+   EXPRESSED GENES; 12 DROSOPHILA GENOMES; SEX-BIASED GENES;
+   ESCHERICHIA-COLI; PROTEIN LENGTH; SACCHAROMYCES-CEREVISIAE; MOLECULAR
+   EVOLUTION; NATURAL-SELECTION
+AB In protein-coding genes, synonymous codon usage and amino acid composition correlate to expression in some eukaryotes, and may result from translational selection. Here, we studied large-scale RNA-seq data from three divergent arthropod models, including cricket (Gryllus bimaculatus), milkweed bug (Oncopeltus fasciatus), and the amphipod crustacean Parhyale hawaiensis, and tested for optimization of codon and amino acid usage relative to expression level. We report strong signals of AT3 optimal codons (those favored in highly expressed genes) in G. bimaculatus and O. fasciatus, whereas weaker signs of GC3 optimal codons were found in P. hawaiensis, suggesting selection on codon usage in all three organisms. Further, in G. bimaculatus and O. fasciatus, high expression was associated with lowered frequency of amino acids with large size/complexity (S/C) scores in favor of those with intermediate S/C values; thus, selection may favor smaller amino acids while retaining those of moderate size for protein stability or conformation. In P. hawaiensis, highly transcribed genes had elevated frequency of amino acids with large and small S/C scores, suggesting a complex dynamic in this crustacean. In all species, the highly transcribed genes appeared to favor short proteins, high optimal codon usage, specific amino acids, and were preferentially involved in cell-cycling and protein synthesis. Together, based on examination of 1,680,067, 1,667,783, and 1,326,896 codon sites in G. bimaculatus, O. fasciatus, and P. hawaiensis, respectively, we conclude that translational selection shapes codon and amino acid usage in these three Pancrustacean arthropods.
+C1 [Whittle, Carrie A.; Extavour, Cassandra G.] Harvard Univ, Dept Organism & Evolutionary Biol, Cambridge, MA 02138 USA.
+   [Extavour, Cassandra G.] Harvard Univ, Dept Mol & Cellular Biol, Cambridge, MA 02138 USA.
+RP Extavour, CG (reprint author), Harvard Univ, Dept Mol & Cellular Biol, 16 Divin Ave, Cambridge, MA 02138 USA.
+EM extavour@oeb.harvard.edu
+RI Extavour, Cassandra/I-4567-2012
+OI Extavour, Cassandra/0000-0003-2922-5855
+CR Akam M, 2000, P NATL ACAD SCI USA, V97, P4438, DOI 10.1073/pnas.97.9.4438
+   Akashi H, 2003, GENETICS, V164, P1291
+   Akashi H, 1997, GENETICS, V146, P295
+   Akashi H, 2001, CURR OPIN GENET DEV, V11, P660, DOI 10.1016/S0959-437X(00)00250-1
+   Ashburner M, 2000, NAT GENET, V25, P25
+   Bachtrog D, 2007, J MOL EVOL, V64, P586, DOI 10.1007/s00239-006-0257-x
+   Behura SK, 2013, BIOL REV, V88, P49, DOI 10.1111/j.1469-185X.2012.00242.x
+   Behura SK, 2012, PLOS ONE, V7, DOI 10.1371/journal.pone.0043111
+   Beletskii A, 1996, P NATL ACAD SCI USA, V93, P13919, DOI 10.1073/pnas.93.24.13919
+   Beletskii A, 1998, BIOL CHEM, V379, P549
+   Betancourt AJ, 2002, P NATL ACAD SCI USA, V99, P13616, DOI 10.1073/pnas.212277199
+   Butt F. H., 1949, CORNELL EXPT STATION, V283, P2
+   Clay O, 1996, MOL PHYLOGENET EVOL, V5, P2, DOI 10.1006/mpev.1996.0002
+   Coghlan A, 2000, YEAST, V16, P1131, DOI 10.1002/1097-0061(20000915)16:12<1131::AID-YEA609>3.0.CO;2-F
+   Colbourne JK, 2011, SCIENCE, V331, P555, DOI 10.1126/science.1197761
+   Combs PA, 2013, PLOS ONE, V8, DOI 10.1371/journal.pone.0071820
+   Comeron JM, 2004, GENETICS, V167, P1293, DOI 10.1534/genetics.104.026351
+   Comeron JM, 1998, GENETICS, V150, P767
+   Comeron JM, 1999, GENETICS, V151, P239
+   Cutter AD, 2006, MOL BIOL EVOL, V23, P2303, DOI 10.1093/molbev/msl097
+   Cutter AD, 2008, MOL BIOL EVOL, V25, P778, DOI 10.1093/molbev/msn024
+   Donoughe S, 2016, DEV BIOL, V411, P140, DOI 10.1016/j.ydbio.2015.04.009
+   Drummond DA, 2005, P NATL ACAD SCI USA, V102, P14338, DOI 10.1073/pnas.0504070102
+   Dufton MJ, 1997, J THEOR BIOL, V187, P165, DOI 10.1006/jtbi.1997.0443
+   Duret L, 1999, P NATL ACAD SCI USA, V96, P4482, DOI 10.1073/pnas.96.8.4482
+   Duret L, 2000, TRENDS GENET, V16, P287, DOI 10.1016/S0168-9525(00)02041-2
+   Ewen-Campen B, 2011, BMC GENOMICS, V12, DOI 10.1186/1471-2164-12-61
+   Garcia-Gonzalez F, 2010, J EVOLUTION BIOL, V23, P2066, DOI 10.1111/j.1420-9101.2010.02065.x
+   Gilboa L, 2015, CURR OPIN GENET DEV, V32, P31, DOI 10.1016/j.gde.2015.01.005
+   Graveley BR, 2011, NATURE, V471, P473, DOI 10.1038/nature09715
+   Green P, 2003, NAT GENET, V33, P514, DOI 10.1038/ng1103
+   Group N. G. W., 2010, SCIENCE, V327, P343
+   Haddrill PR, 2011, MOL BIOL EVOL, V28, P1731, DOI 10.1093/molbev/msq354
+   Heger A, 2007, GENOME RES, V17, P1837, DOI 10.1101/gr.6249707
+   Hershberg R, 2012, PLOS ONE, V7, DOI 10.1371/journal.pone.0049060
+   Hershberg R, 2009, PLOS GENET, V5, DOI 10.1371/journal.pgen.1000556
+   Hodgkinson A, 2011, NAT REV GENET, V12, P756, DOI 10.1038/nrg3098
+   Huang DW, 2009, NAT PROTOC, V4, P44, DOI 10.1038/nprot.2008.211
+   Huang DW, 2009, NUCLEIC ACIDS RES, V37, P1, DOI 10.1093/nar/gkn923
+   Huber F., 1989, CRICKET BEHAV NEUROB
+   IKEMURA T, 1981, J MOL BIOL, V151, P389, DOI 10.1016/0022-2836(81)90003-6
+   IKEMURA T, 1985, MOL BIOL EVOL, V2, P13
+   Ingvarsson PK, 2008, BMC EVOL BIOL, V8, DOI 10.1186/1471-2148-8-307
+   Ingvarsson PK, 2007, MOL BIOL EVOL, V24, P836, DOI 10.1093/molbev/msl212
+   Jankovics F, 2014, PLOS ONE, V9, DOI 10.1371/journal.pone.0098579
+   Jia X, 2015, BMC GENOMICS, V16, DOI 10.1186/s12864-015-1596-z
+   Kim Y, 2004, MOL BIOL EVOL, V21, P286, DOI 10.1093/molbev/msh020
+   Kontarakis Z, 2011, DEVELOPMENT, V138, P2625, DOI 10.1242/dev.066324
+   Lemos B, 2005, MOL BIOL EVOL, V22, P1345, DOI 10.1093/molbev/msi112
+   Li JJ, 2014, GENOME RES, V24, P1086, DOI 10.1101/gr.170100.113
+   Liu P., 2009, MORPHOLOGY HUSBANDRY
+   Liu P., 2009, COLD SPRING HARB PRO
+   Loewe L, 2007, GENETICS, V175, P1381, DOI 10.1534/genetics.106.065557
+   Mank JE, 2009, BIOL LETTERS, V5, P409, DOI 10.1098/rsbl.2008.0732
+   McVean GAT, 2001, GENETICS, V157, P245
+   McVean GAT, 1999, J MOL EVOL, V49, P63, DOI 10.1007/PL00006535
+   Noji S., 2009, EMERGING MODEL ORGAN, P331
+   Moriyama EN, 1998, NUCLEIC ACIDS RES, V26, P3188, DOI 10.1093/nar/26.13.3188
+   Neafsey DE, 2015, SCIENCE, V347, DOI 10.1126/science.1258522
+   Odegaard F, 2000, BIOL J LINN SOC, V71, P583, DOI 10.1006/bijl.2000.0468
+   OSAWA S, 1988, P NATL ACAD SCI USA, V85, P1124, DOI 10.1073/pnas.85.4.1124
+   Pal C, 2001, GENETICS, V158, P927
+   Pavlopoulos A, 2005, P NATL ACAD SCI USA, V102, P7888, DOI 10.1073/pnas.0501101102
+   Popescu CE, 2006, GENETICS, V172, P1567, DOI 10.1534/genetics.105.047399
+   Qiu S, 2011, MOL BIOL EVOL, V28, P771, DOI 10.1093/molbev/msq251
+   Raiford DW, 2008, J MOL EVOL, V67, P621, DOI 10.1007/s00239-008-9162-9
+   Regier JC, 2010, NATURE, V463, P1079, DOI 10.1038/nature08742
+   Rehm E., 2008, EMERGING MODEL ORGAN, V12008, P373
+   Richards S, 2008, NATURE, V452, P949, DOI 10.1038/nature06784
+   Diez Roux G., 2011, PLOS BIOL, V9
+   Seligmann H, 2003, J MOL EVOL, V56, P151, DOI 10.1007/s00239-002-2388-z
+   Sella G, 2009, PLOS GENET, V5, DOI 10.1371/journal.pgen.1000495
+   SHARP PM, 1986, J MOL EVOL, V24, P28, DOI 10.1007/BF02099948
+   SHARP PM, 1986, NUCLEIC ACIDS RES, V14, P5125, DOI 10.1093/nar/14.13.5125
+   SHARP PM, 1995, PHILOS T R SOC B, V349, P241, DOI 10.1098/rstb.1995.0108
+   SHARP PM, 1987, NUCLEIC ACIDS RES, V15, P1281, DOI 10.1093/nar/15.3.1281
+   St Pierre SE, 2014, NUCLEIC ACIDS RES, V42, pD780, DOI 10.1093/nar/gkt1092
+   Stark A, 2007, NATURE, V450, P219, DOI 10.1038/nature06340
+   Stoletzki N, 2007, MOL BIOL EVOL, V24, P374, DOI 10.1093/molbev/msl166
+   Subramanian S, 2004, GENETICS, V168, P373, DOI 10.1534/genetics.104.028944
+   SUEOKA N, 1988, P NATL ACAD SCI USA, V85, P2653, DOI 10.1073/pnas.85.8.2653
+   Swire J, 2007, J MOL EVOL, V64, P558, DOI 10.1007/s00239-006-0206-8
+   Trotta E, 2011, PLOS ONE, V6, DOI 10.1371/journal.pone.0021590
+   Urrutia AO, 2001, GENETICS, V159, P1191
+   Wall DP, 2005, P NATL ACAD SCI USA, V102, P5483, DOI 10.1073/pnas.0501761102
+   Wang B, 2011, PLOS ONE, V6, DOI 10.1371/journal.pone.0022714
+   Wang DY, 2005, MOL BIOL EVOL, V22, P142, DOI 10.1093/molbev/msh263
+   Weinstock GM, 2006, NATURE, V443, P931, DOI 10.1038/nature05260
+   Whittle CA, 2011, EUKARYOT CELL, V10, P594, DOI 10.1128/EC.00284-10
+   Whittle CA, 2011, GENOME BIOL EVOL, V3, P332, DOI 10.1093/gbe/evr018
+   Whittle CA, 2013, MOL BIOL EVOL, V30, P2435, DOI 10.1093/molbev/mst143
+   Whittle CA, 2007, BMC GENOMICS, V8, DOI 10.1186/1471-2164-8-169
+   Wiegmann B., 2005, EVOLUTIONARY BIOL FL
+   Williford A, 2012, MOL BIOL EVOL, V29, P3755, DOI 10.1093/molbev/mss184
+   WRIGHT F, 1990, GENE, V87, P23, DOI 10.1016/0378-1119(90)90491-9
+   Yang ZH, 2007, MOL BIOL EVOL, V24, P1586, DOI 10.1093/molbev/msm088
+   Zeng V, 2012, DATABASE-OXFORD, DOI 10.1093/database/bas048
+   Zeng V, 2013, PLOS ONE, V8, DOI 10.1371/journal.pone.0061479
+   Zeng V, 2011, BMC GENOMICS, V12, DOI 10.1186/1471-2164-12-581
+   Zuk M, 2014, ANNU REV ENTOMOL, V59, P321, DOI 10.1146/annurev-ento-011613-162014
+NR 100
+TC 0
+Z9 0
+U1 4
+U2 17
+PU GENETICS SOCIETY AMERICA
+PI BETHESDA
+PA 9650 ROCKVILLE AVE, BETHESDA, MD 20814 USA
+SN 2160-1836
+J9 G3-GENES GENOM GENET
+JI G3-Genes Genomes Genet.
+PD NOV
+PY 2015
+VL 5
+IS 11
+BP 2307
+EP 2321
+DI 10.1534/g3.115.021402
+PG 15
+WC Genetics & Heredity
+SC Genetics & Heredity
+GA CW0BA
+UT WOS:000364652700010
+PM 26384771
+ER
+
+PT J
+AU Zoller, S
+   Boskova, V
+   Anisimova, M
+AF Zoller, Stefan
+   Boskova, Veronika
+   Anisimova, Maria
+TI Maximum-Likelihood Tree Estimation Using Codon Substitution Models with
+   Multiple Partitions
+SO MOLECULAR BIOLOGY AND EVOLUTION
+LA English
+DT Article
+DE amino acid substitution model; codon substitution model; Markov model;
+   maximum-likelihood tree
+ID RALSTONIA-SOLANACEARUM; PHYLOGENETIC ANALYSIS; TANDEM REPEATS;
+   DNA-SEQUENCES; PROTEINS; EVOLUTION; PLANTS; NUCLEOTIDE; INFERENCE;
+   SELECTION
+AB Many protein sequences have distinct domains that evolve with different rates, different selective pressures, or may differ in codon bias. Instead of modeling these differences by more and more complex models of molecular evolution, we present a multipartition approach that allows maximum-likelihood phylogeny inference using different codon models at predefined partitions in the data. Partition models can, but do not have to, share free parameters in the estimation process. We test this approach with simulated data as well as in a phylogenetic study of the origin of the leucin-rich repeat regions in the type III effector proteins of the pythopathogenic bacteria Ralstonia solanacearum. Our study does not only show that a simple two-partition model resolves the phylogeny better than a one-partition model but also gives more evidence supporting the hypothesis of lateral gene transfer events between the bacterial pathogens and its eukaryotic hosts.
+C1 [Zoller, Stefan; Boskova, Veronika] ETH, Computat Biochem Res Grp, Zurich, Switzerland.
+   [Zoller, Stefan] Swiss Inst Bioinformat, Lausanne, Switzerland.
+   [Anisimova, Maria] Zurich Univ Appl Sci, Inst Appl Simulat, Sch Life Sci & Facil Management, Wadenswil, Switzerland.
+RP Anisimova, M (reprint author), Zurich Univ Appl Sci, Inst Appl Simulat, Sch Life Sci & Facil Management, Wadenswil, Switzerland.
+EM maria.anisimova@zhaw.ch
+CR Adzhubei AA, 1996, FEBS LETT, V399, P78, DOI 10.1016/S0014-5793(96)01287-2
+   Angot A, 2006, P NATL ACAD SCI USA, V103, P14620, DOI 10.1073/pnas.0509393103
+   Anisimova M, 2009, MOL BIOL EVOL, V26, P255, DOI 10.1093/molbev/msn232
+   Ben-Kiki O, 2001, YAML AINT M IN PRESS, P11
+   Boeckmann B, 2003, NUCLEIC ACIDS RES, V31, P365, DOI 10.1093/nar/gkg095
+   Burnham K. P., 2002, MODEL SELECTION MULT
+   Cunnac S, 2004, MOL MICROBIOL, V53, P115, DOI 10.1111/j.1365-2958.2004.04118.x
+   Dalquen DA, 2012, MOL BIOL EVOL, V29, P1115, DOI 10.1093/molbev/msr268
+   Dondoshansky I., 2002, BLASTCLUST NCBI SOFT
+   Easton D, 1997, ETHICAL SLUT
+   Finn RD, 2011, HMMER PROFILE HMMS P
+   Finn RD, 2011, NUCLEIC ACIDS RES, V39, pW29, DOI 10.1093/nar/gkr367
+   Fraser HB, 2005, NAT GENET, V37, P351, DOI 10.1038/ng1530
+   Gascuel O, 1997, MOL BIOL EVOL, V14, P685
+   Gil M, 2013, MOL BIOL EVOL, V30, P1270, DOI 10.1093/molbev/mst034
+   GOLDMAN N, 1994, MOL BIOL EVOL, V11, P725
+   Gonnet GH, 2000, BIOINFORMATICS, V16, P101, DOI 10.1093/bioinformatics/16.2.101
+   Heger A, 2009, MOL BIOL EVOL, V26, P1715, DOI 10.1093/molbev/msp080
+   HURVICH CM, 1989, BIOMETRIKA, V76, P297, DOI 10.1093/biomet/76.2.297
+   Kajava AV, 2008, PLOS ONE, V3, DOI 10.1371/journal.pone.0001694
+   Michelmore RW, 1998, GENOME RES, V8, P1113
+   Moore BR, 2014, ARXIV14090906QBIOPE
+   Posada D, 1998, BIOINFORMATICS, V14, P817, DOI 10.1093/bioinformatics/14.9.817
+   Remigi P, 2011, NEW PHYTOL, V192, P976, DOI 10.1111/j.1469-8137.2011.03854.x
+   ROBINSON DF, 1981, MATH BIOSCI, V53, P131, DOI 10.1016/0025-5564(81)90043-2
+   Ronquist F, 2003, BIOINFORMATICS, V19, P1572, DOI 10.1093/bioinformatics/btg180
+   Schaper E, 2014, MOL BIOL EVOL, V31, P1132, DOI 10.1093/molbev/msu062
+   Schaper E, 2012, NUCLEIC ACIDS RES, V40, P10005, DOI 10.1093/nar/gks726
+   Seo TK, 2008, SYST BIOL, V57, P367, DOI 10.1080/10635150802158670
+   Seo TK, 2009, SYST BIOL, V58, P199, DOI 10.1093/sysbio/syp015
+   SPIELMAN A, 1985, ANNU REV ENTOMOL, V30, P439, DOI 10.1146/annurev.en.30.010185.002255
+   Szalkowski AM, 2013, NUCLEIC ACIDS RES, V41, DOI 10.1093/nar/gkt628
+   YANG ZH, 1994, J MOL EVOL, V39, P306, DOI 10.1007/BF00160154
+   Yang ZH, 1997, COMPUT APPL BIOSCI, V13, P555
+   Yang ZH, 2002, MOL BIOL EVOL, V19, P49
+   Yang ZH, 2007, MOL BIOL EVOL, V24, P1586, DOI 10.1093/molbev/msm088
+NR 36
+TC 1
+Z9 2
+U1 3
+U2 8
+PU OXFORD UNIV PRESS
+PI OXFORD
+PA GREAT CLARENDON ST, OXFORD OX2 6DP, ENGLAND
+SN 0737-4038
+EI 1537-1719
+J9 MOL BIOL EVOL
+JI Mol. Biol. Evol.
+PD AUG
+PY 2015
+VL 32
+IS 8
+BP 2208
+EP 2216
+DI 10.1093/molbev/msv097
+PG 9
+WC Biochemistry & Molecular Biology; Evolutionary Biology; Genetics &
+   Heredity
+SC Biochemistry & Molecular Biology; Evolutionary Biology; Genetics &
+   Heredity
+GA CQ4PG
+UT WOS:000360586500024
+PM 25911229
+ER
+
+PT J
+AU Whelan, S
+   Allen, JE
+   Blackburne, BP
+   Talavera, D
+AF Whelan, Simon
+   Allen, James E.
+   Blackburne, Benjamin P.
+   Talavera, David
+TI ModelOMatic: Fast and Automated Model Selection between RY, Nucleotide,
+   Amino Acid, and Codon Substitution Models
+SO SYSTEMATIC BIOLOGY
+LA English
+DT Article
+DE AIC; model selection; phylogenetics; substitution models
+ID PROTEIN-CODING SEQUENCES; MAXIMUM-LIKELIHOOD; MOLECULAR PHYLOGENETICS;
+   EVOLUTIONARY MODELS; SECONDARY STRUCTURE; TERTIARY STRUCTURE; INFERRED
+   TREES; DNA-SEQUENCES; RIBOSOMAL-RNA; DATABASE
+AB Molecular phylogenetics is a powerful tool for inferring both the process and pattern of evolution from genomic sequence data. Statistical approaches, such as maximum likelihood and Bayesian inference, are now established as the preferred methods of inference. The choice of models that a researcher uses for inference is of critical importance, and there are established methods for model selection conditioned on a particular type of data, such as nucleotides, amino acids, or codons. A major limitation of existing model selection approaches is that they can only compare models acting upon a single type of data. Here, we extend model selection to allow comparisons between models describing different types of data by introducing the idea of adapter functions, which project aggregated models onto the originally observed sequence data. These projections are implemented in the program ModelOMatic and used to perform model selection on 3722 families from the PANDIT database, 68 genes from an arthropod phylogenomic data set, and 248 genes from a vertebrate phylogenomic data set. For the PANDIT and arthropod data, we find that amino acid models are selected for the overwhelming majority of alignments; with progressively smaller numbers of alignments selecting codon and nucleotide models, and no families selecting RY-based models. In contrast, nearly all alignments from the vertebrate data set select codon-based models. The sequence divergence, the number of sequences, and the degree of selection acting upon the protein sequences may contribute to explaining this variation in model selection. Our ModelOMatic program is fast, with most families from PANDIT taking fewer than 150 s to complete, and should therefore be easily incorporated into existing phylogenetic pipelines. ModelOMatic is available at https://code.google.com/p/modelomatic/.
+C1 [Whelan, Simon] Uppsala Univ, Evolutionary Biol Ctr, Evolutionary Biol, S-75236 Uppsala, Sweden.
+   [Whelan, Simon; Allen, James E.; Blackburne, Benjamin P.; Talavera, David] Univ Manchester, Fac Life Sci, Manchester, Lancs, England.
+RP Whelan, S (reprint author), Uppsala Univ, Evolutionary Biol Ctr, Evolutionary Biol, S-75236 Uppsala, Sweden.
+EM simon.whelan@ebc.uu.se
+RI Allen, James/B-2457-2009; 
+OI Allen, James/0000-0002-3894-4854; Talavera, David/0000-0002-8820-3931;
+   Blackburne, Benjamin/0000-0002-8158-3070
+FU UK Biotechnology and Biological Sciences Research Council [BB/H000445/1,
+   BB/H006818/1]; NERC CASE PhD studentship; EMBL-EBI, UK
+FX This work was supported by the UK Biotechnology and Biological Sciences
+   Research Council on grant codes [BB/H000445/1 to B.P.B. and BB/H006818/1
+   to D.T.] and the NERC CASE PhD studentship, in collaboration with
+   EMBL-EBI, UK [to J.A.].
+CR AKAIKE H, 1974, IEEE T AUTOMAT CONTR, VAC19, P716, DOI 10.1109/TAC.1974.1100705
+   Allen JE, 2014, GENOME BIOL EVOL, V6, P65, DOI 10.1093/gbe/evt206
+   Anisimova M, 2006, SYST BIOL, V55, P539, DOI 10.1080/10635150600755453
+   Bollback JP, 2002, MOL BIOL EVOL, V19, P1171
+   Brown JM, 2014, SYST BIOL, V63, P334, DOI 10.1093/sysbio/syu002
+   Burnham K. P., 2002, MODEL SELECTION MULT
+   Chiari Y, 2012, BMC BIOL, V10, DOI 10.1186/1741-7007-10-65
+   Darriba D, 2012, NAT METHODS, V9, P772, DOI 10.1038/nmeth.2109
+   Darriba D, 2011, BIOINFORMATICS, V27, P1164, DOI 10.1093/bioinformatics/btr088
+   Felsenstein J., 2003, INFERRING PHYLOGENIE
+   Finn RD, 2010, NUCLEIC ACIDS RES, V38, pD211, DOI 10.1093/nar/gkp985
+   Gibson A, 2005, MOL BIOL EVOL, V22, P251, DOI 10.1093/molbev/msi012
+   Gil M, 2013, MOL BIOL EVOL, V30, P1270, DOI 10.1093/molbev/mst034
+   GOLDMAN N, 1994, MOL BIOL EVOL, V11, P725
+   GOLDMAN N, 1993, J MOL EVOL, V36, P182, DOI 10.1007/BF00166252
+   Goldman N, 2002, MOL BIOL EVOL, V19, P1821
+   Guindon S, 2003, SYST BIOL, V52, P696, DOI 10.1080/10635150390235520
+   Halpern AL, 1998, MOL BIOL EVOL, V15, P910
+   Huelsenbeck JP, 2004, MOL BIOL EVOL, V21, P1123, DOI 10.1093/molbev/msh123
+   Jermiin Lars Sommer, 2008, V452, P331, DOI 10.1007/978-1-60327-159-2_16
+   Keane TM, 2006, BMC EVOL BIOL, V6, DOI 10.1186/1471-2148-6-29
+   Kosiol C, 2006, J BIOMED INFORM, V39, P51, DOI 10.1016/j.jbi.2005.08.003
+   Kosiol C, 2007, MOL BIOL EVOL, V24, P1464, DOI 10.1093/molbev/msm064
+   Kosiol C, 2011, J MOL BIOL, V411, P910, DOI 10.1016/j.jmb.2011.06.005
+   Lartillot N, 2004, MOL BIOL EVOL, V21, P1095, DOI 10.1093/molbev/msh112
+   Le SQ, 2008, MOL BIOL EVOL, V25, P1307, DOI 10.1093/molbev/msn067
+   Letsch HO, 2011, BMC EVOL BIOL, V11, DOI 10.1186/1471-2148-11-146
+   Liberles DA, 2012, PROTEIN SCI, V21, P769, DOI 10.1002/pro.2071
+   Minin V, 2003, SYST BIOL, V52, P674, DOI 10.1080/10635150390235494
+   Nguyen Minh Anh Thi, 2011, Mol Biol Evol, V28, P143, DOI 10.1093/molbev/msq180
+   Phillips MJ, 2001, P ROY SOC B-BIOL SCI, V268, P1533
+   Posada D, 2004, SYST BIOL, V53, P793, DOI 10.1080/10635150490522304
+   Posada D, 2001, SYST BIOL, V50, P580, DOI 10.1080/106351501750435121
+   Posada D, 2008, MOL BIOL EVOL, V25, P1253, DOI 10.1093/molbev/msn083
+   Regier JC, 2010, NATURE, V463, P1079, DOI 10.1038/nature08742
+   Robinson DM, 2003, MOL BIOL EVOL, V20, P1692, DOI 10.1093/molbev/msg184
+   Rodrigue N, 2005, GENE, V347, P207, DOI 10.1016/j.gene.2004.12.011
+   Rogers JS, 1997, SYST BIOL, V46, P354, DOI 10.2307/2413629
+   Schoniger M, 1999, J MOL EVOL, V49, P691, DOI 10.1007/PL00006590
+   Seo TK, 2008, SYST BIOL, V57, P367, DOI 10.1080/10635150802158670
+   Seo TK, 2009, SYST BIOL, V58, P199, DOI 10.1093/sysbio/syp015
+   Suchard MA, 2001, MOL BIOL EVOL, V18, P1001
+   Sullivan J, 2005, ANNU REV ECOL EVOL S, V36, P445, DOI 10.1146/annurev.ecolsys.36.102003.152633
+   Telford MJ, 2005, MOL BIOL EVOL, V22, P1129, DOI 10.1093/molbev/msi099
+   Thorne JL, 1996, MOL BIOL EVOL, V13, P666
+   Whelan S, 2004, GENETICS, V167, P2027, DOI 10.1534/genetics.103.023226
+   Whelan S, 2001, MOL BIOL EVOL, V18, P691
+   Whelan S, 2003, BIOINFORMATICS, V19, P1556, DOI 10.1093/bioinformatics/btg188
+   Whelan S, 2001, TRENDS GENET, V17, P262, DOI 10.1016/S0168-9525(01)02272-7
+   Whelan S, 2006, NUCLEIC ACIDS RES, V34, pD327, DOI 10.1093/nar/gkj087
+   Whelan S, 2008, PHILOS T R SOC B, V363, P4003, DOI 10.1098/rstb.2008.0171
+   Yang Z, 2006, COMPUTATIONAL MOL EV
+   YANG ZH, 1994, J MOL EVOL, V39, P306, DOI 10.1007/BF00160154
+   Yang ZH, 1998, MOL BIOL EVOL, V15, P1600
+   Yang ZH, 2012, NAT REV GENET, V13, P303, DOI 10.1038/nrg3186
+   Yang ZH, 2007, MOL BIOL EVOL, V24, P1586, DOI 10.1093/molbev/msm088
+NR 56
+TC 2
+Z9 2
+U1 4
+U2 6
+PU OXFORD UNIV PRESS
+PI OXFORD
+PA GREAT CLARENDON ST, OXFORD OX2 6DP, ENGLAND
+SN 1063-5157
+EI 1076-836X
+J9 SYST BIOL
+JI Syst. Biol.
+PD JAN
+PY 2015
+VL 64
+IS 1
+BP 42
+EP 55
+DI 10.1093/sysbio/syu062
+PG 14
+WC Evolutionary Biology
+SC Evolutionary Biology
+GA CC2BT
+UT WOS:000350150400007
+PM 25209223
+ER
+
+PT J
+AU Sabi, R
+   Tuller, T
+AF Sabi, Renana
+   Tuller, Tamir
+TI Modelling the Efficiency of Codon-tRNA Interactions Based on Codon Usage
+   Bias
+SO DNA RESEARCH
+LA English
+DT Article
+DE codon usage bias; tRNA adaptation index; protein levels; wobble
+   interactions; ribosome
+ID GENE-EXPRESSION LEVEL; ESCHERICHIA-COLI K-12; TRANSLATIONAL SELECTION;
+   ADENOSINE-DEAMINASE; SACCHAROMYCES-CEREVISIAE; PROTEIN EXPRESSION;
+   WOBBLE HYPOTHESIS; RESPECTIVE CODONS; YEAST PROTEOME; FISSION YEAST
+AB The tRNA adaptation index (tAI) is a widely used measure of the efficiency by which a coding sequence is recognized by the intra-cellular tRNA pool. This index includes among others weights that represent wobble interactions between codons and tRNA molecules. Currently, these weights are based only on the gene expression in Saccharomyces cerevisiae. However, the efficiencies of the different codon-tRNA interactions are expected to vary among different organisms. In this study, we suggest a new approach for adjusting the tAI weights to any target model organism without the need for gene expression measurements. Our method is based on optimizing the correlation between the tAI and a measure of codon usage bias. Here, we show that in non-fungal the new tAI weights predict protein abundance significantly better than the traditional tAI weights. The unique tRNA-codon adaptation weights computed for 100 different organisms exhibit a significant correlation with evolutionary distance. The reported results demonstrate the usefulness of the new measure in future genomic studies.
+C1 [Sabi, Renana; Tuller, Tamir] Tel Aviv Univ, Dept Biomed Engn, IL-69978 Tel Aviv, Israel.
+   [Tuller, Tamir] Tel Aviv Univ, Sagol Sch Neurosci, IL-69978 Tel Aviv, Israel.
+RP Tuller, T (reprint author), Tel Aviv Univ, Dept Biomed Engn, IL-69978 Tel Aviv, Israel.
+EM tamirtul@post.tau.ac.il
+FU Edmond J. Safra Center for Bioinformatics at Tel-Aviv University
+FX This study was supported in part by a fellowship from the Edmond J.
+   Safra Center for Bioinformatics at Tel-Aviv University.
+CR Abreu RD, 2009, MOL BIOSYST, V5, P1512, DOI 10.1039/b908315d
+   AGRIS PF, 1991, BIOCHIMIE, V73, P1345, DOI 10.1016/0300-9084(91)90163-U
+   Albertsen M, 2013, NAT BIOTECHNOL, V31, P533, DOI 10.1038/nbt.2579
+   Arenas M, 2010, GENETICS, V184, P429, DOI 10.1534/genetics.109.109736
+   Behura SK, 2010, INSECT MOL BIOL, V19, P49, DOI 10.1111/j.1365-2583.2009.00933.x
+   Behura SK, 2011, INSECT MOL BIOL, V20, P177, DOI 10.1111/j.1365-2583.2010.01055.x
+   Behura SK, 2013, BIOL REV, V88, P49, DOI 10.1111/j.1469-185X.2012.00242.x
+   BENNETZEN JL, 1982, J BIOL CHEM, V257, P3026
+   Blattner FR, 1997, SCIENCE, V277, P1453, DOI 10.1126/science.277.5331.1453
+   Chamary JV, 2006, NAT REV GENET, V7, P98, DOI 10.1038/nrg1770
+   Coghlan A, 2000, YEAST, V16, P1131, DOI 10.1002/1097-0061(20000915)16:12<1131::AID-YEA609>3.0.CO;2-F
+   CRICK FHC, 1966, J MOL BIOL, V19, P548
+   Delannoy E, 2009, PLANT CELL, V21, P2058, DOI 10.1105/tpc.109.066654
+   dos Reis M, 2003, NUCLEIC ACIDS RES, V31, P6976, DOI 10.1093/nar/gkg897
+   dos Reis M, 2004, NUCLEIC ACIDS RES, V32, P5036, DOI 10.1093/nar/gkh834
+   Drummond DA, 2005, P NATL ACAD SCI USA, V102, P14338, DOI 10.1073/pnas.0504070102
+   Duret L, 1999, P NATL ACAD SCI USA, V96, P4482, DOI 10.1073/pnas.96.8.4482
+   Fox JM, 2010, DNA RES, V17, P185, DOI 10.1093/dnares/dsq012
+   Frenkel-Morgenstern M, 2012, MOL SYST BIOL, V8, DOI 10.1038/msb.2012.3
+   Futcher B, 1999, MOL CELL BIOL, V19, P7357
+   Ghaemmaghami S, 2003, NATURE, V425, P737, DOI 10.1038/nature02046
+   Grantham R, 1980, NUCLEIC ACIDS RES, V8, P197, DOI DOI 10.1093/NAR/8.1.197-C
+   Greenbaum D, 2003, GENOME BIOL, V4, DOI 10.1186/gb-2003-4-9-117
+   GROSJEAN H, 1982, GENE, V18, P199, DOI 10.1016/0378-1119(82)90157-3
+   Hardesty B., 1986, STRUCTURE FUNCTION G
+   IKEMURA T, 1981, J MOL BIOL, V151, P389, DOI 10.1016/0022-2836(81)90003-6
+   IKEMURA T, 1982, J MOL BIOL, V158, P573, DOI 10.1016/0022-2836(82)90250-9
+   IKEMURA T, 1985, MOL BIOL EVOL, V2, P13
+   Ikeuchi Y, 2005, MOL CELL, V19, P235, DOI 10.1016/j.molcel.2005.06.007
+   Ingolia NT, 2011, CELL, V147, P789, DOI 10.1016/j.cell.2011.10.002
+   Ishihama Y, 2008, BMC GENOMICS, V9, DOI 10.1186/1471-2164-9-102
+   Kanaya S, 1999, GENE, V238, P143, DOI 10.1016/S0378-1119(99)00225-5
+   Kimchi-Sarfaty C, 2007, SCIENCE, V315, P525, DOI 10.1126/science.1135308
+   KIMURA M, 1968, GENET RES, V11, P247
+   Kudla G, 2009, SCIENCE, V324, P255, DOI 10.1126/science.1170160
+   KURLAND CG, 1991, FEBS LETT, V285, P165, DOI 10.1016/0014-5793(91)80797-7
+   Lim VI, 2001, RNA, V7, P942, DOI 10.1017/S135583820100214X
+   Lu P, 2007, NAT BIOTECHNOL, V25, P117, DOI 10.1038/nbt1270
+   Maas S, 1999, P NATL ACAD SCI USA, V96, P8895, DOI 10.1073/pnas.96.16.8895
+   MacQueen J., 1967, P 5 BERK S MATH STAT, P281, DOI DOI 10.1234/12345678
+   Mahlab S, 2012, RNA, V18, P640, DOI 10.1261/rna.030775.111
+   Man O, 2007, NAT GENET, V39, P415, DOI 10.1038/ng1967
+   Mandal D, 2010, P NATL ACAD SCI USA, V107, P2872, DOI 10.1073/pnas.0914869107
+   Melnikov S, 2012, NAT STRUCT MOL BIOL, V19, P560, DOI 10.1038/nsmb.2313
+   Murphy FV, 2004, NAT STRUCT MOL BIOL, V11, P11251, DOI 10.1038/nsmb866
+   NELDER JA, 1965, COMPUT J, V7, P308
+   Novoa EM, 2012, CELL, V149, P202, DOI 10.1016/j.cell.2012.01.050
+   OHAMA T, 1990, NUCLEIC ACIDS RES, V18, P1565, DOI 10.1093/nar/18.6.1565
+   Percudani R, 1997, J MOL BIOL, V268, P322, DOI 10.1006/jmbi.1997.0942
+   Plotkin JB, 2010, NAT REV GENET, V12, P32, DOI DOI 10.1038/NRG2899
+   Qian WF, 2012, PLOS GENET, V8, DOI 10.1371/journal.pgen.1002603
+   RAJBHANDARY UL, 1988, NATURE, V336, P112, DOI 10.1038/336112a0
+   Rocha EPC, 2004, GENOME RES, V14, P2279, DOI 10.1101/gr2896904
+   Roymondal U, 2009, DNA RES, V16, P13, DOI 10.1093/dnares/dsn029
+   Schmidt MW, 2007, MOL SYST BIOL, V3, DOI 10.1038/msb4100117
+   Seffens W, 1999, NUCLEIC ACIDS RES, V27, P1578, DOI 10.1093/nar/27.7.1578
+   Shabalina SA, 2006, NUCLEIC ACIDS RES, V34, P2428, DOI 10.1093/nar/gkl287
+   Sharp PM, 2005, NUCLEIC ACIDS RES, V33, P1141, DOI 10.1093/nar/gki242
+   SHARP PM, 1987, NUCLEIC ACIDS RES, V15, P1281, DOI 10.1093/nar/15.3.1281
+   STENICO M, 1994, NUCLEIC ACIDS RES, V22, P2437, DOI 10.1093/nar/22.13.2437
+   Stergachis AB, 2013, SCIENCE, V342, P1367, DOI 10.1126/science.1243490
+   Supek F, 2010, GENETICS, V185, P1129, DOI 10.1534/genetics.110.115477
+   Tsutsumi S, 2007, J BIOL CHEM, V282, DOI 10.1074/jbc.M706869200
+   Tuller T, 2007, PLOS COMPUT BIOL, V3, P2510, DOI 10.1371/journal.pcbi.0030248
+   Tuller T, 2010, CELL, V141, P344, DOI 10.1016/j.cell.2010.03.031
+   Tuller T, 2010, GENOME RES, V20, P122, DOI 10.1101/gr.096115.109
+   Tuller T, 2010, P NATL ACAD SCI USA, V107, P3645, DOI 10.1073/pnas.0909910107
+   Washburn MP, 2001, NAT BIOTECHNOL, V19, P242, DOI 10.1038/85686
+   Wolf J, 2002, EMBO J, V21, P3841, DOI 10.1093/emboj/cdf362
+   WRIGHT F, 1990, GENE, V87, P23, DOI 10.1016/0378-1119(90)90491-9
+   Zur H, 2013, BMC BIOINFORMATICS, V14, DOI 10.1186/1471-2105-14-S15-S1
+NR 71
+TC 3
+Z9 3
+U1 3
+U2 15
+PU OXFORD UNIV PRESS
+PI OXFORD
+PA GREAT CLARENDON ST, OXFORD OX2 6DP, ENGLAND
+SN 1340-2838
+EI 1756-1663
+J9 DNA RES
+JI DNA Res.
+PD OCT
+PY 2014
+VL 21
+IS 5
+BP 511
+EP 525
+DI 10.1093/dnares/dsu017
+PG 15
+WC Genetics & Heredity
+SC Genetics & Heredity
+GA AS4KP
+UT WOS:000344244900006
+PM 24906480
+ER
+
+PT J
+AU Zaheri, M
+   Dib, L
+   Salamin, N
+AF Zaheri, Maryam
+   Dib, Linda
+   Salamin, Nicolas
+TI A Generalized Mechanistic Codon Model
+SO MOLECULAR BIOLOGY AND EVOLUTION
+LA English
+DT Article
+DE codon models; phylogenetics; multiple substitutions; positive selection;
+   Markov model; Kronecker product
+ID PROTEIN-CODING GENES; SYNONYMOUS SUBSTITUTION RATES; AMINO-ACID
+   SUBSTITUTION; POSITIVE SELECTION; NUCLEOTIDE SUBSTITUTION; PHYLOGENETIC
+   INFERENCE; LIKELIHOOD APPROACH; MAXIMUM-LIKELIHOOD; C-4 PHOTOSYNTHESIS;
+   SEQUENCE EVOLUTION
+AB Models of codon evolution have attracted particular interest because of their unique capabilities to detect selection forces and their high fit when applied to sequence evolution. We described here a novel approach for modeling codon evolution, which is based on Kronecker product of matrices. The 61 x 61 codon substitution rate matrix is created using Kronecker product of three 4 x 4 nucleotide substitution matrices, the equilibrium frequency of codons, and the selection rate parameter. The entities of the nucleotide substitution matrices and selection rate are considered as parameters of the model, which are optimized by maximum likelihood. Our fully mechanistic model allows the instantaneous substitution matrix between codons to be fully estimated with only 19 parameters instead of 3,721, by using the biological interdependence existing between positions within codons. We illustrate the properties of our models using computer simulations and assessed its relevance by comparing the AICc measures of our model and other models of codon evolution on simulations and a large range of empirical data sets. We show that our model fits most biological data better compared with the current codon models. Furthermore, the parameters in our model can be interpreted in a similar way as the exchangeability rates found in empirical codon models.
+C1 [Zaheri, Maryam; Dib, Linda; Salamin, Nicolas] Univ Lausanne, Dept Ecol & Evolut, CH-1015 Lausanne, Switzerland.
+   [Zaheri, Maryam; Dib, Linda; Salamin, Nicolas] Swiss Inst Bioinformat, CH-1015 Lausanne, Switzerland.
+RP Salamin, N (reprint author), Univ Lausanne, Dept Ecol & Evolut, CH-1015 Lausanne, Switzerland.
+EM nicolas.salamin@unil.ch
+FU Swiss National Science Foundation [3100A0-116412, 3100A0-182312]
+FX The authors thank Maria Anisimova and Ziheng Yang for helpful
+   discussions on this study. This work was supported by the Swiss National
+   Science Foundation grants (3100A0-116412 and 3100A0-182312) to N.S. The
+   Vital-IT facilities of the Swiss Institute of Bioinformatics were used
+   for all computational aspects of this study.
+CR Adachi J, 1996, J MOL EVOL, V42, P459
+   Adachi J, 2000, J MOL EVOL, V50, P348
+   Aguileta G, 2004, J MOL EVOL, V59, P177, DOI 10.1007/s00239-004-2612-0
+   AKAIKE H, 1974, IEEE T AUTOMAT CONTR, VAC19, P716, DOI 10.1109/TAC.1974.1100705
+   Aleshin VV, 2009, MOL BIOL+, V43, P804, DOI 10.1134/S0026893309050124
+   Anisimova M, 2007, HEREDITY, V99, P567, DOI 10.1038/sj.hdy.6801052
+   Anisimova M, 2009, MOL BIOL EVOL, V26, P255, DOI 10.1093/molbev/msn232
+   Aris-Brosou S, 2006, GENE, V378, P58, DOI 10.1016/j.gene.2006.04.024
+   Baele G, 2011, BMC EVOL BIOL, V11, DOI 10.1186/1471-2148-11-145
+   Barrett T, 2009, NUCLEIC ACIDS RES, V37, pD885, DOI 10.1093/nar/gkn764
+   Blanquart S, 2008, MOL BIOL EVOL, V25, P842, DOI 10.1093/molbev/msn018
+   Bofkin L, 2007, MOL BIOL EVOL, V24, P513, DOI 10.1093/molbev/msl178
+   Burnham K. P., 2002, MODEL SELECTION MULT
+   Castoe TA, 2011, GENOME BIOL EVOL, V3, P641, DOI 10.1093/gbe/evr043
+   Christin PA, 2007, CURR BIOL, V17, P1241, DOI 10.1016/j.cub.2007.06.036
+   Christin PA, 2008, CURR BIOL, V18, P37, DOI 10.1016/j.cub.2007.11.058
+   Christin PA, 2012, MOL PHYLOGENET EVOL, V62, P921, DOI 10.1016/j.ympev.2011.12.002
+   Chuzhanova NA, 2003, HUM MUTAT, V21, P28, DOI 10.1002/humu.10146
+   Cranston KA, 2009, SYST BIOL, V58, P489, DOI 10.1093/sysbio/syp054
+   Dayhoff MO, 1978, ATLAS PROTEIN SEQUEN, V5
+   De Maio N, 2013, MOL BIOL EVOL, V30, P725, DOI 10.1093/molbev/mss266
+   Delport W, 2010, PLOS COMPUT BIOL, P6
+   Dib L, 2014, BIOINFORMATICS, V30, P1241, DOI 10.1093/bioinformatics/btu012
+   Doron-Faigenboim A, 2007, MOL BIOL EVOL, V24, P388, DOI 10.1093/molbev/msl175
+   Drake JW, 2007, CRIT REV BIOCHEM MOL, V42, P247, DOI 10.1080/10409230701495631
+   Dufresne F, 2011, CHROMOSOME RES, V19, P925, DOI 10.1007/s10577-011-9248-x
+   Fedorov A, 2002, NUCLEIC ACIDS RES, V30, P1192, DOI 10.1093/nar/30.5.1192
+   Felsenstein J., 2004, INFERRING PHYLOGENIE
+   GOLDMAN N, 1994, MOL BIOL EVOL, V11, P725
+   Hershberg R, 2008, ANNU REV GENET, V42, P287, DOI 10.1146/annurev.genet.42.110807.091442
+   Huang Y, 2013, PLOS ONE, V8, DOI 10.1371/journal.pone.0061280
+   HURVICH CM, 1989, BIOMETRIKA, V76, P297, DOI 10.1093/biomet/76.2.297
+   Jing RC, 2010, BMC EVOL BIOL, V10, DOI 10.1186/1471-2148-10-44
+   JONES DT, 1992, COMPUT APPL BIOSCI, V8, P275
+   Klosterman PS, 2006, BMC BIOINFORMATICS, V7, DOI 10.1186/1471-2105-7-428
+   Kosiol C, 2005, MOL BIOL EVOL, V22, P193, DOI 10.1093/molbev/msi005
+   Kosiol C, 2004, J THEOR BIOL, V228, P97, DOI 10.1016/j.jtbi.2003.12.010
+   Kosiol C, 2007, MOL BIOL EVOL, V24, P1464, DOI 10.1093/molbev/msm064
+   Larget B, 1999, MOL BIOL EVOL, V16, P750
+   Lartillot N, 2009, BIOINFORMATICS, V25, P2286, DOI 10.1093/bioinformatics/btp368
+   Lio P, 1998, GENOME RES, V8, P1233
+   Mayrose I, 2007, BIOINFORMATICS, V23, pI319, DOI 10.1093/bioinformatics/btm176
+   Moretti S, 2013, NUCLEIC ACIDS RES, V42, pD917, DOI [10.1093/nar/gkt1065, DOI 10.1093/NAR/GKT1065]
+   Morton BR, 2007, MOL BIOL EVOL, V24, P122, DOI 10.1093/molbev/msl139
+   Murrell B, 2012, PLOS GENET, V8, DOI 10.1371/journal.pgen.1002764
+   MUSE SV, 1994, MOL BIOL EVOL, V11, P715
+   NEI M, 1986, MOL BIOL EVOL, V3, P418
+   Nielsen R, 2005, PLOS BIOL, V3, P976, DOI 10.1371/journal.pbio.0030170
+   Nielsen R, 1998, GENETICS, V148, P929
+   Oh DH, 2012, GENOME BIOL, V13, DOI 10.1186/gb-2012-13-3-241
+   Paradis E, 2004, BIOINFORMATICS, V20, P289, DOI 10.1093/bioinformatics/btg412
+   Pond SK, 2005, MOL BIOL EVOL, V22, P2375, DOI 10.1093/molbev/msi232
+   Robinson DM, 2003, MOL BIOL EVOL, V20, P692
+   Rodrigue N, 2010, P NATL ACAD SCI USA, V107, P4629, DOI 10.1073/pnas.0910915107
+   Ronquist F, 2003, BIOINFORMATICS, V19, P1572, DOI 10.1093/bioinformatics/btg180
+   Rubinstein ND, 2011, MOL BIOL EVOL, V28, P3297, DOI 10.1093/molbev/msr162
+   Salamin N, 2005, SYST BIOL, V54, P183, DOI 10.1080/10635150590923254
+   Schabauer H, 2012, HICOMB 11 IEEE INT W, P700
+   Schneider A, 2005, BMC BIOINFORMATICS, V6, DOI 10.1186/1471-2105-6-134
+   Seo TK, 2008, SYST BIOL, V57, P367, DOI 10.1080/10635150802158670
+   Seoighe C, 2007, MOL BIOL EVOL, V24, P1025, DOI 10.1093/molbev/msm021
+   Servin B, 2012, BMC GENOMICS, V13, DOI 10.1186/1471-2164-13-585
+   Shapiro B, 2006, MOL BIOL EVOL, V23, P7, DOI 10.1093/molbev/msj021
+   Smith NGC, 2003, MOL BIOL EVOL, V20, P47, DOI 10.1093/molbev/msg003
+   Studer RA, 2008, GENOME RES, V18, P1393, DOI 10.1101/gr.076992.108
+   TAVARE S., 1986, LECTURES MATH LIFE S, V17, P57
+   Whelan S, 2004, GENETICS, V167, P2027, DOI 10.1534/genetics.103.023226
+   Whelan S, 2001, MOL BIOL EVOL, V18, P691
+   Whelan S, 2003, BIOINFORMATICS, V19, P1556, DOI 10.1093/bioinformatics/btg188
+   Whelan S, 2008, PHILOS T R SOC B, V363, P4003, DOI 10.1098/rstb.2008.0171
+   Wong WSW, 2006, BMC BIOINFORMATICS, V7, DOI 10.1186/1471-2105-7-148
+   Yang Z, 2006, OXFORD SERIES ECOLOG
+   Yang ZH, 2000, TRENDS ECOL EVOL, V15, P496, DOI 10.1016/S0169-5347(00)01994-7
+   Yang ZH, 2007, MOL BIOL EVOL, V24, P1586, DOI 10.1093/molbev/msm088
+   Zhang JZ, 2005, MOL BIOL EVOL, V22, P2472, DOI 10.1093/molbev/msi237
+   Zhou T, 2010, MOL BIOL EVOL, V27, P1912, DOI 10.1093/molbev/msq077
+   Zoller S, 2010, J MOL EVOL, V70, P605, DOI 10.1007/s00239-010-9356-9
+   Zoller S, 2012, MOL BIOL EVOL, V29, P271, DOI 10.1093/molbev/msr198
+NR 78
+TC 1
+Z9 1
+U1 1
+U2 5
+PU OXFORD UNIV PRESS
+PI OXFORD
+PA GREAT CLARENDON ST, OXFORD OX2 6DP, ENGLAND
+SN 0737-4038
+EI 1537-1719
+J9 MOL BIOL EVOL
+JI Mol. Biol. Evol.
+PD SEP
+PY 2014
+VL 31
+IS 9
+BP 2528
+EP 2541
+DI 10.1093/molbev/msu196
+PG 14
+WC Biochemistry & Molecular Biology; Evolutionary Biology; Genetics &
+   Heredity
+SC Biochemistry & Molecular Biology; Evolutionary Biology; Genetics &
+   Heredity
+GA AR2GF
+UT WOS:000343401100023
+PM 24958740
+ER
+
+PT J
+AU Sahoo, S
+   Das, S
+AF Sahoo, Satyabrata
+   Das, Shibsankar
+TI Analyzing Gene Expression and Codon Usage Bias in Diverse Genomes Using
+   a Variety of Models
+SO CURRENT BIOINFORMATICS
+LA English
+DT Article
+DE Archaea; bacteria; codon usage; eukaryotes; GC content; gene expression;
+   highly expressed genes predicted
+ID ESCHERICHIA-COLI GENOME; MESSENGER-RNA ABUNDANCE;
+   SACCHAROMYCES-CEREVISIAE; MICROARRAY ANALYSIS; NATURAL-SELECTION;
+   PROTEIN LENGTH; GC-CONTENT; STATISTICAL SIGNIFICANCE;
+   DROSOPHILA-MELANOGASTER; TRANSLATIONAL SELECTION
+AB Synonymous codon usage has long been known as a factor that affects the average expression level of proteins in microorganisms. A systematic approach to study the role of codon usage bias underlying gene expression has been described. Facts and ideas presented in this short review are to derive biological information from genome sequences by means of various statistical analyses and appropriate design of algorithms. Using codon usage bias as a numerical estimator of gene expression, a comparative analysis of predicted highly expressed (PHE) genes was performed in bacteria, cyanobacteria, archaea, lower eukaryotes and higher eukaryotes. Here, it is suggested that both codon usage and as well as base compositions at three codon sites regulate the individual gene expression. Any correlation between gene length and expression level, however, remains unexplained. Relationship between gene expression levels and synonymous codon usage provides an important line of evidence for translational selection and suggests some general mechanism underlying protein evolution.
+C1 [Sahoo, Satyabrata; Das, Shibsankar] Raidighi Coll, Dept Phys, Raidighi, W Bengal, India.
+RP Sahoo, S (reprint author), Raidighi Coll, Dept Phys, South 24 Parganas, Raidighi, W Bengal, India.
+EM dr_s_sahoo@yahoo.com
+FU University Grants Commission, India [F.PSW-056/10-11(ERO)]
+FX This work was supported by the University Grants Commission, India, vide
+   sanction No. F.PSW-056/10-11(ERO).
+CR Akashi H, 2001, CURR OPIN GENET DEV, V11, P660, DOI 10.1016/S0959-437X(00)00250-1
+   AKASHI H, 1994, GENETICS, V136, P927
+   Andersson GE, 1990, MICROBIOL REV, V54, P198
+   Andersson G E, 1991, Mol Biol Evol, V8, P530
+   Arhondakis S, 2004, GENE, V325, P165, DOI 10.1016/j.gene.2003.10.009
+   BLOCH PL, 1980, J BACTERIOL, V141, P1409
+   BRITTEN RJ, 1971, Q REV BIOL, V46, P111, DOI 10.1086/406830
+   BULMER M, 1987, NATURE, V325, P728, DOI 10.1038/325728a0
+   BULMER M, 1991, GENETICS, V129, P897
+   Carbone A, 2003, BIOINFORMATICS, V19, P2005, DOI 10.1093/bioinformatics/btg272
+   Carbone A, 2005, MOL BIOL EVOL, V22, P547, DOI 10.1093/molbev/msi040
+   Castillo-Davis CI, 2002, NAT GENET, V31, P415, DOI [10.1038/ng940, 10.1038/ng1011]
+   Coghlan A, 2000, YEAST, V16, P1131, DOI 10.1002/1097-0061(20000915)16:12<1131::AID-YEA609>3.0.CO;2-F
+   Coker James A, 2007, Saline Systems, V3, P6, DOI 10.1186/1746-1448-3-6
+   Comeron JM, 1999, GENETICS, V151, P239
+   D'Onofrio G, 2002, GENE, V300, P155, DOI 10.1016/S0378-1119(02)01048-X
+   Das S, 2012, GENE, V497, P344, DOI 10.1016/j.gene.2012.01.023
+   Das S, 2009, GENE, V443, P121, DOI 10.1016/j.gene.2009.04.022
+   Drummond DA, 2005, P NATL ACAD SCI USA, V102, P14338, DOI 10.1073/pnas.0504070102
+   Duret L, 2000, MOL BIOL EVOL, V17, P68
+   Duret L, 1999, P NATL ACAD SCI USA, V96, P4482, DOI 10.1073/pnas.96.8.4482
+   Duret L, 2002, CURR OPIN GENET DEV, V12, P640, DOI 10.1016/S0959-437X(02)00353-2
+   Duret L, 2000, TRENDS GENET, V16, P287, DOI 10.1016/S0168-9525(00)02041-2
+   Ernst JF, 2004, TRENDS BIOTECHNOL, V22, P196
+   EyreWalker A, 1996, MOL BIOL EVOL, V13, P864
+   Fox JM, 2010, DNA RES, V17, P185, DOI 10.1093/dnares/dsq012
+   FREIREPICOS MA, 1994, GENE, V139, P43, DOI 10.1016/0378-1119(94)90521-5
+   Fu QS, 2005, BIOCHEM BIOPH RES CO, V332, P380, DOI 10.1016/j.bbrc.2005.04.128
+   Galtier N, 2001, GENETICS, V159, P907
+   GRANTHAM R, 1980, NUCLEIC ACIDS RES, V8, pR49
+   GROSJEAN H, 1982, GENE, V18, P199, DOI 10.1016/0378-1119(82)90157-3
+   Gygi SP, 1999, MOL CELL BIOL, V19, P1720
+   Henry I, 2007, MOL BIOL EVOL, V24, P10, DOI 10.1093/molbev/ms1148
+   Hershberg R, 2008, ANNU REV GENET, V42, P287, DOI 10.1146/annurev.genet.42.110807.091442
+   Hovey R, 2005, MOL GENET GENOMICS, V273, P225, DOI 10.1007/s00438-005-1126-9
+   Huang F, 2004, MOL CELL PROTEOMICS, V3, P586, DOI 10.1074/mcp.MCP200
+   IKEMURA T, 1981, J MOL BIOL, V151, P389, DOI 10.1016/0022-2836(81)90003-6
+   IKEMURA T, 1985, MOL BIOL EVOL, V2, P13
+   Ingvarsson PK, 2007, MOL BIOL EVOL, V24, P836, DOI 10.1093/molbev/msl212
+   Ishihama Y, 2008, BMC GENOMICS, V9, DOI 10.1186/1471-2164-9-102
+   Jansen R, 2000, NUCLEIC ACIDS RES, V28, P1481, DOI 10.1093/nar/28.6.1481
+   Jordan IK, 2005, GENE, V345, P119, DOI 10.1016/j.gene.2004.11.034
+   Jordan IK, 2004, MOL BIOL EVOL, V21, P2058, DOI 10.1093/molbev/msh222
+   Kanaya S, 1999, GENE, V238, P143, DOI 10.1016/S0378-1119(99)00225-5
+   KANO A, 1991, J MOL BIOL, V221, P387, DOI 10.1016/0022-2836(91)80061-X
+   Karlin S, 2001, P NATL ACAD SCI USA, V98, P5240, DOI 10.1073/pnas.081077598
+   Karlin S, 1998, MOL MICROBIOL, V29, P1341, DOI 10.1046/j.1365-2958.1998.01008.x
+   Karlin S, 2000, J BACTERIOL, V182, P5238, DOI 10.1128/JB.182.18.5238-5250.2000
+   Karlin S, 2005, P NATL ACAD SCI USA, V102, P7303, DOI 10.1073/pnas.0502313102
+   KING MC, 1975, SCIENCE, V188, P107, DOI 10.1126/science.1090005
+   Konu O, 2002, J MOL EVOL, V54, P35, DOI 10.1007/s00239-001-0015-z
+   Kudla G, 2009, SCIENCE, V324, P255, DOI 10.1126/science.1170160
+   KURLAND CG, 1991, FEBS LETT, V285, P165, DOI 10.1016/0014-5793(91)80797-7
+   Lemos B, 2005, MOL BIOL EVOL, V22, P1345, DOI 10.1093/molbev/msi112
+   Lercher MJ, 2002, NAT GENET, V31, P180, DOI 10.1038/ng887
+   Lercher MJ, 2003, HUM MOL GENET, V12, P2411, DOI 10.1093/hmg/ddg251
+   Li LY, 2007, J PROTEOME RES, V6, P759, DOI 10.1021/pr0603831
+   Lu P, 2007, NAT BIOTECHNOL, V25, P117, DOI 10.1038/nbt1270
+   Merkl R, 2003, J MOL EVOL, V57, P453, DOI 10.1007/s00239-003-2499-1
+   Moriyama EN, 1998, NUCLEIC ACIDS RES, V26, P3188, DOI 10.1093/nar/26.13.3188
+   MORTON BR, 1994, MOL BIOL EVOL, V11, P231
+   Morton BR, 2000, J MOL EVOL, V50, P184
+   Nackley AG, 2006, SCIENCE, V314, P1930, DOI 10.1126/science.1131262
+   Ning L, 2011, AFR J MICROBIOL RES, V5, P4071
+   Novoa EM, 2012, CELL, V149, P202, DOI 10.1016/j.cell.2012.01.050
+   Pal C, 2001, GENETICS, V158, P927
+   Percudani R, 1997, J MOL BIOL, V268, P322, DOI 10.1006/jmbi.1997.0942
+   Ponger L, 2001, GENOME RES, V11, P1854
+   Ren XY, 2006, TRENDS GENET, V22, P528, DOI 10.1016/j.tig.2006.08.008
+   Retchless AC, 2011, BMC GENOMICS, V12, DOI 10.1186/1471-2164-12-374
+   Richmond CS, 1999, NUCLEIC ACIDS RES, V27, P3821, DOI 10.1093/nar/27.19.3821
+   Roymondal U, 2009, DNA RES, V16, P13, DOI 10.1093/dnares/dsn029
+   Sazuka T, 1999, ELECTROPHORESIS, V20, P2160, DOI 10.1002/(SICI)1522-2683(19990801)20:11<2160::AID-ELPS2160>3.3.CO;2-R
+   Semon M, 2005, HUM MOL GENET, V14, P421, DOI 10.1093/hmg/ddi038
+   Sharp PM, 2010, PHILOS T R SOC B, V365, P1203, DOI 10.1098/rstb.2009.0305
+   SHARP PM, 1991, J MOL EVOL, V33, P23, DOI 10.1007/BF02100192
+   SHARP PM, 1993, BIOCHEM SOC T, V21, P835
+   SHARP PM, 1987, NUCLEIC ACIDS RES, V15, P1281, DOI 10.1093/nar/15.3.1281
+   Singh AK, 2006, ARCH MICROBIOL, V186, P273, DOI 10.1007/s00203-006-0138-0
+   Sueoka N, 2000, GENE, V261, P53, DOI 10.1016/S0378-1119(00)00480-7
+   Supek F, 2005, BMC BIOINFORMATICS, V6, DOI 10.1186/1471-2105-6-182
+   Supek F, 2010, BMC BIOINFORMATICS, V11, DOI 10.1186/1471-2105-11-463
+   Supek F, 2010, PLOS GENET, V6, DOI 10.1371/journal.pgen.1001004
+   Supek F, 2010, GENETICS, V185, P1129, DOI 10.1534/genetics.110.115477
+   Suzuki Y, 2001, BIOINFORMATICS, V17, P660, DOI 10.1093/bioinformatics/17.7.660
+   Tuller T, 2010, P NATL ACAD SCI USA, V107, P3645, DOI 10.1073/pnas.0909910107
+   Twellmeyer J, 2007, PLOS ONE, V2, DOI 10.1371/journal.pone.0001064
+   Urrutia AO, 2003, GENOME RES, V13, P2260, DOI 10.1101/gr.641103
+   Urrutia AO, 2001, GENETICS, V159, P1191
+   Versteeg R, 2003, GENOME RES, V13, P1998, DOI 10.1101/gr.1649303
+   Vinogradov AE, 2003, NUCLEIC ACIDS RES, V31, P5212, DOI 10.1093/nar/gkg699
+   Wan XF, 2004, BMC EVOL BIOL, V4, DOI 10.1186/1471-2148-4-19
+   WRIGHT F, 1990, GENE, V87, P23, DOI 10.1016/0378-1119(90)90491-9
+   Xu K, 2007, GENE, V397, P136, DOI 10.1016/j.gene.2007.04.023
+   YAMAO F, 1991, NUCLEIC ACIDS RES, V19, P6119, DOI 10.1093/nar/19.22.6119
+   Yang ZH, 2002, MOL BIOL EVOL, V19, P49
+NR 96
+TC 0
+Z9 0
+U1 0
+U2 4
+PU BENTHAM SCIENCE PUBL LTD
+PI SHARJAH
+PA EXECUTIVE STE Y-2, PO BOX 7917, SAIF ZONE, 1200 BR SHARJAH, U ARAB
+   EMIRATES
+SN 1574-8936
+EI 2212-392X
+J9 CURR BIOINFORM
+JI Curr. Bioinform.
+PY 2014
+VL 9
+IS 2
+BP 102
+EP 112
+DI 10.2174/1574893608999140109114247
+PG 11
+WC Biochemical Research Methods; Mathematical & Computational Biology
+SC Biochemistry & Molecular Biology; Mathematical & Computational Biology
+GA AN8TC
+UT WOS:000340876200003
+ER
+
+PT J
+AU Miyazawa, S
+AF Miyazawa, Sanzo
+TI Superiority of a mechanistic codon substitution model even for protein
+   sequences in Phylogenetic analysis
+SO BMC EVOLUTIONARY BIOLOGY
+LA English
+DT Article
+DE Amino acid substitution model; Empirical amino acid substitution rate
+   matrix; Mechanistic codon substitution model; Structural constraints;
+   Functional constraints; Selective constraints; Variable selective
+   constraint across sites; Variable mutation rate across sites; multiple
+   nucleotide change
+ID AMINO-ACID SUBSTITUTION; MAXIMUM-LIKELIHOOD; MITOCHONDRIAL-DNA;
+   NUCLEOTIDE SUBSTITUTION; CODING SEQUENCES; EVOLUTION; RATES; GENOME;
+   FREQUENCIES; INFERENCE
+AB Background: Nucleotide and amino acid substitution tendencies are characteristic of each species, organelle, and protein family. Hence, various empirical amino acid substitution rate matrices have needed to be estimated for phylogenetic analysis: JTT, WAG, and LG for nuclear proteins, mtREV for mitochondrial proteins, cpREV10 and cpREV64 for chloroplast-encoded proteins, and FLU for influenza proteins. On the other hand, in a mechanistic codon substitution model, in which each codon substitution rate is proportional to the product of a codon mutation rate and the ratio of fixation depending on the type of amino acid replacement, mutation rates and the strength of selective constraint on amino acids can be tailored to each protein family with additional 11 parameters. As a result, in the evolutionary analysis of codon sequences it outperforms codon substitution models equivalent to empirical amino acid substitution matrices. Is it superior even for amino acid sequences, among which synonymous substitutions cannot be identified?
+   Results: Nucleotide mutations are assumed to occur independently of codon positions but multiple nucleotide changes in infinitesimal time are allowed. Selective constraints on the respective types of amino acid replacements are tailored to each gene with a linear function of a given estimate of selective constraints, which were estimated by maximizing the likelihood of an empirical amino acid or codon substitution frequency matrix, each of JTT, WAG, LG, and KHG. It is shown that the mechanistic codon substitution model with the assumption of equal codon usage yields better values of Akaike and Bayesian information criteria for all three phylogenetic trees of mitochondrial, chloroplast, and influenza-A hemagglutinin proteins than the empirical amino acid substitution models with mtREV, cpREV64, and FLU, which were designed specifically for those protein families, respectively. The variation of selective constraint across sites fits the datasets significantly better than variable codon mutation rates, confirming that substitution rate variations across sites detected by amino acid substitution models are caused primarily by the variation of selective constraint against amino acid substitutions rather than the variation of codon mutation rate.
+   Conclusions: The mechanistic codon substitution model is superior to amino acid substitution models even in the evolutionary analysis of protein sequences.
+RP Miyazawa, S (reprint author), 6-5-607 Miyanodai, Sakura, Chiba 2850857, Japan.
+EM sanzo.miyazawa@gmail.com
+CR Adachi J, 1996, J MOL EVOL, V42, P459
+   Adachi J, 2000, J MOL EVOL, V50, P348
+   AKAIKE H, 1974, IEEE T AUTOMAT CONTR, VAC19, P716, DOI 10.1109/TAC.1974.1100705
+   Dang CC, 2008, BMC EVOL BIOL, V8, P331
+   Dayhoff MO, 1978, ATLAS PROTEIN SEQ S3, V5, P345
+   Delport W, 2010, PLOS COMPUT BIOL, V6
+   Delport W, 2010, PLOS ONE, V5, P11587
+   Dimmic MW, PAC S BIOCOMPUT, V5, P18
+   Doron-Faigenboim A, 2007, MOL BIOL EVOL, V24, P388, DOI 10.1093/molbev/msl175
+   GO M, 1980, INT J PEPT PROT RES, V15, P211
+   GO M, 1978, INT J PEPT PROT RES, V12, P237
+   GOLDMAN N, 1994, MOL BIOL EVOL, V11, P725
+   Guindon S, 2003, SYST BIOL, V52, P696, DOI 10.1080/10635150390235520
+   Halpern AL, 1998, MOL BIOL EVOL, V15, P910
+   HASEGAWA M, 1985, J MOL EVOL, V22, P160, DOI 10.1007/BF02101694
+   Huelsenbeck JP, 2008, PHILOS T R SOC B, V363, P3941, DOI 10.1098/rstb.2008.0175
+   Jansen RK, 2007, P NATL ACAD SCI USA, V104, P19369, DOI 10.1073/pnas.0709121104
+   JONES DT, 1992, COMPUT APPL BIOSCI, V8, P275
+   Katoh K, 2013, MOL BIOL EVOL, V30, P772, DOI 10.1093/molbev/mst010
+   KIMURA M, 1980, J MOL EVOL, V16, P111, DOI 10.1007/BF01731581
+   Kosiol C, 2007, MOL BIOL EVOL, V24, P1464, DOI 10.1093/molbev/msm064
+   Larkin MA, 2007, BIOINFORMATICS, V23, P2947, DOI 10.1093/bioinformatics/btm404
+   Lartillot N, 2004, MOL BIOL EVOL, V21, P1095, DOI 10.1093/molbev/msh112
+   Le SQ, 2008, MOL BIOL EVOL, V25, P1307, DOI 10.1093/molbev/msn067
+   Le SQ, 2008, PHILOS T R SOC B, V363, P3965, DOI 10.1098/rstb.2008.0180
+   Le SQ, 2012, MOL BIOL EVOL, V29, P2921, DOI 10.1093/molbev/mss112
+   Le SQ, 2008, BIOINFORMATICS, V24, P2317, DOI DOI 10.1093/BIOINFORMATICS/BTN445
+   MIYAZAWA S, 1993, PROTEIN ENG, V6, P267, DOI 10.1093/protein/6.3.267
+   MIYAZAWA S, 2011, PLOS ONE, V0006
+   Miyazawa S, 2001, PLOS ONE, V6, P28892
+   Murrell B, 2011, PLOS ONE, V6, P28898
+   MUSE SV, 1994, MOL BIOL EVOL, V11, P715
+   Nikaido M, 2003, MOL PHYLOGENET EVOL, V28, P276, DOI 10.1016/S1055-7903(03)00120-9
+   Price M. N., 2010, PLOS ONE, V5, pe9490, DOI DOI 10.1371/JOURNAL.PONE.0009490
+   SCHWARZ G, 1978, ANN STAT, V6, P461, DOI 10.1214/aos/1176344136
+   Seo TK, 2008, SYST BIOL, V57, P367, DOI 10.1080/10635150802158670
+   Seo TK, 2009, SYST BIOL, V58, P199, DOI 10.1093/sysbio/syp015
+   TAMURA K, 1993, MOL BIOL EVOL, V10, P512
+   Wang HC, 1996, BMC EVOL BIOL, V11, P158
+   Whelan S, 2004, GENETICS, V167, P2027, DOI 10.1534/genetics.103.023226
+   Whelan S, MOL BIOL EVOL, V18, P691
+   YANG ZH, 1995, GENETICS, V139, P993
+   Yang ZH, 2000, GENETICS, V155, P431
+   YANG ZH, 1994, J MOL EVOL, V39, P306, DOI 10.1007/BF00160154
+   Yang ZH, 1998, MOL BIOL EVOL, V15, P1600
+   Yang ZH, 2008, MOL BIOL EVOL, V25, P568, DOI 10.1093/molbev/msm284
+   Zhong B, 2010, MOL BIOL EVOL, V10, P1093
+   Zoller S, 2013, MOL BIOL EVOL, V30, P469, DOI 10.1093/molbev/mss229
+NR 48
+TC 1
+Z9 1
+U1 1
+U2 7
+PU BIOMED CENTRAL LTD
+PI LONDON
+PA 236 GRAYS INN RD, FLOOR 6, LONDON WC1X 8HL, ENGLAND
+SN 1471-2148
+J9 BMC EVOL BIOL
+JI BMC Evol. Biol.
+PD NOV 21
+PY 2013
+VL 13
+AR 257
+DI 10.1186/1471-2148-13-257
+PG 10
+WC Evolutionary Biology; Genetics & Heredity
+SC Evolutionary Biology; Genetics & Heredity
+GA 272LJ
+UT WOS:000328461800001
+PM 24256155
+ER
+
+PT J
+AU Gil, M
+   Zanetti, MS
+   Zoller, S
+   Anisimova, M
+AF Gil, Manuel
+   Zanetti, Marcelo Serrano
+   Zoller, Stefan
+   Anisimova, Maria
+TI CodonPhyML: Fast Maximum Likelihood Phylogeny Estimation under Codon
+   Substitution Models
+SO MOLECULAR BIOLOGY AND EVOLUTION
+LA English
+DT Article
+DE maximum likelihood; phylogeny inference; codon model; evolution;
+   selection
+ID AMINO-ACID SITES; NUCLEOTIDE SUBSTITUTION; SEQUENCE EVOLUTION;
+   DNA-SEQUENCES; PROTEIN; INFERENCE; TREES; MATRIX; RECONSTRUCTION;
+   SELECTION
+AB Markov models of codon substitution naturally incorporate the structure of the genetic code and the selection intensity at the protein level, providing a more realistic representation of protein-coding sequences compared with nucleotide or amino acid models. Thus, for protein-coding genes, phylogenetic inference is expected to be more accurate under codon models. So far, phylogeny reconstruction under codon models has been elusive due to computational difficulties of dealing with high dimension matrices. Here, we present a fast maximum likelihood (ML) package for phylogenetic inference, CodonPhyML offering hundreds of different codon models, the largest variety to date, for phylogeny inference by ML. CodonPhyML is tested on simulated and real data and is shown to offer excellent speed and convergence properties. In addition, CodonPhyML includes most recent fast methods for estimating phylogenetic branch supports and provides an integral framework for models selection, including amino acid and DNA models.
+C1 [Gil, Manuel; Zanetti, Marcelo Serrano; Zoller, Stefan; Anisimova, Maria] ETH, Swiss Fed Inst Technol, Dept Comp Sci, Zurich, Switzerland.
+   [Gil, Manuel; Zoller, Stefan; Anisimova, Maria] SIB, Lausanne, Switzerland.
+   [Gil, Manuel] Med Univ Vienna, Univ Vienna, Max F Perutz Labs, Ctr Integrat Bioinformat Vienna, Vienna, Austria.
+   [Zanetti, Marcelo Serrano] ETH, Swiss Fed Inst Technol, Dept Management Technol & Econ, Zurich, Switzerland.
+RP Gil, M (reprint author), ETH, Swiss Fed Inst Technol, Dept Comp Sci, Zurich, Switzerland.
+EM manuel.gil.sci@gmail.com; maria.anisimova@inf.ethz.ch
+OI Zanetti, Marcelo/0000-0001-6064-9854
+FU Swiss Federal Commission [2006.0091]; Swiss National Science Foundation
+   (SNF) [31003A_127325/1, PBEZP2_140129, CR12I1_125298]
+FX The authors are grateful to Stephane Guindon for support with PhyML code
+   and Ziheng Yang, Olivier Gascuel, and Gaston Gonnet for discussions on
+   code optimization strategies. Part of this work was accomplished toward
+   the master thesis, for which M.S.Z. was awarded the ETH Zurich medal.
+   This work was supported by the Swiss Federal Commission for Scholarships
+   for Foreign Students grant 2006.0091 to M.S.Z. and by the Swiss National
+   Science Foundation (SNF) grants 31003A_127325/1 to M. A., PBEZP2_140129
+   to M. G., and CR12I1_125298 to M.S.Z.
+CR Akaike H, 1973, 2 INT S INF THEOR, P267, DOI DOI 10.1007/978-1-4612-1694-0_
+   AKAIKE H, 1974, IEEE T AUTOMAT CONTR, VAC19, P716, DOI 10.1109/TAC.1974.1100705
+   Altenhoff AM, 2011, NUCLEIC ACIDS RES, V39, pD289, DOI 10.1093/nar/gkq1238
+   Anderson E., 1990, P 1990 ACM IEEE C SU, P2
+   Anisimova M, 2009, MOL BIOL EVOL, V26, P255, DOI 10.1093/molbev/msn232
+   Anisimova M, 2011, SYST BIOL, V60, P685, DOI 10.1093/sysbio/syr041
+   Anisimova M, 2006, SYST BIOL, V55, P539, DOI 10.1080/10635150600755453
+   Anisimova M, 2012, CODON EVOLUTION: MECHANISMS AND MODELS, P12
+   Bader DA, 2006, ADV COMPUT, V68, P127, DOI 10.1016/S0065-2458(06)68004-2
+   Balakirev ES, 2011, PLOS ONE, V6, DOI 10.1371/journal.pone.0022613
+   Blackford LS, 2002, ACM T MATH SOFTWARE, V28, P135, DOI 10.1145/567806.567807
+   Dagum L, 1998, IEEE COMPUT SCI ENG, V5, P46, DOI 10.1109/99.660313
+   Dessimoz C, 2010, GENOME BIOL, V11, DOI 10.1186/gb-2010-11-4-r37
+   Dimitrieva S., 2010, TRENDS EVOL BIOL, V2, pe1
+   Doron-Faigenboim A, 2007, MOL BIOL EVOL, V24, P388, DOI 10.1093/molbev/msl175
+   Drummond AJ, 2007, BMC EVOL BIOL, V7, DOI 10.1186/1471-2148-7-214
+   Gascuel O, 1997, MOL BIOL EVOL, V14, P685
+   Wright M. H., 1981, PRACTICAL OPTIMIZATI
+   GOLDMAN N, 1994, MOL BIOL EVOL, V11, P725
+   Goldman N, 2002, MOL BIOL EVOL, V19, P1821
+   Guindon S, 2010, SYST BIOL, V59, P307, DOI 10.1093/sysbio/syq010
+   Higham NJ, 2005, SIAM J MATRIX ANAL A, V26, P1179, DOI 10.1137/04061101X
+   Hordijk W, 2005, BIOINFORMATICS, V21, P4338, DOI 10.1093/bioinformatics/bti713
+   Kajava AV, 2008, PLOS ONE, V3, DOI 10.1371/journal.pone.0001694
+   Kosiol C, 2007, MOL BIOL EVOL, V24, P1464, DOI 10.1093/molbev/msm064
+   Lindsay H, 2008, BIOL DIRECT, V3, DOI 10.1186/1745-6150-3-52
+   Minh BQ, 2005, BIOINFORMATICS, V21, P3794, DOI 10.1093/bioinformatics/bti594
+   Moler C, 2003, SIAM REV, V45, P3, DOI 10.1137/S00361445024180
+   MUSE SV, 1994, MOL BIOL EVOL, V11, P715
+   Neyman J, 1971, STAT DECISION THEORY, P1
+   Nielsen R, 1998, GENETICS, V148, P929
+   Pfitzner R, 2012, ARXIV12080588PHYSICS
+   Phillips MJ, 2001, P ROY SOC B-BIOL SCI, V268, P1533
+   Pond SK, 2010, PLOS ONE, V5, DOI 10.1371/journal.pone.0011230
+   Punta M, 2012, NUCLEIC ACIDS RES, V40, pD290, DOI 10.1093/nar/gkr1065
+   Ren FR, 2005, SYST BIOL, V54, P808, DOI 10.1080/10635150500354688
+   ROBINSON DF, 1981, MATH BIOSCI, V53, P131, DOI 10.1016/0025-5564(81)90043-2
+   Rodrigue N, 2008, GENETICS, V180, P1579, DOI 10.1534/genetics.108.092254
+   Rogers JS, 1997, SYST BIOL, V46, P354, DOI 10.2307/2413629
+   Ronquist F, 2012, SYST BIOL, V61, P539, DOI 10.1093/sysbio/sys029
+   Schmidt H. A., 2009, PHYLOGENETIC HDB PRA, P181
+   Schneider A, 2005, BMC BIOINFORMATICS, V6, DOI 10.1186/1471-2105-6-134
+   Schranz HW, 2008, BMC BIOINFORMATICS, V9, DOI 10.1186/1471-2105-9-550
+   SCHWARZ G, 1978, ANN STAT, V6, P461, DOI 10.1214/aos/1176344136
+   Seo TK, 2008, SYST BIOL, V57, P367, DOI 10.1080/10635150802158670
+   Seo TK, 2009, SYST BIOL, V58, P199, DOI 10.1093/sysbio/syp015
+   Shimodaira H, 1999, MOL BIOL EVOL, V16, P1114
+   Stamatakis A, 2005, BIOINFORMATICS, V21, P456, DOI 10.1093/bioinformatics/bti191
+   Whelan S, 2006, NUCLEIC ACIDS RES, V34, pD327, DOI 10.1093/nar/gkj087
+   Wilkinson JH, 1971, HDB AUTOMATIC COMPUT, P197
+   Yang Z, 2006, COMPUTATIONAL MOL EV
+   Yang ZH, 2000, J MOL EVOL, V51, P423
+   YANG ZH, 1995, GENETICS, V139, P993
+   Yang ZH, 2000, GENETICS, V155, P431
+   Yang ZH, 2007, MOL BIOL EVOL, V24, P1586, DOI 10.1093/molbev/msm088
+   Yap VB, 2010, MOL BIOL EVOL, V27, P726, DOI 10.1093/molbev/msp232
+   Zoller S, 2010, J MOL EVOL, V70, P605, DOI 10.1007/s00239-010-9356-9
+   Zwickl D. J., 2006, GENETIC ALGORITHM AP
+NR 58
+TC 34
+Z9 36
+U1 2
+U2 10
+PU OXFORD UNIV PRESS
+PI OXFORD
+PA GREAT CLARENDON ST, OXFORD OX2 6DP, ENGLAND
+SN 0737-4038
+J9 MOL BIOL EVOL
+JI Mol. Biol. Evol.
+PD JUN
+PY 2013
+VL 30
+IS 6
+BP 1270
+EP 1280
+DI 10.1093/molbev/mst034
+PG 11
+WC Biochemistry & Molecular Biology; Evolutionary Biology; Genetics &
+   Heredity
+SC Biochemistry & Molecular Biology; Evolutionary Biology; Genetics &
+   Heredity
+GA 142QL
+UT WOS:000318812000005
+PM 23436912
+ER
+
+PT J
+AU De Maio, N
+   Holmes, I
+   Schlotterer, C
+   Kosiol, C
+AF De Maio, Nicola
+   Holmes, Ian
+   Schloetterer, Christian
+   Kosiol, Carolin
+TI Estimating Empirical Codon Hidden Markov Models
+SO MOLECULAR BIOLOGY AND EVOLUTION
+LA English
+DT Article
+DE empirical codon model; rate heterogeneity; hidden Markov models;
+   positive selection; Drosophila substitution patterns
+ID PROTEIN-CODING SEQUENCES; DETECTING MOLECULAR ADAPTATION;
+   MAXIMUM-LIKELIHOOD-ESTIMATION; AMINO-ACID SITES; SUBSTITUTION MODELS;
+   DNA-SEQUENCES; PHYLOGENETIC ANALYSIS; COMPARATIVE GENOMICS;
+   STATISTICAL-METHODS; POSITIVE SELECTION
+AB Empirical codon models (ECMs) estimated from a large number of globular protein families outperformed mechanistic codon models in their description of the general process of protein evolution. Among other factors, ECMs implicitly model the influence of amino acid properties and multiple nucleotide substitutions (MNS). However, the estimation of ECMs requires large quantities of data, and until recently, only few suitable data sets were available. Here, we take advantage of several new Drosophila species genomes to estimate codon models from genome-wide data. The availability of large numbers of genomes over varying phylogenetic depths in the Drosophila genus allows us to explore various divergence levels. In consequence, we can use these data to determine the appropriate level of divergence for the estimation of ECMs, avoiding overestimation of MNS rates caused by saturation. To account for variation in evolutionary rates along the genome, we develop new empirical codon hidden Markov models (ecHMMs). These models significantly outperform previous ones with respect to maximum likelihood values, suggesting that they provide a better fit to the evolutionary process. Using ECMs and ecHMMs derived from genome-wide data sets, we devise new likelihood ratio tests (LRTs) of positive selection. We found classical LRTs very sensitive to the presence of MNSs, showing high false-positive rates, especially with small phylogenies. The new LRTs are more conservative than the classical ones, having acceptable false-positive rates and reduced power.
+C1 [De Maio, Nicola; Schloetterer, Christian; Kosiol, Carolin] Vetmeduni Vienna, Inst Populat Genet, Vienna, Austria.
+   [Holmes, Ian] Univ Calif Berkeley, Dept Bioengn, Berkeley, CA 94720 USA.
+RP De Maio, N (reprint author), Vetmeduni Vienna, Inst Populat Genet, Vienna, Austria.
+EM nicola.de.maio.85@gmail.com
+RI Schlotterer, Christian/G-6326-2010
+OI Schlotterer, Christian/0000-0003-4710-6526
+FU Vetmeduni Vienna; Austrian Science Fund (FWF) [W1225-B20, P24551-B25];
+   NIH [2R01HG004483]
+FX The authors thank Maria Anisimova, Andrea Betancourt, Raymond Tobler,
+   and the anonymous reviewers for very helpful comments on this manuscript
+   and Claus Vogl, Florian Clemente, and Oscar Westesson for insightful
+   discussions. They are grateful to Mohamed Noor for sharing sequence
+   reads of the D. lowei species and Baylor College of Medicine Human
+   Genome Sequencing Center for data of the D. bipectinata species. Nicola
+   Palmieri, Ram Vinay Pandey, Viola Nolte, Artyom Kopp, and Tim Sackton
+   kindly provided us with sequences and orthologous alignments. This work
+   was supported by a PhD fellowship of the Vetmeduni Vienna and the
+   Austrian Science Fund (FWF, W1225-B20) to N.D.M., partially supported by
+   NIH grant 2R01HG004483 to I.H., and partially supported by Austrian
+   Science Fund to C.K. (FWF, P24551-B25).
+CR AKAIKE H, 1974, IEEE T AUTOMAT CONTR, VAC19, P716, DOI 10.1109/TAC.1974.1100705
+   Anisimova M, 2007, HEREDITY, V99, P567, DOI 10.1038/sj.hdy.6801052
+   Anisimova M, 2009, MOL BIOL EVOL, V26, P255, DOI 10.1093/molbev/msn232
+   Delport W, 2010, PLOS COMPUT BIOL, V6, DOI 10.1371/journal.pcbi.1000885
+   Doron-Faigenboim A, 2007, MOL BIOL EVOL, V24, P388, DOI 10.1093/molbev/msl175
+   Felsenstein J, 1996, MOL BIOL EVOL, V13, P93
+   GOLDMAN N, 1994, MOL BIOL EVOL, V11, P725
+   Heger A, 2009, MOL BIOL EVOL, V26, P1715, DOI 10.1093/molbev/msp080
+   Klosterman PS, 2006, BMC BIOINFORMATICS, V7, DOI 10.1186/1471-2105-7-428
+   Knudsen B, 1999, BIOINFORMATICS, V15, P446, DOI 10.1093/bioinformatics/15.6.446
+   Kosiol C, 2007, MOL BIOL EVOL, V24, P1464, DOI 10.1093/molbev/msm064
+   Lin MF, 2011, BIOINFORMATICS, V27, pI275, DOI 10.1093/bioinformatics/btr209
+   NEI M, 1986, MOL BIOL EVOL, V3, P418
+   Nielsen R, 2007, MOL BIOL EVOL, V24, P228, DOI 10.1093/molbev/msl146
+   Pollard DA, 2006, PLOS GENET, V2, P1634, DOI 10.1371/journal.pgen.0020173
+   Ren FR, 2005, SYST BIOL, V54, P808, DOI 10.1080/10635150500354688
+   Ridout KE, 2010, GENOME BIOL EVOL, V2, P166, DOI 10.1093/gbe/evq008
+   Rodrigue N, 2010, P NATL ACAD SCI USA, V107, P4629, DOI 10.1073/pnas.0910915107
+   Sackton TB, 2007, NAT GENET, V39, P1461, DOI 10.1038/ng.2007.60
+   Schrider DR, 2011, CURR BIOL, V21, P1051, DOI 10.1016/j.cub.2011.05.013
+   SCHWARZ G, 1978, ANN STAT, V6, P461, DOI 10.1214/aos/1176344136
+   Seo TK, 2009, SYST BIOL, V58, P199, DOI 10.1093/sysbio/syp015
+   Shapiro B, 2006, MOL BIOL EVOL, V23, P7, DOI 10.1093/molbev/msj021
+   Siepel A, 2004, J COMPUT BIOL, V11, P413, DOI 10.1089/1066527041410472
+   Smith NGC, 2003, MOL BIOL EVOL, V20, P47, DOI 10.1093/molbev/msg003
+   Stark A, 2007, NATURE, V450, P219, DOI 10.1038/nature06340
+   Varadarajan A, 2008, GENOME BIOL, V9, DOI 10.1186/gb-2008-9-10-r147
+   Whelan S, 2004, GENETICS, V167, P2027, DOI 10.1534/genetics.103.023226
+   Wong WSW, 2004, GENETICS, V168, P1041, DOI 10.1534/genetics.104.031153
+   Yang ZH, 2000, TRENDS ECOL EVOL, V15, P496, DOI 10.1016/S0169-5347(00)01994-7
+   Yang ZH, 2002, MOL BIOL EVOL, V19, P908
+   Yang ZH, 2005, MOL BIOL EVOL, V22, P1107, DOI 10.1093/molbev/msi097
+   YANG ZH, 1995, GENETICS, V139, P993
+   Yang ZH, 2000, GENETICS, V155, P431
+   YANG ZH, 1993, MOL BIOL EVOL, V10, P1396
+   Yang ZH, 2007, MOL BIOL EVOL, V24, P1586, DOI 10.1093/molbev/msm088
+NR 36
+TC 5
+Z9 5
+U1 1
+U2 14
+PU OXFORD UNIV PRESS
+PI OXFORD
+PA GREAT CLARENDON ST, OXFORD OX2 6DP, ENGLAND
+SN 0737-4038
+J9 MOL BIOL EVOL
+JI Mol. Biol. Evol.
+PD MAR
+PY 2013
+VL 30
+IS 3
+BP 725
+EP 736
+DI 10.1093/molbev/mss266
+PG 12
+WC Biochemistry & Molecular Biology; Evolutionary Biology; Genetics &
+   Heredity
+SC Biochemistry & Molecular Biology; Evolutionary Biology; Genetics &
+   Heredity
+GA 089EG
+UT WOS:000314891800019
+PM 23188590
+ER
+
+EF

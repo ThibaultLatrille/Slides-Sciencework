@@ -1,0 +1,155 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\author{Latrille Thibault, Pierre Mascarade\\
+\small thibault.latrille@ens-lyon.fr, pierre.m@protonmail.com}
+
+\title{Network Algorithms for Molecular Biology}
+
+\begin{document}
+\maketitle
+\paragraph{Exercise 1. }
+Write an algorithm that lists all the permutations on $n$ elements. Analyse the complexity of your algorithm in terms of input and output.
+\
+\subparagraph{Input sensitive algorithm.\\}
+We can use a branch $\&$ reduce algorithm to generate all permutation of $\{1, ..., n\}$, in complexity $\mathcal{O} (n !)$\
+
+\begin{algorithm}
+\caption{Input sensitive algorithm}
+\begin{algorithmic}[1]
+\Function{permutations}{$P$, $R$}
+\State{$P$ is the current prefix of the permutation}
+\State{$R$ is the set of elements that can be added to the tail of $P$}
+\If {$|R| = 0$} 
+\State \Return $P$
+\Else
+	\For{$a$ in $R$}
+		\State \Call{permutations}{$P \cup \{a\}$, $R \setminus \{a\}$}
+	\EndFor
+\EndIf
+\EndFunction
+\State We initialize the recursive algorithm with $ P = \emptyset$ and $ R = \{1, ..., n\} $
+\State \Call{permutations}{$\emptyset$, $\{1, ..., n\}$}
+\end{algorithmic}
+\end{algorithm}
+\subparagraph{Output sensitive algorithm.\\}
+We can use the supergraph method by generating all permutations of $\{1, ..., n\}$ in lexicographic order. We would initialize the computation with the permutation having the lowest lexicographic order (\textit{i.e.} elements in strictly increasing order; $\{1, ..., n\}\text{, }\{a, ..., z\}$ ) and the algorithm will end with the permutation having the highest lexicographic order (\textit{i.e.} elements in strictly decreasing order; $\{n, ..., 1\}\text{, }\{z ..., a\}$). We will introduce some terminology comming from automata theory and languages. \\
+Let $\Sigma$ be an \textit{alphabet}, defined to be a finite nonempty set of symbols. A \textit{word} on $\Sigma$ is a finite ordered list of $\Sigma$'s symbol. The length of word $w$ is the number of symbols constituting $w$ and is denoted $|w|$. We can now reformulate our problem into this setting:\\
+For an \textit{alphabet} $\Sigma$ such that $|\Sigma| = n $, we are here interested in finding \textbf{\textit{all the unique words}} of length $n$, using only once each symbol of $\Sigma$.
+
+\begin{algorithm}
+\caption{Output sensitive algorithm}
+\begin{algorithmic}[1]
+\Function{next-permutation}{$W$}
+\State{$W$ is the word of the current permutation}
+\State{The function output the next permutation in lexicographic order}
+\State{\textbf{(1)} Find the rightmost letter $l_{i}$ of the word $W$ such that $l_{i}<l_{i+1}$}
+\If {no such $l_i$ exists} 
+\State we have the word (permutation) with the highest lexicographic order
+\State \Return False
+\Else
+\State{\textbf{(2)} Find the rightmost letter $l_{j}$ such that $l_{i}<l_{j}$}
+\State{\textbf{(3)} Swap $l_{i}$ and $l_{j}$ in the word $W$} 
+\State{\textbf{(4)} Reverse if it exists the subword $W[i+1, ..., n]$}
+\State \Return $W$
+\EndIf
+\EndFunction
+\State We initialize the output sensitive algorithm with $ W = \{1, ..., n\}$
+\While{W}
+\State $W \leftarrow$ \Call{next-permutation}{$W$}
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+\newpage
+
+Thus the function generating a new permutation is of complexity $\mathcal{O} (n)$. And because we will never have redundancy, the algorithm is in polynomial delay and the complexity is $\mathcal{O} (n * |\mathcal{C}|)$ where the $\mathcal{C}$ is the set of all permutations. Finally the output sensitive algorithm is of complexity $\mathcal{O} (n * n!)$ and will generate all permutations sequentially.
+
+
+\paragraph{Exercise 2. }
+We have seen in class the definition of two distances for comparing
+phylogenetic binary trees, the Robinson-Foulds distance (RF) and
+the maximum agreement subtree (MAST). Given two phylogenetic binary
+trees on the same set of $n$ leaves, $T_1$, $T_2$, we recall the definition of these
+distances below :
+\begin{enumerate}
+\item $d_{RF} (T_1, T_2) = | BP(T_1)\Delta BP(T_2) | /2$ where $BP(T)$ is the set of the bipartitions of $T_1$ induced by each one of the edges.
+\item $d_{MAST} (T_1, T_2) = n-MAST(T_1, T_2)$ where $MAST(T_1, T_2)$ is the largest cardinality of a set of leaves for which the subtrees induced in $T_1$ and $T_2$ are homeomorphic (i.e. all degree 2 nodes except of the root are contracted).
+\end{enumerate}
+What is the maximum and the minimum value that the RF and the MAST
+distance can have ? Provide an example of two phylogenetic binary trees
+reaching these extreme cases.
+\\
+
+\subparagraph{Robinson-Foulds distance (RF).}
+Let $BP(T)$ denote the set of all \textit{non-trivial} bipartitions obtained by removing internal edges of $T$. A bipartition is \textit{trivial} if it separate a single leaf from all the other, meaning removing an \textit{external edge}, one which is incident with one leaf of $T$.\\
+The Robinson-Foulds distance between two tree is the number of bipartition that differ between them:
+\begin{align*}
+	d_{RF} (T_1, T_2) &= \frac{| BP(T_1)\Delta BP(T_2) |}{2}\\
+								  &= \frac{| BP(T_1)| + | BP(T_2)| - 2| BP(T_1)\cup BP(T_2)|}{2}\\
+								  &= \frac{| BP(T_1) \setminus BP(T_2)| + | BP(T_2) \setminus BP(T_1)| }{2}
+\end{align*}
+First, one can check that the maximum number of internal edges in a phylogenetic binary tree $T$ is $n-3$, thus the number of bipartitions is $|BP(T)| = n - 3$. 
+
+Since $T_1 $ and $ T_2 $ are binary trees, and $|BP(T_1)| = |BP(T_2)|$, if we do not allow trivial partition, the maximum number of internal edges is the maximum Robinson-Foulds distance: $$max\{ d_{RF} (T_1, T_2) \}= |BP(T_1)| = |BP(T_2)| = n - 3$$ 
+Otherwise if we allow trivial partitions, since all phylogenetic trees contains all trivial partitions, the maximum distance between two trees is $2(n-3)$, which is twice the number of internal edges. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{funny_trees.pdf}
+\caption{ $max\{ d_{RF} (T_1, T_2) \} = 6$ for binary trees of $9$ leaves.}
+\end{figure}
+
+Since RF method determines how different two given trees are according to the internal edges dissimilarity, one may also wish to compare two trees based on the number of leaves causing the dissimilarity by extracting the common structure in the trees. 
+
+\subparagraph{Maximum agreement subtree (MAST).}
+
+Looking for the maximum of $d_{MAST} (T_1, T_2)$ leads to look for the minimum of : $${MAST} (T_1, T_2) = max\{ |S| : S \subseteq L,~T_1|_{S} = T_2|_{S} \}$$
+One can check that the minimum value of $MAST (T_1, T_2)$ is $2$ for binary trees $T_1$ and $T_2$. This is graphically depicted in the figure below. Also we have written a python script to assert numerically this results for various trees, by generating all the possible binary trees from a given set of leaves, and computing the $MAST$ for each pair.
+
+The maximum $d_{MAST} (T_1, T_2)$ is obtained with $T_1$ having the ordered leaves $\{1, \ldots, n \}$ and $T_2$ is the  reversed tree with leaves $\{n, \ldots, 1\}$.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{max_trees.pdf}
+\caption{$max\{ d_{MAST} (T_1, T_2) \} = 7$  for binary trees of $9$ leaves.}
+\end{figure}
+
+If the binary trees are identical $min\{ d_{MAST} (T_1, T_2) \} = min \{ d_{RF} (T_1, T_2) \} =0$
+\newpage
+\paragraph{Exercise 3. }
+In a cophylogeny context we saw in class the event-based model
+for reconciling two phylogenetic binary trees. This models allows the
+identification of four type of events : (i) cospeciation, (ii) duplication, (iii)
+host-switch, (iv) loss. Given two phylogenetic binary trees is it always possible
+to find a reconciliation without host-switches ? Without duplications ?
+\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.65\textwidth]{host-switches.pdf}
+\caption{\textbf{Without host-switches:} For the special case depicted, it is impossible to find a reconciliation without the host-switch (in green dotted line). Indeed if we actually observe the host-switch, such as for example when the same strain of H1N1 virus was observed in swine and in humans in 2009. In this case, since the same parasite is observed in very different hosts there cannot be any other explanation than an host-switch, unless the parasite is not evolving at all since the cospeciation event. However, if a parasite is observed in very different hosts, it could be due to the fact that both hosts are part of the life cycle of the parasite, such as for example \textit{Plasmodium} always has a Dipteran insect host and a vertebrate host.}
+\end{figure}
+	\
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.65\textwidth]{duplication.pdf}
+\caption{\textbf{Without duplications.} Any duplication can be replaced by $2$ host-switches (green dotted lines) and $1$ loss (red cross), as shown in the figure. Thus it is always possible to find a reconciliation without duplications. Moreover one must assert that the cost of a duplication is lower than the cost of $2$ duplications and $1$ loss, otherwise the reconciliation will overestimate the number of host-switches and losses. }
+\end{figure}
+\end{document}
+

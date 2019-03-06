@@ -1,0 +1,25 @@
+Pour Figure 4:
+* tu génères le vecteur d'abondance de la communauté avec
+ >> z=2;
+ >> s=1e6;
+ >> x=1:s;
+ >> p=exp(-z*log(x));
+ >> p=p/sum(p);
+* fig4_true.dat: log(diversité de Hill) en colonne 2 en fonction de
+"alfa" en colonne 1.
+* fig4_xx_yy.dat: log(lower et upper estimate) en colonnes 2 et 3 en
+fonction de "alfa" en colonne 1 pour M=10^xx et N=10^yy
+
+Pour Figure 5:
+* fig5_sample.rtf: abondances de l'échantillon pour 9 jeux de données
+* fig5_xx_hill.dat: log(lower et upper estimate) en colonnes 2 et 3 en
+fonction de "alfa" en colonne 1 pour jeu de données xx:
+ xx=1: upper ocean
+ xx=2: soil, Brazil
+ xx=3: soil, Florida
+ xx=4: soil, Illinois
+ xx=5: soil, Canada
+ xx=6: FS312, bacteria
+ xx=7: FS312, archaea
+ xx=8: FS396, bacteria
+ xx=9: FS396, archaea

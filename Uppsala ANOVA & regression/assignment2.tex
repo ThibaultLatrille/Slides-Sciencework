@@ -1,0 +1,188 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+
+\author{Latrille Thibault\\
+\small thibault.latrille@ens-lyon.fr\\[-0.8ex]
+\small Uppsala Universitet\\}
+\title{Regression and analysis of variance \\ Home assignment 2}  
+\newtheorem*{theo}{Theorem} 
+\begin{document}
+\maketitle
+\paragraph{Exercise 1.}
+The model for the the data is $$
+y_{ij}=\mu +\tau_i +\epsilon_{ij} \left \{
+    \begin{array}{ll}
+        i=1,2,3 \\
+        1j, 3j  \in \llbracket 1,8 \rrbracket^2 \\
+        2j  \in \llbracket 1,12 \rrbracket
+    \end{array}
+\right.
+$$
+where $y_{ij}$ is the $ij^{th}$ observed reaction time to correct the condition, $\mu$ is the overall mean, $\tau_i$ is the effect of the $i^{th}$ arrangement of instruments, and $\epsilon_{ij}$ is a random error that incorporate all sources of variability.\\
+
+This model is a single-factor analysis of variance (ANOVA).\\
+$H_0$ : $ \tau_1 = \tau_2 = \tau_3 =0$
+\begin{verbatim}
+Analysis of Variance Table
+
+Response: time
+            Df Sum Sq Mean Sq F value    Pr(>F)    
+arrangement  2 81.429  40.714  11.309 0.0003177 ***
+Residuals   25 90.000   3.600                      
+\end{verbatim}
+We can reject the null hypothesis at the level test of significance $\alpha=0.01$. We conclude the arrangement of instruments does have an effect on the reaction time required to correct the emergency condition. \\ 
+The assumptions for ANOVA is normality, homoscedasticity and independence of errors.\\
+We use the Shapiro-wilk normality test with the residuals.
+\begin{verbatim}
+          Shapiro-Wilk normality test
+
+data:  residuals(model) 
+W = 0.967, p-value = 0.504
+\end{verbatim}
+We can not reject the normality hypothesis. 
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.6\textwidth]{4_1.png}
+  	\caption{\textbf{Plotted residuals against $\widehat{y}_{ij}$.} \textsl{Roughly, we cannot reject the hypothesis of independence and homoscedasticity, which is confirmed by the Levene's test.}
+  	}
+	\end{figure}
+	\begin{verbatim}
+Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(>F)
+group  2  0.0687 0.9338
+      25  
+\end{verbatim}
+We can not reject the hypothesis of homoscedasticity (homogeneity). Moreover, the Tukey's HSD state that arrangement 1 significantly differs from both arrangement 2 and 3.
+\begin{verbatim}
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = time ~ arrangement, data = ech)
+
+$arrangement
+      diff       lwr        upr     p adj
+A2-A1 -2.5 -4.657122 -0.3428778 0.0208576
+A3-A1 -4.5 -6.863009 -2.1369911 0.0002074
+A3-A2 -2.0 -4.157122  0.1571222 0.0728959
+\end{verbatim}
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.6\textwidth]{2_1_tukey.png}
+  	\caption{\textbf{Tukey 95\% Simultaneous Confidence Intervals.} \textsl{Arrangement 1 significantly differs  from both arrangement 2 and 3. Arrangement 2 and 3 are not significantly different.}
+  	}
+	\end{figure}
+
+\paragraph{Exercise 2.}
+The model for the the data is $$
+y_{ij}=\mu +\tau_i+\beta_j +\epsilon_{ij} \left \{
+    \begin{array}{ll}
+        i=1,2,3 \\
+		j=1,2,3,4
+    \end{array}
+\right.
+$$
+where $y_{ij}$ is the $ij^{th}$ observed bacteria growth, $\mu$ is the overall mean, $\tau_i$ is the effect of the $i^{th}$ washing solution (treatment factor), $\beta_j$ is the effect of the $j^{th}$ day (blocking factor), and $\epsilon_{ij}$ is a random error that incorporate all sources of variability.\\
+
+This model is a randomized complete block design. \\
+$H_0$ for treatments : $ \tau_1 = \tau_2 = \tau_3 =0$\\
+$H_0$ for blocks : $ \beta_1 = \beta_2 = \beta_3 =\beta_4=0$
+\begin{verbatim}
+Analysis of Variance Table
+
+Response: obs
+          Df  Sum Sq Mean Sq F value    Pr(>F)    
+Solution   2  703.50  351.75  40.717 0.0003232 ***
+Day        3 1106.92  368.97  42.711 0.0001925 ***
+Residuals  6   51.83    8.64  
+\end{verbatim}
+We reject $H_0$ for both treatments and blocks at the level of significance $\alpha=0.05$. A huge proportion of variance is absorbed by the blocking factor, so days represent an important source of variability.\\
+We may wonder which treatment significantly different from the others, thus we compute Tukey's HSD.
+\begin{verbatim}
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = values ~ solutions + day)
+
+$solutions
+      diff        lwr        upr     p adj
+2-1   2.25  -4.126879   8.626879 0.5577862
+3-1 -15.00 -21.376879  -8.623121 0.0008758
+3-2 -17.25 -23.626879 -10.873121 0.0004067 
+\end{verbatim}
+The washing solution 3 significantly retards bacteria growth compared to solution 1 \& 2.
+\paragraph{Exercise 3.}
+The model for the the data is $$
+y_{ijk}=\mu +\tau_i+\beta_j +(\tau\beta)_{ij}+\epsilon_{ijk} \left \{
+    \begin{array}{ll}
+        i=1,2,3 \\
+		j=1,2\\
+		k=1,2,3
+    \end{array}
+\right.
+$$
+where $y_{ijk}$ is the $ijk^{th}$ observed life length (in hours), $\mu$ is the overall mean, $\tau_i$ is the effect of the $i^{th}$ air temperature level, $\beta_j$ is the effect of the $j^{th}$ material for the plates, $(\tau\beta)_{ij}$ is the effect of the interaction between $\tau_i$ and $\beta_j$, and $\epsilon_{ijk}$ is still a random error that incorporate all sources of variability.\\
+
+This model is two-way ANOVA. \\
+$H_0$ for air temperature levels : $ \tau_1 = \tau_2 = \tau_3 =0$\\
+$H_1$ for materials : $ \beta_1 = \beta_2=0$\\
+$H_2$ for interactions : $(\tau\beta)_{ij}=0$ for all $i,j$
+\begin{verbatim}
+Analysis of Variance Table
+
+Response: values
+             Df  Sum Sq Mean Sq F value  Pr(>F)  
+material      1  2812.5  2812.5  1.9793 0.18483  
+air           2 15518.1  7759.1  5.4605 0.02059 *
+material:air  2  4561.0  2280.5  1.6049 0.24118  
+Residuals    12 17051.3  1420.9                  
+\end{verbatim}
+We can not reject the null hypothesis for the materials at the level of significance $\alpha=0.05$, neither for interactions. However, we can reject the null hypothesis for air temperature level. Moreover, there is a significant difference between the low and high air temperature, as proved by the Tukey's HSD test shown below. 
+\begin{verbatim}
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = values ~ material + air + material * air)
+
+$air
+                 diff       lwr       upr     p adj
+low-high     71.83333  13.77139 129.89527 0.0161623
+medium-high  32.83333 -25.22861  90.89527 0.3214939
+medium-low  -39.00000 -97.06194  19.06194 0.2136567
+\end{verbatim}
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.6\textwidth]{2_3_inter1.png}
+  	\caption{\textbf{Plotted life length against air temperature level for the two materials.} \textsl{A significant interaction is indicated by a lack of parallelism in the lines, which is not the case here.}}
+	\end{figure}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

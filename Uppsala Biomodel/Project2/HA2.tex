@@ -1,0 +1,213 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+
+\usepackage{listings}
+\lstset{language=Scilab}
+\author{Latrille Thibault\\
+\small thibault.latrille@ens-lyon.fr\\[-0.8ex]
+\small Uppsala Universitet\\}
+
+\title{Home Assignment 2, Mathematical Biology.}
+
+\begin{document}
+\maketitle
+\paragraph{Exercise I)}
+\
+
+If not mentioned explicitly, the parameters of the model are assumed to be strictly positive to avoid irrelevant cases.
+\paragraph{1)}
+The set of equation underlying the model is 
+$$
+\left \{
+\begin{array}{l}
+ \dfrac{dx}{dt}=x\left(1-\dfrac{x}{k}\right) -\mu y \dfrac{x}{1+x} \\
+  \dfrac{dy}{dt}=\mu y \dfrac{x}{1+x}-\nu y
+    \end{array}
+\right. 
+$$
+
+\paragraph{2)}
+The steady states $(x^*,y^*)$ fulfill the conditions 
+$$
+\left \{
+\begin{array}{l}
+ 0=x^*\left(1-\dfrac{x^*}{k}\right) -\mu y^* \dfrac{x^*}{1+x^*} \\
+  0=\mu y^* \dfrac{x^*}{1+x^*}-\nu y^*
+    \end{array}
+\right. 
+\iff
+\left \{
+\begin{array}{l}
+ x^*=0 \quad \& \quad y^*=0 \\
+  x^*=k \quad \& \quad y^*=0 \\
+  x^*=\dfrac{\nu}{\mu-\nu} \quad \& \quad y^*=\dfrac{x^*(k-x^*)}{k\nu}
+    \end{array}
+\right. 
+$$
+
+$\bullet$ The jacobian matrix for the trivial steady state $(x^*=0,y^*=0)$ is 
+
+\begin{align*}
+\mathbb{J}_{(x^*=0,y^*=0)}=
+\begin{pmatrix}
+1 & 0  \\
+0 & -\nu   \\
+\end{pmatrix}
+\end{align*}
+
+Which has trivial eigenvalues $1$ and $-\nu$, thus this steady state is unstable for any set of parameters. 
+Moreover, the population of prey is unstable (tend to grow) while the population of predator is stable (no food available so no growth).
+
+$\bullet$ We also compute the jacobian matrix to assess the stability of the second trivial steady state $x^*=k$ $\&$ $y^*=0$. 
+
+\begin{align*}
+\mathbb{J}_{(x^*=k,y^*=0)}=
+\begin{pmatrix}
+-1 & \dfrac{-k\mu}{k+1}  \\
+0 & \dfrac{k\mu}{k+1}-\nu   \\
+\end{pmatrix}
+\end{align*}
+With eigenvalues $\lambda_1=-1$ and $\lambda_2=\dfrac{k\mu-(k+1)\nu}{k+1}$. Thus this state is stable if $\lambda_2$ is negative.
+
+$$
+\dfrac{k\mu-(k+1)\nu}{k+1}<0
+\iff
+\left \{
+\begin{array}{l}
+ \mu<\nu \\
+ \mu>\nu \quad \& \quad  k<\dfrac{\nu}{\nu-\mu} \\
+ \end{array}
+\right. 
+$$
+
+$\bullet$ The jacobian matrix for the non-trivial steady state ($x^*=\dfrac{\nu}{\mu-\nu},y^*=\dfrac{x^*(k-x^*)}{k\nu}$) is 
+\begin{align*}
+\mathbb{J}_{\left(x^*=\dfrac{\nu}{\mu-\nu},y^*=\dfrac{x^*(k-x^*)}{k\nu}\right)}=
+\begin{pmatrix}
+\dfrac{\nu(k\nu+\nu-k\mu +\mu)}{k(\nu-\mu)\mu} & -\nu  \\
+\dfrac{k\mu-(k+1)\nu}{k\mu} & 0   \\
+\end{pmatrix}
+\end{align*}
+With the quite complicated eigenvalues 
+$$\lambda_1=\frac{k \nu^2-k \nu \mu +\sqrt{v \left(4 k \mu  (\nu-\mu )^2 (k \nu-k \mu +\nu)+\nu (k \nu-k \mu +\nu+\mu )^2\right)}+\nu^2+\nu \mu }{2 k \mu  (\nu-\mu)} $$
+$$ \lambda_2=\frac{k \nu^2-k \nu \mu -\sqrt{\nu \left(4 k \mu  (\nu-\mu )^2 (k \nu-k \mu +\nu)+\nu (k \nu-k \mu +\nu+\mu )^2\right)}+\nu^2+\nu \mu }{2 k \mu  (\nu-\mu)} $$
+
+\paragraph{3 $\&$ 4)}
+The condition for stability of the non-trivial steady state is that the real part of both eigenvalues are negative, $Re(\lambda_1) <0 $ and $ Re(\lambda_2) <0$.\\ 
+
+The analysis of stability leads us to split the space spanned by the parameters into different sub-spaces.
+\subparagraph{$\bullet$ $\mu<\nu$\\}
+
+For this sub-space, $\lambda_1>0$ and $\lambda_2<0$ for any $k$, and both eigenvalues are real. The non-trivial steady state is unstable, but as we have seen before, the trivial steady state $(x^*=k,y^*=0)$ is stable in this case.  The system converges to the trivial steady state $(x^*=k,y^*=0)$.
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.79\textwidth]{musmall.png}\caption{\textbf{Phase portrait for different random initial conditions and the set of parameters $\pmb{(\nu=0.4,\mu=0.25,k=0.18)}$}. With this set of parameters the eigenvalues are $\lambda_1=41.0$ and $\lambda_2=-0.1$.}
+	\end{figure}
+\subparagraph{$\bullet$ $\mu>\nu$\\}
+
+$\qquad \bullet$ $0<k<\dfrac{\nu}{\mu-\nu}$\\
+
+For this sub-space, $\lambda_1<0$ and $\lambda_2>0$, and both eigenvalues are real. The non-trivial steady state is unstable, but as we have seen before, the trivial steady state $(x^*=k,y^*=0)$ is again stable in this case. The system converges to the trivial steady state $(x^*=k,y^*=0)$.
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.75\textwidth]{mubig.png}
+  	\caption{\textbf{Phase portrait for different random initial conditions and the set of parameters $\pmb{(\nu=1.3,\mu=4.981,k=0.18)}$}. With this set of parameters the eigenvalues are $\lambda_1=-2.71$ and $\lambda_2=0.38$.}
+	\end{figure}
+$\qquad \bullet$ $\dfrac{\nu}{\mu-\nu}<k<\dfrac{\nu+\mu}{\mu-\nu}$\\
+
+For this sub-space, $Re(\lambda_1)<0$ and $Re(\lambda_2)<0$. However we split up again this sub-space into two sub-spaces so that in one sub-space, the eigenvalues are real and are complex in the other one. \\
+
+$\qquad \qquad \bullet$ $\dfrac{\nu}{\mu-\nu}<k<2 \sqrt{\frac{\nu \mu ^2 \left(v^2-v (\mu +1)-\mu \right)}{(\nu-\mu )
+   \left(4 \nu \mu +\nu-4 \mu ^2\right)^2}}-\frac{\nu \left(2 \nu \mu +v-2
+   \mu ^2+\mu \right)}{(\nu-\mu ) \left(4 \nu \mu +\nu-4 \mu ^2\right)} \Rightarrow $ Real valued eigenvalues. \\
+
+For this sub-space, the system converges to the non-trivial steady state.
+
+$\qquad \qquad \bullet$ $2 \sqrt{\frac{\nu \mu ^2 \left(v^2-v (\mu +1)-\mu \right)}{(\nu-\mu )
+   \left(4 \nu \mu +\nu-4 \mu ^2\right)^2}}-\frac{\nu \left(2 \nu \mu +v-2
+   \mu ^2+\mu \right)}{(\nu-\mu ) \left(4 \nu \mu +\nu-4 \mu ^2\right)}<k<\dfrac{\nu+\mu}{\mu-\nu} \Rightarrow $ Complex conjugated eigenvalues.  \\
+   
+For this sub-space, the system converges also to the non-trivial steady state but the system is also oscillating.
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.70\textwidth]{complex-stable.png}
+  	  	\caption{\textbf{Phase portrait for different random initial conditions and the set of parameters $\pmb{(\nu=0.2,\mu=0.71,k=0.96)}$}. With this set of parameters we have $(x^*,y^*)=(0.40,1.16)$ and the eigenvalues are $-0.12 \pm 0.26i$.}
+	\end{figure}
+$\qquad \bullet$ $\dfrac{\nu+\mu}{\mu-\nu}<k$\\
+
+For this sub-space, the eigenvalues are complex conjugate, but $Re(\lambda_1)=Re(\lambda_2)>0$, thus the non-trivial steady state is unstable. Numerical analysis shows that the system converges to a limit cycle, a $1-d$ invariant set.
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.70\textwidth]{cycle.png}
+  	\caption{\textbf{Phase portrait for different random initial conditions and the set of parameters $\pmb{(\nu=0.2,\mu=0.45,k=2.96)}$}. With this set of parameters we have $(x^*,y^*)=(0.8,2.9)$ and the eigenvalues are $0.03 \pm 0.28i$.}
+	\end{figure}
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.90\textwidth]{space.png}
+  	\caption{\textbf{The $\pmb{3}$ dimensional space spanned by $\pmb{\mu}$, $\pmb{\nu}$ and $\pmb{k}$ divided up into the $\pmb{4}$ main sub-spaces}. For  $\{ \mu<\nu \}$ and $\{\mu>\nu,k<\dfrac{\nu}{\nu-\mu}\}$, the system converges to the trivial steady state were prey flourish while predators die out. For $\{\mu>\nu,\dfrac{\nu}{\mu-\nu}<k<\dfrac{\nu+\mu}{\mu-\nu}\}$, the system converges to the non-trivial steady state. And finally, for $\{\mu>\nu,\dfrac{\nu+\mu}{\mu-\nu}<k\}$, the system converges to the limit-cycle and spins around the non-trivial steady state.}
+	\end{figure}
+
+
+\paragraph{5)}
+In the Lotka-Volterra prey-predator model, for every initial conditions and parameters, the system will go back to this initial point, sooner or later. In other words, the phase portraits are closed curves, and the initial conditions have an influence on the $1-d$ invariant set. While in our model, the system converge to a either a cyclic curve ($1-d$ invariant set) or a point ($0-d$ invariant set), but this is determined by the parameters, not by the initial condition of the system. 
+
+\newpage
+\paragraph{6)}
+\
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.90\textwidth]{stochastic.png}
+  	\caption{\textbf{Stochastic modeling of the process, computed with Scilab}. We clearly see oscillations of the preys and predators.}
+	\end{figure}
+\begin{lstlisting}
+k=100.1947368; m=1.2; v=0.25; r=1; steps=35000 // parameters
+X=zeros(1,steps) // memory occupancy of the vectors
+Y=zeros(1,steps)
+eps=.005 // resolution
+x=0.5 // initial condition for preys
+y=0.5 // initial condition for predators
+for j=1:steps do
+       if rand() < r*x then 
+           x=x+eps
+           // birth process for the prey
+       end
+       if rand()<x^2/k then
+           x=x-eps
+           // death process for the prey
+       end
+       if rand() <m*y*x/(1+x) then 
+           x=x-eps
+           y=y+eps
+           // catch process, one prey dies while a predator get born
+       end
+       if rand() < y*v then 
+           y=y-eps 
+           // death process for the predator
+       end
+       X(k,j)=x;
+       Y(k,j)=y;
+   end
+plot(1:steps,X,"blue")
+plot(1:steps,Y,"green")
+\end{lstlisting}
+\end{document}
+

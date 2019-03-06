@@ -1,0 +1,250 @@
+\documentclass[8pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{amssymb,amsfonts,amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{lmodern}
+\usepackage{bm}
+\usepackage{xcolor}
+
+%gets rid of bottom navigation overlines
+\setbeamertemplate{footline}[frame number]{}
+
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
+\sloppy 
+
+\definecolor{RED}{HTML}{EB6231}
+\definecolor{YELLOW}{HTML}{E29D26}
+\definecolor{BLUE}{HTML}{5D80B4}
+\definecolor{LIGHTGREEN}{HTML}{6ABD9B}
+\definecolor{GREEN}{HTML}{8FB03E}
+\definecolor{PURPLE}{HTML}{BE1E2D}
+\definecolor{BROWN}{HTML}{A97C50}
+\definecolor{PINK}{HTML}{DA1C5C}
+
+\newcommand{\A}{{\color{RED}{\textbf{A}}}}
+\newcommand{\D}{{\color{GREEN}{\textbf{D}}}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\ci}{{\color{RED}{\textbf{ATT}}}}
+\newcommand{\cj}{{\color{GREEN}\textbf{ATG}}}
+\newcommand{\ck}{{\color{BLUE}\textbf{ATA}}}
+\newcommand{\nuci}{{\color{RED}\textbf{T}}}
+\newcommand{\nucj}{{\color{GREEN}\textbf{G}}}
+\newcommand{\nuck}{{\color{BLUE}\textbf{A}}}
+\newcommand{\Fi}{{\color{RED}F_{\textbf{Ile}}}}
+\newcommand{\Fj}{{\color{GREEN}F_{\textbf{Met}}}}
+\newcommand{\aaitoj}{{\color{RED}{\textbf{Ile}}} \rightarrow {\color{GREEN}{\textbf{Met}}}}
+\newcommand{\nucitoj}{\nuci \rightarrow \nucj}
+\newcommand{\itoj}{\ci \rightarrow \cj}
+\newcommand{\nucitok}{\nuci \rightarrow \nuck}
+\newcommand{\itok}{\ci \rightarrow \ck}
+\newcommand{\der}{\mathrm{d}}
+\newcommand{\Ne}{N_\mathrm{e}}
+\newcommand{\SetCodon}{\Omega_{\mathrm{C}}}
+\newcommand{\SetNuc}{\Omega_{\mathrm{N}}}
+\newcommand{\SetWeak}{\Omega_{\mathrm{W}}}
+\newcommand{\SetStrong}{\Omega_{\mathrm{S}}}
+\newcommand{\SetAa}{\Omega_{\mathrm{A}}}
+\newcommand{\Neighbor}{\mathcal{V}}
+\newcommand{\NonSyn}{\mathcal{N}}
+\newcommand{\Syn}{\mathcal{S}}
+\newcommand{\Nx}{\Neighbor_x}
+\newcommand{\NxAB}{\Neighbor_x^{\mathrm{A} \rightarrow \mathrm{B}}}
+\newcommand{\NyBA}{\Neighbor_x^{\mathrm{B} \rightarrow \mathrm{A}}}
+\newcommand{\NxWS}{\Neighbor_x^{\mathrm{W} \rightarrow \mathrm{S}}}
+\newcommand{\NxSS}{\Neighbor_x^{\mathrm{S} \rightarrow \mathrm{S}}}
+\newcommand{\NxSW}{\Neighbor_x^{\mathrm{S} \rightarrow \mathrm{W}}}
+\newcommand{\NxWW}{\Neighbor_x^{\mathrm{W} \rightarrow \mathrm{W}}}
+\newcommand{\NyWS}{\Neighbor_y^{\mathrm{W} \rightarrow \mathrm{S}}}
+\newcommand{\NySS}{\Neighbor_y^{\mathrm{S} \rightarrow \mathrm{S}}}
+\newcommand{\NySW}{\Neighbor_y^{\mathrm{S} \rightarrow \mathrm{W}}}
+\newcommand{\NyWW}{\Neighbor_y^{\mathrm{W} \rightarrow \mathrm{W}}}
+\newcommand{\NxNonSyn}{\NonSyn_x}
+\newcommand{\NyNonSyn}{\NonSyn_y}
+\newcommand{\NxSyn}{\Syn_x}
+\newcommand{\NySyn}{\Syn_y}
+
+% \renewcommand{\baselinestretch}{2}
+\usepackage{adjustbox}
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+
+\begin{document}
+	\begin{frame}
+		\begin{enumerate}
+			\item ${\omega=}\dfrac{{\mathrm{dN}}}{{\mathrm{dS}}}$
+			\item It is calculated as the ratio of the number of non-synonymous substitutions per non-synonymous site ($\mathrm{dN}$), in a given period of time, to the number of synonymous substitutions per synonymous site ($\mathrm{dS}$), in the same period.
+			\item ${\omega_{\textbf{AT} \rightarrow \textbf{GC}} \qquad \omega_{\textbf{GC} \rightarrow \textbf{AT}} \qquad \widehat{\omega}_{\textbf{AT} \rightarrow \textbf{GC}} \qquad \widehat{\omega}_{\textbf{GC} \rightarrow \textbf{AT}}}$
+			\item $ \dfrac{{\mathrm{dN}}}{{\mathrm{dS}}} \qquad
+			\left.\dfrac{{\mathrm{dN}}}{{\mathrm{dS}}}\right|_{\textbf{AT} {\rightarrow} \textbf{GC}}\qquad
+			\left.\dfrac{{\mathrm{dN}}}{{\mathrm{dS}}}\right|_{\textbf{GC} {\rightarrow} \textbf{AT}} $
+			\item $\lambda$ simulated
+			\item AT/GC observed 
+			\item $\widehat{\text{AT/GC}}_{\text{MG}}$ inferred 
+			\item $\widehat{\lambda}_{\text{MG}}$ inferred 
+			\item $\widehat{\text{AT/GC}}_{\text{MF}}$ inferred 
+			\item $\widehat{\lambda}_{\text{MF}}$ inferred 
+			\item $\theta$ 
+		\end{enumerate}
+	\end{frame}
+	\begin{frame}
+		\begin{enumerate}
+			\item ${q_{\itoj}}$ is the substitution rate from codon $\ci$ to $\cj$.
+			\item ${\Ne}$ is the effective population size.
+			\item ${\mu_{\nucitoj}}$ is the mutation rate from nucleotide $\nuci$ to $\nucj$
+			\item ${p_{\mathrm{fix}}}$ is the probability of fixation.
+			\item $\Fi$ ($\Fj$) is the fitness of Isoleucine (Methionine).
+		\end{enumerate}
+		\begin{align*}
+			{q_{\itoj}} & { = \Ne \mu_{\nucitoj}  p_{\mathrm{fix}}} \\
+			& { = \Ne \mu_{\nucitoj} }  \dfrac{{\Fj - \Fi}}{{1 - \e^{\Ne(\Fi - \Fj)} }}
+		\end{align*}
+	\end{frame}
+
+	\begin{frame}
+		\textbf{Parametric inference with Muse-Gaut model}
+		\begin{itemize}
+			\item ${q_{\itoj}}$ is the substitution rate from codon $\ci$ to $\cj$.
+			\item ${\mu_{\nucitoj}}$ is the mutation rate from nucleotide $\nuci$ to $\nucj$ 
+			\item ${\omega}$ is the non-synonymous fixation bias. 
+		\end{itemize}
+		\begin{equation*}
+		\begin{dcases}
+		{q_{\itoj}} = { \omega \mu_{\nucitoj} } & \text{since } \ci \text{ and } \cj \text{ are non-synonymous} \\
+		{q_{\itok}} = { \mu_{\nucitok}} & \text{since } \ci \text{ and } \ck \text{ are synonymous}\\
+		\end{dcases}
+		\end{equation*}
+			From the maximum likelihood estimates of the $4 \times 4$ mutation matrix $\left({\widehat{\mu}} \right)$, we can estimate of the mutational bias toward $\mathrm{AT}$ $\left({\widehat{\lambda}_{\text{MG}}} \right)$. We can also estimate the fixation bias of non-synonymous mutations $\left({\widehat{\omega}_{\text{MG}}} \right)$\\
+			\vspace{0.3cm}
+		\textbf{Parametric inference with mean-field model}
+		\begin{itemize}
+			\item ${\beta_{\aaitoj}}$ is the fixation bias from Isoleucine to Methionine
+		\end{itemize}
+		\begin{equation*}
+		\begin{dcases}
+		{q_{\itoj}} = { \beta_{\aaitoj} \mu_{\nucitoj}} & \text{since } \ci \text{ and } \cj \text{ are non-synonymous} \\
+		{q_{\itok}} = {\mu_{\nucitok} } & \text{since } \ci \text{ and } \ck \text{ are synonymous}\\
+		\end{dcases}
+		\end{equation*}
+		From the maximum likelihood estimates of the $4 \times 4$ mutation matrix $\left({\widehat{\mu}} \right)$, we can estimate the mutational bias $\mathrm{AT}$ $\left({\widehat{\lambda}_{\text{MF}}} \right)$. We can also estimate the fixation bias of non-synonymous mutations $\left({\widehat{\omega}_{\text{MF}}} \right)$
+	\end{frame}
+
+	\begin{frame}
+	\textbf{Experiment I: Nucleoprotein}\\
+	Alignment of 498 amino-acids available for 180 species.
+	\begin{itemize}
+		\item AT/GC of the alignment is 1.15.
+		\item Mutational bias $\left({\widehat{\lambda}_{\text{MG}}} \right)$ inferred using Muse-Gaut model is 1.39.
+		\item Mutational bias $\left({\widehat{\lambda}_{\text{MF}}} \right)$ inferred using Mean-field model is 1.64.
+		\item Fixation bias from AT to GC $\left(\widehat{\omega}_{\textbf{AT} \rightarrow \textbf{GC}}\right)$ inferred using Mean-field model is 0.14.
+		\item Fixation bias from GC to AT $\left(\widehat{\omega}_{\textbf{GC} \rightarrow \textbf{AT}}\right)$ inferred using Mean-field model is 0.10.
+	\end{itemize}
+	\vspace{0.3cm}
+	\textbf{Experiment II: Lactamase}\\
+	Alignment of 263 amino-acids available for 85 species.
+	\begin{itemize}
+		\item AT/GC of the alignment is 0.79.
+		\item Mutational bias $\left({\widehat{\lambda}_{\text{MG}}} \right)$ inferred using Muse-Gaut model is 0.85.
+		\item Mutational bias $\left({\widehat{\lambda}_{\text{MF}}} \right)$ inferred using Mean-field model is 0.68.
+		\item Fixation bias from AT to GC $\left(\widehat{\omega}_{\textbf{AT} \rightarrow \textbf{GC}}\right)$ inferred using Mean-field model is 0.31.
+		\item Fixation bias from GC to AT $\left(\widehat{\omega}_{\textbf{GC} \rightarrow \textbf{AT}}\right)$ inferred using Mean-field model is 0.44.
+	\end{itemize}
+	\end{frame}
+	
+		\begin{frame}
+		\textbf{\large Wright-Fisher process}
+		\begin{enumerate}
+			\item Non-overlapping generations, constant population size and random mating.
+			\item $S=4 \Ne s$ is the scaled selection coefficient associated to the derived allele.
+		\end{enumerate}
+		$G(x, S) \der x $ is the expected time for which the population frequency of derived allele is in the range $(x, x+\der x)$ before eventual absorption:
+		\begin{align*}
+			G(x, S) & = \dfrac{2 \left[ 1 - \e^{-S(1-x)}\right]}{(1 - \e^{-S})x(1-x)}
+		\end{align*}
+		\textbf{\large Poisson random fields}
+		\begin{enumerate}
+			\item Each mutation, arising at Poisson times, occurs at a new site (infinite sites)
+			\item Each mutation follows an independent (no-linkage) Wright-Fisher process.
+			\item $\theta = 4 \Ne \mu $ is the scaled mutation rate of the whole locus.
+		\end{enumerate}
+		In a sample of size $n$, the expected number of sites with $i$ (which ranges from $1$ to $n-1$) copies of the derived allele is defined as:
+		\begin{align*}
+		 \dfrac{\theta}{2} \int_{0}^{1} G(x, S) \binom{n}{i} x^{i} (1-x)^{n-i} \der x 	=  \theta \int_{0}^{1} \dfrac{ 1 - \e^{-S(1-x)}}{1 - \e^{-S}} \binom{n}{i} x^{i-1} (1-x)^{n-i-1} \der x
+		\end{align*}
+	\end{frame}
+
+	\begin{frame}
+		\textbf{\large Poisson random fields combined with Mutation-Selection model}
+		\begin{enumerate}
+			\item ${\A}$ is the ancestral codon.
+			\item ${\D} \in \mathcal{V}_{{\A}}$ is the derived codon, in the set of neighbors of codon ${\A}$.
+			\item $ \bm{\mu} $ is mutation rates matrix between codons (given by the matrix mutations).
+			\item $ \theta_{{\A} \rightarrow {\D}} = 4 \Ne \mu_{{\A} \rightarrow {\D}}$ is the scaled mutation rate from ${\A}$ to ${\D}$
+			\item $ \bm{F^{(k)}} $ is the vector of scaled amino-acid fitnesses at site $k$.
+			\item $\displaystyle H(i, n, S) = \int_{0}^{1} \dfrac{ 1 - \e^{-S(1-x)}}{1 - \e^{-S}} \binom{n}{i} x^{i-1} (1-x)^{n-i-1} \der x$
+		\end{enumerate}
+	In a sample of size $n$, the probability of observing $i$ copies of the derived allele (${\D}$), at site $k$, is given by:
+	\begin{equation*}
+		\begin{dcases}
+		& \bullet \ \forall {\D} \in \mathcal{V}_{\A}, \ n \geq i > 0,  \\
+		& \hspace{2.5em} P^{(k)}({\A}=n-i,{\D}=i \ |\ \bm{\mu}, \bm{F^{(k)}}, \Ne) = \theta_{{\A} \rightarrow {\D}} H\left(i, n, F_{\D}^{(k)}-F_{\A}^{(k)}\right) \\
+		& \bullet \ i=0,  \\
+		& \hspace{2.5em}P^{(k)}({\A}=n \ |\ \bm{\mu}, \bm{F^{(k)}}, \Ne) = 1 - \sum_{{\D} \in \mathcal{V}_{\A}} \sum_{i=1}^{n} \theta_{{\A} \rightarrow {\D}} H\left(i, n, F_{\D}^{(k)}-F_{\A}^{(k)}\right) \\
+		& 0 \text{  else.}  \\
+		\end{dcases}
+	\end{equation*}
+	\end{frame}
+
+	\begin{frame}
+	\begin{enumerate}
+		\item $L$ is the number of sites in the coding sequence.
+		\item $\pi_{{\A}}^{(k)}$ is equilibrium frequency of ${\A}$ at site $k$.
+	\end{enumerate}
+	\begin{align*}
+	DAF(i, n \ |\ \bm{\mu}, \bm{F}, \Ne) &= \sum_{k=1}^{L} 	\sum_{{\A} \in \mathcal{C}} \pi_{{\A}}^{(k)} \sum_{{\D} \in \mathcal{V}_{\A}} \theta_{{\A} \rightarrow {\D}} H\left(i, n, F_{\D}^{(k)}-F_{\A}^{(k)} \right)
+	\end{align*}
+	\end{frame}
+
+	\begin{frame}
+	\textbf{\large Simulation versus inference }\\
+	\vspace{1.5em}
+		\begin{center}
+			\begin{large}
+				\begin{tabular}{|l|l|l|l|l|l|}
+				\hline
+				$\Ne$ & $\mu$	& $\theta_{\text{simulated}}$ & $\widehat{\theta}_{\text{inferred}}$	& $\textrm{Std} \left(\widehat{\theta}_{\text{inferred}}\right)$ &	Precision (\%)\\
+				\hline
+				550 & $1.10^{-6}$&	0.0022&	0.00228	&0.000567	& 3.73\\
+				\hline
+				640 & $1.10^{-6}$&	0.00256&	0.00242&	0.000562&	5.41\\
+				\hline
+				640 & $1.10^{-6}$&	0.00256&	0.00244&	0.000543&	4.88\\
+				\hline
+				820 & $1.10^{-6}$&	0.00328&	0.00328&	0.000666&	0.102\\
+				\hline
+				820 & $1.10^{-6}$&	0.00328&	0.00324&	0.000653&	1.33\\
+				\hline
+				1000 & $1.10^{-6}$&	0.004&	0.00402	&0.000702	&0.454\\
+				\hline
+				1000 & $1.10^{-6}$&	0.004&	0.00401&	0.000698	&0.185\\
+				\hline
+				\end{tabular}
+			\end{large}
+		\end{center}
+	Simulation are using empirically determined fitness vector of Gal4 (64 amino-acids).\\
+	$20$ individuals are sampled randomly from each of the $17$ species at the tips of the phylogenetic tree.\\
+	\vspace{0.5em}
+	Inference has been implemented in a \textit{BayesCode} using interpolations of the function $H(i, n, S)$ to speed-up computations.
+	\end{frame}
+\end{document}

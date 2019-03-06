@@ -1,0 +1,222 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{float}
+
+\author{Latrille Thibault\\
+\small thibault.latrille@ens-lyon.fr\\[-0.8ex]
+\small Uppsala Universitet\\}
+\title{Regression and analysis of variance \\ Home assignment 1}  
+\newtheorem*{theo}{Theorem} 
+\begin{document}
+\maketitle
+\paragraph{Exercise 1.}
+\subparagraph{a)}
+
+
+Let $x_i$ $(i  \in \llbracket 1,10 \rrbracket)$ be the observed values of the random variable $X_i$. We assume $X_i$ are independent and identically distributed random variables and have $\mathcal{N}(\mu_X,\sigma_X^2)$ distributions. \\
+The estimators for $\mu_X$ and $\sigma_X$ are : 
+\begin{center}
+
+$\displaystyle \widehat{\mu_X}=\overline{x} = \sum_{i=1}^{10} \dfrac{x_i}{10} = 14.79$ \\
+$\displaystyle \widehat{\sigma_X}=\sqrt{\dfrac{S_X^2}{9}} = \sqrt{\dfrac{\sum_{i=1}^{10} (x_i-\overline{x})^2}{9}} = \sqrt{\dfrac{67.5}{9}}= 2.7
+$ 
+
+\end{center}
+Furthermore $\dfrac{S_X^2}{\sigma_X^2} \sim \chi^2(9)$, thus the confidence interval for the standard deviation $\sigma$ is : 
+\begin{center}
+$\sqrt{\dfrac{S_X^2}{\chi^2_{0.025}(9)}} < \sigma_X < \sqrt{\dfrac{S_X^2}{\chi^2_{0.975}(9)}} $\\ $\Leftrightarrow$ $\sqrt{\dfrac{67.5}{19.023}} < \sigma_X < \sqrt{\dfrac{67.5}{2.7}}$\\ $ \Leftrightarrow $ $ 1.9< \sigma_X <  5.0$
+
+\end{center}
+\subparagraph{b)}
+Then, for the second treatment, let $y_i$, $i  \in \llbracket 1,8 \rrbracket$ be the observed values of the random variable $Y_i$. We also assume $Y_i$ are independent and identically distributed random variables and $Y_i \sim \mathcal{N}(\mu_Y,\sigma_Y^2)$. \\
+Let $\overline{y} = \sum_{i=1}^{8} \dfrac{y_i}{8}=22.1 $ and $\displaystyle S_Y^2=\dfrac{\sum_{i=1}^{8} (y_i-\overline{y})^2}{7}=18.8 $ be the sample mean and sample variance for the second treatment.\\
+ $H_0$ : $\sigma_X=\sigma_Y$
+Then the test statistic $F=\dfrac{S_X^2}{S_Y^2} \sim F(9,7)$\\
+
+$F_{obs}=2.8<F_{0.995}(9,7)=8.5$ and $F_{obs}>F_{0.005}(9,7)=\dfrac{1}{F_{0.995}(7,9)}=0.1$
+We can not reject the two-tailed test. Thus it is reasonable to assume that the two samples come from populations with equal variance.
+\paragraph{Exercise 2.}
+
+Centralizing the x values for the linear regression model lead us to rewrite the matrices.
+\begin{align*}
+\pmb{X}=
+\begin{pmatrix}
+1 & x_1-\overline{x} \\
+\vdots & \vdots \\
+1 & x_n-\overline{x}
+\end{pmatrix}&&
+\pmb{\beta '}=
+\begin{pmatrix}
+\beta_0' \\
+\beta_1 \\
+\end{pmatrix}&&
+\pmb{Y}=
+\begin{pmatrix}
+y_1 \\
+\vdots \\
+y_n
+\end{pmatrix}&&
+\pmb{\epsilon}=
+\begin{pmatrix}
+\epsilon_1 \\
+\vdots \\
+\epsilon_n \\
+\end{pmatrix}
+\end{align*}
+
+\begin{theo}
+The estimates $\widehat{\beta_0 '}$ and $\widehat{\beta_1}$ are uncorrelated.
+\end{theo}
+\textit{Proof.} The linear regression model is $\pmb{Y=X\beta + \epsilon}$. Because it is only a translation over the x values, all the proofs for non centralized x values still hold. Thus $\widehat{\pmb{\beta}}$ must satisfies the normal equation $\pmb{X}^T \pmb{X \widehat{\beta}}=\pmb{X}^T \pmb{Y}$.\\
+
+\begin{align*}
+\pmb{X}^T \pmb{X}=
+\begin{pmatrix}
+n & 0 \\
+0 & \sum_{i=1}^n (x_i-\overline{x})^2 \\
+\end{pmatrix}
+\text{ is obviously rank 2 and thus invertible.}
+\end{align*}
+
+\begin{align*}
+\text{The inverse is thus easy to compute }
+(\pmb{X}^T \pmb{X})^{-1}=
+\begin{pmatrix}
+\dfrac{1}{n} & 0 \\
+0 & \dfrac{1}{\sum_{i=1}^n (x_i-\overline{x})^2} \\
+\end{pmatrix}
+\end{align*}
+
+\begin{align*}
+\text{And then we have }
+cov(\pmb{\beta})=E\left[  (\pmb{\widehat{\beta}}-\pmb{\beta})^T(\pmb{\widehat{\beta}}-\pmb{\beta})\right]=
+\begin{pmatrix}
+\dfrac{\sigma}{n} & 0 \\
+0 & \dfrac{\sigma}{\sum_{i=1}^n (x_i-\overline{x})^2} \\
+\end{pmatrix}
+\end{align*}
+
+Where $ \sigma $ is the standard deviation of $\epsilon_i$.
+Which complete the proof since cov($\widehat{\beta_0 '},\widehat{\beta_1})=0$ $\square$
+
+\paragraph{Exercise 3.}
+\subparagraph{a}
+
+We can summarize the data in matrices.
+\begin{align*}
+\pmb{X}=
+\begin{pmatrix}
+1 & 1.6 & 851 \\
+1 & 15.5 & 816 \\
+1 & 22 & 1058 \\
+1 & 43 & 1201 \\
+1 & 33 & 1357 \\
+1 & 40 & 1115 \\
+\end{pmatrix}
+\pmb{\beta}=
+\begin{pmatrix}
+\beta_0 \\
+\beta_1 \\
+\beta_2 \\
+\end{pmatrix}
+\pmb{Y}=
+\begin{pmatrix}
+193 \\
+230 \\
+172 \\
+91 \\
+113 \\
+125 \\
+\end{pmatrix}
+\end{align*}
+
+Assuming $\pmb{X}^T \pmb{X}$ is invertible , $\widehat{\pmb{\beta}}$ must satisfies the normal equation $\pmb{\widehat{\beta}}=(\pmb{X}^T \pmb{X})^{-1} \pmb{X}^T \pmb{Y}$. We can easily verify this assumption with a computer or a pocket calculator.\\
+\begin{align*}
+\text{The estimate regression coefficients are : }
+\widehat{\pmb{\beta}}=
+\begin{pmatrix}
+350.99 \\
+-1.27 \\
+-0.15 
+\end{pmatrix}
+\end{align*}
+
+We also have the given result for the covariance matrix : $cov(\widehat{\pmb{\beta}})=\sigma^2 (\pmb{X}^T \pmb{X})^{-1}$. 
+Extracting the data from the covariance matrix and assuming $\widehat{\beta_i}$ is normally distributed for $i= \{0,1,2 \}$, we have the following distribution for $\widehat{\beta_i}$ : $\widehat{\beta_i} \sim \mathcal{N}(\beta_i,\sigma_i^2)$, where $\sigma_i^2=\sigma^2((\pmb{X}^T \pmb{X})^{-1})_{ii}$ \\
+
+\begin{center}
+Moreover, $\dfrac{SS_E}{\sigma^2}=\dfrac{\pmb{e}^T \pmb{e}}{\sigma^2} \sim \chi^2 (n-3)$, where $\pmb{e}=\pmb{Y}-\pmb{X\widehat{\beta}}$ \\
+So we conclude $\dfrac{ (\widehat{\beta_i}-\beta_i) \sqrt{n-3} }  {\sqrt{ \sigma_i SS_E} } \sim t(n-3)$
+
+\end{center}
+
+$H_0$ : $ \beta_0=0$ is tested with \\
+\begin{center}
+t=4.695 with p-value=0.0183, the hypothesis is rejected with $\alpha =0.05$. 
+\end{center}
+$H_1$ : $ \beta_1=0$ is tested with \\
+\begin{center}
+t=-1.088 with p-value=0.3562 , the hypothesis can not be rejected. 
+\end{center}
+$H_2$ : $ \beta_2=0$ is tested with \\
+\begin{center}
+t=-1.719 with p-value=0.3562 , the hypothesis can not be rejected. 
+\end{center}
+
+$R^2=\dfrac{SS_T-SS_E}{SS_T}=1-\dfrac{\pmb{e}^T \pmb{e}}{(\pmb{Y-\overline{Y}})^T (\pmb{Y-\overline{Y}})}=0.8618$, 
+where $\pmb{\overline{Y}}=(\overline{y} \hspace{6pt} \overline{y}\hspace{6pt} \overline{y}\hspace{6pt} \overline{y}\hspace{6pt} \overline{y}\hspace{6pt} \overline{y})^T$
+\subparagraph{b}
+$\beta_0+20\beta_1+1200\beta_2=140.9$. The wear is 140.9 when the oil viscosity is 20 and the load level is 1200.
+
+\paragraph{Exercise 4.}
+\subparagraph{a}
+Assuming the ideal gas law $p.V^{\gamma}=C$, taking logarithms, we arrive at the linear relation $log(p)=log(C)-\gamma log(V)$.
+Then we have to compute the linear regression coefficients as previously. The model give $\gamma=1.50$ and the coefficient of multiple determination $R^2=0.997$ 
+\subparagraph{b}
+$\gamma=1.67$ for monoatomic gases (Helium) and $\gamma=1.40$ for diatomic gases when rotation is included (Oxygen, Molecular Nitrogen, air). $\gamma$ does also depend on the temperature, since $C_p$ and $C_v$ do. Our estimate is reasonable, assuming the gas is a mix of monoatomic and diatomic gases. \\
+References : \textbf{Pierre Grécias :} Physique - BCPST-VETO $1^{ère}$ année.
+\subparagraph{c}
+We have to check the assumption of normality, independence and homoscedasticity.
+The hypothesis of normality is checked with the shapiro test. P-value=0.9, the hypothesis can not be rejected.
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.9\textwidth]{capture.png}
+  	\caption{\textbf{Snapshot of R.} \textsl{We plotted residuals against log(V). Roughly, we cannot reject the hypothesis of independence and homoscedasticity.}
+  	}
+	\end{figure}
+Moreover, $T= \dfrac{(\widehat{\gamma}-\gamma)\sqrt{4 \sum_{i=1}^6 (x_i-\overline{x})^2 } }
+{\sqrt{\sum_{i=1}^6(e_i)^2}} \sim t(4) $\\
+The 95\% confidence interval for $\gamma$ is 
+$\gamma=\widehat{\gamma} \pm t_{0.025}(4)*\dfrac{\sqrt{\sum_{i=1}^6(e_i)^2/4 }}
+{\sqrt{\sum_{i=1}^6 (x_i-\overline{x})^2 }}=1.5 \pm 2.776 \dfrac{0.074}{1.81}=1.5 \pm 0.11 $
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

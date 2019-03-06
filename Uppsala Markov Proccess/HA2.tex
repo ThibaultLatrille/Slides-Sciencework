@@ -1,0 +1,266 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+
+
+\author{Thibault Latrille}
+\title{Home Assignment 2, Markov Processes}
+\begin{document}
+\maketitle
+\paragraph{Exercise 1.\\}
+
+This Moran model is more sophisticated than the basic one since we add mutations at rate u. \\
+
+The birth rate for the state $0$ is $\lambda_0=u$ with of course undefined ($0$ by convention) death rate. While the death rate for the state $N$ is  $\mu_N=u$ and undefined ($0$ by convention) birth rate. \\
+
+In the case $u=0$, we are back to the basic Moran model (no mutations), there is no birth from state $0$ and no death from state $N$, thus $N$ and $0$ are absorbing state. For every other states $i \in \{1,\cdots ,N-1 \}$, $\lambda_i=\mu_i=\frac{N-i}{N} \frac{i}{N}$ which are strictly positive, and thus the states are transient.  \\
+
+
+Let $X(t)$ be the state of the continuous time Markov chain at time $t$. Then for the basic Moran process, it is well known that if $X(0)=i$, the expected value of $X(t)$ is $i$ and the probability that the Markov chains is absorbed at state $N$ is $i/N$ ($P(X(\infty)=N)=i/N$).\\
+
+If $0<u \leq 1$, the states $0$ and $N$ are not anymore absorbing, and for every states $i \in \{1,\cdots ,N-1 \}$, $\lambda_i$ and $\mu_i$ are strictly positive, thus the chain is irreducible and honest and converges asymptotically to the stationary distribution.
+\\
+
+Let us try to find this stationary distribution for $N=2$ : $p_0=u$, $p_1=1/2$ and $p_2=1-u$.\\
+
+The infinitesimal generator of the chain is : 
+\begin{align*}
+\mathbb{Q}=
+\begin{pmatrix}
+-u & u & 0  \\
+1/4 & -1/2 & 1/4 \\
+0 & u & -u   \\
+\end{pmatrix}
+\end{align*}
+
+To find the stationary distribution, we solve $\pi \mathbb{Q}=0$ with $\pi=(\pi_0,\pi_1,\pi_2)$ and $\pi_0+\pi_1+\pi_2=1$.
+The solution of this equation is : 
+$$\pi=\left(\dfrac{1}{4u+2},\dfrac{4u}{4u+2},\dfrac{1}{4u+2}\right)$$
+
+By denoting $E(T_k)$ ($k=1,2,3$) the expected return time to state $k$, we have 
+$$\displaystyle \left \{
+    \begin{array}{l}
+        E(T_0)=\frac{-1}{\pi_0 \mathbb{Q}_{00}}=\frac{4u+2}{u} \\
+		E(T_1)=\frac{-1}{\pi_1 \mathbb{Q}_{11}}=\frac{4u+2}{2u} \\
+		E(T_2)=\frac{-1}{\pi_2 \mathbb{Q}_{22}}=\frac{4u+2}{u} \\
+    \end{array}
+\right. 
+$$
+
+\newpage
+\paragraph{Exercise 2.}
+\
+
+The state space is $\{0,1,2,3,4\}$ and we go from state $i$ to $i+1$  ($0 \leq i \leq 3$) with intensity $a$ and from state $i$ to $i-1$ ($1 \leq i \leq 4$) with intensity $b$. Thus the infinitesimal generator of the chain is : 
+\begin{align*}
+\mathbb{Q}=
+\begin{pmatrix}
+-a & a & 0 & 0 & 0 \\
+b & -(a+b) & b & 0 &0  \\
+0 & b & -(a+b) & b & 0 \\
+0 & 0 & b & -(a+b) & b \\
+0 & 0 & 0 & b & -b \\
+\end{pmatrix}
+\end{align*}
+To find the stationary distribution, we solve $\pi \mathbb{Q}=0$ with $\pi=(\pi_0,\pi_1,\pi_2,\pi_3,\pi_4)$ and $\pi_0+\pi_1+\pi_2+\pi_3+\pi_4=1$.
+ 
+\begin{gather*}
+-a\pi_0+b\pi_1=0 \iff \pi_1=\frac{a}{b}\pi_0 \\
+a\pi_0-(a+b)\pi_1+b\pi_2=0 \iff -a\pi_1+b\pi_2=0 \iff \pi_2=\frac{a}{b}\pi_1=\frac{a^2}{b^2}\pi_0 \\
+a\pi_1-(a+b)\pi_2+b\pi_3=0 \iff -a\pi_2+b\pi_3=0 \iff \pi_3=\frac{a}{b}\pi_2=\frac{a^3}{b^3}\pi_0 \\
+a\pi_2-(a+b)\pi_3+b\pi_4=0 \iff -a\pi_3+b\pi_4=0 \iff \pi_4=\frac{a}{b}\pi_3=\frac{a^4}{b^4}\pi_0 \\
+\pi_0+\pi_1+\pi_2+\pi_3+\pi_4=1 \iff \pi_0(1+c+c^2+c^3+c^4)=1 \iff \pi_0=\frac{1-c}{1-c^5} \text{ where $c=\dfrac{a}{b}$ } 
+\end{gather*}
+Thus the stationary distribution is :
+$$\pi=\left( \frac{1-c}{1-c^5},\frac{c(1-c)}{1-c^5},\frac{c^2(1-c)}{1-c^5},\frac{c^3(1-c)}{1-c^5},\frac{c^4(1-c)}{1-c^5} \right)$$
+
+\paragraph{Exercise 2.}
+\
+\subparagraph{a)}
+Let $X(t)$ be the number of functioning components, then the state space of our continuous Markov chain is $\{0,1,2\}$. \\
+
+We have a birth (repair) from state $0 \rightarrow 1$ and from $1 \rightarrow 2$  with intensity $\mu$. \\
+
+We have a death (failure) from state $1 \rightarrow 0$ with intensity $3\lambda /2$ and from $2 \rightarrow 1$  with intensity $2\lambda$ since there is intensity $\lambda$ for both of them. \\
+
+The infinitesimal generator of the chain is : 
+\begin{align*}
+\mathbb{Q}=
+\begin{pmatrix}
+-\mu & \mu & 0 \\
+3\lambda/2 & -(3\lambda/2+\mu) & \mu \\
+0 & 2\lambda & -2\lambda \\
+\end{pmatrix}
+\end{align*}
+\subparagraph{b)}
+The Kolmogorov's forward equation is $\mathbb{P}'(t)=\mathbb{P}(t)\mathbb{Q}$, and then system is initially at state $3$, thus we only have 
+$$\displaystyle \left \{
+    \begin{array}{l}
+        P_{20}'(t)=- \mu P_{20}(t)+ 3\lambda /2P_{21}(t) \\
+		P_{21}'(t)=\mu P_{20}(t)-(3\lambda /2+\mu)P_{21}(t)+2\lambda P_{02}(t) \\
+		P_{02}'(t)=\mu P_{21}(t)- 2 \lambda P_{02}(t) \\
+		P_{20}(t)+P_{21}(t)+P_{02}(t)=1 \\
+		P_{20}'(t)+P_{21}'(t)+P_{02}'(t)=0 \\
+    \end{array}
+\right. 
+$$
+\begin{gather*}
+\Longrightarrow P_{02}'(t)=\dfrac{2\mu}{3\lambda}P_{20}'(t)+\dfrac{2\mu^2}{3\lambda}P_{20}(t)- 2 \lambda(1-P_{20}(t)-P_{21}(t)) \\
+\Longrightarrow P_{20}'(t)+P_{21}'(t)+\dfrac{2\mu}{3\lambda}P_{20}'(t)+\dfrac{2\mu^2}{3\lambda}P_{20}(t)- 2 \lambda +2 \lambda P_{20}(t)+4/3P_{20}'(t)+2\mu/3 P_{20}(t)=0 \\
+\Longrightarrow P_{20}'(t)+\dfrac{2}{3\lambda}P_{0}''(t)+\dfrac{2\mu}{3\lambda}P_{20}'(t)+\dfrac{2\mu}{3\lambda}P_{20}'(t)+\dfrac{2\mu^2}{3\lambda}P_{20}(t)- 2 \lambda +2 \lambda P_{20}(t)+4/3P_{20}'(t)+2\mu/3 P_{20}(t)=0 \\
+\Longrightarrow \dfrac{2}{3\lambda}P_{20}''(t)+ \left( 1+\dfrac{4\mu}{3\lambda} + \dfrac{4}{3}\right)P_{20}'(t) + \left(\dfrac{2\mu^2}{3\lambda}+ \dfrac{2\mu}{3} \right)P_{20}(t) -2\lambda =0 \\
+\Longrightarrow P_{20}''(t)+ \left(2\mu + \dfrac{7\lambda}{2}\right)P_{20}'(t) + \left(\mu^2+ \mu\lambda \right)P_{20}(t) -\dfrac{3\lambda^2}{2} =0 \\
+\end{gather*} 
+
+We can solve this equation explicitly since it is a linear equation of degree $2$. Putting back the explicit form of $P_{20}(t)$ to the set of equation and it is straightforward to compute $P_{21}(t)$ and $P_{22}(t)$. \\
+
+The initial conditions of the solutions are : $P_{20}(0)=1$, $P_{20}'(0)=-\mu$, $P_{21}(0)=0$, $P_{21}'(0)=\mu$, $P_{22}(0)=0$, $P_{20}'(0)=0$. \\
+
+We get the explicit distribution of the Markov chain, setting $t \rightarrow \infty $ and we also get the asymptotic distribution, which is also the stationary distribution since the chain is honest and irreducible.
+\subparagraph{c)} 
+To find the stationary distribution, we solve $\pi \mathbb{Q}=0$ with $\pi=(\pi_0,\pi_1,\pi_2)$ and $\pi_0+\pi_1+\pi_2=1$.
+
+\begin{gather*}
+-\mu \pi_0+3\lambda /2 \pi_1=0 \iff \pi_1=\frac{2}{3}\rho \pi_0 \\
+\mu\pi_1-2\lambda \pi_2=0 \iff \pi_2=\frac{\rho}{2}\pi_1=\frac{\rho^2}{2}\pi_0 \\
+\pi_0+\pi_1+\pi_2=1 \iff \pi_0(1+2\rho/3+\rho^2/3)=1 \iff \pi_0=\frac{3}{3+2\rho+\rho^2}
+\end{gather*}
+
+The stationary distribution is : 
+$$\pi=\left(\frac{3}{3+2\rho+\rho^2},\frac{2\rho}{3+2\rho+\rho^2},\frac{\rho^2}{3+2\rho+\rho^2}\right)$$
+\subparagraph{d)}
+The chain is irreducible and honest, thus the steady state distribution is also the asymptotic distribution and the probability that the system works is $\pi_1+\pi_2=\frac{2\rho+\rho^2}{3+2\rho+\rho^2}$
+\paragraph{Exercise 4)}
+\
+
+
+The balance equation gives us :
+\begin{gather*}
+\pi_j q_{ji} a_{ji}=\pi_i q_{ij} a_{ij} 
+\iff a_{ij}=\dfrac{\pi_j q_{ji}}{\pi_i q_{ij}}a_{ji}
+\iff \theta_{ji}=\dfrac{\pi_j q_{ji}}{\pi_i q_{ij}}
+\end{gather*}
+If we want the $a_{ij}$ to have the special form $a_{ij}=\dfrac{\gamma_{ij}}{1+ \theta_{ij}}$, the balance equation must still hold and we have :
+\begin{gather*}
+\dfrac{\pi_j q_{ji}}{\pi_i q_{ij}}=\dfrac{a_{ij}}{a_{ji}}=\dfrac{\gamma_{ij}}{1+ \theta_{ij}}\dfrac{1+ \theta_{ji}}{\gamma_{ji}}=\dfrac{\gamma_{ij}}{\gamma_{ji}}
+\dfrac{\pi_j q_{ji}}{\pi_j q_{ji}+\pi_i q_{ij}}\dfrac{\pi_i q_{ij}+\pi_j q_{ji}}{\pi_i q_{ij}} 
+\iff \dfrac{\gamma_{ij}}{\gamma_{ji}}=1
+\end{gather*}
+This restriction holds for the special cases $\gamma_{ij}=1$ and $\gamma_{ij}=1+min(\theta_{ij},\theta_{ji})$. \\
+
+For the case $\gamma_{ij}=1$ :\\
+$$a_{ij}=\dfrac{\gamma_{ij}}{1+ \theta_{ij}}=\dfrac{\pi_j q_{ji}}{\pi_j q_{ji}+\pi_i q_{ij}}$$
+
+For the case $\gamma_{ij}=1+min(\theta_{ij},\theta_{ji})$ :\\
+$$a_{ij}=\dfrac{\left(1+min(\dfrac{\pi_i q_{ij}}{\pi_j q_{ji}},\dfrac{\pi_j q_{ji}}{\pi_i q_{ij}})\right)\pi_j q_{ji}}{\pi_j q_{ji}+\pi_i q_{ij}}=\dfrac{\pi_j q_{ji}}{\pi_i q_{ij}+\pi_j q_{ji}}+min\left(  \dfrac{\pi_i q_{ij}}{\pi_i q_{ij}+\pi_j q_{ji}},\dfrac{(\pi_j q_{ji})^2}{\pi_i q_{ij}(\pi_i q_{ij}+\pi_j q_{ji})}\right)$$ 
+
+
+\paragraph{Exercise 5)}
+\
+\subparagraph{a)}
+To compute $E(S_t)$, we take $S_t$ conditional to $N(t)$ and use the formula $E(S_t)=E(E(S_t|N(t)))$. \\
+
+$\forall k \in \mathbb{N}, 1 \leq i \leq k$,
+ $P \left(\prod_{j=1}^{N(t)}Y_j=u^{N(t)-i} d^i|N(t)=k  \right)=\binom{i}{k} p^{k-i}(1-p)^i$
+ since all $Y_j$ are independent. \\
+ 
+ To understand this formula, we can think of $\prod_{j=1}^{k} Y_j $ as a product of $k$ Bernoulli trials. The only outcomes of this random variable are 
+ $u^{k-i} d^i$ ($ 1 \leq i \leq k$). Moreover, to get this outcome we must choose $i$ trials out of the $k$ that get value $d$, and $k-i$ that get value $u$ thus with probability $p^{k-i}(1-p)^i$, and there is $\binom{i}{k}$ different ways of choosing these $i$ trials out of the $k$.
+ 
+ \begin{align*}
+ \displaystyle E(S_t|N(t)=k) &= S_0E(\prod_{j=1}^{N(t)}Y_j|N(t)=k) \\
+ &=S_0\sum_{i=0}^k u^{k-i} d^i P\left(\prod_{j=1}^{N(t)}Y_j=u^{N(t)-i} d^i|N(t)=k\right)  \\
+ &= S_0 \sum_{i=0}^k u^{k-i} d^i \binom{i}{k}p^{k-i}(1-p)^i \\
+ &= S_0 \sum_{i=0}^k \binom{i}{k} (pu)^{k-i} (d(1-p))^i  \\
+ &= S_0 (pu+(1-p)d)^k
+\end{align*}
+
+With the knowledge of the distribution of $S_t|N(t)$ we can compute 
+$E(E(S_t|N(t)))$ since we know that $N(t)$ is Poisson distributed with intensity $\lambda$ and independent of all $Y$.
+\begin{align*}
+ \displaystyle E(S_t)&=E(E(S_t|N(t))) \\
+ &= \sum_{k=0}^{\infty} P(N(t)=k)E(S_t|N(t)=k) \\
+ &=e^{-\lambda t}\dfrac{(\lambda t)^k}{k!}S_0(pu+(1-p)d)^k \\
+ &=S_0 e^{-\lambda t}\dfrac{(\lambda t(pu+(1-p)d))^k}{k!} \\
+ &=S_0e^{-\lambda t}e^{\lambda t(pu+(1-p)d)} \\
+ &=S_0e^{\lambda t(pu+d-pd-1)} 
+\end{align*}
+\subparagraph{b)}
+$E(S_t)=S_0e^{rt} \iff r=\lambda(pu+d-pd-1) \iff p=\dfrac{r+\lambda(1-d)}{\lambda(u-d)} $
+\subparagraph{c)}
+\begin{align*}
+E(S_t^2)&=S_0^2E(\prod_{j=1}^{N(t)}Y_j*\prod_{j=1}^{N(t)}Y_j) \\
+&=S_0^2E(\prod_{j=1}^{2N(t)}Y_j) \\
+&=S_0^2E\left(E(\prod_{j=1}^{2N(t)}Y_j|N(t))\right) \\
+&=S_0^2\sum_{k=0}^{\infty} P(N(t)=k)E(\prod_{j=1}^{2N(t)}Y_j|N(t)=k)\\
+&=S_0^2\sum_{k=0}^{\infty} P(N(t)=k)((pu+d-pd)^2)^k \\
+&=S_0^2\sum_{k=0}^{\infty} e^{-\lambda t} \dfrac{(\lambda t)^k}{k!}((pu+d-pd)^2)^k \\
+&=S_0^2e^{-\lambda t}\sum_{k=0}^{\infty}  \dfrac{(\lambda t (pu+d-pd)^2 )^k}{k!} \\
+&=S_0^2e^{-\lambda t}e^{\lambda t(pu+d-pd)^2} \\
+&=S_0^2e^{\lambda t \left( (pu+d-pd)^2-1 \right)}
+\end{align*}
+Finally, using the Huygens formula we get :\\
+\begin{align*}
+V(S_t) &= E(S_t^2)-E(S_t)^2 \\
+ &=S_0^2\left( e^{\lambda t((pu+d-pd)^2-1)}-e^{2\lambda t(pu+d-pd-1)} \right)
+\end{align*}
+\paragraph{6)}
+\subparagraph{a)}
+\
+The infinitesimal generator of the chain is : 
+\begin{align*}
+\mathbb{Q}=
+\begin{pmatrix}
+-\lambda & \lambda & 0 & 0 & 0& \cdots \\
+\mu & -(\lambda+\mu) & \lambda & 0 & 0 & \\
+\mu & 0 & -(\lambda+\mu) & \lambda & 0 &  \\
+\mu & 0 & 0 & -(\lambda+\mu) & \lambda &  \\
+\vdots &  &  &  & \ddots & \ddots \\
+\end{pmatrix}
+\end{align*}
+Writing down the forward equation $\mathbb{P}'(t)=\mathbb{P}(t)\mathbb{Q}$, we get  : 
+\begin{align*} 
+\mathbb{P}_{00}'(t)=p_0'(t)&=-\lambda p_0(t) + \sum_{i=1}^{\infty}\mu p_i(t) \\
+ &= -\lambda p_0(t) + \mu(1-p_0(t)) \\
+ &= \mu -(\lambda+\mu)p_0(t)
+\end{align*}
+\subparagraph{b)}
+\
+Let $T_0$ be the return time to state $0$. By definition of the process, this is the time between two processing, and since the processing is Poisson distributed, $T_0$ is exponentially distributed with mean $1/\mu$, which prove that the state $0$ is absolutely recurrent.
+The whole state space is also absolutely recurrent since the chain is irreducible.
+\subparagraph{c)}
+\
+We seek to find $\pi=(\pi_0,pi_1,\cdots)$ such that $\pi\mathbb{Q}=0$ and $\sum_{i=0}^{\infty}\pi_i=1$. 
+\begin{gather*}
+\mu -(\lambda+\mu)\pi_0=0 \iff \pi_0=\dfrac{\mu}{\lambda+\mu} \\
+\lambda \pi_0 -(\lambda+\mu)\pi_1=0 \iff \pi_1=\dfrac{\lambda}{\lambda+\mu}\pi_0=\dfrac{\lambda}{\lambda+\mu}\dfrac{\mu}{\lambda+\mu} \\
+\lambda \pi_1 -(\lambda+\mu)\pi_2=0 \iff \pi_2=\dfrac{\lambda}{\lambda+\mu}\pi_1=\left(\dfrac{\lambda}{\lambda+\mu}\right)^2\dfrac{\mu}{\lambda+\mu} \\
+\lambda \pi_2 -(\lambda+\mu)\pi_3=0 \iff \pi_3=\dfrac{\lambda}{\lambda+\mu}\pi_2=\left(\dfrac{\lambda}{\lambda+\mu}\right)^3\dfrac{\mu}{\lambda+\mu} \\
+\vdots \\
+\pi_i=\left(\dfrac{\lambda}{\lambda+\mu}\right)^i\dfrac{\mu}{\lambda+\mu}\qquad \forall i \geq 0 \\
+\end{gather*}
+This give a stationary distribution for $X(t)$
+\subparagraph{d)}
+\
+Since we average over time and that all orders are finally processed, the average number of orders processed per unit of time is the average number of orders received per unit of time. This is the mean of the Poisson process divided by the time and then equal $\dfrac{\lambda t}{t}=\lambda$.
+\subparagraph{e)}
+\
+We scale time to days, thus $1/\mu=1 \iff \mu=1 $ and
+$\pi_0=0.25=\dfrac{\mu}{\lambda+\mu} \iff \lambda=3$.
+\end{document}

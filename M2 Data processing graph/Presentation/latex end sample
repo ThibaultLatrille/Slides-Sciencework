@@ -1,0 +1,5 @@
+\textbf{Learning filter}: j$^{th}$ outputs feature maps of sample $s$ is given by:
+\begin{equation}
+	{y}_{s,j} = \sum_{i=1}^{F_{in}}	\hat{h}_{i,j}(\mathcal{L}){x}_{s,j}
+\end{equation}
+where the $F_{in} \times F_{out}$ vectors of Chebyshev coefficients $\theta_{i,j} \in \mathbb{R}^{K}$ are the layers's trainable parameters

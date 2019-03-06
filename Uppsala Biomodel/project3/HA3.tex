@@ -1,0 +1,142 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+
+\usepackage{listings}
+\lstset{language=Scilab}
+\author{Latrille Thibault\\
+\small thibault.latrille@ens-lyon.fr\\[-0.8ex]
+\small Uppsala Universitet\\}
+
+\title{Home Assignment 3, Mathematical Biology.}
+
+\begin{document}
+\maketitle
+\paragraph{Exercise I)}
+\
+
+If not mentioned explicitly, the parameters of the model are assumed to be strictly positive to avoid irrelevant cases.
+\paragraph{1)}
+The set of equation underlying the model is 
+$$
+\left \{
+\begin{array}{l}
+ \dfrac{d\alpha}{dt}=\sigma-f(\alpha,\gamma)=\sigma-\frac{q\alpha  (\alpha +1) (\gamma +1)^2}{(\alpha +1)^2 (\gamma +1)^2+L} \\
+  \dfrac{d\gamma}{dt}=f(\alpha,\gamma)-k_{-1}\gamma=\frac{q\alpha  (\alpha +1) (\gamma +1)^2}{(\alpha +1)^2 (\gamma +1)^2+L}-k_{-1}\gamma
+    \end{array}
+\right. 
+$$
+
+\paragraph{2)}
+The steady states $(\alpha^*,\gamma^*)$ fulfill the conditions 
+$$
+\left\{
+\begin{array}{l}
+ 0=\sigma-\frac{q\alpha^*  (\alpha^* +1) (\gamma^* +1)^2}{(\alpha^* +1)^2 (\gamma^* +1)^2+L} \\
+ 0=\frac{q\alpha  (\alpha^* +1) (\gamma^* +1)^2}{(\alpha^* +1)^2 (\gamma^*a +1)^2+L}-k_{-1}\gamma^*
+    \end{array}
+\right. 
+\iff
+\left\{
+\begin{array}{l}
+ \alpha^*=\frac{k_{-1} q-2 k_{-1} \sigma -q \sigma +2 \sigma ^2 \pm \sqrt{q^2 (k_{-1}+\sigma )^2+4 k_{-1}^2 L q \sigma -4 k_{-1}^2 L \sigma ^2}}{2 (k_{-1}+\sigma ) (q-\sigma )} \\
+ \gamma^*=\frac{\sigma }{k_{-1}}
+    \end{array}
+\right. 
+$$
+
+However the case $\alpha^*=\frac{k_{-1} q-2 k_{-1} \sigma -q \sigma +2 \sigma ^2 - \sqrt{q^2 (k_{-1}+\sigma )^2+4 k_{-1}^2 L q \sigma -4 k_{-1}^2 L \sigma ^2}}{2 (k_{-1}+\sigma ) (q-\sigma )}$ is not physically relevant since it is negative for any positive values of the parameters. \\
+
+The only left over case is $\left( \alpha^*=\frac{k_{-1} q-2 k_{-1} \sigma -q \sigma +2 \sigma ^2 + \sqrt{q^2 (k_{-1}+\sigma )^2+4 k_{-1}^2 L q \sigma -4 k_{-1}^2 L \sigma ^2}}{2 (k_{-1}+\sigma ) (q-\sigma )},\gamma^*=\frac{\sigma }{k_{-1}} \right) $
+\paragraph{3)}
+The Jacobian matrix is defined as
+$$
+\mathbb{J}=
+\left(
+\begin{array}{cc}
+\dfrac{ \partial \left( \sigma-\frac{q\alpha  (\alpha +1) (\gamma +1)^2}{(\alpha +1)^2 (\gamma +1)^2+L} \right) }{\partial \alpha }  & 
+\dfrac{ \partial \left( \sigma-\frac{q\alpha  (\alpha +1) (\gamma +1)^2}{(\alpha +1)^2 (\gamma +1)^2+L} \right) }{\partial \gamma }  \\
+\dfrac{ \partial \left( \frac{q\alpha  (\alpha +1) (\gamma +1)^2}{(\alpha +1)^2 (\gamma +1)^2+L}-k_{-1}\gamma \right) }{\partial \alpha } & 
+\dfrac{ \partial \left( \frac{q\alpha  (\alpha +1) (\gamma +1)^2}{(\alpha +1)^2 (\gamma +1)^2+L}-k_{-1}\gamma \right) }{\partial \gamma }  \\
+\end{array}
+\right)
+$$
+
+$$
+\Rightarrow 
+\mathbb{J}=
+\left(
+\begin{array}{cc}
+ -\frac{q (\gamma +1)^2 \left((\alpha +1)^2 (\gamma +1)^2+L+2 L \alpha \right)}{\left((\alpha +1)^2 (\gamma +1)^2+L\right)^2} & -\frac{2 L q \alpha 
+   (\alpha +1) (\gamma +1)}{\left((\alpha +1)^2 (\gamma +1)^2+L\right)^2} \\
+ \frac{q (\gamma +1)^2 \left((\alpha +1)^2 (\gamma +1)^2+L+2 L \alpha \right)}{\left((\alpha +1)^2 (\gamma +1)^2+L\right)^2} & -\frac{2 q \alpha  (\alpha
+   +1)^3 (\gamma +1)^3}{\left((\alpha +1)^2 (\gamma +1)^2+L\right)^2}+\frac{2 q \alpha  (\alpha +1) (\gamma +1)}{(\alpha +1)^2 (\gamma +1)^2+L}-k_{-1} \\
+\end{array}
+\right)
+$$
+
+To assess the linear stability around for the steady state $(\alpha^*,\gamma^*)$, we evaluate the Jacobian matrix for the value of the steady state  
+
+$$
+\mathbb{J}_{(\alpha^*,\gamma^*)}=
+\left(
+\begin{array}{cc}
+ -\frac{q (\gamma^* +1)^2 \left((\alpha^* +1)^2 (\gamma^* +1)^2+L+2 L \alpha^* \right)}{\left((\alpha^* +1)^2 (\gamma^* +1)^2+L\right)^2} & -\frac{2 L q \alpha^*
+   (\alpha +1) (\gamma^* +1)}{\left((\alpha^* +1)^2 (\gamma^* +1)^2+L\right)^2} \\
+ \frac{q (\gamma^* +1)^2 \left((\alpha^* +1)^2 (\gamma^* +1)^2+L+2 L \alpha^* \right)}{\left((\alpha^* +1)^2 (\gamma^* +1)^2+L\right)^2} & -\frac{2 q \alpha^*  (\alpha^*
+   +1)^3 (\gamma^* +1)^3}{\left((\alpha^* +1)^2 (\gamma^* +1)^2+L\right)^2}+\frac{2 q \alpha^*  (\alpha^* +1) (\gamma^* +1)}{(\alpha^* +1)^2 (\gamma^* +1)^2+L}-k_{-1} \\
+\end{array}
+\right)
+$$
+
+If the real part of the eigenvalues of this Jacobian matrix are both negative, the steady state is stable. 
+If only one of them is positive, the state is unstable. We expect the eigenvalues to be complex in the case our system shows oscillatory behavior.
+If one eigenvalue is complex, the second is also complex since they are conjugate and the real part are the same. If the real part is positive, the system can converge in this case to a limit cycle. 
+
+\paragraph{4)}
+\
+
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=1\textwidth]{sigma.png}
+  	\caption{\textbf{The phase space portrait for values of $\pmb{\sigma}$ ranging between $\pmb{1}$ and $\pmb{15}$, the other parameters are $\pmb{k_{-1}=1}$, $\pmb{q=20}$, $\pmb{L=7.5.10^6}$.}\ The bold black line represent the steady state $(\alpha^*,\gamma^*)$ for $1\leq\sigma\leq15$.\ For $1\leq\sigma \leq 7.5$ the system converges to a limit cycle, which means the eigenvalues of the Jacobian matrix are positive. While for $9\leq\sigma\leq15$, the system converges to the steady state $(\alpha^*,\gamma^*)$, the eigenvalues are both positive. For $\sigma=9$, one can clearly see the system is convergent but presents an oscillatory behavior, the eigenvalues are complex with a negative real part.}
+	\end{figure}
+	
+\paragraph{5)}
+\
+This oscillatory behavior is not under genetic or external control and is thus not related to the circadian cycle. \\ 
+
+Moreover, "the physiological role of periodic phenomena is still far from being fully understood", Goldbeter [1972]. But such oscillation of the ATP/ADP concentration may contribute to a wide range of biological phenomena, such as :\\
+
+
+$\bullet$ Regulation of the concentration levels of some metabolites within the cell, coordination of metabolic pathways within the cell.\\
+
+$\bullet$ Oscillatory behavior of the mitochondria.\\
+
+$\bullet$ Phosphofructokinase (activated by ADP) might be considered as the primary oscillophore and the enzymic basis of glycolytic oscillation. Thus the ATP/ADP cycle is linked to other cycle such as glycolysis which also entail a link with the insulin cycle.\\
+
+$\bullet$ Alternating opening and closing of ATP-sensitive K+ channels, leading to the observed oscillations in membrane potential and Ca2+ influx in pancreatic $\beta$-cells, again linking this cycle to the insulin cycle.\\
+
+$\bullet$ Specification of positional information during embryogenesis such as temporal an spatial pattern.\\
+
+$\bullet$ Mitosis, synchronization of cell metabolism and of cell populations, signal transmission and cell differentiation by providing reliable time mechanisms at the cellular level.
+
+\end{document}
+

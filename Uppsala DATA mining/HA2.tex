@@ -1,0 +1,185 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+
+\author{\and Susanne Bornelöv \and Thibault Latrille \and Yiming Zhang}
+\title{Computer-intensive statistics and data mining
+ \\ Home assignment 2}  
+\newtheorem*{theo}{Theorem} 
+\begin{document}
+\maketitle
+For the following discussion, let $\Phi(x,\mu,\sigma)$  and $\phi(x,\mu,\sigma)$ denote respectively the cdf and the pdf of the $\mathcal{N}(\mu,\sigma^2)$ distribution.
+
+\paragraph{Exercise 1.}
+$$ \mu=\int_{-2}^0 e^{-(x-1)^2}dx=\sqrt{\pi}E_{\mathcal{N}(1,\frac{1}{2})}\mathds{1}_{[-2,0]}=\sqrt{\pi} \left[ \Phi (0,1,\frac{1}{\sqrt{2}}) - \Phi(-2,1,\frac{1}{\sqrt{2}}) \right] =0.1393832$$
+Computing $\mu$ in a deterministic fashion is realized by the following R code :
+\begin{verbatim}
+mu<-sqrt(pi)*(pnorm(sqrt(2)*(0-1))-pnorm(sqrt(2)*(-2-1)))
+\end{verbatim}
+\paragraph{Exercise 2.}
+
+$$\displaystyle \mu=\sqrt{\pi}E_{\mathcal{N}(1,\frac{1}{2})}\mathds{1}_{[-2,0]}=\int_{-\infty}^{\infty} \sqrt{\pi} \mathds{1}_{[-2,0]}(x) \Phi (x,1,1 / \sqrt{2}) dx$$ Thus by the central limit theorem, $\displaystyle \widehat{\mu}=\dfrac{1}{n}\sum_{i=1}^n \sqrt{\pi} \mathds{1}_{[-2,0]}(X_i)$, where $X_i$ are i.i.d. r.v. from the $\mathcal{N}(1,\frac{1}{2})$ distribution. Computing an approximation is straightforward as described below.
+\begin{verbatim}
+data<-rnorm(n,1,1/sqrt(2))
+data<-data[(data>-2 & data<0)]
+mu=sqrt(pi)*length(data)/n
+\end{verbatim}
+However, the distribution is symmetric and the integral could be rewritten as : $$\displaystyle \mu=\frac{\sqrt{\pi}}{2}E_{\mathcal{N}(1,\frac{1}{2})}\mathds{1}_{[-2,0]\cup [2,4]}=\int_{-\infty}^{\infty} \dfrac{\sqrt{\pi}}{2} \mathds{1}_{[-2,0]\cup [2,4]}(x) \Phi (x,1,1 / \sqrt{2}) dx$$
+This reformulation improve the accuracy of the approximation since we use twice more data with the following algorithm
+\begin{verbatim}
+data<-rnorm(n,1,1/sqrt(2))
+data<-data[((data>-2 & data<0))|((data>2 & data<4))]
+mu=sqrt(pi)/2*length(data)/n
+\end{verbatim}
+For a sample of size 10000, we get $\widehat{\mu}=0.1396268$, thus the discrepancy of the independent MC is $10^{-3}$ for a sample of size 10000.
+
+\paragraph{Exercise 3.\\}
+For the hit and miss procedure we generate a sample of two dimensional independent uniform random variables such that they cover the area (see figure 1.).
+For $x \in [-2,0]$ the function $f(x)=e^{-(x-1)^2}$ is increasing, thus the maximum value is achieved for $x=0$ and $e^{-1}=0.3678794$. \\
+Let $A_i$ be i.i.d. r.v. from $U[-2,0]$ and $B_i$ be i.i.d. r.v. from $U[0,e^{-1}]$, thus for a sample of size n, $\displaystyle \widehat{\mu}=\dfrac{2e^{-1}}{n}\sum_{i=1}^n  \mathds{1}_{A_i < f(B_i) }$.  For a sample of size 10000, we get $\widehat{\mu}=0.143473$. 
+\begin{verbatim}
+f<-function(x) exp(-(x-1)**2)
+a=runif(n,-2,0)
+b=runif(n,0,exp(-1))
+mu=(2*exp(-1)/n)*length(b[b<f(a)]) 
+\end{verbatim}
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.9\textwidth]{HA2_3.png}
+  	\caption{\textbf{Hit and miss procedure.} \textsl{The approximation of the integral equal the ratio between the number of dots below the curve and the total number of dots time the surface of the area.}
+  	}
+	\end{figure}
+	
+\paragraph{Exercise 4.\\}
+For the importance sampling procedure, the cauchy distribution is a convenient instrumental distribution for the normal distribution as target. 
+Define $\omega(x)=\dfrac{\phi(x,1,1/\sqrt{2})}{g(x)}$ where $g(x)$ is the pdf of the cauchy distribution with location parameter equal 1, then 
+$\displaystyle \widehat{\mu} = \dfrac{ \sum_{i=1}^n \sqrt{\pi} \mathds{1}_{[-2,0]\cup [2,4]} (X_i) \omega(X_i) } {2\sum_{i=1}^n \omega(X_i)}$, where $X_i$ are iid from the cauchy distribution. Computing an approximation is straightforward as described below.
+\begin{verbatim}
+data<-rcauchy(n,1)
+w<-function(x) dnorm(x,1,1/sqrt(2))/dcauchy(x,1)
+wdata<-w(data[((data>-2 & data<0))|((data>2 & data<4))])
+mu=sqrt(pi)/2*sum(wdata)/sum(w(data))
+\end{verbatim}
+For a sample of size 10000, we get $\widehat{\mu}=0.1386784$. 
+
+\paragraph{Exercise 5.\\}
+\subparagraph{a)}
+The algorithm to produce the MCMC Random-walk generating $\mathcal{N}(0,\frac{1}{2})$ is : \\
+Given current state $x^{(t)}$.
+\begin{enumerate}
+\item Draw $\epsilon \sim U(-a,a)$, where $a$ is the scaling parameter.\\
+Set $y=x^{(t)}+\epsilon$
+\item Draw $U \sim U[0,1]$\\
+$$x^{(t+1)} = \left\{ 
+\begin{array}{l l}
+  y & \quad \text{if $U \leq min(1,e^{y^2-(x^{(t)})^2})$}\\
+  x^{(t)} & \quad \text{else}\\ \end{array} \right.
+$$
+\end{enumerate}
+We start with a random number (seed) and continue until we reach the sample size. The R code is given below.
+\begin{verbatim}
+MCMC<-function(a,seed,N){
+rand<-rep(NA,N);
+rand[1]<-seed;
+for(i in 2:N) {
+	rand[i]<-seed+a*runif(1,-1,1);
+	r<-min(1,exp((seed-1)^2-(rand[i]-1)^2));
+	if (runif(1)<r){seed<-rand[i]}else{rand[i]<-seed}
+	};
+return(rand)
+}
+\end{verbatim}
+
+\subparagraph{b)}
+The trial distribution is a uniform distribution, so :\\
+$$T(x,y) = \left\{ 
+\begin{array}{l l}
+  \frac{1}{2a} & \quad \text{if $|x-y|<a$}\\
+  0 & \quad \mbox{else}\\ \end{array} \right.$$
+   Thus $T(x,y)=T(y,x)$ and we can compute the transition function :
+$$A(x,y) = \left\{ 
+\begin{array}{l l}
+  \frac{min(1,e^{y^2-x^2})}{2a} & \quad \text{if $|x-y|<a$}\\
+  0 & \quad \text{else}\\ \end{array} \right. 
+$$
+\subparagraph{c)}
+In order to maximize the acceptance probability, the scaling parameter should be chosen as small as possible.
+\subparagraph{d)}
+A time index, $t_0>0$, defines the length of the initial non-adaptation period and we let 
+$$C_t = \left\{ 
+\begin{array}{l l}
+  C_0 & \quad t \leq t_0 \\
+  s_d Cov(X_0, \ldots, X_{t-1}) + s_d \epsilon I_D & \quad t > t_0\\ \end{array} \right. 
+$$
+ Recall the definition of the empirical covariance  $Cov(X_0, \ldots, X_k)=\frac{1}{k} \left( 
+\sum_{i=0}^k X_i X_i- (k+1)\overline{X}_{k}\overline{X}_{k} \right) $, for $t > t_0 $, $C_t$ satisfies the recursive formula : 
+$$ C_{t+1}=\frac{t-1}{t}C_t+\dfrac{s_d}{t}\left(t\overline{X}_{t-1} \overline{X}_{t-1}-(t+1)\overline{X}_{t} \overline{X}_{t}+X_t X_t + \epsilon I_d \right) $$
+This permit the calculation of $C_t$ without excessive computational cost since the mean, $\overline{X}_t$, also satisfies an obvious recursive formula.\\
+Following \textit{A. G. Gelman, G. O. Roberts and W. R. Gilks: Efficient Metropolis jumping rules, 1996}, we take the scaling parameter to be $s_d=(2.4)^2$  \\
+For each step $(>t_0)$, using the relation $Var(U[-a,a])=\frac{a^2}{3}$, we introduce the covariance into the Random-walk setting $a=\sqrt{3C_t}$. 
+\subparagraph{d)}
+The R function that produce the adaptive MCMC is :
+\begin{verbatim}
+AMCMC<-function(seed,N,to){
+N<-N+to
+rand<-rep(NA,N);
+C0<-1
+Sd<-2.4^2
+eps<-0.1
+rand[1]<-seed;
+for(i in 2:to) {
+	rand[i]<-seed+sqrt(3*C0)*runif(1,-1,1);
+	r<-min(1,exp((seed-1)^2-(rand[i]-1)^2));
+	if (runif(1)<r){seed<-rand[i]}else{rand[i]<-seed}
+ }
+Mean<-mean(rand[1:to])
+C0<-(sum(rand[1:to])-to*Mean**2)/(to-1)
+for (i in (to+1):N) {
+	t=i-1
+	rand[i]<-seed+sqrt(3*abs(C0))*runif(1,-1,1);
+	r<-min(1,exp((seed-1)^2-(rand[i]-1)^2));
+	if (runif(1)<r){seed<-rand[i]} else{rand[i]<-seed};
+	NMean<-(Mean*(i-1)+rand[i])/i
+	C0<-(t-1)*C0/t+Sd*(t*Mean**2-i*NMean**2+rand[i]**2+eps)/t
+	Mean<-NMean
+     }
+return(rand[(to+1):N])
+}
+\end{verbatim}
+\subparagraph{e)}
+By the ergodic property of the markov chain, $\displaystyle \widehat{\mu}=\dfrac{1}{2n}\sum_{i=1}^n \sqrt{\pi} \mathds{1}_{[-2,0]\cup [2,4] }(X_i)$, where $X_i$ are the random variables generated by the adaptive MCMC algorithm. Computing the integral is straightforward regarding to preceding exercise. The R code is given below.
+\begin{verbatim}
+data<-AMCMC(0,n,(n/10))
+length(data)
+data<-data[((data>-2 & data<0))|((data>2 & data<4))]
+mu=sqrt(pi)/2*length(data)/n
+\end{verbatim}
+For a sample of size 10000, we get $\widehat{\mu}=0.1378969$.
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+

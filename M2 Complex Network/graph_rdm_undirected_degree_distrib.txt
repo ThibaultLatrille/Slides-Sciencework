@@ -1,0 +1,9 @@
+#----------------------------------
+#       Degree Distribution        
+#----------------------------------
+
+vertex degree 1: nmbr vertices with such degree 1 
+vertex degree 2: nmbr vertices with such degree 3 
+vertex degree 3: nmbr vertices with such degree 2 
+vertex degree 4: nmbr vertices with such degree 3 
+vertex degree 5: nmbr vertices with such degree 1 

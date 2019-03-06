@@ -1,0 +1,313 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=matlab,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+\author{Latrille Thibault\\
+\small thibault.latrille@ens-lyon.fr\\[-0.8ex]
+\small Uppsala Universitet\\}
+\title{Home Assignment 1, Mathematical Biology.}
+\begin{document}
+\maketitle
+\paragraph{Exercise I}
+\subparagraph{1)}
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+		\dfrac{d X_1}{dt}=\dfrac{\alpha X_2}{\beta + X_2^2}-\dfrac{\alpha X_1}{\beta + X_1^2} \\
+		\dfrac{d X_2}{dt}=\dfrac{\alpha X_1}{\beta + X_1^2}-\dfrac{\alpha X_2}{\beta + X_2^2} \\
+    \end{array}
+    \right.
+    \iff
+    \left \{
+     \begin{array}{ll}
+        \dfrac{d X_1}{dt}=\dfrac{\alpha (N-X_1)}{\beta + (N-X_1)^2}-\dfrac{\alpha X_1}{\beta + X_1^2} \\
+		\dfrac{d X_2}{dt}=\dfrac{\alpha (N-X_2)}{\beta + (N-X_2)^2}-\dfrac{\alpha X_2}{\beta + X_2^2} 
+    \end{array}
+    \right.
+ $$
+\subparagraph{2)}
+
+By symmetry of the equations, we can study the steady state for only $X_1$ and apply the result to $X_2$ in the same fashion.
+The steady states of $X_1$ is defined has :
+
+\begin{align*}
+        0 &=\dfrac{\alpha (N-X_1)}{\beta + (N-X_1)^2}-\dfrac{\alpha X_1}{\beta + X_1^2} \\
+	\iff 0 &=(N-X_1)(\beta + X_1^2)- X_1(\beta + (N-X_1)^2) \\
+	\iff 0 &=(N-X_1)(\beta + X_1^2)- X_1(\beta + N^2-2 N X_1+X_1^2) \\
+	\iff 0 &=\beta N-(N^2+2\beta) X_1+3 N X_1^2 -2X_1^3 \\
+	\iff 0 &=6 N-(N^2+12) X_1+3 N X_1^2 -2X_1^3 \\
+ \iff X_1=N/2 & \text{ and }
+	\left\{
+	\begin{array}{ll}
+		X_1=\frac{N-\sqrt{-24 +N^2}}{2} \\
+		X_1=\frac{N+\sqrt{-24 +N^2}}{2}
+    \end{array}
+    \right.
+    \text{ for } N \geq \sqrt{24}
+\end{align*}
+
+For the trivial steady state $X_1=N/2$, the stability is given by : 
+
+$$ \dfrac{d}{dX_1} \left. \left(\dfrac{0.06 (N-X_1)}{6 + (N-X_1)^2}-\dfrac{0.06 X_1}{6 + X_1^2}\right) \right|_{X_1=N/2}=0.06\dfrac{8(N^2-24)}{(N^2+24)^2}$$
+This steady state is stable for $N < \sqrt{24}$ and unstable for $N > \sqrt{24}$.\\
+
+
+For $X_1=\frac{N-\sqrt{-24 +N^2}}{2}$ and $X_1=\frac{N+\sqrt{-24 +N^2}}{2}$, the stability is the same :
+$$ \dfrac{d}{dX_1} \left. \left(\dfrac{0.06 (N-X_1)}{6 + (N-X_1)^2}-\dfrac{0.06 X_1}{6 + X_1^2}\right) \right|_{X_1=\frac{N+\sqrt{-24 +N^2}}{2}}=\dfrac{d}{dX_1} \left. \left(\dfrac{0.06 (N-X_1)}{6 + (N-X_1)^2}-\dfrac{0.06 X_1}{6 + X_1^2}\right) \right|_{X_1=\frac{N-\sqrt{-24 +N^2}}{2}}=0.06\dfrac{24-N^2}{6N^2}$$
+
+Both states are stable on their domain of definition, since $24-N^2$ is negative for $N>\sqrt{24}$.
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=1\textwidth]{try.png}
+  	\caption{\textbf{Bifurcation diagram : Proportion of individuals for the different steady states versus the size of population.} The plain lines are stable state and doted lines are unstable.}
+	\end{figure}
+	
+\subparagraph{3)}
+\
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.85\textwidth]{try2.png}
+  	\caption{\textbf{Evolution of the proportion of $X_1$ for different population sizes and initial conditions.} For $N>\sqrt{24}$, we can see that the initial condition drag the system to the upper stable steady state if $\dfrac{X_1(0)}{N} > \dfrac{1}{2}$, and reciprocally to the lower if $\dfrac{X_1(0)}{N} < \dfrac{1}{2}$.}
+	\end{figure}
+
+\newpage
+\subparagraph{4)}
+\
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.55\textwidth]{try3.png}
+  	\caption{\textbf{Phase state portrait, proportion of $X_2$ against the proportion of $X_1$ for different population sizes and initial conditions.} Since we have always $X_1+X_2=N$, the system is conservative.}
+	\end{figure}
+
+The steady state of the system is mastered by the initial conditions, the shadowed area with the most important number of individuals will drag 
+cockroaches from the other one until both reached the stable steady states.
+	
+\subparagraph{5)}
+If the shadowed are not the same size, we have to introduce parameters that depend on the area :
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+		\dfrac{d X_1}{dt}=\dfrac{\alpha_2 X_2}{\beta_2 + X_2^2}-\dfrac{\alpha_1 X_1}{\beta_1 + X_1^2} \\
+		\dfrac{d X_2}{dt}=\dfrac{\alpha_1 X_1}{\beta_1 + X_1^2}-\dfrac{\alpha_2 X_2}{\beta_2 + X_2^2} \\
+    \end{array}
+    \right.
+$$
+
+\newpage
+\paragraph{Exercise II}
+\
+
+If not mentioned explicitly, the parameter of the model are assumed to be strictly positive to avoid irrelevant cases.
+\subparagraph{1)}
+With the condition of a closed population $\mu = 0$, the equations reduce to :
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        \frac{dS}{dt}=-\beta S I\\
+		\frac{dI}{dt}= \beta S I - \gamma I \\
+		\frac{dR}{dt}= \gamma I\\
+    \end{array}
+\right. $$
+The reproductive number $R_0$ is define has the mean number of secondary infection cases caused by an infectious in a population of only susceptible individuals. This infective individual makes $\beta S $ contacts per unit time. Moreover his infectious period has mean $\sfrac{1}{\gamma}$ since the infectious period has an exponential distribution with parameter $\gamma$.
+Therefore, the basic reproduction number is $R_0=\frac{\beta N}{ \gamma}$. \\
+The steady state is defined for $R_0>0$ has :
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        0=-\beta S I\\
+		0= \beta S I - \gamma I \\
+		0= \gamma I\\
+    \end{array}
+    \iff
+     \begin{array}{ll}
+        0=I\\
+		0=(R_0-1)I \\
+		0=I\\
+    \end{array}
+\right. $$
+Thus $I=0$ and $S=\frac{R_0 \gamma }{\beta}$ and since $S+R=1$, we have also $R=1-\frac{R_0 \gamma }{\beta} $
+\subparagraph{2)}
+With the relations $\tau=\mu t \iff d\tau=t d\mu $, $b=\sfrac{\beta}{\mu}$ and $g=\sfrac{\gamma}{\mu}$ we reduce the model to the following set of equations :
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        \frac{dS}{d\tau}=1-b S I-S\\
+		\frac{dI}{d\tau}= b S I - g I -I \\
+		\frac{dR}{d\tau}= g I-R\\
+    \end{array}
+\right. $$
+\subparagraph{3)}
+The steady states are defined has :
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        0=1-b S I-S\\
+		0= b S I - g I -I \\
+		0= g I-R\\
+    \end{array}
+    \right.
+    $$
+    Thus we have two possible steady states : 
+$ S=1,I=0,R=0$ and
+		$ S=\frac{g+1}{b},I=\frac{1}{g+1}-\frac{1}{b},R=\frac{g}{g+1}-\frac{g}{b} $. 
+				\\
+		It is also more meaningful to express the second steady state as a function of the parameters $g$ and $R_0^*=\frac{b}{g+1}$. \\
+Thus 
+$ S=\sfrac{1}{R_0^*},I=\frac{R_0^* -1}{b},R=\frac{g(R_0^*-1)}{(g+1)R_0^*}$. \\
+
+The conditions $0<S,I,R<1$ imply also $R_0^* >1$ for this steady state. \\
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.55\textwidth]{1_6.png}
+  	  	\caption{\textbf{The steady state of S as a function of the parameters  $g$ and $R_0^*$ : $S=\sfrac{1}{R_0^*}$.}}
+  	\includegraphics[width=0.55\textwidth]{1_3.png}
+  	  	\caption{\textbf{The steady state of I as a function of the parameters  $g$ and $R_0^*$ : $I=\frac{R_0^* -1}{b}$.}}
+  	\includegraphics[width=0.55\textwidth]{1_2.png}
+  	\caption{\textbf{The steady state of R as a function of the parameters  $g$ and $R_0^*$ : $R=\frac{g(R_0^*-1)}{(g+1)R_0^*}$.}}
+	\end{figure}	
+
+
+We also compute the jacobian matrix to sparse the stability of this steady state. 
+\begin{align*}
+\mathbb{J}=
+\begin{pmatrix}
+-R_0^* & -g-1 & 0   \\
+R_0^* -1 & 0 & 0  \\
+0 & g & -1   \\
+\end{pmatrix}
+\end{align*}
+The eigenvalues of the jacobian matrix are $-1$ with a one dimensional eigenspace and $\frac{-\sqrt{(R_0^*-2)^2-4 g (R_0^*-1)]-R_0^*}}{2}$ with a two dimensional eigenspace.
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.55\textwidth]{1_1.png}
+  	\caption{\textbf{3D plot.} The real part of the eigenvalue $\frac{-\sqrt{(R_0^*-2)^2-4 g (R_0^*-1)]-R_0^*}}{2}$ for $R_0^*$ ranging from $1$ to $10$ and $g$ ranging from $0$ to $1$.}
+	\end{figure}
+Since the real part of the eigenvalues of the jacobian are negative for every value of $R_0^*$ and $g$, this steady state is stable anyway.\\
+
+
+For the trivial steady state $ S=1,I=0,R=0$, the jacobian matrix is :
+\begin{align*}
+\mathbb{J}=
+\begin{pmatrix}
+-1 * & -(g+1)R_0^* & 0   \\
+0 & (g+1)(R_0^*-1) & 0  \\
+0 & g & -1   \\
+\end{pmatrix}
+\end{align*}
+For this steady state, the eigenvalues of the jacobian matrix are $-1$ with a two dimensional eigenspace and $(g+1)(R_0^*-1)$ with a two dimensional eigenspace.
+Thus this state is stable for $R_0^*<1$ and unstable otherwise. \\
+In a nutshell, if $R_0^*<1$, the trivial steady state of only sensible individuals is stable. Whereas for $R_0^*>1$, this trivial steady state is unstable but there is an other steady state which consist of a mixture of sensible, infected and recovered individuals, and this state is stable for every set of parameters.
+\subparagraph{4)}
+The Scilab code to integrate numerically the set of equations :
+\begin{lstlisting}
+function dx=SIR(t,x)
+    b=1; g=0.5;
+    dx(1)=1-b*x(1)*x(2)-x(1)
+    dx(2)=b*x(1)*x(2)-g*x(2)-x(2)
+    dx(3)=g*x(2)-x(3)
+endfunction
+t=0:0.1:200;
+ode([0.9;0.1;0],0,t,SIR);
+\end{lstlisting}
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.55\textwidth]{1_4.png}
+  	\caption{\textbf{Plots of the phase space for different random initial conditions (blue dots) and $R_0^*>1$.} All trajectories converge toward the non-trivial stable steady state of the $0-d$ invariant set (red dot).}
+  	\includegraphics[width=0.55\textwidth]{1_5.png}
+  	\caption{\textbf{Plots of the phase space for different random initial conditions and $R_0^*<1$.} All trajectories converge toward the trivial stable steady state of the $0-d$ invariant set (red dot).}
+	\end{figure}
+\subparagraph{5)}
+To sum it all up, if $R_0^*<1$, the population will consist of only sensible individuals, no outbreak is expected. Whereas for $R_0^*>1$, the population will be a mixture of sensible, infected and recovered individuals. \\
+Moreover, the proportion of recovered individuals is increasing regarded to the reproducing number and decreasing regarded to the infectious period. The proportion of infected individuals is increasing regarded to both the reproducing number and the infectious period.
+\subparagraph{6)}
+
+\
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=1\textwidth]{1_7.png}
+  	\caption{\textbf{Stochastic modeling of the SIR process.} We ran the the simulation 20 times and average over all. S is blue, I is green and R is red.}
+	\end{figure}
+\begin{lstlisting}
+b=0.7; g=0.05; mu=0.01; steps=8000
+S=zeros(20,steps)
+I=zeros(20,steps)
+R=zeros(20,steps)
+sensibleinitial=floor(rand()*100)
+for k=1:20 do
+    N=100; s=sensibleinitial; i=N-sensibleinitial; r=0;
+    for j=1:steps do
+        if rand() < mu then 
+            s=s+1, N=N+1; 
+            end,
+        if rand() <mu then 
+            a=rand()
+            if a<s/N then 
+                s=s-1;
+            elseif s/N<a & a<(s+i)/N then 
+                i=i-1; 
+            else r=r-1;
+            end,
+            N=N-1
+             end
+        if rand() < b*s*i/(N**2) then 
+            s=s-1, i=i+1; 
+            end
+        if rand() < g*i/N then 
+            i=i-1, r=r+1; 
+        end
+        S(k,j)=s;
+        I(k,j)=i;
+        R(k,j)=r;
+    end
+end
+clf()
+plot(1:steps,S,"blue")
+plot(1:steps,I,"green")
+plot(1:steps,R,"red")
+plot(1:steps,mean(S,"r"),"black")
+plot(1:steps,mean(I,"r"),"black")
+plot(1:steps,mean(R,"r"),"black")
+
+\end{lstlisting}
+\end{document}

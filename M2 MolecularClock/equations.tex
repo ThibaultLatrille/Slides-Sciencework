@@ -1,0 +1,116 @@
+\documentclass[10pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{bm}
+\usebackgroundtemplate{\tikz\node[opacity=0]{};}
+\usepackage{adjustbox}
+\usepackage{empheq}
+
+%gets rid of bottom navigation overlines
+\setbeamertemplate{footline}[frame number]{}
+
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
+\sloppy 
+
+\definecolor{RED}{HTML}{EB6231}
+\definecolor{YELLOW}{HTML}{E29D26}
+\definecolor{BLUE}{HTML}{5D80B4}
+\definecolor{LIGHTGREEN}{HTML}{6ABD9B}
+\definecolor{GREEN}{HTML}{8FB03E}
+\definecolor{PURPLE}{HTML}{BE1E2D}
+\definecolor{BROWN}{HTML}{A97C50}
+\definecolor{PINK}{HTML}{DA1C5C}
+
+\newcommand{\x}{\bm{\textcolor{BLUE}{X_{\tau}}}}
+\newcommand{\y}{\bm{\textcolor{YELLOW}{Y_{\tau}}}}
+\newcommand{\xt}{\mathbf{E}[\bm{\textcolor{BLUE}{X_{\tau}}}]}
+\newcommand{\yt}{\mathbf{E}[\bm{\textcolor{YELLOW}{Y_{\tau}}}]}
+\newcommand{\ytime}{\mathbf{E}[\bm{\textcolor{YELLOW}{Y_t}}]}
+\newcommand{\xo}{\mathbf{E}[\bm{\textcolor{BLUE}{X_0}}]}
+\newcommand{\yo}{\mathbf{E}[\bm{\textcolor{YELLOW}{Y_0}}]}
+\newcommand{\xtp}{\mathbf{E}[\bm{\textcolor{BLUE}{X_{{\tau}+1}}}]}
+\newcommand{\ytp}{\mathbf{E}[\bm{\textcolor{YELLOW}{Y_{{\tau}+1}}}]}
+\newcommand{\xinf}{\mathbf{E}[\bm{\textcolor{BLUE}{X_{\infty}}}]}
+\newcommand{\yinf}{\mathbf{E}[\bm{\textcolor{YELLOW}{Y_{\infty}}}]}
+
+\begin{document}
+	
+	\begin{frame}
+		\begin{enumerate}
+			\item $\x$ is the number of original position after ${\tau}$ changes.
+			\item $\y$ is the number of changed positions.
+			\item Taking expectation, we have the following recursion equations:
+			\begin{empheq}[left=\empheqlbrace]{align}
+				\xtp &= \xt - \dfrac{\xt}{n} + \dfrac{1}{3} \dfrac{\yt}{n}\\
+				\ytp &= \yt - \dfrac{1}{3} \dfrac{\yt}{n} + \dfrac{\xt}{n}
+			\end{empheq}
+			\item We check that the sum of $\x$ and $\y$ is constant: 
+			\begin{equation}
+				\xtp + \ytp = \xt + \yt  =  \xo + \yo  =n
+			\end{equation}
+			\item So we can eliminate $\yt$ in (1) using $\xt + \yt=n$:
+			\begin{equation}
+				\xtp = \xt - \dfrac{4}{3n}\xt  + \dfrac{1}{3} 
+			\end{equation}
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{enumerate}
+			\item The recursion equation in previous slide was:
+			\begin{equation*}
+			\xtp = \xt - \dfrac{4}{3n}\xt  + \dfrac{1}{3}  \tag{4}
+			\end{equation*}
+			\item So at equilibrium, we have the equation:
+			\begin{equation}
+			\xinf = \xinf - \dfrac{4}{3n}\xinf  + \dfrac{1}{3} \Rightarrow  \xinf = \dfrac{n}{4}
+			\end{equation}
+			\item The arithmetico–geometric recursion (4) can then be arranged to:
+			\begin{equation}
+			\xtp - \xinf =  \dfrac{3n - 4}{3n}\left( \xt - \xinf \right) 
+			\end{equation}
+			\item And the recursion equation (4) can be solved:
+			\begin{equation}
+			\xt - \xinf =  \left(\dfrac{3n - 4}{3n}\right)^{\tau}  \left( \xo - \xinf \right) 
+			\end{equation}
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}
+		\begin{enumerate}
+			\item The solved equation in previous slide was:
+			\begin{equation*}
+			\xt - \xinf =  \left(\dfrac{3n - 4}{3n}\right)^{\tau}  \left[ \xo - \xinf \right]  \tag{7}
+			\end{equation*}
+			\item Since $\xinf = n / 4 $ and $\xo = n $, we then have:
+			\begin{equation}
+			\xt =  n \left[\dfrac{1}{4} + \dfrac{3}{4} \left(\dfrac{3n - 4}{3n}\right)^{\tau}  \right]
+			\end{equation}
+			\item And now we can calculate $\yt$, using  $\xt + \yt=n$:
+			\begin{equation}
+			\yt =  n \left[ \dfrac{3}{4} - \dfrac{3}{4} \left(\dfrac{3n - 4}{3n}\right)^{\tau} \right]
+			\end{equation}
+			\item If $\mu$ is the mutation/substitution rate per base, we have:
+			\begin{equation}
+			\ytime =  n \left[ \dfrac{3}{4} - \dfrac{3}{4} \left(\dfrac{3n - 4}{3n}\right)^{n\mu t} \right]
+			\end{equation}
+		\end{enumerate}
+	\end{frame}
+\end{document}
+
+

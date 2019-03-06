@@ -1,0 +1,82 @@
+\documentclass[8pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{bm}
+\usebackgroundtemplate{\tikz\node[opacity=0]{};}
+\usepackage{adjustbox}
+
+%gets rid of bottom navigation overlines
+\setbeamertemplate{footline}[frame number]{}
+
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
+\sloppy 
+
+\begin{document}
+	
+	\begin{frame}
+		\begin{enumerate}
+			\item $ f(\Delta G_i^{(k,t)}) $  is the fitness of the sequence $\mathbb{S}^t$ at time $t$, given amino-acid $i$ at site $k$. \\
+			\item $ \pi_i^{(k,t)} = \dfrac{ e^{2 N_\mathrm{e} f(\Delta G_i^{(k,t)})} }{ \sum_{j=1}^{20} e^{2 N_\mathrm{e} f(\Delta G_j^{(k,t)})} }$ is the propensity of amino-acid $i$ at site $k$ and time $t$\\Thus $ \pi_i^{(k,t)} $ is the probability of observing $i$ at equilibrium ($0 \leq \pi_i^{(k,t)} \leq 1$). \\
+		\end{enumerate}
+		$ \pi_i^{(168, t)}$
+	\end{frame}
+
+	\begin{frame}
+		\begin{table}[ht]
+			\centering
+			\begin{adjustbox}{width = 1\textwidth}
+				\begin{tabular}{|c|c|c|c|}
+					\hline
+				 & Buried site & Partially buried site & Exposed site \\
+					\hline
+				$ \langle \Omega( \boldsymbol{\pi})^{(k,t)} \rangle $ & $2.94$ & $8.44$ & $10.48$ \\
+				\hline
+				$ \Omega (\langle \boldsymbol{\pi}^{(k,t)} \rangle) $ & $6.83$ & $14.52$ & $18.71$ \\
+					\hline
+				\end{tabular}
+			\end{adjustbox}
+			\caption{We can quantify the degree to which a site is constrained by considering the effective effective number of amino-acids ($\Omega$). $ \langle \Omega( \boldsymbol{\pi}^{(k,t)}) \rangle $ is the average effective number of amino-acids over the simulation. $ \Omega (\langle \boldsymbol{\pi}^{(k,t)} \rangle) $ is the effective number of amino-acids given the averaged propensities over the simulation. }
+		\end{table}
+		\begin{enumerate}
+			\item $ \boldsymbol{\pi}^{(k,t)} $ is the vector of  amino-acid propensities at site $k$ and time $t$. \\
+			\item $ \Omega(\boldsymbol{\pi}^{(k,t)}) = e^{ - \sum_{i=1}^{20} \pi_i^{(k,t)} ln(\pi_i^{(k,t)}) } $ is the effective number of amino-acids at site $k$ and time $t$ ($1 \leq \Omega \leq 20$).
+		\end{enumerate}
+	
+	\end{frame}
+	
+	\begin{frame}
+		$\beta$ is the inverse of the temperature ($\beta=1/T$)  \\
+		$N_\mathrm{e}$ is effective population size  \\
+		$\mu$ is the mutation rate  \\
+		$\mathbb{S}^t$ is the nucleotide sequence at time $t$ \\
+		$G_{\mathrm{F}}(\mathbb{S}^t)$ is the free energy of the folded state  \\
+		$G_{\mathrm{U}}(\mathbb{S}^t)$ is the free energy of the unfolded state  \\
+		$\Delta G^t = G_{\mathrm{F}}(\mathbb{S}^t) - G_{\mathrm{U}}(\mathbb{S}^t)$ \\
+		$ f = \dfrac{P_{\mathrm{F}}}{P_{\mathrm{F}} + P_{\mathrm{U}}} = \dfrac{e^{-\beta G_{\mathrm{F}}}}{e^{-\beta G_{\mathrm{F}}} + e^{-\beta G_{\mathrm{U}}}} = \dfrac{1}{1 + e^{\beta \Delta G}} $ \\
+		$ f (\Delta G^t) =  \dfrac{1}{1 + e^{\beta \Delta G^t}} $ is the fitness function\\
+		$\mathbb{S}^{t+1}$ is the nucleotide sequence at time $t+1$ \\
+		$\Delta G^{t+1}$ \\
+		$ f(\Delta G^{t+1})$ \\
+		$ s =  \dfrac{f(\Delta G^{t+1}) - f(\Delta G^{t})}{f(\Delta G^{t})} $ is the selection coefficient of the mutant\\
+		$ p_{\mathrm{fixation}} =   \dfrac{1 - e^{-2s} }{1 - e^{-4 N_\mathrm{e} s}} $ is the probability of fixation of the mutant\\
+		$ q = \mu * p_{\mathrm{fixation}} $ is the substitution rate\\
+	\end{frame}
+	
+\end{document}
+
+

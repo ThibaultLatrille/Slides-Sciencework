@@ -1,0 +1,170 @@
+\documentclass[10pt]{beamer}
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+
+\author[Latrille Thibault, ENS Lyon]{Latrille Thibault \\Ecole normale supérieure de Lyon, France}
+\title[From detection to interpretation of epistasis in GWAS.]{From detection to interpretation of epistasis in Genome Wide Association Studies.}  
+
+
+% Faire apparaître un sommaire avant chaque section
+\AtBeginSection[]{
+   \begin{frame}
+   \begin{center}{\Large Plan }\end{center}
+   %%% affiche en début de chaque section, les noms de sections et
+   %%% noms de sous-sections de la section en cours.
+   \tableofcontents[currentsection,hideothersubsections]
+   \end{frame} 
+}
+		
+
+
+\begin{document}
+
+\frame{\titlepage} 
+
+\section{Introduction}
+
+
+\begin{frame}
+\frametitle{Guideline of this talk.}
+
+\begin{center}
+\Large
+Combining methods from computational biology to detect epistasis and methods from evolutionary biology to interpret epistasis.
+
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Detecting main effects in GWAS.}
+	\begin{center}
+       \includegraphics[width=11.5cm]{figure11.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Detecting main effects in GWAS.}
+	\begin{center}
+       \includegraphics[width=11.5cm]{figure12.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Detecting main effects in GWAS.}
+	\begin{center}
+       \includegraphics[width=11.5cm]{figure13.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Definition of epistasis.}
+\Large The combined effect of the factors is higher or less than the addition of the individual main effects.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Formal definition for pairwise epistasis.}
+
+\begin{itemize}
+\item<1-> Let us consider two loci with two variant each.
+\item<1-> For each locus, one variant is denoted by $0$, the other one by $1$.
+\item<1-> The four genotypes possible are :  $00$, $01$, $10$, $11$.
+\item<1-> Let us denote their respective related phenotype by $\omega_{00}$, $\omega_{01}$, $\omega_{10}$ and $\omega_{11}$.
+\end{itemize}
+
+\begin{center}
+\begin{minipage}{7cm}
+\begin{description}
+\item<2>[Absence of epistasis] $\omega_{00}+\omega_{11}-\omega_{01}-\omega_{10}=0$\\
+\item<2>[Positive epistasis] $\omega_{00}+\omega_{11}-\omega_{01}-\omega_{10}>0$\\
+\item<2>[Negative epistasis] $\omega_{00}+\omega_{11}-\omega_{01}-\omega_{10}<0$
+\end{description}
+\end{minipage}
+\end{center}
+
+
+\end{frame}
+
+
+\section{Detecting epistasis in GWAS, methods from computational biology.}
+
+\begin{frame}
+\frametitle{Detecting pairwise epistasis in GWAS.}
+	\begin{center}
+       \includegraphics[width=10.5cm]{figure2.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Difficulties for detecting epistasis in GWAS}
+
+\begin{itemize}
+\Large
+\item Multiple testing issues.
+\item Computationnaly intensive.
+\item Curse of dimensionality.
+\item Interpretation is complicated. 
+\end{itemize}
+
+\end{frame}
+
+\section{Interpreting epistasis, methods from evolutionary biology.}
+
+\begin{frame}
+\frametitle{The shape of the fitness landscape for pairwise epistasis.}
+	\begin{center}
+       \includegraphics[width=10.5cm]{figure41.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{The shape of the fitness landscape for pairwise epistasis.}
+	\begin{center}
+       \includegraphics[width=10.5cm]{figure42.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{The shape of the fitness landscape for pairwise epistasis.}
+	\begin{center}
+       \includegraphics[width=10.5cm]{figure43.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{The shape of the fitness landscape for 3-way epistasis.}
+	\begin{center}
+       \includegraphics[width=10.5cm]{figure5.png}
+	\end{center}
+\end{frame}
+
+\section{Discussion.}
+
+\begin{frame}
+\frametitle{The complete framework.}
+	\begin{center}
+       \includegraphics[width=10.5cm]{figure3.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+
+	\begin{center}
+	\Huge And if you have been, \\thanks for listening.
+	\end{center}
+	
+\end{frame}
+
+\end{document}
+
+

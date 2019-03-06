@@ -1,0 +1,177 @@
+\documentclass[8pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{bm}
+\usebackgroundtemplate{\tikz\node[opacity=0]{};}
+\usepackage{adjustbox}
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+%gets rid of bottom navigation overlines
+\setbeamertemplate{footline}[frame number]{}
+
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
+\sloppy 
+
+\definecolor{RED}{HTML}{EB6231}
+\definecolor{YELLOW}{HTML}{E29D26}
+\definecolor{BLUE}{HTML}{5D80B4}
+\definecolor{LIGHTGREEN}{HTML}{6ABD9B}
+\definecolor{GREEN}{HTML}{8FB03E}
+\definecolor{PURPLE}{HTML}{BE1E2D}
+\definecolor{BROWN}{HTML}{A97C50}
+\definecolor{PINK}{HTML}{DA1C5C}
+
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+\newcommand{\Ne}{N_\mathrm{e}}
+\newcommand{\Rp}{\omega}
+\newcommand{\R}{\bm{\textcolor{GREEN}{\bar{\Rp}}}}
+\newcommand{\Rt}{\bm{\textcolor{GREEN}{\R(t)}}}
+\newcommand{\x}{\bm{\textcolor{BLUE}{x(}\textcolor{YELLOW}{\Rp}\textcolor{BLUE}{)}}}
+\newcommand{\ratec}{\bm{\textcolor{LIGHTGREEN}{c}}}
+\newcommand{\xinitial}{\bm{\textcolor{BLUE}{x_{initial}}}}
+\newcommand{\re}{\bm{\textcolor{YELLOW}{\Rp}}}
+\newcommand{\xp}{\bm{\textcolor{BLUE}{x(t)}}}
+\newcommand{\lp}{\bm{\textcolor{YELLOW}{\Rp(t)}}}
+\newcommand{\xpi}{\bm{\textcolor{BLUE}{x_{i}(t)}}}
+\newcommand{\xpj}{\bm{\textcolor{BLUE}{x_j(t)}}}
+\newcommand{\lpi}{\bm{\textcolor{YELLOW}{\Rp_i(t)}}}
+\newcommand{\lpj}{\bm{\textcolor{YELLOW}{\Rp_j(t)}}}
+\newcommand{\Rmin}{\bm{\textcolor{RED}{\Rp_{\infty}}}}
+\newcommand{\D}{\bm{\textcolor{PURPLE}{D}}}
+\newcommand{\taup}{\bm{\textcolor{BROWN}{\tau}}}
+\newcommand{\dd}{\mathrm{d}}
+
+
+
+\begin{document}
+	
+	\begin{frame}
+		\begin{enumerate}
+			\vspace*{0.5cm}
+			\item Strong selection (no drift).
+			\item $\xpi$ is the frequency of the $i^{th}$ allele.
+			\item $\lpi$ is fitness of the $i^{th}$ allele. 
+			\item $\Rt$ is mean fitness in the population.
+			\item $\rho$ is the erosion rate of fitness.
+			\vspace*{0.5cm}
+			\[
+			\left\{
+			\begin{aligned}
+			\forall i\text{, } \dfrac{\dd \xpi}{\dd t} &= \dfrac{\lpi  - \Rt}{\Rt}  \xpi \\
+			\forall i\text{, } \dfrac{\dd \lpi}{\dd t} &= - \rho \xpi \lpi \\
+			\Rt &= \sum_{i } \xpi \lpi 
+			\end{aligned}
+			\right.
+			\]
+			\vspace*{0.5cm}
+			
+			For $K(t)$ alleles, this is a system of $2K(t)$ independent equations. And yet, we did not introduce new alleles entering the system.
+		\end{enumerate}
+	\end{frame}
+	
+		\begin{frame}
+		\begin{enumerate}
+			\vspace*{0.5cm}
+			\item $\xp$ is the frequency of the focal allele.
+			\item $\lp$ is the fitness of the focal allele
+			\item $\R$, the mean fitness is considered as an external parameter.
+			\vspace*{0.5cm}
+			\[
+			\hspace*{-1cm}
+			\left\{
+			\begin{aligned}
+			\forall i\text{, } \dfrac{\dd \xpi}{\dd t} &= \dfrac{\lpi  - \Rt}{\Rt}  \xpi \\
+			\forall i\text{, } \dfrac{\dd \lpi}{\dd t} &= - \rho \xpi \lpi \\
+			\Rt &= \sum_{i } \xpi \lpi \\
+			\end{aligned}
+			\right.
+			\qquad \Rightarrow \quad
+			\left\{
+			\begin{aligned}
+			\dfrac{\dd \xp }{\dd t} &= \dfrac{\lp  - \R}{\R}  \xp \\
+			\dfrac{\dd \lp}{\dd t} &= 
+			- \rho \xp \lp 
+			\end{aligned}
+			\right.
+			\]
+			\vspace*{0.5cm}
+			
+			We reduced a system of $2K(t)$ equations to a system of $2$ equations,  the mean fitness ($\R$) is considered an external parameter.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}
+		$\taup$ is defined as the time between two successive new allele.
+		\vspace{4.5cm}
+		\[
+		\sum_i \xpi = 1 \quad \Rightarrow \quad \taup \simeq \int_{0}^{\infty} \xp \dd t
+		\]
+		Looking at different alleles at one specific time is the same as looking at one specific allele at different time.
+	\end{frame}
+	
+	\begin{frame}
+		\begin{enumerate}
+			\vspace*{1cm}
+			\item We can solve the system to get $\R$ as a function of $\taup$ :
+			\[
+			\left\{
+			\begin{aligned}
+			\dfrac{\dd \xp }{\dd t} &= \dfrac{\lp  - \R}{ \R } \xp \\
+			\dfrac{\dd \lp}{\dd t} &= 
+			- \rho \xp \lp \\
+			\taup &\simeq \int_{0}^{\infty} \xp \dd t
+			\end{aligned}
+			\right. \qquad \Rightarrow \quad \R \simeq \dfrac{1 - e^{- \rho \taup }}{\rho \taup }
+			\]
+			\item The time between invasion $\taup$, is given by a population-genetics argument : 
+			\[
+			\taup^{-1} \simeq \mu \dfrac{1  - \R }{\R}, 
+			\] 
+			where $\mu$ is the mutation rate at the level of the population.
+			\item Altogether, we get the self-consistent equation of $\R$: 
+			\[
+			\R \simeq g\left( \R, \dfrac{\rho}{\mu}\right) \simeq \dfrac{\mu}{\rho} \dfrac{1  - \R }{\R} \left( 1 - e^{- \dfrac{\rho}{\mu} \dfrac{ \R }{1 - \R} } \right) 
+			\]
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}
+		The self-consistent equation $\R \simeq g\left( \R, \dfrac{\rho}{\mu}\right)$  can be solved numerically
+	\end{frame}
+
+
+	\begin{frame}
+		\[
+		\quad
+		\left\{
+		\begin{aligned}
+		\dfrac{\dd \xp }{\dd t} &= \dfrac{\lp  - \R}{\R}  \xp \\
+		\dfrac{\dd \lp}{\dd t} &= 
+		- \rho \xp \lp 
+		\end{aligned}
+		\right. \quad \Rightarrow \quad 
+		\x = \dfrac{1 - \re + \R \mathrm{ln}(\re)}{ \rho \R }   + \xinitial 
+		\] 
+		\vspace*{0.2cm}
+		
+		The trajectory of a single allele can be solved given $\R$, but we still need to introduce the new alleles in the system.
+	\end{frame}
+\end{document}
+
+

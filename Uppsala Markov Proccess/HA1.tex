@@ -1,0 +1,224 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+
+
+\author{Thibault Latrille}
+\title{Home Assignment 1, Markov Processes}
+\begin{document}
+\maketitle
+\paragraph{Exercise 1.}
+
+\
+
+Using the Markov properties, we get :\\
+
+
+a) $P(X_1=2,X_2=3,X_3=1|X_0=1)=P(X_3=1|X_2=3)P(X_2=3|X_1=2)P(X_1=2|X_0=1)=P_{31}P_{23}P_{12}=\frac{1}{4}.\frac{1}{2}.\frac{2}{3}=\frac{1}{12}$ \\
+
+b) $P(X_0=1,X_1=2)=P(X_1=2|X_0=1)P(X_0=1)=P_{12}P(X_0=1)=\frac{2}{3}.\frac{1}{2}=\frac{1}{3}$ \\
+
+c) 
+\begin{align*}
+\mathbb{P}^2=
+\begin{pmatrix}
+\sfrac{1}{3} & \sfrac{2}{3} & 0  \\
+\sfrac{1}{2} & 0 & \sfrac{1}{2} \\
+\sfrac{1}{4} & \sfrac{1}{4} & \sfrac{1}{2}   \\
+\end{pmatrix}^2
+=
+\begin{pmatrix}
+\sfrac{4}{9} & \sfrac{2}{9} & \sfrac{1}{3}  \\
+\sfrac{7}{24} & \sfrac{11}{25} & \sfrac{1}{4} \\
+\sfrac{1}{3} & \sfrac{7}{24} & \sfrac{3}{8}   \\
+\end{pmatrix}
+\end{align*}
+
+$P(X_0=2,X_2=2)=P(X_2=2|X_0=2)P(X_0=2)=P_{22}^2 P(X_0=2)=\frac{1}{3}\frac{11}{25}=\frac{11}{75}$ \\
+
+d) 
+\begin{align*}
+\mathbb{P}^3=
+\begin{pmatrix}
+\sfrac{1}{3} & \sfrac{2}{3} & 0  \\
+\sfrac{1}{2} & 0 & \sfrac{1}{2} \\
+\sfrac{1}{4} & \sfrac{1}{4} & \sfrac{1}{2}   \\
+\end{pmatrix}^2
+=
+\begin{pmatrix}
+\sfrac{37}{108} & \sfrac{41}{108} & \sfrac{5}{18}  \\
+\sfrac{7}{18} & \sfrac{37}{144} & \sfrac{17}{48} \\
+\sfrac{101}{288} & \sfrac{91}{288} & \sfrac{1}{3}   \\
+\end{pmatrix}
+\end{align*}
+
+$P(X_5=3|X_0=1,X_2=1)=P(X_5=3|X_2=1)=P_{13}^3=\frac{5}{18}$ \\
+
+e) $P(X_2=2,X_4=1|X_0=1)=P(X_4=1|X_2=2)*P(X_2=2|X_0=1)=P_{21}^2 P_{12}^2=\frac{7}{24}\frac{2}{9}=\frac{7}{108}$ \\
+
+\paragraph{Exercise 2.}
+\
+\subparagraph{a)}
+\
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.55\textwidth]{HA1_1.png}
+  	\caption{\textbf{The depicted diagram of markov chain.} It is thus straightforward to divide up the state space into disjoint communicating equivalence classes : $\{1,2,3,4\}$,$\{5\}$,$\{6,7,8\}$,$\{9\}$ }
+	\end{figure}
+\subparagraph{b)}
+The state $5$ is transient since there is no arrows coming to $5$ subsequently, the probability of return is $0$. Starting the chain for any other element lead for sure to a return to this element in a finite time, thus $5$ is the only transient state.
+\subparagraph{c)}
+$S= \{5\} \cup  \{1,2,3,4\} \cup \{6,7,8\} \cup \{9\} $ where $ \{5\}$ is the transient space. We also have  $\{1,2,3,4\}$, $ \{6,7,8\}$ and $\{9\}$ are the closed recurrent sets. They are closed since there is not any arrow that goes out of these sets, and they are recurrent since they are closed equivalence classes and the set is finite. 
+\subparagraph{d)}
+As previously noted, there is no positive probabilities for coming back to state 5, thus the return probability for the only transient space $5$ is $0$.
+\subparagraph{e)}
+\
+By denoting $d(j)$ the period of state $j$, we have : \\
+$d(1)=gcd(0,3,6,9,12,15,...)=3 \quad d(2)=gcd(0,3,6,9,12,15,...)=3 \quad d(3)=gcd(0,3,6,9,12,15,...)=3 \\
+d(4)=gcd(0,3,6,9,12,15,...)=3, \quad d(6)=gcd(0,3,5,6,7,8,9,10,11,...)=1 \\
+d(7)=gcd(0,2,3,4,5,6,7,8,9,10,11,...)=1  \qquad d(8)=gcd(0,2,3,4,5,6,7,8,9,10,11,...)=1  \\ d(9)=gcd(0,1,2,3,4,5,6,7,8,9,10,11,...)=1$ \\
+The states 6, 7, 8 and 9 are aperiodical.
+\paragraph{Exercise 3.}
+\
+
+\subparagraph{a)}
+
+\begin{align*}
+\mathbb{P}=
+\begin{pmatrix}
+1 & 0 & \cdots & \cdots & \cdots & 0 \\
+1-1/N & 0 & 1/N &  &   & \vdots \\
+0 & 1-2/N & 0 & 2/N &  & \vdots \\
+\vdots &  & \ddots & \ddots & \ddots & 0 \\
+\vdots &  &  & 1/N & 0 & 1-1/N \\
+0 & \cdots & \cdots & \cdots & 0 & 1 \\
+\end{pmatrix}
+\end{align*}
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=1\textwidth]{HA1_3.png}
+  	\caption{\textbf{State transition diagram of the markov chain.}}
+	\end{figure}
+
+\subparagraph{b)}
+By conditioning of the first jump, we have the equation : 
+\begin{center}
+$h_k=\mathbb{P}_{k k+1}h_{k+1}+\mathbb{P}_{k k-1}h_{k-1}, \quad 1 \leq k \leq N-1 $ \\
+$\iff h_k=\frac{k}{N} h_{k+1}+(1-\frac{k}{N}) h_{k-1}, \quad 1 \leq k \leq N-1 $\\
+$\iff (\frac{N}{k}-1)h_k=h_{k+1} - h_k +\frac{N-k}{k} h_{k-1}, \quad 1 \leq k \leq N-1 $\\
+$\iff \dfrac{h_{k+1}-h_k}{h_{k} - h_{k-1}}=\frac{N-k}{k}, \quad 1 \leq k \leq N-1 $
+\end{center}
+Thus , $ \displaystyle \dfrac{h_{k+1}-h_k}{h_{1} - h_{0}}=\prod_{i=1}^k \dfrac{h_{i+1}-h_i}{h_{i} - h_{i-1}}=\prod_{i=1}^k \frac{N-i}{i}=\dfrac{(N-1)!}{k!(N-1-k)!}=\binom{N-1}{k}, \quad 1 \leq k \leq N-1 $\\
+Finally, $$ \displaystyle h_{k+1}-h_k=\binom{N-1}{k}(h_{1} - h_{0}), \quad 1 \leq k \leq N-1 $$
+
+\subparagraph{c)}
+ $$ \displaystyle h_{N}-h_0=\sum_{i=0}^{N-1} h_{i+1}-h_i=h_{1} - h_{0} + \sum_{i=1}^{N-1} h_{i+1}-h_i=(h_{1} - h_{0})\left(1 + \sum_{i=1}^{N-1}\binom{N-1}{i}\right)$$
+ $$ \iff -1=(h_{1} - h_{0})(1 + 2^{N-1} -1)=2^{N-1}(h_1-1)$$
+ $$ \iff h_1= \dfrac{2^{N-1}-1}{2^{N-1}} $$
+\paragraph{Exercise 4.}
+\begin{align*}
+\mathbb{P}=
+\begin{pmatrix}
+0.9 & 0.05 & 0.05 \\
+0.1 & 0.8 & 0.1 \\
+0.2 & 0.2 & 0.6 \\
+\end{pmatrix}
+\end{align*}
+The markov chain is positively reccurent since the state space $S$ is finite and $\mathbb{P}_{i,j}>0, \forall (i,j) \in S^2$. Thus there exists a stationary distribution $\pi=(\pi_1,\pi_2,\pi_3)$ which satisfies the equation $\pi=\pi \mathbb{P}$.
+$$\left \{
+    \begin{array}{ll}
+        \pi_1=0.9\pi_1+0.1\pi_2+0.2\pi_3 \\
+		\pi_2=0.05\pi_1+0.8\pi_2+0.2\pi_3 \\
+		\pi_3=0.05\pi_1+0.1\pi_2+0.6\pi_3 \\
+		\pi_1+\pi_2+\pi_3=1
+    \end{array}
+\right. 
+\iff 
+\left \{
+    \begin{array}{ll}
+        \pi_1=\sfrac{4}{7}\\
+		\pi_2=\sfrac{2}{7}\\
+		\pi_3=\sfrac{1}{7}
+    \end{array}
+\right.$$
+\begin{align*}
+\mathbb{P}^{30}=
+\begin{pmatrix}
+0.571684 & 0.285504 & 0.142812 \\
+0.571009 & 0.28606 & 0.142931 \\
+0.571248 & 0.285863 & 0.142889
+\end{pmatrix}
+\end{align*}
+We can see that our approximations are very close to the the steady state probability we computed previously.
+\paragraph{Exercise 5.}
+
+\begin{align*}
+\mathbb{P}=
+\begin{pmatrix}
+\dfrac{P(K=1)}{P(K>0)} & \dfrac{P(K>1)}{P(K>0)} & 0 & 0 & 0  & \cdots  \\
+\dfrac{P(K=2)}{P(K>1)} & 0 & \dfrac{P(K>2)}{P(K>1)} & 0 & 0 & \\
+\dfrac{P(K=3)}{P(K>2)} & 0 & 0 & \dfrac{P(K>3)}{P(K>2)} & 0 &  \\
+\dfrac{P(K=4)}{P(K>3)} & 0 & 0 & 0 & \dfrac{P(K>4)}{P(K>3)}  & \\
+\vdots &  &  &   &    & \ddots \\
+\end{pmatrix}
+\end{align*}
+
+Let us try to find a stationary distribution $\pi=(\pi_1,\pi_2,\cdots)$ which satisfies the equation $\pi=\pi \mathbb{P}$.
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        \pi_0=\sum_{j=1}^{\infty} \frac{P(K=j+1)}{P(K>j)}\pi_j \\
+		\pi_1=\pi_0 \\
+		\pi_i=\pi_{i-1}\frac{P(K>i}{P(K>i-1)}, \quad \forall i \geq 1\\
+		\sum_{j=0}^{\infty} \pi_j =1
+    \end{array}
+\right. $$
+Moreover, $\displaystyle \forall i>1$, $\frac{\pi_i}{\pi_0}=\prod_{j=1}^i \frac{\pi_j}{\pi_{j-1}}=\prod_{j=1}^i\frac{P(K>j)}{P(K>j-1)}=\frac{P(K>i)}{P(K>0)}=P(K>i)$, since $P(K>0)=1$. Thus : $$\pi_i=\pi_0 P(K>i),\quad \forall i \geq 0 $$ 
+We can then compute the value of $\pi_0$  :
+\begin{align*}
+\displaystyle
+1 &= \sum_{j=0}^{\infty} \pi_j=\sum_{j=0}^{\infty} \pi_0P(K>j) 
+= \pi_0 \sum_{j=1}^{\infty} P(K \geq j)=\pi_0 \sum_{j=1}^{\infty}  \sum_{k=j}^{\infty} P(K=k) 
+\\
+ &=\pi_0 \sum_{k=1}^{\infty}  \sum_{j=1}^{k} P(K=k)
+=\pi_0 \sum_{k=1}^{\infty}  k P(K=k)
+=\pi_0 E(K)
+\end{align*}
+Hence : 
+$$\displaystyle \pi=\dfrac{1}{E(K)} \pmb{(} 1,P(K>1),P(K>2),P(K>3),\cdots \pmb{)}$$
+
+
+We have found a stationary distribution, thus the markov chain is positively recurrent and we can compute the expected return time for every state of the state space, $T_i=\pi_i^{-1}, \forall i \geq 0$
+
+\paragraph{Exercise 6.}
+
+Let $\pi=(\pi_1,\pi_2,\cdots)$ be the distribution of $X_0$, then the local balance equation is :
+$$\forall i \geq 1, \pi_i *\mathbb{P}_{i,i+1}=\pi_{i+1} *\mathbb{P}_{i+1,i} $$
+$$\iff \dfrac{\pi_{i+1}}{\pi_{i}}=\dfrac{2i(i+2)}{2(i+1)(i+3)}= \dfrac{i(i+2)}{(i+1)(i+3)}, \quad \forall i \geq 1$$
+It follows , $\displaystyle \forall i \geq 1$, $\dfrac{\pi_n}{\pi_1}=\prod_{i=1}^{n-1} \dfrac{\pi_i+1}{\pi_{i}}=\prod_{i=1}^{n-1} \dfrac{i(i+2)}{(i+1)(i+3)}=\dfrac{2*3(n-1)!(n+1)!}{2(n+2)!n!}=\dfrac{3}{n(n+2)}$. Thus : $$\pi_n=\dfrac{3\pi_1}{n(n+2)},\quad \forall i \geq 1 $$ 
+We can then compute the value of $\pi_1$  :
+\begin{align*}
+1 &= \sum_{j=1}^{\infty} \pi_j=\sum_{j=1}^{\infty} \frac{3\pi_1}{j(j+2)} =\frac{3\pi_1}{2} \sum_{j=1}^{\infty} (\frac{1}{j}-\frac{1}{j+2})= \text{, since }\dfrac{2}{j(j+2)}=\frac{1}{j}-\frac{1}{j+2} \\
+ &=\frac{3\pi_1}{2} \left( \sum_{j=1}^{\infty} \frac{1}{j}-\sum_{j=1}^{\infty} \frac{1}{j+2} \right) =\frac{3\pi_1}{2} \left(1 +\frac{1}{2} + \sum_{j=3}^{\infty} \frac{1}{j}-\sum_{j=1}^{\infty} \frac{1}{j+2} \right)=\frac{3\pi_1}{2} \left(\frac{3}{2} + \sum_{i=1}^{\infty} \frac{1}{i+2}-\sum_{j=1}^{\infty} \frac{1}{j+2} \right)=\dfrac{9\pi_1}{4}
+\end{align*}
+
+Thus : $$\pi_n=\frac{4}{3n(n+2)},\quad \forall i \geq 1 $$ 
+The chain is aperiodic and irreducible, thus the stationary distribution we have found is also an asymptotic steady state.
+\end{document}

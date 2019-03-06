@@ -1,0 +1,107 @@
+\documentclass[10pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{bm}
+\usebackgroundtemplate{\tikz\node[opacity=0]{};}
+\usepackage{adjustbox}
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+%gets rid of bottom navigation overlines
+\setbeamertemplate{footline}[frame number]{}
+
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
+\sloppy 
+
+\definecolor{RED}{HTML}{EB6231}
+\definecolor{YELLOW}{HTML}{E29D26}
+\definecolor{BLUE}{HTML}{5D80B4}
+\definecolor{LIGHTGREEN}{HTML}{6ABD9B}
+\definecolor{GREEN}{HTML}{8FB03E}
+\definecolor{PURPLE}{HTML}{BE1E2D}
+\definecolor{BROWN}{HTML}{A97C50}
+\definecolor{PINK}{HTML}{DA1C5C}
+
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+\newcommand{\Ne}{N_\mathrm{e}}
+\newcommand{\Rp}{r}
+\newcommand{\R}{\bm{\textcolor{GREEN}{R}}}
+\newcommand{\Rt}{\bm{\textcolor{GREEN}{\R(}}t\bm{\textcolor{GREEN}{)}}}
+\newcommand{\x}{\bm{\textcolor{BLUE}{x(}\textcolor{YELLOW}{\Rp}\textcolor{BLUE}{)}}}
+\newcommand{\ratec}{\bm{\textcolor{LIGHTGREEN}{c}}}
+\newcommand{\xinitial}{\bm{\textcolor{BLUE}{x_{initial}}}}
+\newcommand{\re}{\bm{\textcolor{YELLOW}{\Rp}}}
+\newcommand{\xp}{\bm{\textcolor{BLUE}{x(}}t\bm{\textcolor{BLUE}{)}}}
+\newcommand{\lp}{\bm{\textcolor{YELLOW}{\Rp(}}t\bm{\textcolor{YELLOW}{)}}}
+\newcommand{\xpi}{\bm{\textcolor{BLUE}{x_i(}}t\bm{\textcolor{BLUE}{)}}}
+\newcommand{\xpj}{\bm{\textcolor{BLUE}{x_j(}}t\bm{\textcolor{BLUE}{)}}}
+\newcommand{\lpi}{\bm{\textcolor{YELLOW}{\Rp_i(}}t\bm{\textcolor{YELLOW}{)}}}
+\newcommand{\lpic}{\bm{\textcolor{YELLOW}{\Rp_{i,\ratec}(}}t\bm{\textcolor{YELLOW}{)}}}
+\newcommand{\lpj}{\bm{\textcolor{YELLOW}{\Rp_j(}}t\bm{\textcolor{YELLOW}{)}}}
+\newcommand{\Rmin}{\bm{\textcolor{RED}{R_{\infty}}}}
+\newcommand{\D}{\bm{\textcolor{PURPLE}{D}}}
+\newcommand{\taup}{\bm{\textcolor{BROWN}{\tau}}}
+\newcommand{\dd}{\mathrm{d}}
+
+
+
+\begin{document}
+	
+	
+	\begin{frame}
+		$$\textcolor{BLUE}{R} = g \left( \dfrac{\textcolor{GREEN}{vg}}{{\textcolor{LIGHTGREEN}{u}}} \right) \simeq 1 - \sqrt{\dfrac{\textcolor{GREEN}{vg}}{{\textcolor{LIGHTGREEN}{u}}}}$$
+		$$ \Rightarrow $$ 
+		$$ \D = \avg{\dfrac{1}{\sum_{i} \xpi^2} } $$
+		$$\dfrac{vg}{u} \ll 1 \Rightarrow \D \simeq 24 \Ne u $$ 
+	\end{frame}
+	
+	\begin{frame}
+		\begin{enumerate}
+			\item $\D \simeq 7$, estimated between $5$ to $10$.
+			\item $\R \simeq 0.5 $, since the major allele eroded 50\% of it's targets.
+			\item $S=4\Ne s_0 \gg 1$, suggested by the presence of strong
+			positive selection acting on the Zn-finger array of PRDM9.
+			\item $\Ne \simeq 10^5$, ranging from $\Ne = 5.10^4$ to $\Ne = 5.10^5$.
+			\item $v \simeq 10^{-7}$, assuming a point mutation rate of $10^{-8}$ and $10$ inactivating mutations per target.
+			\item $\Ne$ and $v$ are known. $3$ parameters left to estimate: $u$, $g$ and $\alpha$. 
+		\end{enumerate}
+		\vspace{-10pt}
+		\begin{table}[ht]
+			\centering
+			\begin{adjustbox}{width = 1\textwidth}
+				\small\begin{tabular}{|c|c|c|c|c|c|c|c|}
+					\hline
+					\specialcell{Mutation rate of \\ PRDM9 ($u$)} & \specialcell{Erosion rate of \\ targets ($vg$)} & \specialcell{Fitness \\ parameter ($\alpha$)} & $\epsilon=\dfrac{vg}{u}$ & \specialcell{Mean fraction of \\ active targets ($\R$)} & \specialcell{Diversity at \\ PRDM9 locus ($\D$)} & \specialcell{Scaled selection \\ coefficient ($S$)} & \specialcell{Turn-over \\ time ($T$)}\\
+					\hline
+					$3 \times 10^{-6}$ & $3 \times 10^{-10}$ & $1 \times 10^{-4}$ & $1 \times 10^{-4}$ & $0.6$ & $9.9$ & $26$ & $6.4 \times 10^{4}$\\
+					$3 \times 10^{-6}$ & $3 \times 10^{-11}$ & $1 \times 10^{-4}$ & $1 \times 10^{-5}$ & $0.82$ & $8.2$ & $8.6$ & $1.6 \times 10^{5}$\\
+					$3 \times 10^{-7}$ & $3 \times 10^{-11}$ & $1 \times 10^{-4}$ & $1 \times 10^{-4}$ & $0.6$ & $1$ & $26$ & $6.5 \times 10^{4}$\\
+					$3 \times 10^{-6}$ & $3 \times 10^{-11}$ & $1 \times 10^{-5}$ & $1 \times 10^{-5}$ & $0.6$ & $9.9$ & $2.6$ & $6.4 \times 10^{5}$\\
+					\hline
+				\end{tabular}
+			\end{adjustbox}
+			\caption{Fitness function is a power law, $f(x)=x^{\alpha}$}
+		\end{table}
+		\vspace{-10pt}
+		\begin{enumerate}
+			\item[7.] $u \simeq 3.10^{-6}$, $g \simeq 3.10^{-3}$ and $\alpha \simeq 10^{-4}$.
+		\end{enumerate}
+	\end{frame}
+\end{document}
+
+

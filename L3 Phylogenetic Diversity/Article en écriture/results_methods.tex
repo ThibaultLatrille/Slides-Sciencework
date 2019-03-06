@@ -1,0 +1,227 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage[a4paper]{geometry}
+\usepackage{authblk}
+
+\usepackage{lineno}
+
+\modulolinenumbers[5]
+
+\title{More than one Author with different Affiliations}
+\author[*]{24541249}
+\author[**]{Jérôme Hamelin}
+\author[**]{Bart Haegeman}
+\affil[*]{École normale supérieure de Lyon, France}
+\affil[**]{Laboratoire de Biotechnologie de l'Environnement (LBE), INRA Narbonne, France}
+
+\renewcommand\Authands{ and }
+
+\title{Robust estimation of phylogenetic diversity. Steer clear of the pitfall of diversity estimation, rare species.}  
+
+\sloppy 
+
+\begin{document}
+
+\maketitle 
+\section*{Abstract}
+\linenumbers
+
+Sampling a whole ecological community can be a harsh labor, whenever this task is not
+simply impossible. For example it is impossible to sample the whole sea or soil bacteria
+communities. Our work focuses on the effects that the bias introduced by sub-sampling the
+community can have on estimating the phylogenetic diversity (PD) measures. Indeed, rare species
+in the community might be unseen in the sample and thus reduce the observed diversity. The
+framework is the following. From a sample, we first estimate the overall frequency of rare species
+with the help of a refinement of a Good-Turing estimator. We then derive the upper and lower
+estimates for the number of species in the community. These lower and upper estimates are obtained
+by making assumption on the distribution of rare species but where the overall proportion of rare species is
+the Good-Turing estimates. We then need to take into account the phylogeny and find the branching
+of these rare species in the tree. The flexibility introduced in both the number of rare species and of
+the branching will then span a set of reconstructed trees. This set of trees will then span a range of
+estimated PD. This range will give insight on the robustness of the estimated PD. Indeed, some PD
+are sensitive to these rare species, and thus the range of estimated PD will be broad. On the other
+hand, some PD are not sensitive to these rare species and thus are more reliable. The PD by Faith,
+widely used among biologists was proven to be unreliable. On the other hand, the Rao quadratic entropy was reliable. 
+We therefore advice microbiologists to switch to this measure of diversity
+instead.
+   
+\newpage
+
+\section*{Introduction}
+In ecology, one relies on diversity measures to
+judge the impact of human activities or to design conservation strategies. Those diversity measures are the primary descriptors of community structure, and generally believed to be a major determinant of the functioning and the dynamics of ecological communities. These measures are also applied to bacterial communities in order to get an index measuring the diversity of a sample taken from the soil, the sea or a smaller community. A sample of bacteria can contain up to billions of bacteria, and still this sample represents only a tiny fraction of the community. Yet these diversity measures must still be reliable, that is to say they should not highly dependent on the sample size and the estimators should be as efficient and robust as possible.
+
+Haegeman \textit{et al} \cite{Haegeman2013} tested the reliability of a family of parametric diversity measures, based on Hill numbers. They proved that a certain category of diversity measures are not reliable, although widely used by biologists. For example the simplest measure of diversity, the number of species, is highly dependent on the sample size. However, none of the diversity measure tested in their paper did take into account the underlying phylogeny, the closeness between species. Chao \textit{et al} (2010) \cite{Chao2010} developed a parametric diversity measure generalizing the mainstream measures taking into account the underlying phylogeny. Some of those measures are widely used and the reliability has not yet been asserted. The reliability of these phylogenetic diversity (PD) measures need to be assessed, with regard to the framework of Haegeman \textit{et al} \cite{Haegeman2013}.
+
+This paper will focus on the reliability of different diversity measures. Whenever we only have a small sample of the community of Bacteria. Those measures will take into account the underlying phylogeny. 
+
+
+\section*{Materials and Methods}
+
+
+The framework is the following. From a sample, we first estimate the overall abundance of rare species (unobserved in the sample) with the help of a refinement of a Good-Turing (GT) estimate \ref{GT}. 
+The estimated abundance for each of whose rare species is flexible, as long as the overall abundance remains the GT estimate. 
+We then need to take into account the phylogeny and find the branching of these rare species in the tree.
+The flexibility introduced in both the number of rare species and of the branching will then span a set of reconstructed trees.
+This set of trees will then span a range of estimated PD. This range will give insight into the robustness of the estimated PD.
+ 
+Indeed, some PD are sensitive to these rare species, and thus the range of liable PD will be broad. On the other hand, some PD are not sensitive to these rare species and thus are more reliable.
+
+We also developed a Python script based on the TreeNode and PyCogent packages to simulate virtual communities and assess our results on real data.
+
+\subsection*{Phylogenetic diversity measures.} 
+
+
+
+A phylogenetic diversity (PD) measure is a function that return a positive real value, and takes as input a phylogenetic tree (fig 1).
+The purpose of such function is to give mathematical grounds on the intuitive idea that a community with many uniformly abundant and very distant species is more diverse than a community with a few closely related and oddly abundant species.
+ 
+
+We use the parametric measures based on hill numbers developed by Chao \textit{et al}. (2010) \cite{Chao2010}.   
+For a fixed tree, the PD $ ^q \bar{D} $ of order $q$ is given by:
+
+
+\begin{align}
+ ^q \bar{D}  
+ =\left( \sum_{i \in \mathcal{B}} \dfrac{L_i}{\bar{T}} a_i^q  \right)^{1/(1-q)}
+ = \dfrac{1}{\bar{T}}\left( \sum_{i \in \mathcal{B}} L_i \left( \dfrac{a_i}{ \bar{T}} \right)^q  \right)^{1/(1-q)}
+ \end{align}
+Where $\displaystyle \bar{T} =\sum_{i \in \mathcal{B}} L_i a_i$ and $q$ corresponds to the order in the Tsallis (1988) generalized entropy.
+The parameter q gives less importance to branches with a small weight. \\
+ 
+\begin{figure}[H]
+	  \centering
+       \includegraphics[width=9.0cm]{Tree.png}\\
+		\caption{ \textbf{A hypothetical abundance phylogenetic tree}. 
+		\label{fig:phylo}
+		The leaves (tips) represents the different species. 
+		The weight of a leaf is the relative abundance of the corresponding species in the community. 
+		The sum of abundance over the leaves is thus 1. 
+		By extension the weight $a_i$ of node  $i$ (internal node or a leaf) is the total abundance descended from node $i$, where $i \in \mathcal{B}$, the set of all nodes. 
+		$L_i$ is the branch lengths associated to node $i$.}
+	\end{figure}
+	
+One can show that  $^0 \bar{D} =PD/\bar{T}$ where $PD$ is the PD by Faith, $^1 \bar{D} =exp(H_p/ \bar{T})$ where $H_p$ is the phylogenetic entropy and $^2 \bar{D} =\bar{T}/(\bar{T}-Q)$ where $Q$ is the Rao quadratic entropy. \\
+Thus $^q \bar{D} $ is a generalization of common PD measures and moreover it fulfills the replication principle, which state that if we have N equally large, equally diverse groups with no species in common, the diversity of the pooled groups must be N times the diversity of a single group. \\
+ 
+
+\subsection*{Good-Turing estimates}
+
+\label{GT}
+
+Imagine that in preparation for your next safari, you observe a random sample of African animals. 
+You find three giraffes, one zebra, and two elephants. 
+How would you estimate the probability of the various species you may encounter on your trip? 
+A naïve, empirical-frequency, estimator may assign probability 1/2 to giraffes, 1/6 to zebras, and 1/3 to elephants. 
+But the poor estimator will be completely unprepared for an encounter with an offended lion. 
+To address this unseen elements problem Good and Turing came up with a surprising estimator \cite{Good1953}. The total proportion of unseen species is the number of singletons seen in the sample divided by the sample size. Observed species proportion are shrunk so that the sum adds up to 1.
+
+For convenience and robustness, we used recent improvements made by Orlitsky \textit{et al}. (2003) \cite{Orlitsky2003}. 
+
+
+\subsection*{Upper and Lower bound for PD}
+\label{up_low}
+
+From the GT estimates, we can get an estimate for the total proportion of species unseen in the sample. 
+But we still do not know how many species this proportion represents. 
+The only information we have on each of this unseen species is that they must be rare in the community, since they are unobserved in the sample.
+A way out to estimate the species richness is to derive an upper and lower estimate for the number of species. 
+
+In the former case, each species is represented by only one individual in the community. To evaluate this upper estimate for the specie richness we need to know the size of the community (N). Each rare species has  frequency $1/N$. The number of rare species in this case is such that the sum of $1/N$ equals the Good-Turing proportion of unseen species. 
+
+For the later case, we want to minimize the species richness or equivalently maximize the frequency of each rare species. 
+The frequency of each rare species is such that it is not more frequent than the less frequent in the sample. 
+Put in other words, the rare species that are unobserved in the sample are at most as frequent as the species observed once in the sample. 
+Then, the number of rare species is such that the sum of these frequencies equals the Good-Turing proportion of unseen species.
+	
+Starting from the GT estimates of the proportion of unseen species, we thus derived a lower and an upper estimate for the number of rare species. The proportion of observed species is not flexible.
+The parsimonious branching of the unobserved species leads to lower and upper estimates of the PD.
+
+
+\section*{Results}
+
+
+We thus adapted the framework of Haegeman \textit{et al} \cite{Haegeman2013}, based also on Good-estimators. 
+We focused on the reliability of different diversity measures, whenever we only have a small sample of the community of Bacteria. Those measures take into account the underlying phylogeny. 
+
+As we saw previously, the parameter q of the PD gives less importance to branches with a small weight.
+And moreover, the bias introduced by unseen species is only on branches with a small weight since they are rare in the community.
+We thus expect the PD to be more reliable for high q since rare species are set apart.
+
+First, the PD for $q=2$ is well estimated since the range of estimated PD is very narrow. The lower and upper estimates are very close.
+The measure gives such in-importance to small weight that the branching of the rare species does not effect the PD.
+We highly recommend to use this PD when one wants the compare communities. 
+
+
+The PD for $q=0$ is not well estimated since the range of estimated PD is very broad. 
+Indeed, between the upper and lower estimates the gap is of some order of magnitude. 
+Thus this diversity for q=0 is not robust and shall not be estimated from a sample but only when one can sample the whole community.
+
+The case q=1 is more controversial, some work need to be done in this direction. By precaution we advise ecologists to use the PD of order 2, the Rao's quadratic entropy.
+
+The number of species or the PD by Faith are measures widely used among biologists, however they are unreliable and fail to take into account rare species unobserved in the sample.
+On the other hand, PD by Chao (for q=2) is not yet widely adopted, but seems to be a robust and reliable measure of diversity. 
+We highly recommend ecologists to use this measure instead. Packages providing this calculus are now available in the widely adopted computing tool Mothur.
+
+
+	\begin{figure}[H]
+	  \centering
+       \includegraphics[width=13.0cm]{plot.png}
+       \caption{Phylogenetic diversity (PD) for the reconstruction processes. The broadness of the range between the parsimonious upper and lower estimate in the case q=0 reflects the fact that this estimator is not reliable. On the other hand, the range is very low for the case q=2, thus the estimate is very robust. The sample size M is $10^{9}$ and the community contains $N=10^{20}$ individuals divided in $S=10^{10}$ species. The data sets used in this paper were downloaded from the supplementary material of Quince et al (2008)\cite{Quince}, sampling and reconstruction were done in silico.}
+       
+	\end{figure}
+
+
+
+\section*{Discussion}
+
+The PD of order 0 (by Faith) gives high weight to rare species and is thus expected to be
+unreliable. On the other hand, the PD of order 2 (Rao quadratic entropy) gives low weight to rare
+species, and is expected to be reliable. That is to say rare species in the community unobserved in
+the sample have a small influence in the estimation of diversity. Estimating the number of rare
+species and their abundance from the sample with a Good-Turing estimator gave mathematical grounds to this intuition. This mathematical framework gave us also the size of this bias. For
+the PD of order 0, this bias is of several orders of magnitude, the estimation is thus completely
+pointless. This framework can be adapted to related problems, not necessarily in biology, in order to
+get an insight of the range of spanned estimate. However, our findings could not give clear answers
+about the PD of order 1 (phylogenetic entropy). We think this issue comes from the fact that the
+reliability is highly dependent on the sampling effort. Since the reliability is case dependent, we
+would recommend not to use it by default, only if we have prior knowledge on the distribution of
+rare species. We provided rational prof that the use of the BD by Faith is not relevant in assessing the
+diversity of microbial communities. We hope microbiologists will stop using this diversity measure
+and will move toward the diversity of order 2. Many packages and software now
+provide this computation.
+
+\bibliographystyle{plain}
+\bibliography{LBE}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

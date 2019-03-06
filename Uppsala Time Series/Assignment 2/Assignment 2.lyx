@@ -1,0 +1,796 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Time Series Analysis Assignment 2
+\end_layout
+
+\begin_layout Author
+Thibault Latrille, Yiming Zhang
+\end_layout
+
+\begin_layout Subsubsection*
+Problem 3
+\end_layout
+
+\begin_layout Subparagraph*
+1)
+\end_layout
+
+\begin_layout Standard
+We express the AR(2) process in the following form:
+\begin_inset Formula 
+\[
+(1-\phi_{1}B-\phi_{2}B^{2})X_{t}=Z_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $B$
+\end_inset
+
+ is the standard backshift operator with 
+\begin_inset Formula $B^{j}X_{t}=X_{t-j}$
+\end_inset
+
+ , 
+\begin_inset Formula $X_{t}$
+\end_inset
+
+ has zero mean and 
+\begin_inset Formula $Z_{t}$
+\end_inset
+
+ is the white-noise porcess.
+ In order for the process to be stationary.
+ The roots of 
+\begin_inset Formula $\phi(B)=(1-\phi_{1}B-\phi_{2}B^{2})=0$
+\end_inset
+
+ must lie outside the unit circle.
+ Therefore, we have
+\begin_inset Formula 
+\[
+|B_{i}|=|\frac{-\phi_{1}\pm\sqrt{\phi_{1}^{2}+4\phi_{2}}}{2\phi_{2}}|\geq1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solving the above, we get the conditions
+\begin_inset Formula 
+\[
+\begin{cases}
+\phi_{2}+\phi_{1}<1\\
+\phi_{2}-\phi_{1}<1\\
+-1<\phi_{2}<1
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, for the process
+\begin_inset Formula 
+\[
+X_{t}=X_{t-1}+cX_{t-2}+Z_{t}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+(1-B-cB^{2})X_{t}=Z_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have that the process is stationary when the roots of 
+\begin_inset Formula $cB^{2}+B-1=0$
+\end_inset
+
+ lies outside the unit circle, therefore using the conditions stated above,
+ we must have
+\begin_inset Formula 
+\[
+\begin{cases}
+c+1<1\\
+c-1<1\\
+-1<c<1
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula $c$
+\end_inset
+
+ must satisfy 
+\begin_inset Formula $-1<c<0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To find the ACF of the process, we multiply both sides of the process by
+ 
+\begin_inset Formula $X_{t-k}$
+\end_inset
+
+ and take the expectation
+\begin_inset Formula 
+\[
+EX_{t}X_{t-k}=EX_{t-1}X_{t-k}+cEX_{t-2}X_{t-k}+EZ_{t}X_{t-k}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho_{k}=\rho_{k-1}+c\rho_{k-2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solving the above difference equation, we get
+\begin_inset Formula 
+\[
+\rho_{k}=\begin{cases}
+b_{1}[\frac{1+\sqrt{1+4c}}{2}]^{k}+b_{2}[\frac{1-\sqrt{1+4c}}{2}]^{k} & 1+4c\ne0\\
+(b_{1}+b_{2}k)(\frac{1}{2})^{k} & 1+4c=0
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $k=1$
+\end_inset
+
+ and 
+\begin_inset Formula $2$
+\end_inset
+
+, we have the initial conditions
+\begin_inset Formula 
+\[
+\rho_{1}=1+c\rho_{1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho_{2}=\rho_{1}+c
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which implies that
+\begin_inset Formula 
+\[
+\rho_{1}=\frac{1}{1-c}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho_{2}=\frac{1}{1-c}+c
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using these initial conditions and 
+\begin_inset Formula $c=-\frac{3}{16}$
+\end_inset
+
+, and plugging into the solutions of the difference equation, we have
+\begin_inset Formula 
+\[
+\begin{cases}
+\frac{3}{4}b_{1}+\frac{1}{4}b_{2}=\frac{16}{19}\\
+\frac{9}{16}b_{1}+\frac{1}{16}b_{2}=\frac{199}{304}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solving the above, we have 
+\begin_inset Formula $b_{1}=\frac{45}{38}$
+\end_inset
+
+, 
+\begin_inset Formula $b_{2}=-\frac{7}{38}$
+\end_inset
+
+.
+ Therefore, we have the ACF for the process is
+\begin_inset Formula 
+\[
+\rho_{k}=\frac{45}{38}(\frac{3}{4})^{k}-\frac{7}{38}(\frac{1}{4})^{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph*
+2)
+\end_layout
+
+\begin_layout Standard
+The process can be expressed as
+\begin_inset Formula 
+\[
+(1-B-cB^{2}+cB^{3})X_{t}=Z_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $B$
+\end_inset
+
+ is the standard backshift operator, the solutions of the equation 
+\begin_inset Formula $cB^{3}-cB^{2}-B+1=0$
+\end_inset
+
+ must all lie outside the unit circle in order for the process to be stationary.
+ However since
+\begin_inset Formula 
+\[
+cB^{3}-cB^{2}-B+1=cB^{2}(B-1)-(B-1)=(B-1)(cB^{2}-1)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore at least one of the roots for the equation is 
+\begin_inset Formula $B=1$
+\end_inset
+
+ hence the process is not stationary.
+\end_layout
+
+\begin_layout Subsubsection*
+Problem 4
+\end_layout
+
+\begin_layout Subparagraph*
+1)
+\end_layout
+
+\begin_layout Standard
+Using the arguments made in problem 3, part 1, 
+\begin_inset Formula $\alpha_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+ must satisfy
+\begin_inset Formula 
+\[
+\begin{cases}
+\alpha_{2}+\alpha_{1}<1\\
+\alpha_{2}-\alpha_{1}<1\\
+-1<\alpha_{2}<1
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in order for the process to be stationary.
+\end_layout
+
+\begin_layout Subparagraph*
+2)
+\end_layout
+
+\begin_layout Standard
+Using similar arguments made in problem 3, part 1, to find the ACF of the
+ process, we multiply both sides of the process by 
+\begin_inset Formula $X_{t-k}$
+\end_inset
+
+ and take the expectation
+\begin_inset Formula 
+\[
+EX_{t}X_{t-k}=\alpha_{1}EX_{t-1}X_{t-k}+\alpha_{2}EX_{t-2}X_{t-k}+EZ_{t}X_{t-k}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho_{k}=\alpha_{1}\rho_{k-1}+\alpha_{2}\rho_{k-2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $k=1$
+\end_inset
+
+ and 
+\begin_inset Formula $2$
+\end_inset
+
+, we have the initial conditions
+\begin_inset Formula 
+\[
+\rho_{1}=\alpha_{1}+\alpha_{2}\rho_{1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho_{2}=\alpha_{1}\rho_{1}+\alpha_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which implies that
+\begin_inset Formula 
+\[
+\rho_{1}=\frac{\alpha_{1}}{1-\alpha_{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho_{2}=\frac{\alpha_{1}^{2}}{1-\alpha_{2}}+\alpha_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solving the above difference equation, we get
+\begin_inset Formula 
+\[
+\rho_{k}=\begin{cases}
+b_{1}[\frac{\alpha_{1}+\sqrt{\alpha_{1}^{2}+4\alpha_{2}}}{2}]^{k}+b_{2}[\frac{\alpha_{1}-\sqrt{\alpha_{1}^{2}+4\alpha_{2}}}{2}]^{k} & \alpha_{1}^{2}+4\alpha_{2}\ne0\\
+(b_{1}+b_{2}k)(\frac{\alpha_{1}}{2})^{k} & \alpha_{1}^{2}+4\alpha_{2}=0
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $b_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $b_{2}$
+\end_inset
+
+ can be solved with the inital conditions.
+\end_layout
+
+\begin_layout Subparagraph*
+3)
+\end_layout
+
+\begin_layout Standard
+Below is a plot of the theoretical ACFs of the AR(2) model.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subparagraph*
+4)
+\end_layout
+
+\begin_layout Standard
+We will simulate an AR(2) series 
+\begin_inset Formula $X_{t}=0.4X_{t-1}-0.6X_{t-2}+Z_{t}$
+\end_inset
+
+ where 
+\begin_inset Formula $Z_{t}$
+\end_inset
+
+ is the white noise process using R.
+\end_layout
+
+\begin_layout Standard
+R Codes
+\end_layout
+
+\begin_layout Standard
+ar2.sim <- arima.sim(model=list(ar=c(0.4, -0.6)), n=100)
+\end_layout
+
+\begin_layout Subparagraph*
+5)
+\end_layout
+
+\begin_layout Standard
+We will plot the time series using the following R codes.
+\end_layout
+
+\begin_layout Standard
+R Codes
+\end_layout
+
+\begin_layout Standard
+plot(ar2.sim)
+\end_layout
+
+\begin_layout Subparagraph*
+6)
+\end_layout
+
+\begin_layout Standard
+We will calculate the sample ACF with the following R codes
+\end_layout
+
+\begin_layout Standard
+R Codes
+\end_layout
+
+\begin_layout Standard
+acf(ar2.sim)
+\end_layout
+
+\begin_layout Subparagraph*
+7)
+\end_layout
+
+\begin_layout Standard
+We will calculate the sample PACF with the following R Codes
+\end_layout
+
+\begin_layout Standard
+R Codes
+\end_layout
+
+\begin_layout Standard
+pacf(ar2.sim)
+\end_layout
+
+\begin_layout Subparagraph*
+8)
+\end_layout
+
+\begin_layout Standard
+We will estimate the parameters with the following R Codes
+\end_layout
+
+\begin_layout Standard
+R Codes
+\end_layout
+
+\begin_layout Standard
+arima(ar2.sim, order=c(2,0,0))
+\end_layout
+
+\begin_layout Standard
+The estimated coefficients are
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\phi_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\phi_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Intercept
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.4193
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.5295
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.0458
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S.E.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0849
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0843
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0937
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Estimated Coefficients for the Simulated AR(2) Series
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Compared with the theoretical values of 
+\begin_inset Formula $\phi_{1}=0.4$
+\end_inset
+
+, 
+\begin_inset Formula $\phi_{2}=-0.6$
+\end_inset
+
+, the estimated coefficients are quite satisfactory.
+\end_layout
+
+\end_body
+\end_document

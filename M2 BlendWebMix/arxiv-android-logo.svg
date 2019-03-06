@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="171.8396pt"
+   height="197.89227pt"
+   viewBox="0 0 171.8396 197.89227"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="arxiv-android-logo.svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="712"
+     id="namedview12"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.62933333"
+     inkscape:cx="98.9812"
+     inkscape:cy="127.41922"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <metadata
+     id="metadata4">
+Created by potrace 1.12, written by Peter Selinger 2001-2015
+<rdf:RDF>
+  <cc:Work
+     rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type
+       rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+    <dc:title></dc:title>
+  </cc:Work>
+</rdf:RDF>
+</metadata>
+  <path
+     style="fill:#000000;stroke:none"
+     inkscape:connector-curvature="0"
+     id="path10"
+     d="m 27.28496,1.9568946 c -3.1,1.1 -10,5.5 -16.7,10.6000004 -9.70000035,7.4 -11.20000035,8.9 -10.40000035,10.5 1.69999995,3.2 3.09999995,3.2 7.29999995,0.1 6.0000004,-4.2 12.2000004,-7.2 15.2000004,-7.2 4.3,0 9.8,3.5 13.6,8.7 1.9,2.6 11.5,20.5 21.2,39.7 l 17.6,34.9 -9.7,13.099995 c -15.3,20.5 -22.5,30.6 -41.9,58.9 -4.8,7 -9.4,13.6 -10.1,14.6 -1.2,1.8 -0.7,2.3 5.7,6.1 8.7,5.2 11.3,5 13.8,-1.2 3.1,-7.9 15.6,-30.9 24.5,-45.1 15.1,-24.4 20.1,-31.7 21.7,-31.7 1.3,0 4.4,6.2 12.5,25.2 13.1,30.6 19.2,42.8 24.7,49.1 9.6,11.1 15.8,12.2 32.4,5.4 4,-1.6 21.8,-10.7 22.8,-11.6 0.4,-0.4 0.5,-2.1 0.1,-3.7 l -0.6,-3 -7,2.3 c -8,2.6 -15.3,2.9 -20.1,0.9 -8.8,-3.6 -21.5,-24.2 -40.2,-64.6 -3.7,-8 -7.4,-15.999995 -8.2,-17.799995 -1.3,-2.7 -1.3,-3.5 -0.2,-5 3.5,-4.5 16.7,-20.2 29.3,-34.7 18.2,-21 22.9,-26.5 30.9,-35.7 3.7,-4.2 6.7,-8.1 6.7,-8.6 0,-0.5 -2.2,-2.9000004 -4.8,-5.4000004 -4,-3.7 -5.3,-4.4 -7.8,-4 -3.1,0.5 -3.7,1.2 -41.4,51.9000004 -18.6,25.1 -20.1,26.4 -22.9,20 -0.8,-1.7 -3.9,-8.3 -6.8,-14.6 -3,-6.3 -6.3,-13.5 -7.5,-16 -7.9,-17.5 -16.1,-33.2 -19.2,-36.7000004 -6.5,-7.49999997 -14,-9.2 -24.5,-5.4 z" />
+</svg>

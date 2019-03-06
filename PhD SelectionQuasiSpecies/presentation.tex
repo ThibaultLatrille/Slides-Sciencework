@@ -1,0 +1,77 @@
+\documentclass[8pt]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{amssymb,amsfonts,amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{lmodern}
+\usepackage{bm}
+\usepackage{xcolor}
+
+%gets rid of bottom navigation overlines
+\setbeamertemplate{footline}[frame number]{}
+
+%gets rid of bottom navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%gets rid of footer
+%will override 'frame number' instruction above
+%comment out to revert to previous/default definitions
+\setbeamertemplate{footline}{}
+
+\sloppy 
+
+\definecolor{RED}{HTML}{EB6231}
+\definecolor{YELLOW}{HTML}{E29D26}
+\definecolor{BLUE}{HTML}{5D80B4}
+\definecolor{LIGHTGREEN}{HTML}{6ABD9B}
+\definecolor{GREEN}{HTML}{8FB03E}
+\definecolor{PURPLE}{HTML}{BE1E2D}
+\definecolor{BROWN}{HTML}{A97C50}
+\definecolor{PINK}{HTML}{DA1C5C}
+
+\newcommand{\A}{{\color{RED}{\textbf{A}}}}
+\newcommand{\D}{{\color{GREEN}{\textbf{D}}}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\der}{\mathrm{d}}
+\newcommand{\Ne}{N_\mathrm{e}}
+
+% \renewcommand{\baselinestretch}{2}
+\usepackage{adjustbox}
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+
+\begin{document}
+	\begin{frame}
+		\vspace*{3cm}
+		\begin{enumerate}
+			\addtolength{\itemindent}{1.5cm}
+			\item $\phi(\mathbf{p}^*, \mathbf{f}) \mathbf{p}^* = \mathbf{Q}^T \mathrm{diag}(\mathbf{f}) \mathbf{p}$ from the quasispecies equilibrium.
+			\item $\phi(\mathbf{p}^*, \mathbf{f}) = 1$ from fitness normalisation constrain.
+		\end{enumerate}
+		\hspace*{1cm} Thus we have:
+		\begin{align*}
+		 \mathbf{p}^* &= \ker(\mathbf{Q}^T \mathrm{diag}(\mathbf{f}) -\mathbf{I}) \text{, with }\sum_i p_i^* = 1 \\
+		 \iff \mathbf{p}^*&= g_{\mathbf{Q}}(\mathbf{f})
+		\end{align*}
+		\hspace*{1cm}It can also be shown that:
+		\begin{align*}
+		\mathbf{f} &= \mathrm{diag}(\mathbf{p}^*)^{-1} \left(\mathbf{Q}^T \right)^{-1}  \mathbf{p}^*
+		\\
+		\iff \mathbf{f} &= h_{\mathbf{Q}}(\mathbf{p}^*) = g_{\mathbf{Q}}^{-1}(\mathbf{p}^*)
+		\end{align*}
+		\vspace*{6cm}
+	\end{frame}
+	\begin{frame}
+		\begin{equation*}
+			\mathrm{min} \left(1, \dfrac{\mathrm{Mult}(\mathbf{X} |g_{\mathbf{Q}}(\mathbf{f'})) p(\mathbf{f'})}{\mathrm{Mult}(\mathbf{X} |g_{\mathbf{Q}}(\mathbf{f})) p(\mathbf{f})}\right)
+		\end{equation*}
+		\begin{align*}
+		q_{ij} &= \dfrac{\mu}{3} \left(1 - \mu \right)^{L-1} \text{, if } i \neq j \\
+		q_{ii} &= 1 - \sum_{j \in \{1 \dots, n\}, j \neq i} q_{ij} \text{, else,}
+		\end{align*}
+	\end{frame}
+\end{document}

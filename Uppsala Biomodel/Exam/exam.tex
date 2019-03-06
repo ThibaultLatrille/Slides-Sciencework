@@ -1,0 +1,475 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{media9}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=matlab,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+\author{Latrille Thibault\\
+\small thibault.latrille@ens-lyon.fr\\[-0.8ex]
+\small Uppsala Universitet\\}
+\title{Examination, Mathematical Biology.}
+\begin{document}
+\maketitle
+\renewcommand{\arraystretch}{1.5}
+\paragraph{Exercise I}
+\
+
+If not mentioned explicitly, the parameter of the model are assumed to be strictly positive to avoid irrelevant cases.
+\subparagraph{1)}
+\
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.40\textwidth]{SIR.png}
+  	\caption{\textbf{The compartmental model diagram for this disease system.}}
+	\end{figure}
+
+\subparagraph{2)} We transcribe this diagram to the following set of equation 
+$$ \displaystyle \left \{
+    \begin{array}{l}
+        \frac{dS}{dt}=-S(\beta_1 I_1+\beta_2 I_2)\\
+		\frac{dI_1}{dt}= \beta_1 S I_1 - \gamma_1 I_1 \\
+		\frac{dI_2}{dt}= \beta_2 S I_2+\beta_3 R_1 I_2 - \gamma_2 I_2 \\
+		\frac{dR_1}{dt}= \gamma_1 I_1-\beta_3 R_1 I_2 \\
+		\frac{dR_2}{dt}= \gamma_2 I_2 \\
+    \end{array}
+\right. $$
+
+We now assume  $\gamma_1=\gamma_2=\gamma$.\\
+
+We nondimensionalize using N for population size and $\gamma^{-1}$ for time, that is let 
+$$ \tau=\gamma t, \quad \widehat{S}=S/N, \quad \widehat{I}_1=I_1/N,\quad \widehat{I}_2=I_2/N, \quad \widehat{R}_1=R_1/N, \quad \widehat{R}_2=R_2/N $$
+with the constrain $\widehat{S}+\widehat{I}_1+\widehat{I}_2+\widehat{R}_1+\widehat{R}_2=1$  and define the dimensioneless basic reproductive ratios
+ $$\pmb{\mathcal{R}}_1=\beta_1 N\gamma^{-1}, \quad \pmb{\mathcal{R}}_2=\beta_2 N\gamma^{-1}, \quad  \pmb{\mathcal{R}}_3=\beta_3 N\gamma^{-1}$$
+The dimensionless set of equation is given by
+
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        \frac{d\widehat{S}}{d\tau}=-\widehat{S}(\pmb{\mathcal{R}}_1 \widehat{I}_1+ \pmb{\mathcal{R}}_2 \widehat{I}_2)\\
+		\frac{d\widehat{I}_1}{d\tau}= \widehat{I}_1(\pmb{\mathcal{R}}_1 \widehat{S}-1) \\
+		\frac{d\widehat{I}_2}{d\tau}= \widehat{I}_2(\pmb{\mathcal{R}}_2 \widehat{S} + \pmb{\mathcal{R}}_3 \widehat{R}_1 - 1) \\
+		\frac{d\widehat{R}_1}{d\tau}= \widehat{I}_1-\pmb{\mathcal{R}}_3 \widehat{R}_1 \widehat{I}_2 \\
+		\frac{d\widehat{R}_2}{d\tau}= \widehat{I}_2 \\
+    \end{array}
+\right. $$
+
+In the case $\gamma_2 \neq \gamma_1$, one can use the matched expansion to get two different sets of dimensionless equations.
+\subparagraph{3)}
+\
+The steady state fulfill the set of equation :
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        0=-\widehat{S}^*(\pmb{\mathcal{R}}_1 \widehat{I}_1^*+ \pmb{\mathcal{R}}_2 \widehat{I}_2^*)\\
+		0= \widehat{I}_1^*(\pmb{\mathcal{R}}_1 \widehat{S}^*-1) \\
+		0= \widehat{I}_2^*(\pmb{\mathcal{R}}_2 \widehat{S}^* + \pmb{\mathcal{R}}_3 \widehat{R}_1^* - 1) \\
+		0= \widehat{I}_1^*-\pmb{\mathcal{R}}_3 \widehat{R}_1^* \widehat{I}_2^* \\
+		0= \widehat{I}_2^* \\
+    \end{array}
+\right. $$
+
+From this set of equation, we have $\widehat{I}_1^*=\widehat{I}_2^*=0$, but then there is no condition on $\widehat{S}^*$, $\widehat{R}_1^*$ and $\widehat{R}_2^*$. The only condition is $\widehat{S}^*+\widehat{R}_1^*+\widehat{R}_2^*=1$, thus the steady states are spanned by a two-dimensional space  $(\widehat{S}^*,\widehat{I}_1^*,\widehat{I}_2^*,\widehat{R}_1^*,\widehat{R}_2^*)=(a,0,0,b,1-a-b)$ with the condition $a+b \leq 1$, $a,b>0$.
+\\
+
+The Jacobian matrix is 
+$$
+\mathbb{J}=\left(
+\begin{array}{ccccc}
+ -\widehat{I}_1 \pmb{\mathcal{R}}_1-\widehat{I}_2 \pmb{\mathcal{R}}_2 & -\pmb{\mathcal{R}}_1 \widehat{S} & -\pmb{\mathcal{R}}_2 \widehat{S} & 0 & 0 \\
+ \widehat{I}_1 \pmb{\mathcal{R}}_1 & \pmb{\mathcal{R}}_1 \widehat{S}-1 & 0 & 0 & 0 \\
+ \widehat{I}_2 \pmb{\mathcal{R}}_2 & 0 & \widehat{R}_1 \pmb{\mathcal{R}}_3+\pmb{\mathcal{R}}_2 \widehat{S}-1 & \widehat{I}_2 \pmb{\mathcal{R}}_3 & 0 \\
+ 0 & 1 & -\widehat{R}_1 \pmb{\mathcal{R}}_3 & -\widehat{I}_2 \pmb{\mathcal{R}}_3 & 0 \\
+ 0 & 0 & 1 & 0 & 0 \\
+\end{array}
+\right)
+$$
+
+Evaluated for the steady state $(\widehat{S}^*,\widehat{I}_1^*,\widehat{I}_2^*,\widehat{R}_1^*,\widehat{R}_2^*)=(1,0,0,0,0)$, we get :
+$$
+\mathbb{J}_{(1,0,0,0,0)}=
+\left(
+\begin{array}{ccccc}
+ 0 & -\pmb{\mathcal{R}}_1 & -\pmb{\mathcal{R}}_2 & 0 & 0 \\
+ 0 & \pmb{\mathcal{R}}_1-1 & 0 & 0 & 0 \\
+ 0 & 0 & \pmb{\mathcal{R}}_2-1 & 0 & 0 \\
+ 0 & 1 & 0 & 0 & 0 \\
+ 0 & 0 & 1 & 0 & 0 \\
+\end{array}
+\right)
+$$
+
+The eigenvalues of the Jacobian matrix are $0$ with a 3-dimensional eigenspace, $\pmb{\mathcal{R}}_1-1$ with a 1-dimensional eigenspace, and $\pmb{\mathcal{R}}_2-1$ with a 1-dimensional eigenspace. \\
+
+Thus this state is stable if and only if $\pmb{\mathcal{R}}_1<1$ and $\pmb{\mathcal{R}}_2<1$.
+
+\subparagraph{4) a)}
+\
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.55\textwidth]{birthdeath.png}
+  	\caption{\textbf{The compartmental model diagram for the birth and death process and no vertical transmission.}}
+	\end{figure}
+
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        \frac{dS}{dt}=-S(\beta_1 I_1+\beta_2 I_2)+b(S+I_1+I_2+R_1+R_2)-dS\\
+		\frac{dI_1}{dt}= \beta_1 S I_1 - \gamma_1 I_1 -dI_1 \\
+		\frac{dI_2}{dt}= \beta_2 S I_2+\beta_3 R_1 I_2 - \gamma_2 I_2 -(d+c) I_2 \\
+		\frac{dR_1}{dt}= \gamma_1 I_1-\beta_3 R_1 I_2 - d R_1 \\
+		\frac{dR_2}{dt}= \gamma_2 I_2 d R_2 \\
+    \end{array}
+\right. $$
+
+It is worth noticing that the total population is not constant anymore :$\frac{dN}{dt}=(b-d)N-c I_2$\\
+
+And by denoting $B=bN\gamma^{-1}$, $C=cN\gamma^{-1}$ and $D=dN\gamma^{-1}$, the non-dimensional set of equation is 
+
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        \frac{d\widehat{S}}{d\tau}=-\widehat{S}(\pmb{\mathcal{R}}_1 \widehat{I}_1+ \pmb{\mathcal{R}}_2 \widehat{I}_2)+B(\widehat{S}+\widehat{I}_1+\widehat{I}_2+\widehat{R}_1+\widehat{R}_2)-D \widehat{S}\\
+		\frac{d\widehat{I}_1}{d\tau}= \widehat{I}_1(\pmb{\mathcal{R}}_1 \widehat{S}-1) -D \widehat{I}_1\\
+		\frac{d\widehat{I}_2}{d\tau}= \widehat{I}_2(\pmb{\mathcal{R}}_2 \widehat{S} + \pmb{\mathcal{R}}_3 \widehat{R}_1 - 1)-(C+D) \widehat{I}_2 \\
+		\frac{d\widehat{R}_1}{d\tau}= \widehat{I}_1-\pmb{\mathcal{R}}_3 \widehat{R}_1 \widehat{I}_2 -D \widehat{R}_1\\
+		\frac{d\widehat{R}_2}{d\tau}= \widehat{I}_2 -D \widehat{R}_2\\
+    \end{array}
+\right. $$
+\subparagraph{b)}
+\
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.55\textwidth]{transmission.png}
+  	\caption{\textbf{The compartmental model diagram for the birth and death process and vertical transmission of disease 1.}}
+	\end{figure}
+	
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        \frac{dS}{dt}=-S(\beta_1 I_1+\beta_2 I_2)+b(S+I_2+R_1+R_2)-dS\\
+		\frac{dI_1}{dt}= \beta_1 S I_1 - \gamma_1 I_1 +(b-d) I1 \\
+		\frac{dI_2}{dt}= \beta_2 S I_2+\beta_3 R_1 I_2 - \gamma_2 I_2 -(d+c) I_2 \\
+		\frac{dR_1}{dt}= \gamma_1 I_1-\beta_3 R_1 I_2 - d R_1 \\
+		\frac{dR_2}{dt}= \gamma_2 I_2 d R_2 \\
+    \end{array}
+\right. $$
+
+Again the population is not constant $\frac{dN}{dt}=(b-d)N-c I_2$
+The non-dimensional set of equation for the model with vertical transmission is  
+
+$$ \displaystyle \left \{
+    \begin{array}{ll}
+        \frac{d\widehat{S}}{d\tau}=-\widehat{S}(\pmb{\mathcal{R}}_1 \widehat{I}_1+ \pmb{\mathcal{R}}_2 \widehat{I}_2)+B(\widehat{S}+\widehat{I}_2+\widehat{R}_1+\widehat{R}_2)-D \widehat{S}\\
+		\frac{d\widehat{I}_1}{d\tau}= \widehat{I}_1(\pmb{\mathcal{R}}_1 \widehat{S}-1) +(B-D) \widehat{I}_1\\
+		\frac{d\widehat{I}_2}{d\tau}= \widehat{I}_2(\pmb{\mathcal{R}}_2 \widehat{S} + \pmb{\mathcal{R}}_3 \widehat{R}_1 - 1)-(C+D) \widehat{I}_2 \\
+		\frac{d\widehat{R}_1}{d\tau}= \widehat{I}_1-\pmb{\mathcal{R}}_3 \widehat{R}_1 \widehat{I}_2 -D \widehat{R}_1\\
+		\frac{d\widehat{R}_2}{d\tau}= \widehat{I}_2 -D \widehat{R}_2\\
+    \end{array}
+\right. $$
+\subparagraph{5)}
+\
+If we start with only sensible individuals, the population is exponentially increasing or decreasing depending on the sign of $B-D$.  \\
+
+Since the population is not constant in both models, it is relevant to evaluate the Jacobian for the state $(\widehat{S}^*,\widehat{I}_1^*,\widehat{I}_2^*,\widehat{R}_1^*,\widehat{R}_2^*)=(x,0,0,0,0)$, $x \in \mathbb{R_+^*}$. It is also worth noticing that this state is not a steady state, since  $\frac{d\widehat{S}}{d\tau} \neq 0$ for $B \neq D$. \\
+
+What we are seeking for this state is the steadiness of the infectious individuals. Is a small perturbation will overgrow or will it vanish ? \\
+
+\subparagraph{a)}
+For the model without vertical transmission, the Jacobian matrix is : 
+$$
+\mathbb{J}_{(x,0,0,0,0)}=
+\left(
+\begin{array}{ccccc}
+ B-D & B-\pmb{\mathcal{R}}_1 x & B-\pmb{\mathcal{R}}_2 x & B & B \\
+ 0 & -D+\pmb{\mathcal{R}}_1 x-1 & 0 & 0 & 0 \\
+ 0 & 0 & -C-D+\pmb{\mathcal{R}}_2 x-1 & 0 & 0 \\
+ 0 & 1 & 0 & -D & 0 \\
+ 0 & 0 & 1 & 0 & -D \\
+\end{array}
+\right)
+$$
+
+The eigenvalues of the Jacobian matrix are $-D$ with a 2-dimensional eigenspace, $B-D$ with a 1-dimensional eigenspace, $\pmb{\mathcal{R}}_1 x-(D+1)$ with a 1-dimensional eigenspace, and $\pmb{\mathcal{R}}_2 x-(D+C+1)$ with a 1-dimensional eigenspace. \\
+
+Thus this state will not be invaded by infectious individuals if and only if $\pmb{\mathcal{R}}_1<x^{-1}(D+1)$ and  $\pmb{\mathcal{R}}_2<x^{-1}(D+C+1)$. \\
+
+We must not forget the dynamic of the overall population is important, we then have different sub-cases for stability : \\
+
+$\bullet$ $B>D$, the population is increasing and eventually we will get $\widehat{S}(t)>\pmb{\mathcal{R}}_1^{-1}(D+1)$ or $\widehat{S}(t)>\pmb{\mathcal{R}}_2^{-1}(D+C+1)$, and then an outbreak will occur.\\
+
+$\bullet$ $B<D$, the population is decreasing until it dies out. \\
+
+$\bullet$ $B=D$ the population is constant, the state $(\widehat{S}^*,\widehat{I}_1^*,\widehat{I}_2^*,\widehat{R}_1^*,\widehat{R}_2^*)=(1,0,0,0,0)$ is a steady state and is stable if and only if $\pmb{\mathcal{R}}_1<D+1$ and  $\pmb{\mathcal{R}}_2<C+D+1$. We notice that an outbreak is less likely to occur if we have a balanced birth-death process rather no birth and death (see previous questions). \\
+
+\subparagraph{b)}
+For the model with vertical transmission of disease 1, and for the state $(\widehat{S}^*,\widehat{I}_1^*,\widehat{I}_2^*,\widehat{R}_1^*,\widehat{R}_2^*)=(x,0,0,0,0)$, the Jacobian matrix is
+$$
+\mathbb{J}_{(x,0,0,0,0)}=
+\left(
+\begin{array}{ccccc}
+ B-D & -\pmb{\mathcal{R}}_1 x & B-\pmb{\mathcal{R}}_2 x & B & B \\
+ 0 & B-D+\pmb{\mathcal{R}}_1 x-1 & 0 & 0 & 0 \\
+ 0 & 0 & -C-D+\pmb{\mathcal{R}}_2 x-1 & 0 & 0 \\
+ 0 & 1 & 0 & -D & 0 \\
+ 0 & 0 & 1 & 0 & -D \\
+\end{array}
+\right)
+$$
+
+The eigenvalues of the Jacobian matrix are $-D$ with a 2-dimensional eigenspace, $B-D$ with a 1-dimensional eigenspace, $B+\pmb{\mathcal{R}}_1 x-(D+1)$ with a 1-dimensional eigenspace, and $\pmb{\mathcal{R}}_2 x-(C+D+1)$ with a 1-dimensional eigenspace. \\
+
+Thus this state is stable if and only if $B<D$, $\pmb{\mathcal{R}}_1<x^{-1}(D-B+1)$ and  $\pmb{\mathcal{R}}_2<x^{-1}(C+D+1)$.
+\\
+Again, taking into account the dynamic of the overall population , we examine the different sub-cases for stability \\
+
+$\bullet$ $B>D$, the population is increasing and eventually we will get $\widehat{S}(t)>\pmb{\mathcal{R}}_1^{-1}(D-B+1)$ or $\widehat{S}(t)>\pmb{\mathcal{R}}_2^{-1}(D+C+1)$, and then an outbreak will occur.\\
+
+$\bullet$ $B<D$, the population is decreasing until it dies out. \\
+
+$\bullet$ $B=D$ the population is constant, the state $(\widehat{S}^*,\widehat{I}_1^*,\widehat{I}_2^*,\widehat{R}_1^*,\widehat{R}_2^*)=(1,0,0,0,0)$ is a steady state and is stable if and only if $\pmb{\mathcal{R}}_1<1$ and  $\pmb{\mathcal{R}}_2<(C+D+1)$. \\
+
+The difference between the two models is subtle but with transmission, the outbreak is more likely to occur since $D-B+1<D+1$
+
+
+\subparagraph{6)}
+\
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=1.0\textwidth]{SIRplot.png}
+  	\caption{\textbf{Evolution and spreading of the disease for the  different models but the same set of parameters.}  The set of parameters is $\pmb{\mathcal{R}}_1=\pmb{\mathcal{R}}_2=1.4$, $\pmb{\mathcal{R}}_3=2$, $B=D=0.5$ and $C=0.2$. One can see the model without vital dynamics leads to the most important outbreak. The plights are softer if we take into account the birth-death process and the fatality of disease 2. In the model without transmission, the disease is completely swept away unlike in the case  of vertical transmission of disease 1.}
+	\end{figure}
+\paragraph{Exercise II}
+\
+
+\subparagraph{1)}
+\
+The set of equation describing the model is 
+$$ \displaystyle \left \{
+    \begin{array}{l}
+        \frac{dX}{dt}=k_1 A -k_2 B X  +k_3 X^2 Y -k_4 X \\
+		\frac{dY}{dt}= k_2 B X -k_3 X^2 Y \\
+    \end{array}
+\right. $$
+
+\subparagraph{2)}
+$A$ and $B$ are assumed to be in excess, which means they are considered as constant. 
+
+We nondimensionalize using $k_4^{-1}$ for time and $\sqrt{ k_4 k_3^{-1}}$ for both $X$ and $Y$, that is let  
+$$ t = T k_4^{-1} , \quad X=x\sqrt{ k_4 k_3^{-1}}, \quad Y=y\sqrt{ k_4 k_3^{-1}}  $$
+
+Our set of equation reduce to 
+$$ \displaystyle \left \{
+    \begin{array}{l}
+        \frac{dx}{dT}=\frac{k_1 A\sqrt{k_3}}{k_4\sqrt{k_4}} - \frac{k_2 B}{k_4} x  +x^2 y -x  \\
+		\frac{dy}{dT}= \frac{k_2 B}{k_4} x  -x^2 y\\
+    \end{array}
+    \right.
+    \iff
+    \left \{
+    \begin{array}{l}
+        \frac{dx}{dT}=a-(b+1)x +x^2 y \\
+		\frac{dy}{dT}=bx -x^2 y \\
+    \end{array}
+\right. $$
+with $a=\dfrac{k_1 A\sqrt{k_3}}{k_4\sqrt{k_4}}$ and $b=\dfrac{k_2 B}{k_4}$
+\subparagraph{3)}
+The steady state $(x^*,y^*)$ is given by the equations
+$$ \displaystyle 
+    \left \{
+    \begin{array}{l}
+        0=a-(b+1)x^* +(x^{*})^2 y^* \\
+		0=bx^* -(x^{*})^2 y^* \\
+    \end{array}
+\right.
+\iff
+\left \{
+    \begin{array}{l}
+        x^*=a \\
+		y^*=\dfrac{b}{a} \\
+    \end{array}
+\right.
+ $$
+
+The Jacobian matrix used for linear stability analysis is 
+$$
+\mathbb{J}_{(x,y)}=
+\left(
+\begin{array}{cc}
+ \dfrac{\partial a-(b+1)x +x^2 y}{\partial x} & \dfrac{\partial a-(b+1)x +x^2 y}{\partial y} \\
+\dfrac{\partial bx -x^2 y}{\partial x} & \dfrac{\partial bx -x^2 y}{\partial y} \\
+\end{array}
+\right)
+=
+\left(
+\begin{array}{cc}
+ -b+2 x y-1 & x^2 \\
+ b-2 x y & -x^2 \\
+\end{array}
+\right)
+$$
+
+We evaluate the Jacobian matrix for the steady state $(x^*,y^*)=(a,b/a)$, and we get :
+$$
+\mathbb{J}_{(a,b/a)}=
+\left(
+\begin{array}{cc}
+ b-1 & a^2 \\
+ -b & -a^2 \\
+\end{array}
+\right)
+=
+\left(
+\begin{array}{cc}
+ A & B \\
+ C & D \\
+\end{array}
+\right)
+$$
+
+The eigenvalues of this matrix are $\frac{b-a^2-1 \pm -\sqrt{\left(a^2-b+1\right)^2-4 a^2}}{2}$. The steady state is stable if both eigenvalues have a negative real part.\\
+
+ Equivalently, the steady state is stable if and only if $AD-BC>0$ and $A+D<0$.
+$$
+\left\{
+\begin{array}{cc}
+ AD-BC>0 \\
+ A+D<0 \\
+\end{array}
+\right.
+\iff
+\left\{
+\begin{array}{cc}
+ (1-b)a^2+b a^2>0 \\
+ b-1-a^2<0 \\
+\end{array}
+\right.
+\iff
+\left\{
+\begin{array}{cc}
+ a^2>0 \\
+ b-1<a^2 \\
+\end{array}
+\right.
+\iff
+\sqrt{b-1}<a
+$$
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.95\textwidth]{plotsvg.png}
+  	\caption{\textbf{The $\pmb{2}$ dimensional space spanned by $\pmb{a}$ and $\pmb{b}$  divided up into the main sub-spaces}. For  $\{ \sqrt{b-1}<a \} $, the system converges to the steady state. For $ \{ \sqrt{b-1}>a, b>1 \} $, the system converges to the limit cycle and spins around the non-trivial steady state.}
+	\end{figure}
+
+\subparagraph{4)}
+\
+
+\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.75\textwidth]{AAstable.png}
+  	\caption{\textbf{Phase space trajectories for different initial conditions and a stable steady state}. We have $a=b=0.5$. The system converges to steady state.}
+	\end{figure}
+	\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.75\textwidth]{AAunstable.png}
+  	\caption{\textbf{Phase space trajectories for different initial conditions and an unstable steady state}. We have $a=0.5$ and $b=1.5$. The system converges to the limit cycle.}
+	\end{figure}
+	
+\subparagraph{5)}
+By denoting $s$ the coordinate of the spatial dimension and with the implicit denotation $x=x(T,s)$ and $y=y(T,s)$, we have the following set of partial differential equations for the reaction diffusion process.
+\renewcommand{\arraystretch}{2.5} 
+$$ \displaystyle 
+   \left \{
+    \begin{array}{l}
+        \dfrac{\partial x}{\partial T}= a-(b+1)x +x^2 y + \mathcal{D}_1 \dfrac{\partial^2 x}{\partial s^2} \\
+		\dfrac{\partial y}{\partial T}=b x -x^2 y + \mathcal{D}_2\dfrac{\partial^2 y}{\partial s^2} \\
+    \end{array}
+\right.
+\iff
+\left \{
+    \begin{array}{l}
+        \dfrac{\partial x}{\partial T}= f(x,y) + \mathcal{D}_1 \dfrac{\partial^2 x}{\partial s^2} \\
+		\dfrac{\partial y}{\partial T}=g(x,y) + \mathcal{D}_2\dfrac{\partial^2 y}{\partial s^2} \\
+    \end{array}
+\right.
+ $$
+
+We are interested in the case of stability without diffusion and instability with diffusion. \\
+
+For stability without diffusion, the parameters $a$ and $b$ must lie in the stability plan $b < 1+a^2$. \\
+
+For instability with diffusion, the parameters $a$ and $b$ must satisfy : 
+$$ \left(\mathcal{D}_2 \left. \dfrac{\partial f}{\partial x}\right|_{(a,b/a)}+ \mathcal{D}_1 \left. \dfrac{\partial g}{\partial y}\right|_{(a,b/a)} \right)^2 >4 \mathcal{D}_1 \mathcal{D}_2 \left( \left. \dfrac{\partial f}{\partial x}\right|_{(a,b/a)}\left. \dfrac{\partial g}{\partial y}\right|_{(a,b/a)}-\left. \dfrac{\partial f}{\partial y}\right|_{(a,b/a)}\left. \dfrac{\partial g}{\partial x}\right|_{(a,b/a)} \right)$$
+$$ \left(\mathcal{D}_2 D+ \mathcal{D}_1 A \right)^2 >4 \mathcal{D}_1 \mathcal{D}_2 (  AD-BC)$$
+$$ \iff (\mathcal{D}_2(b-1) - \mathcal{D}_1 a^2 )^2 >4 a^2 \mathcal{D}_1 \mathcal{D}_2 $$
+$$ \iff \mathcal{D}_2(b-1) - \mathcal{D}_1 a^2 >2 a \sqrt{\mathcal{D}_1 \mathcal{D}_2} $$
+$$ \iff b >1+2 a\sqrt{\dfrac{\mathcal{D}_1}{\mathcal{D}_2}}+a^2 \dfrac{\mathcal{D}_1}{\mathcal{D}_2} $$
+$$ \iff b > \left( 1+a\sqrt{\dfrac{\mathcal{D}_1}{\mathcal{D}_2}} \right)^2 $$
+
+Finally, our model presents Turing instabilities but is stable without diffusion if and only if  : 
+$$  \left( 1+a\sqrt{\dfrac{\mathcal{D}_1}{\mathcal{D}_2}} \right)^2 < b < 1+a^2, \quad b>1$$
+
+	\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.75\textwidth]{a4b12.png}
+  	\caption{$b=12, \quad a=4, \quad \mathcal{D}_1=5, \quad  \mathcal{D}_1=12 $}
+	\end{figure}
+
+	\begin{figure}[H]
+	  \centering
+  	\includegraphics[width=0.75\textwidth]{a4b16.png}
+  	\caption{$b=15, \quad a=4, \quad \mathcal{D}_1=5, \quad \mathcal{D}_1=16 $}
+	\end{figure}
+\end{document}
+
+
+\includemedia[
+  activate=pagevisible,
+  transparent=true,
+  width=1\textwidth,
+  height=0.4\textwidth,
+]{}{turingBCa4b12.swf}
+
+\includemedia[
+  activate=pagevisible,
+  transparent=true,
+  width=1\textwidth,
+  height=0.4\textwidth,
+]{}{turingBCa4b15.swf}

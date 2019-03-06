@@ -1,0 +1,53 @@
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{hyperref}
+
+\usepackage{listings}
+\author{Thibault Latrille}
+\title{Philosophy of complex systems}
+
+\begin{document}
+\maketitle
+\part*{Evolutionary games and the modeling of complex systems}
+by \textit{Williams Harms}
+
+\section*{Presentation}
+ 
+Williams Harms argues that from a materialist point of view, rationality and morality have been difficult to integrate into science since they supposedly deal with faith but not science. Moreover, since rationality and morality are inherently complex, any attempt to model these behaviour needs formal algebraic tools that encompass complexity, and one such tools that embrace complexity is Evolutionary Game Theory (EGT). Recently, evolutionary modeling of human behaviour and language shed new light on rationality and morality using materialist scientific methods such as EGT. As an example, in the prisoner dilemma by taking into account relatedness between individuals, self-sacrifice of individuals is an emergent behaviour. Meaning an apparently non-adaptive behaviour such as self-sacrifice that morality often requires, is in fact the result of Darwinian selection. \\
+
+
+Originally, Game theory aims to study strategic interactions, were the best action one can take at any moment depends also on the actions made by others. Evolutionary Game Theory (EGT) is applying game theory to study the physical process of biological or cultural evolution, were the strategies are transmitted to peers and to offsprings. In EGT the non-linearity and complexity of the physical world is summarized by the payoff of each strategy. EGT can be applied at two different scale: population model (level of variants) or agent-based model (level of individuals). Population model is a coarse-grained modeling of evolutionary changes, tracking change of frequency of different variants in the population. Population models are formal and elegant but the assumption are often made for the sake of mathematical tractability, and not for biological reasons. Agent-based model is a fine-grained modeling of evolutionary changes, tracking fitness of each individual in the population. Agent-based models are more realistic and reproduce genetic drift since they are discrete, but the number of parameters of tuning can be very large. \\
+
+Williams Harms argues that population model are inherently flawed since individuals become of critical importance in modeling the dependencies between biological and cultural evolution, and individuals do not appear in population models. Indeed, he argues that in the methodological chain of our scientific theorizing, the most abstract models such as population models suffer from over-simplification compared to the stochastic reality of observations. He argues that this over-simplification can be relaxed by using Monte-Carlo simulations or agent-based models, since we will be closer to the stochasticity of the real world. And these simulations will be a sort of experiment that will be a new link in the methodological chain of theorizing, before comparing our model to empirical data, which can be either intrusive observations if we design experiments or passive observations if we just obeserve the world. \\
+
+In a nutshell, Evolutionary Game Theory (EGT) embraces complexity and thus one can model complex human behaviour such as rationality and morality. EGT comes in to flavors; a fine-grained tuning called agent-based model, and a coarse-grained tuning called population model. Population model are more elegant toy-models rather than realistic models, on the other hand agent-based models are more realistic and predictive models but the numbers of parameters can be very high. Also agent-based models can be used as an experimental tool to generate data, and these data can be used to assert the validity of the assumptions made on population models. \\
+
+
+
+\section*{Discussion}
+
+Firstly, I agree with the point of views of the author regarding flaws of population models. Indeed, During my last internship last year, I developed a population model whose purpose was to model the evolutionary changes of a gene. This gene was under a Red-Queen dynamic, meaning the system is equilibrating to periodic limit cycles$^{(1)}$. And indeed some of the assumption I made were for the purpose of mathematical tractability and were not based on biological grounds. But I would argue that our purpose was not of building a model that seek to integrate the stochasticity of the world, but instead we wanted to build a toy-model that given a few simple assumptions would reproduce the Red-Queen dynamic. Thus I would like to emphasize the difference between a toy-model and a predictive model. A predictive model purpose is to fit the observation and this model seeks to describe a portion of the stochastic world, but on the contrary a toy model purpose is to reproduce an emergent behaviour from a few assumptions. Thus it is often necessary to build a toy model such as population models to understand which assumptions are critical for the emergence of a behaviour. \\
+
+Also, I would like to take Williams Harms reasoning a bit further, I argue that modeling at the level of agents will never be satisfying, since the definition of an agent itself is a matter of scale. To make my argument clearer, I will use the example of human agents in a context of a simulation of a human population. If we take the agent as human, we don't account for the fact that each of our cells is itself an agent and can have it's own dynamic. Let's consider death by cancer, it could be included as parameter for the dynamic of an human agent, but inherently death by cancer is the result of the dynamics of all the cells taken as single agents altogether. Meaning if we model each cell as an agent, the death by cancer will be an emergent property and not a parameter anymore. To continue the reasoning, every gene in the cell can be considered as a single agent, etc... Thus modeling at the level of agents will never be satisfying and the scale of modeling is crucial, where the assumptions made at one scale are actually emergent property of the scale below.\\
+
+Note ${(1)}$: To be a bit precise, the gene I was working on expressed a protein called Prdm9. The protein Prdm9 targets a motif sequence of DNA, and then the protein PRDM9 recruits the machinery of recombination, and finally recombination occurs precisely at the motif sequence. But during the recombination these sequences targeted by PRDM9 are degradated by the process of recombination itself. Thus the gene coding for Prdm9 is constantly evolving to change the motif sequence targeted by the protein such that there always is recombination events, since if there is no recombination events the offspring is not viable. \\
+
+\textbf{"Nothing in biology makes sense except in the light of evolution"} - \textit{Theodosius Dobzhansky}
+
+\end{document}
+

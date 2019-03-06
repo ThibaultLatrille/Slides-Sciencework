@@ -1,0 +1,19 @@
+# Undirected graph (each unordered pair of nodes is saved once): Rndm_graph.txt
+# Save as tab-separated list of edges
+# Nodes: 10 Edges: 15
+# NodeId	NodeId
+0	2
+0	3
+0	5
+1	8
+1	9
+2	7
+3	6
+3	7
+3	8
+3	9
+4	8
+5	6
+6	7
+7	9
+8	9

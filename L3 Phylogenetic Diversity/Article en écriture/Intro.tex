@@ -1,0 +1,68 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage[a4paper]{geometry}
+\usepackage{authblk}
+
+\title{More than one Author with different Affiliations}
+\author[*]{Thibault Latrille}
+\author[**]{Jérôme Hamelin}
+\author[**]{Bart Haegeman}
+\affil[*]{École normale supérieure de Lyon, France}
+\affil[**]{Laboratoire de Biotechnologie de l'Environnement (LBE), INRA Narbonne, France}
+
+\renewcommand\Authands{ and }
+
+\title{Robust estimation of phylogenetic diversity. Steer clear of the pitfall of diversity estimation, rare species.}  
+
+
+\begin{document}
+
+\maketitle 
+
+%\tableofcontents             
+
+\section{Introduction}
+In ecology, one relies on diversity measures to
+judge the impact of human activities or to design conservation strategies. Those diversity measures are the primary descriptors of community structure, and generally believed to be a major determinant of the functioning and the dynamics of ecological communities. These measures are also applied to bacterial community in order to get a index measuring the diversity of a sample taken from the soil, the sea or a smaller community. However, a sample of bacteria can contain up to billions of bacteria and still be a tiny fraction of the community, and yet these diversity measures must still be reliable, that is to say they should not highly dependent on the sample size and the estimators should be as efficient and robust as possible.
+
+Haegeman \& Al \cite{Haegeman2013} tested the reliability of a family of parametric diversity measures, based on Hill numbers. They proved that a certain category of diversity measures are not reliable, although widely used by biologists. For example the simplest measure of diversity, the number of species, is highly dependent on the sample size. However, none of the diversity measure tested in this paper did take into account the underlying phylogeny, the closeness between species. Chao \& Al (2010) \cite{Chao2010} developed a parametric diversity measure generalizing the mainstream measures taking into account the underlying phylogeny, some of those measures are widely used and the reliability has not yet been asserted. The reliability of these phylogenetic diversity measures need to be assessed, with regard to the framework of Haegeman \& Al \cite{Haegeman2013}.
+\\
+
+This paper will focus on the reliability of different diversity measures, whenever we only have a small sample of the community of Bacteria, those measures will take into account the underlying phylogeny. 
+
+\bibliographystyle{plain}
+\bibliography{LBE}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

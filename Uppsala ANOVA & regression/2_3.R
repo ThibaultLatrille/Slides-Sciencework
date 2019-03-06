@@ -1,0 +1,11 @@
+values=c(as.matrix(read.table("2_3.dat")))
+material=c(rep("Material 1",9),rep("Material 2",9))
+material=factor(material)
+air=c(rep(c(rep(10,3),rep(15,3),rep(20,3)),2))
+air=factor(air)
+model=aov(values ~ material + air+ material*air)
+anova(model)
+interaction.plot(air,material,values, xlab="Air temperature", ylab="Life length (hours)")
+tukey=TukeyHSD(model,"air")
+tukey
+#plot(tukey)
